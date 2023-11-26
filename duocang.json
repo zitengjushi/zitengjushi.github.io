@@ -1,11 +1,11 @@
 {
 	"storeHouse":
 	[
-		{"sourceName":"高天流云ghproxy加速","sourceUrl":"ghproxy.json"}, 
-		{"sourceName":"高天流云jsdelivr加速","sourceUrl":"jsdelivr.json"}, 
-		{"sourceName":"高天流云iqiq加速","sourceUrl":"iqiq.json"}, 
+		{"sourceName":"高天流云ghproxy加速","sourceUrl":"https://zitengjushi.github.io/ghproxy.json"}, 
+		{"sourceName":"高天流云jsdelivr加速","sourceUrl":"https://zitengjushi.github.io/jsdelivr.json"}, 
+		{"sourceName":"高天流云iqiq加速","sourceUrl":"https://zitengjushi.github.io/iqiq.json"}, 
 		{"sourceName":"Ulinuxs仓库","sourceUrl":"https://ghproxy.net/https://raw.githubusercontent.com/Ulinuxs/tvboxsource/main/dc.json"}, 
-		{"sourceName":"经典仓库","sourceUrl":"jingdian.json"}, 
+		{"sourceName":"经典仓库","sourceUrl":"https://zitengjushi.github.io/jingdian.json"}, 
 		{"sourceName":"吾爱仓库","sourceUrl":"http://52bsj.vip:81/api/v3/file/get/67776/1.json?sign=Suz6jqs5w4g4FFTohPyWDC82QQdpOkbs8UN4OR9QJsI%3D%3A0"}, 
 		{"sourceName":"1013","sourceUrl":"https://download.kstore.space/download/2883/10-13.json"},
 		{"sourceName":"星河仓库","sourceUrl":"http://52bsj.vip:81/api/v3/file/get/137165/%E6%97%A0%E6%95%8C%E5%8D%95%E4%BB%93.txt?sign=2OdmQO6OaKvgj_ioLe9B5hDU7u7DTLcKUOPLuymSbLs%3D%3A0"},  
