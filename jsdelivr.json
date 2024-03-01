@@ -29,6 +29,10 @@
             "name": "小米小爆脾气"
         }, 
         {
+            "url": "https://cdn.jsdelivr.net/gh/joedai007/TVBox@main/fm/fm.json",
+            "name": "fm"
+        }, 
+        {
             "url": "https://cdn.jsdelivr.net/gh/gaotianliuyun/gao@master/XYQ.json",
             "name": "香雅情"
         }
