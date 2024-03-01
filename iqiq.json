@@ -29,6 +29,10 @@
             "name": "小米小爆脾气"
         }, 
         {
+            "url": "https://raw.iqiq.io/joedai007/TVBox/main/fm/fm.json",
+            "name": "fm"
+        }, 
+        {
             "url": "https://raw.iqiq.io/gaotianliuyun/gao/master/XYQ.json",
             "name": "香雅情"
         }
