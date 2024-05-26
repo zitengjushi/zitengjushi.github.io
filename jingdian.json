@@ -1,18 +1,6 @@
 {
     "urls": [
         {
-            "url": "https://maoyingshi.cc/tvbox/云星日记/1.m3u8",
-            "name": "云星接口"
-        },
-        {
-            "url": "https://yydsys.top/duo/v.json",
-            "name": "应用多多家庭版"
-        },
-        {
-            "url": "http://饭太硬.ga/tv",
-            "name": "饭太硬"
-        },
-        {
             "url": "http://dxawi.github.io/0/0.json",
             "name": "dwawi"
         }, 
@@ -20,10 +8,6 @@
             "url": "https://raw.liucn.cc/box/m.json",
             "name": "老刘备用"
         },
-        {
-            "url": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/XC.json",
-            "name": "南风接口"
-        }, 
         {
             "url": "https://ghproxy.net/https://raw.githubusercontent.com/hy5528/tvbox/main/XC.json",
             "name": "南风修改版接口"
