@@ -8,11 +8,9 @@
 		{"sourceName":"经典仓库","sourceUrl":"https://zitengjushi.github.io/jingdian.json"}, 
 		{"sourceName":"shichuanenhui","sourceUrl":"https://mirror.ghproxy.com/raw.githubusercontent.com/shichuanenhui/TvBox/main/my.json"}, 
 		{"sourceName": "🐋潇洒仓","sourceUrl": "https://github.ednovas.xyz/https://raw.githubusercontent.com/PizazzGY/TVBox_warehouse/main/warehouse.txt"},
-		{
-      "sourceName": "ls125781003",
-      "sourceUrl": "https://bitbucket.org/ls125781003/tvboxtg/raw/main/tgdc.json"
-    },
-{"sourceName":"云星","sourceUrl":"https://notabug.org/yzzsjc/TVBox-Pro/raw/master/lib/ksck.json"},
-{"sourceName":"JAR资源仓","sourceUrl":"https://download.kstore.space/download/2883/10-13.json"}
+		{"sourceName": "ls125781003"，"sourceUrl": "https://bitbucket.org/ls125781003/tvboxtg/raw/main/tgdc.json"},
+		{"sourceName":"云星","sourceUrl":"https://notabug.org/yzzsjc/TVBox-Pro/raw/master/lib/ksck.json"},
+		{"sourceName":"vbskycn","sourceUrl":"https://ghp.ci/https://raw.githubusercontent.com/vbskycn/tvbox/main/all.json"},
+		{"sourceName":"JAR资源仓","sourceUrl":"https://download.kstore.space/download/2883/10-13.json"}
 	]
 }
