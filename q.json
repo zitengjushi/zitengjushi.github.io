@@ -4,7 +4,7 @@
     {
       "name": "直播",
       "type": 0,
-      "url": "https://zitengjushi.github.io/live1.txt",
+      "url": "https://ghp.ci/https://raw.githubusercontent.com/towerstreet/IPTV-TVBOX/main/IPTV.m3u",
       "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"
     },
     {
