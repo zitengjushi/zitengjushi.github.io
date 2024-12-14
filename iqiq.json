@@ -1,51 +1,51 @@
 {
     "urls": [
         {
-            "url": "https://raw.iqiq.io/gaotianliuyun/gao/master/0821.json",
+            "url": "https://ghp.ci/https://raw.githubusercontent.com/qist/tvbox/master/0821.json",
             "name": "大而全的配置"
         },
         {
-            "url": "https://raw.iqiq.io/gaotianliuyun/gao/master/0822.json",
-            "name": "极简配置"
-        },
-        {
-            "url": "https://raw.iqiq.io/gaotianliuyun/gao/master/0825.json",
+            "url": "https://ghp.ci/https://raw.githubusercontent.com/qist/tvbox/master/0825.json",
             "name": "小而精的配置"
         },
         {
-            "url": "https://raw.iqiq.io/gaotianliuyun/gao/master/0826.json",
+            "url": "https://ghp.ci/https://raw.githubusercontent.com/qist/tvbox/master/0826.json",
             "name": "饭太硬"
         }, 
         {
-            "url": "https://raw.iqiq.io/gaotianliuyun/gao/master/0827.json",
+            "url": "https://ghp.ci/https://raw.githubusercontent.com/qist/tvbox/master/0827.json",
             "name": "fongmi"
         },
         {
-            "url": "https://raw.iqiq.io/gaotianliuyun/gao/master/js.json",
+            "url": "https://ghp.ci/https://raw.githubusercontent.com/qist/tvbox/master/js.json",
             "name": "道长drpy"
         }, 
         {
-            "url": "https://raw.iqiq.io/gaotianliuyun/gao/master/XBPQ.json",
-            "name": "小米小爆脾气"
+            "url": "https://ghp.ci/https://raw.githubusercontent.com/qist/tvbox/master/jsm.json",
+            "name": "jsm"
         }, 
         {
-            "url": "https://raw.iqiq.io/joedai007/TVBox/main/fm/fm.json",
+            "url": "https://ghp.ci/https://raw.githubusercontent.com/qist/tvbox/master/dianshi.json",
+            "name": "dianshi"
+        }, 
+        {
+            "url": "https://ghp.ci/https://raw.githubusercontent.com/joedai007/TVBox/main/fm/fm.json",
             "name": "fm"
         }, 
         {
-            "url": "https://raw.iqiq.io/gaotianliuyun/gao/master/XYQ.json",
-            "name": "香雅情"
-        }, 
-        {
-            "url": "https://ghp.ci/https://raw.githubusercontent.com/lege0001/TVbox/main/TV/lilun.json",
-            "name": "🔥爱在指尖|理论🔥"
+            "url": "https://ghp.ci/https://raw.githubusercontent.com/woniuxs/TVBOX/main/svip",
+            "name": "蜗牛影视"
         }, 
         {
             "url": "https://ghp.ci/https://raw.githubusercontent.com/lege0001/TVbox/main/TV/dj.json",
             "name": "🔥爱在指尖|短剧🔥"
         }, 
         {
-            "url": "https://ghproxy.net/https://raw.githubusercontent.com/gaotianliuyun/gao/master/XYQ.json",
+            "url": "https://ghp.ci/https://raw.githubusercontent.com/lege0001/TVbox/main/TV/dj.json",
+            "name": "🔥爱在指尖|短剧🔥"
+        }, 
+        {
+            "url": "https://ghp.ci/https://raw.githubusercontent.com/gaotianliuyun/gao/master/XYQ.json",
             "name": "香雅情"
         },
         {
