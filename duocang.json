@@ -11,6 +11,8 @@
 		{"sourceName":"云星","sourceUrl":"https://notabug.org/yzzsjc/TVBox-Pro/raw/master/lib/ksck.json"},
 		{"sourceName":"ls125781003","sourceUrl":"https://ghp.ci/https://raw.githubusercontent.com/ls125781003/tvboxtg/main/dc1"}, 
 		{"sourceName":"vbskycn","sourceUrl":"https://ghp.ci/https://raw.githubusercontent.com/vbskycn/tvbox/main/all.json"},
+		{"sourceName":"网络名家","sourceUrl":"https://ghp.ci/raw.githubusercontent.com/adminouyang/231006/main/tvbox/%E7%BD%91%E7%BB%9C%E5%90%8D%E5%AE%B6.txt"},
+		{"sourceName":"蜗牛影视","sourceUrl":"https://ghp.ci/raw.githubusercontent.com/woniuxs/TVBOX/main/duo"},
 		{"sourceName":"JAR资源仓","sourceUrl":"https://download.kstore.space/download/2883/10-13.json"}
 	]
 }
