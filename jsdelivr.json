@@ -33,6 +33,14 @@
             "name": "dianshi"
         }, 
         {
+            "url": "https://cdn.jsdelivr.net/gh/zitengjushi/zitengjushi.github.io@master/tv1.json",
+            "name": "直播源1"
+        }, 
+        {
+            "url": "https://cdn.jsdelivr.net/gh/zitengjushi/zitengjushi.github.io@master/tv2.json",
+            "name": "直播源2"
+        }, 
+        {
             "url": "https://ghp.ci/https://raw.githubusercontent.com/joedai007/TVBox/main/fm/fm.json",
             "name": "fm"
         }, 
