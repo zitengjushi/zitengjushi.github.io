@@ -41,6 +41,14 @@
             "name": "直播源2"
         }, 
         {
+            "url": "https://cdn.jsdelivr.net/gh/Dong-learn9/TVBox-zyjk@main/tvbox2.json",
+            "name": "Dong-learn9"
+        },
+        {
+            "url": "https://cdn.jsdelivr.net/gh/heroaku/TVboxo@main/apig.json",
+            "name": "apig"
+        },
+        {
             "url": "https://ghp.ci/https://raw.githubusercontent.com/joedai007/TVBox/main/fm/fm.json",
             "name": "fm"
         }, 
