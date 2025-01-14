@@ -3,7 +3,10 @@
 	[
 		{"sourceName":"综合备1","sourceUrl":"https://ghproxy.net/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/ghproxy.json"}, 
 		{"sourceName":"综合备2","sourceUrl":"https://cdn.jsdelivr.net/gh/zitengjushi/zitengjushi.github.io@master/jsdelivr.json"}, 
-		{"sourceName":"综合备3","sourceUrl":"https://github.ednovas.xyz/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/iqiq.json"}, 
+		{"sourceName":"综合备3","sourceUrl":"https://github.ednovas.xyz/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/iqiq.json"},
+		{"sourceName":"综合备4","sourceUrl":"https://mirror.ghproxy.com/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/mirror.json"}, 
+		{"sourceName":"综合备5","sourceUrl":"https://github.moeyy.xyz/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/moeyy.json"}, 
+		{"sourceName":"综合备6","sourceUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/gh-proxy.json"},
 		{"sourceName":"qirenzhidao","sourceUrl":"https://github.ednovas.xyz/https://raw.githubusercontent.com/qirenzhidao/tvbox18/main/tvbox.json"}, 
 		{"sourceName": "🐋潇洒仓","sourceUrl": "https://github.ednovas.xyz/https://raw.githubusercontent.com/PizazzGY/TVBox_warehouse/main/warehouse.txt"},
 		{"sourceName":"云星","sourceUrl":"https://notabug.org/yzzsjc/TVBox-Pro/raw/master/lib/ksck.json"},
