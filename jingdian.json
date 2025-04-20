@@ -53,8 +53,24 @@
             "name": "巧技"
         }, 
         {
-            "url": "https://100km.top/0",
-            "name": "纯一骚零"
+            "url": "http://www.lyyytv.cn/yt/yt.json",
+            "name": "🚀12-影探线路"
+        },
+        {
+            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
+            "name": "🚀13-南风"
+        },
+        {
+            "url": "https://szyyds.cn/tv/x.json",
+            "name": "🚀14-小马线路"
+        },
+        {
+            "url": "https://www.wya6.cn/tv/yc.json",
+            "name": "🚀15-无意线路"
+        },
+        {
+            "url": "https://gitlab.com/noimank/tvbox/-/raw/main/tvbox1.json",
+            "name": "家用"
         }
     ]
 }
