@@ -61,14 +61,6 @@
             "name": "apig"
         },
         {
-            "url": "https://raw.bgithub.xyz/zitengjushi/zitengjushi.github.io/master/tv1.json",
-            "name": "直播源1"
-        }, 
-        {
-            "url": "https://raw.bgithub.xyz/zitengjushi/zitengjushi.github.io/master/tv2.json",
-            "name": "直播源2"
-        },
-        {
             "url": "https://www.饭太硬.com/tv/",
             "name": "饭太硬官方"
         }, 
@@ -122,5 +114,6 @@
         }
     ]
 }
+
 
 
