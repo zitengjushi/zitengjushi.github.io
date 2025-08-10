@@ -29,8 +29,16 @@
             "name": "dianshi"
         }, 
         {
-            "url": "https://raw.bgithub.xyz/joedai007/TVBox/main/fm/fm.json",
-            "name": "fm"
+            "url": "https://raw.bgithub.xyz/qist/tvbox/master/jsm.json",
+            "name": "jsm"
+        }, 
+        {
+            "url": "https://raw.bgithub.xyz/cluntop/tvbox/refs/heads/main/box.json",
+            "name": "box"
+        }, 
+        {
+            "url": "https://raw.bgithub.xyz/cluntop/tvbox/refs/heads/main/moyu.json",
+            "name": "moyu"
         }, 
         {
             "url": "https://raw.bgithub.xyz/woniuxs/TVBOX/main/svip",
@@ -114,4 +122,5 @@
         }
     ]
 }
+
 
