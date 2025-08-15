@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TVBOX相关接口资源导航</title>
+    <style>
+        .section-header {
+            margin: 8px 0;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .toggle-btn {
+            background: none;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s;
+        }
+        .arrow-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+        }
+        .collapsed .arrow-icon {
+            transform: rotate(-90deg);
+        }
+
+.sub-section .toggle-btn:not(.collapsed) .arrow-icon {
+            transform: rotate(0deg);
+        }
+.sub-section .collapsed .arrow-icon {
+            transform: rotate(-90deg);
+        }
+        
+        .link-list {
+            display: grid;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .repo-section {
+    margin: 0 0 8px 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.sub-section {
+    margin-left: 12px;
+    border-left: 2px solid #e2e8f0;
+    padding-left: 8px;
+}
+
+.repo-section.collapsed {
+    max-height: 0 !important;
+    opacity: 0;
+    margin: 0;
+    padding: 0 !important;
+}
+
+.link-list.collapsed {
+            max-height: 0 !important;
+            opacity: 0;
+            margin: 0;
+            padding: 0 !important;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .link-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        @media (max-width: 600px) {
+            .link-list {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 12px;
+            }
+            .link-item {
+                padding: 10px;
+                margin: 4px 0;
+            }
+            .link-item a {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+            .copy-btn svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+        @media (max-width: 400px) {
+            body {
+                padding: 0 12px;
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+        }
+        .link-item {
+            padding: 12px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+        .link-item:hover {
+            background-color: #e9ecef;
+        }
+        .link-item a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .copy-group {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            gap: 8px;
+        }
+        .copy-btn {
+            cursor: pointer;
+            padding: 5px;
+            border: none;
+            background: none;
+            margin: 0 8px 0 0;
+        }
+        .copy-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: #4a5568;
+        }
+        .copy-label {
+            font-size: 0.8em;
+            color: #718096;
+            white-space: nowrap;
+        }
+        .copy-btn:hover svg {
+            fill: #2b6cb0;
+        }
+        .download-section {
+            margin: 20px 0 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .download-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .download-links {
+                gap: 8px;
+            }
+            .download-section {
+                margin: 15px 0 20px;
+                padding: 15px;
+            }
+        }
+        .download-link {
+            color: #2b6cb0;
+            text-decoration: none;
+            transition: color 0.2s;
+            flex: 1 0 auto;
+            max-width: calc(50% - 8px);
+        }
+        .download-link:hover {
+            color: #2c5282;
+        }
+        .info-panel {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .info-panel h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .info-panel p {
+            color: #4a5568;
+            line-height: 1.6;
+            margin: 8px 0;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>TVBOX相关接口资源导航</h1>
+    <!-- 仓库标题 -->
+    <div class="section-header-duocang" style="position: relative; margin: 8px 0; width: 100%; overflow: hidden;">
+        <button class="toggle-btn" id="repoToggle" style="float: left; margin-right: 15px;">
+            <svg class="arrow-icon" viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+            多仓
+            <button class="copy-btn" data-url="https://zitengjushi.lvtu369.com/duocang.json" style="float: right;">
+                <svg viewBox="0 0 24 24" width="18" height="18">
+                    <path d="M19 21H8V7h11m0-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m-3-4H4a2 2 0 0 0-2 2v14h2V3h12V1z"/>
+                </svg>
+            </button>
+        </button>
+    </div>
+    <div class="repo-section">
+            <!-- 动态生成二级标题 -->
+            <div id="subSections"></div>
+        <button class="toggle-btn">
+        </button>
+    </div>
+    <div class="link-list" id="linkContainer"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 动态加载函数
+            async function loadData(url, container) {
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    data.urls.forEach(item => {
+                        const div = document.createElement('div');
+                        div.className = 'link-item';
+                        const link = document.createElement('a');
+                        link.href = item.url;
+                        link.innerHTML = `${item.name} 
+                            <div class="copy-group">
+                                <button class="copy-btn" data-url="${item.url}">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M19 21H8V7h11m0-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m-3-4H4a2 2 0 0 0-2 2v14h2V3h12V1z"/>
+                                    </svg>
+                                </button>
+                                <span class="copy-label">单线</span>
+                            </div>`;
+                        link.target = '_blank';
+                        div.appendChild(link);
+                        container.appendChild(div);
+                    });
+                } catch (error) {
+                    console.error('加载失败:', error);
+                }
+            }
+
+            // 初始化加载duocang.json
+            fetch('./duocang.json')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('linkContainer');
+                    data.urls.forEach(item => {
+                        const div = document.createElement('div');
+                        div.className = 'link-item';
+                        const link = document.createElement('a');
+                        link.href = item.url;
+                        link.innerHTML = `${item.name} 
+                            <div class="copy-group">
+                                <button class="copy-btn" data-url="${item.url}">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M19 21H8V7h11m0-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m-3-4H4a2 2 0 0 0-2 2v14h2V3h12V1z"/>
+                                    </svg>
+                                </button>
+                                <span class="copy-label">单线</span>
+                            </div>`;
+                        link.target = '_blank';
+                        div.appendChild(link);
+                        container.appendChild(div);
+                    });
+                })
+                .catch(error => console.error('加载数据失败:', error));
+            
+            // 复制功能实现
+            // 统一提示元素
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            document.body.appendChild(toast);
+
+            // 重构复制处理函数
+            async function handleCopy(url) {
+                try {
+                    if(navigator.clipboard) {
+                        await navigator.clipboard.writeText(url);
+                    } else {
+                        // 兼容旧版浏览器
+                        const textarea = document.createElement('textarea');
+                        textarea.value = url;
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textarea);
+                    }
+                    toast.textContent = `✅ 已复制：${url}`;
+                    toast.style.display = 'block';
+                    setTimeout(() => toast.style.display = 'none', 2000);
+                } catch (err) {
+                    toast.textContent = '❌ 复制失败，请手动复制';
+                    toast.style.display = 'block';
+                    setTimeout(() => toast.style.display = 'none', 3000);
+                    console.error('复制失败:', err);
+                }
+            }
+
+            // 仓库折叠功能
+            const repoToggle = document.querySelector('#repoToggle');
+            const repoSection = document.querySelector('.repo-section');
+            
+            // 原资源列表折叠功能
+            const toggleBtn = document.querySelector('.toggle-btn:not(#repoToggle)');
+            const linkList = document.getElementById('linkContainer');
+            
+            // 加载duocang.json生成二级标题
+            fetch('./duocang.json')
+                .then(res => res.json())
+                .then(data => {
+                    const subSections = document.getElementById('subSections');
+                    data.storeHouse.forEach(item => {
+                        const section = createSubSection(item.sourceName, item.sourceUrl);
+                        section.querySelector('.toggle-btn').classList.add('collapsed');
+                        section.querySelector('.link-list').classList.add('collapsed');
+                        subSections.appendChild(section);
+                    });
+                });
+
+            // 初始状态设为双折叠
+            repoSection.classList.add('collapsed');
+            repoToggle.classList.add('collapsed');
+            linkList.classList.add('collapsed');
+            toggleBtn.classList.add('collapsed');
+            
+            // 仓库标题点击事件
+            // 生成二级标题函数
+            function createSubSection(sourceName, sourceUrl) {
+                const section = document.createElement('div');
+                section.className = 'sub-section collapsed';
+                section.innerHTML = `
+                    <div class="section-header">
+                        <div style="display: flex; align-items: center; width: 100%;">
+                            <button class="toggle-btn" data-url="${sourceUrl}" style="flex-grow: 1;">
+                                <svg class="arrow-icon" viewBox="0 0 24 24">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                                ${sourceName}
+                            </button>
+                            <button class="copy-btn" data-url="${sourceUrl}">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <path d="M19 21H8V7h11m0-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m-3-4H4a2 2 0 0 0-2 2v14h2V3h12V1z"/>
+                                </svg>
+                            </button>
+                            <span class="copy-label">多线</span>
+                        </button>
+                    </div>
+                    <div class="link-list"></div>
+                `;
+                return section;
+            }
+
+            // 处理仓库标题点击
+            repoToggle.addEventListener('click', () => {
+                repoSection.classList.toggle('collapsed');
+                repoToggle.classList.toggle('collapsed');
+            });
+
+            // 资源列表标题点击事件
+            toggleBtn.addEventListener('click', () => {
+                linkList.classList.toggle('collapsed');
+                toggleBtn.classList.toggle('collapsed');
+            });
+
+            // 二级标题点击事件
+            document.addEventListener('click', (e) => {
+                const btn = e.target.closest('.toggle-btn');
+                if(btn && btn.dataset.url) {
+                    const list = btn.parentElement.nextElementSibling;
+                    list.innerHTML = ''; // 清空旧内容
+                    btn.classList.toggle('collapsed');
+                    list.classList.toggle('collapsed');
+                    
+                    if (!list.classList.contains('collapsed')) {
+                        loadData(btn.dataset.url, list);
+                    }
+                }
+            });
+
+            // 事件委托优化
+            document.addEventListener('click', (e) => {
+                const btn = e.target.closest('.copy-btn');
+                if(btn) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    handleCopy(btn.dataset.url);
+                }
+            });
+        });
+    </script>
+    <div class="download-section">
+        <h3>下载地址</h3>
+        <div class="download-links">
+            <p><a href="https://bgithub.xyz/FongMi/Release/tree/okjack/apk/release" class="download-link">OK影视(手机、电视最新各版本)</a></p>
+            <p><a href="https://bgithub.xyz/FongMi/Release/tree/okjack/apk/kitkat" class="download-link">OK影视(安卓4.4)</a></p>
+        </div>
+        <div class="download-links">
+            <p><a href="https://bgithub.xyz/FongMi/Release/tree/fongmi/apk/release" class="download-link">FONGMI</a></p>
+        </div>
+        <div class="download-links">
+            <p><a href="https://drive.uc.cn/s/b437317346a14" class="download-link">影视仓(uc网盘下载)</a></p>
+            <p><a href="https://pan.quark.cn/s/61d324167c07" class="download-link">影视仓(夸克网盘下载)</a></p>
+        </div>
+        <div class="download-links">
+            <p><a href="https://bgithub.xyz/o0HalfLife0o/TVBoxOSC/releases/tag/20250706-1456" class="download-link">TVBOX(takagen99美化版)</a></p>
+        </div>
+        <div class="download-links">
+            <p><a href="https://bgithub.xyz/o0HalfLife0o/TVBoxOSC/releases/tag/20250513-1430" class="download-link">TVBOX(q215613905俊版)</a></p>
+        </div>
+        <div class="download-links">
+            <p><a href="https://bgithub.xyz/o0HalfLife0o/TVBoxOSC/releases/tag/20250706-1456" class="download-link">TVBOX(多仓版)</a></p>
+        </div>
+    </div>
+    <div class="info-panel">
+        <h3>使用说明</h3>
+        <p>1. 点击仓库名称展开多仓列表。多仓地址适合“影视仓”、“TVBOX多仓版”等有多仓功能的APP中使用。</p>
+        <p>2. 点击复制图标复制对应线路地址。。</p>
+        <p>3. "多线"表示多个线路，可以直接复制多线地址到“OK影视”等支持多线地址的APP里使用，"单线"表示单线地址，TVBOX类似的大多APP都可直接复制进去使用。</p>
+        <p>4. 地址失效时请返回本页获取最新链接。</p>
+    </div>
+</body>
+</html>

@@ -1,10 +1,6 @@
 {
     "urls": [
         {
-            "url": "http://dxawi.github.io/0/0.json",
-            "name": "dwawi"
-        }, 
-        {
             "url": "https://raw.liucn.cc/box/m.json",
             "name": "老刘备用"
         },
@@ -25,10 +21,6 @@
             "name": "OK影视2"
         },  
         {
-            "url": "http://肥猫.live",
-            "name": "肥猫"
-        }, 
-        {
             "url": "https://tv.nxog.top/m/?&wZX",
             "name": "讴歌"
         }, 
@@ -37,16 +29,16 @@
             "name": "巧技"
         }, 
         {
-            "url": "http://www.lyyytv.cn/yt/yt.json",
-            "name": "🚀12-影探线路"
-        },
+            "url": "http://pandown.pro/tvbox/tvbox.json",
+            "name": "巧技(备用)"
+        }, 
         {
             "url": "https://szyyds.cn/tv/x.json",
-            "name": "🚀14-小马线路"
+            "name": "小马线路"
         },
         {
             "url": "https://www.wya6.cn/tv/yc.json",
-            "name": "🚀15-无意线路"
+            "name": "无意线路"
         },
         {
             "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top/",
@@ -56,6 +48,18 @@
             "url": "http://我不是.摸鱼儿.com",
             "name": "摸鱼儿"
         },
+        {
+            "url": "http://home.jundie.top:81/top98.json",
+            "name": "俊于"
+        }, 
+        {
+            "url": "https://tv.xn--yhqu5zs87a.top",
+            "name": "菜妮丝"
+        }, 
+        {
+            "url": "https://盒子迷.top/禁止贩卖",
+            "name": "盒子迷"
+        }, 
         {
             "url": "https://7337.kstore.space/twvip/自用测试.json",
             "name": "天微"

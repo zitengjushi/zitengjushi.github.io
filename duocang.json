@@ -2,22 +2,18 @@
 	"storeHouse":
 	[
 		{"sourceName":"综合备1","sourceUrl":"https://ghproxy.net/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/ghproxy.json"}, 
-		{"sourceName":"综合备2","sourceUrl":"https://cdn.jsdelivr.net/gh/zitengjushi/zitengjushi.github.io@master/jsdelivr.json"}, 
-		{"sourceName":"综合备3","sourceUrl":"https://raw.bgithub.xyz/zitengjushi/zitengjushi.github.io/master/bgithub.json"},
-		{"sourceName":"综合备4","sourceUrl":"https://mirror.ghproxy.com/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/mirror.json"}, 
-		{"sourceName":"综合备5","sourceUrl":"https://github.moeyy.xyz/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/moeyy.json"}, 
-		{"sourceName":"综合备6","sourceUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/gh-proxy.json"},
+		{"sourceName":"综合备2","sourceUrl":"https://raw.bgithub.xyz/zitengjushi/zitengjushi.github.io/master/bgithub.json"},
+		{"sourceName":"综合备3","sourceUrl":"https://mirror.ghproxy.com/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/mirror.json"}, 
+		{"sourceName":"综合备4","sourceUrl":"https://github.moeyy.xyz/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/moeyy.json"}, 
+		{"sourceName":"综合备5","sourceUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/gh-proxy.json"},
 		{"sourceName":"fish2018","sourceUrl":"https://raw.bgithub.xyz/fish2018/ol/main/all.json"}, 
 		{"sourceName":"qirenzhidao","sourceUrl":"https://raw.bgithub.xyz/qirenzhidao/tvbox18/main/tvbox.json"}, 
+		{"sourceName":"讴歌多线","sourceUrl":"https://xn--tmmt-rp5imh.v.nxog.top/api1.php?id=2"}, 
 		{"sourceName": "🐋潇洒仓","sourceUrl": "https://raw.bgithub.xyz/PizazzGY/TVBox_warehouse/main/warehouse.txt"},
 		{"sourceName":"ls125781003","sourceUrl":"https://raw.bgithub.xyz/ls125781003/tvboxtg/main/dx.json"}, 
 		{"sourceName":"vbskycn","sourceUrl":"https://raw.bgithub.xyz/vbskycn/tvbox/main/all.json"},
-		{"sourceName":"网络名家","sourceUrl":"https://raw.bgithub.xyz/zitengjushi/zitengjushi.github.io/master/jingdian.json"},
+		{"sourceName":"网络名家","sourceUrl":"https://zitengjushi.lvtu369.com/jingdian.json"},
 		{"sourceName":"yangxiaoge","sourceUrl":"https://raw.bgithub.xyz/yangxiaoge/tvbox_cust/refs/heads/master/tvbox/%E5%A4%9A%E4%BB%93.json"},
-		{"sourceName":"蜗牛影视","sourceUrl":"https://ghproxy.net/raw.githubusercontent.com/woniuxs/TVBOX/main/duo"}
+		{"sourceName":"蜗牛影视","sourceUrl":"https://raw.bgithub.xyz/woniuxs/TVBOX/main/duo"}
 	]
 }
-
-
-
-
