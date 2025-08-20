@@ -1,11 +1,11 @@
 {
 	"storeHouse":
 	[
-		{"sourceName":"综合备1","sourceUrl":"https://ghproxy.net/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/ghproxy.json"}, 
-		{"sourceName":"综合备2","sourceUrl":"https://raw.bgithub.xyz/zitengjushi/zitengjushi.github.io/master/bgithub.json"},
-		{"sourceName":"综合备3","sourceUrl":"https://mirror.ghproxy.com/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/mirror.json"}, 
-		{"sourceName":"综合备4","sourceUrl":"https://github.moeyy.xyz/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/moeyy.json"}, 
-		{"sourceName":"综合备5","sourceUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/master/gh-proxy.json"},
+		{"sourceName":"综合备1","sourceUrl":"https://ghproxy.net/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/main/ghproxy.json"}, 
+		{"sourceName":"综合备2","sourceUrl":"https://raw.bgithub.xyz/zitengjushi/zitengjushi.github.io/main/bgithub.json"},
+		{"sourceName":"综合备3","sourceUrl":"https://mirror.ghproxy.com/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/main/mirror.json"}, 
+		{"sourceName":"综合备4","sourceUrl":"https://github.moeyy.xyz/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/main/moeyy.json"}, 
+		{"sourceName":"综合备5","sourceUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/main/gh-proxy.json"},
 		{"sourceName":"fish2018","sourceUrl":"https://raw.bgithub.xyz/fish2018/ol/main/all.json"}, 
 		{"sourceName":"qirenzhidao","sourceUrl":"https://raw.bgithub.xyz/qirenzhidao/tvbox18/main/tvbox.json"}, 
 		{"sourceName":"讴歌多线","sourceUrl":"https://xn--tmmt-rp5imh.v.nxog.top/api1.php?id=2"}, 
