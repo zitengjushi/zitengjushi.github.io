@@ -33,10 +33,6 @@
             "name": "巧技(备用)"
         }, 
         {
-            "url": "https://szyyds.cn/tv/x.json",
-            "name": "小马线路"
-        },
-        {
             "url": "https://www.wya6.cn/tv/yc.json",
             "name": "无意线路"
         },
@@ -65,8 +61,16 @@
             "name": "天微"
         },
         {
+            "url": "https://clun.top/box.json",
+            "name": "cluntop"
+        },
+        {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
             "name": "qist"
+        },
+        {
+            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
+            "name": "qist2"
         },
         {
             "url": "https://fmbox.cc",
@@ -86,6 +90,3 @@
         }
     ]
 }
-
-
-
