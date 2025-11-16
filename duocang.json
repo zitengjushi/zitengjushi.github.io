@@ -14,6 +14,7 @@
 		{"sourceName":"vbskycn","sourceUrl":"https://raw.bgithub.xyz/vbskycn/tvbox/main/all.json"},
 		{"sourceName":"网络名家","sourceUrl":"https://zitengjushi.lvtu369.com/jingdian.json"},
 		{"sourceName":"yangxiaoge","sourceUrl":"https://raw.bgithub.xyz/yangxiaoge/tvbox_cust/refs/heads/master/tvbox/%E5%A4%9A%E4%BB%93.json"},
+		{"sourceName":"ediart","sourceUrl":"https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/urls.json"},
 		{"sourceName":"蜗牛影视","sourceUrl":"https://raw.bgithub.xyz/woniuxs/TVBOX/main/duo"}
 	]
 }
