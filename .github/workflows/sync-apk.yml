@@ -9,8 +9,11 @@ jobs:
   sync-apk:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repository with full history
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # 获取完整的提交历史
+          ref: main  # 明确指定分支
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -31,14 +34,10 @@ jobs:
           DEST_PATH: apk
 
       - name: Commit and push changes
-        run: |
-          echo "Current directory: $(pwd)"
-          echo "GitHub workspace: $GITHUB_WORKSPACE"
-          cd $GITHUB_WORKSPACE
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add ${{ env.DEST_PATH }}/
-          git diff --cached --quiet || git commit -m "Update APK files from source repository"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: GitHub Action
+          author_email: action@github.com
+          message: "Update APK files from source repository"
+          add: "${{ env.DEST_PATH }}/"
+          push: true
