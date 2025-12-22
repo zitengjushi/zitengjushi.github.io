@@ -8,24 +8,37 @@ on:
 jobs:
   sync-apk:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-python@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - run: pip install requests PyGithub
-
-      - name: Sync APK files using Python script
-        shell: bash
+      - name: Install dependencies
         run: |
-          python .github/scripts/sync_apk.py
+          pip install requests
+          pip install PyGithub
+
+      - name: Sync APK files
+        run: python .github/scripts/sync_apk.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
           SOURCE_REPO: FongMi/Release
           SOURCE_PATH: apk/release
           DEST_PATH: apk
+
+      - name: Commit and push changes
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "GitHub workspace: $GITHUB_WORKSPACE"
+          cd $GITHUB_WORKSPACE
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add ${{ env.DEST_PATH }}/
+          git diff --cached --quiet || git commit -m "Update APK files from source repository"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
