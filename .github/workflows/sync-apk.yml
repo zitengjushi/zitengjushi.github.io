@@ -32,6 +32,9 @@ jobs:
 
       - name: Commit and push changes
         run: |
+          echo "Current directory: $(pwd)"
+          echo "GitHub workspace: $GITHUB_WORKSPACE"
+          cd $GITHUB_WORKSPACE
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add ${{ env.DEST_PATH }}/
