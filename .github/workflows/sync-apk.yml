@@ -27,7 +27,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SOURCE_REPO: FongMi/Release
-          SOURCE_PATH: okjack/apk/release
+          SOURCE_PATH: apk/release
           DEST_PATH: apk
 
       - name: Commit and push changes
