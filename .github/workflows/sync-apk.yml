@@ -10,9 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DEST_PATH: apk  # 定义在作业级别，所有步骤都可以使用
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          persist-credentials: true
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -27,7 +31,6 @@ jobs:
       - name: Sync APK files
         run: python .github/scripts/sync_apk.py
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SOURCE_REPO: FongMi/Release
           SOURCE_PATH: apk/release
 
@@ -40,6 +43,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add ${{ env.DEST_PATH }}/
           git diff --cached --quiet || git commit -m "Update APK files from source repository"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
