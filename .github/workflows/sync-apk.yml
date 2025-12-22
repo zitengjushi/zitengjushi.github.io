@@ -1,0 +1,41 @@
+name: Sync APK Files
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天 UTC 时间 00:00 运行
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  sync-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+          pip install PyGithub
+
+      - name: Sync APK files
+        run: python .github/scripts/sync_apk.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_REPO: FongMi/Release
+          SOURCE_PATH: okjack/apk/release
+          DEST_PATH: apk
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add ${{ env.DEST_PATH }}/
+          git diff --cached --quiet || git commit -m "Update APK files from source repository"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
