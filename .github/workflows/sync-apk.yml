@@ -8,6 +8,8 @@ on:
 jobs:
   sync-apk:
     runs-on: ubuntu-latest
+    env:
+      DEST_PATH: apk  # 定义在作业级别，所有步骤都可以使用
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -28,7 +30,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SOURCE_REPO: FongMi/Release
           SOURCE_PATH: apk/release
-          DEST_PATH: apk
 
       - name: Commit and push changes
         run: |
