@@ -8,36 +8,24 @@ on:
 jobs:
   sync-apk:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Checkout repository with full history
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # 获取完整的提交历史
-          ref: main  # 明确指定分支
+      - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: Install dependencies
-        run: |
-          pip install requests
-          pip install PyGithub
+      - run: pip install requests PyGithub
 
-      - name: Sync APK files
-        run: python .github/scripts/sync_apk.py
+      - name: Sync APK files using Python script
+        shell: bash
+        run: |
+          python .github/scripts/sync_apk.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
           SOURCE_REPO: FongMi/Release
           SOURCE_PATH: apk/release
           DEST_PATH: apk
-
-      - name: Commit and push changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: GitHub Action
-          author_email: action@github.com
-          message: "Update APK files from source repository"
-          add: "${{ env.DEST_PATH }}/"
-          push: true
