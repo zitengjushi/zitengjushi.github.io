@@ -1,7 +1,7 @@
 import os
 import requests
 import json
-from github import Github
+from github import Github, Auth
 from datetime import datetime
 
 # 获取环境变量
@@ -9,12 +9,14 @@ GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN')
 SOURCE_REPO = os.environ.get('SOURCE_REPO')
 SOURCE_PATH = os.environ.get('SOURCE_PATH')
 DEST_PATH = os.environ.get('DEST_PATH')
+SOURCE_BRANCH = 'okjack'  # 指定分支名称
 
 # 确保目标目录存在
 os.makedirs(DEST_PATH, exist_ok=True)
 
 # 初始化GitHub客户端
-g = Github(GITHUB_TOKEN)
+auth = Auth.Token(GITHUB_TOKEN)
+g = Github(auth=auth)
 
 # 获取源仓库
 source_repo = g.get_repo(SOURCE_REPO)
@@ -22,11 +24,11 @@ source_repo = g.get_repo(SOURCE_REPO)
 # 获取源仓库指定路径下的文件
 def get_source_files(repo, path):
     files = []
-    contents = repo.get_contents(path)
+    contents = repo.get_contents(path, ref=SOURCE_BRANCH)  # 指定分支
     while contents:
         file_content = contents.pop(0)
         if file_content.type == "dir":
-            contents.extend(repo.get_contents(file_content.path))
+            contents.extend(repo.get_contents(file_content.path, ref=SOURCE_BRANCH))  # 指定分支
         else:
             files.append({
                 'name': file_content.name,
