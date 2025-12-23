@@ -120,9 +120,23 @@ jobs:
             
             # 提交fongmi_file_commit_info.json文件以保留它
             if [ -f .github/scripts/fongmi_file_commit_info.json ]; then
-              echo "Committing fongmi_file_commit_info.json to preserve it"
-              git add .github/scripts/fongmi_file_commit_info.json
-              git commit -m "Update file commit information json"
+              echo "Checking if fongmi_file_commit_info.json has changes"
+              # 先检查文件是否已被修改
+              git status --porcelain | grep -q "\.github/scripts/fongmi_file_commit_info\.json"
+              if [ $? -eq 0 ]; then
+                echo "File has been modified, attempting to commit"
+                git add .github/scripts/fongmi_file_commit_info.json
+                # 检查是否有实际的更改要提交
+                git diff --cached --quiet
+                if [ $? -ne 0 ]; then
+                  echo "Found actual changes, committing JSON file"
+                  git commit -m "Update file commit information json"
+                else
+                  echo "No actual content changes detected, skipping commit"
+                fi
+              else
+                echo "JSON file not modified, skipping commit"
+              fi
             fi
           else
             # 如果没有json文件，使用默认提交信息
