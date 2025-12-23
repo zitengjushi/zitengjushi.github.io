@@ -8,11 +8,15 @@ from datetime import datetime
 GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN')
 SOURCE_REPO = os.environ.get('SOURCE_REPO', 'FongMi/Release')
 SOURCE_BRANCH = os.environ.get('SOURCE_BRANCH', 'okjack')  # 默认使用okjack分支
-SOURCE_PATH = os.environ.get('SOURCE_PATH', 'apk/release')
+# 支持多个源目录，用逗号分隔
+SOURCE_PATHS = os.environ.get('SOURCE_PATHS', 'apk/kitkat,apk/release,apk/pro').split(',')
 DEST_PATH = os.environ.get('DEST_PATH', 'apk')
 
 # 确保目标目录存在
-os.makedirs(DEST_PATH + '/' + SOURCE_BRANCH, exist_ok=True)
+for source_path in SOURCE_PATHS:
+    # 从源路径中提取子目录名（如release、kitkat、pro）
+    sub_dir = os.path.basename(source_path.strip())
+    os.makedirs(os.path.join(DEST_PATH, SOURCE_BRANCH, sub_dir), exist_ok=True)
 
 # 初始化GitHub客户端
 g = Github(GITHUB_TOKEN)
@@ -119,57 +123,77 @@ def download_file(url, dest_path):
         return False
 
 def main():
-    print(f"Syncing files from {SOURCE_REPO}/{SOURCE_PATH} to {DEST_PATH}...")
+    print(f"Syncing files from {SOURCE_REPO} to {DEST_PATH}...")
     print(f"SOURCE_BRANCH: {SOURCE_BRANCH}")
-    print(f"DEST_PATH: {DEST_PATH + '/' + SOURCE_BRANCH}")
-    
-    # 获取源文件和本地文件
-    source_files = get_source_files(source_repo, SOURCE_PATH)
-    print(f"Found {len(source_files)} source files")
-    local_files = get_local_files(DEST_PATH + '/' + SOURCE_BRANCH)
-    print(f"Found {len(local_files)} local files")
-    
-    # 创建本地文件字典以便快速查找
-    local_files_dict = {f['name']: f for f in local_files}
+    print(f"SOURCE_PATHS: {SOURCE_PATHS}")
     
     # 保存所有文件的最后提交信息
     file_commit_info = {}
     
     # 比较并下载更新的文件
-    updated_count = 0
-    for source_file in source_files:
-        file_name = source_file['name']
-        dest_file_path = os.path.join(DEST_PATH + '/' + SOURCE_BRANCH, file_name)
+    total_updated_count = 0
+    
+    # 遍历所有源目录
+    for source_path in SOURCE_PATHS:
+        source_path = source_path.strip()  # 移除可能的空格
+        if not source_path:  # 跳过空路径
+            continue
+            
+        # 从源路径中提取子目录名（如release、kitkat、pro）
+        sub_dir = os.path.basename(source_path)
+        dest_sub_dir = os.path.join(DEST_PATH, SOURCE_BRANCH, sub_dir)
         
-        # 保存文件的提交信息
-        file_commit_info[file_name] = {
-            'commit_message': source_file['last_commit_message'],
-            'commit_sha': source_file['last_commit_sha'],
-            'commit_date': str(source_file['last_commit_date']) if source_file['last_commit_date'] else None
-        }
+        print(f"\n--- Syncing directory: {source_path} to {dest_sub_dir} ---")
         
-        # 打印文件信息
-        print(f"File: {file_name}")
-        print(f"  Last commit: {source_file['last_commit_sha'][:7]} - {source_file['last_commit_message']}")
+        # 获取源文件和本地文件
+        source_files = get_source_files(source_repo, source_path)
+        print(f"Found {len(source_files)} source files in {source_path}")
+        local_files = get_local_files(dest_sub_dir)
+        print(f"Found {len(local_files)} local files in {dest_sub_dir}")
         
-        # 检查文件是否存在或需要更新
-        if file_name not in local_files_dict:
-            print(f"  Action: Downloading new file")
-            if download_file(source_file['download_url'], dest_file_path):
-                updated_count += 1
-        else:
-            # 使用SHA值比较文件是否有变化
-            local_file = local_files_dict[file_name]
-            if local_file['sha'] != source_file['sha']:
-                print(f"  Action: Updating file")
+        # 创建本地文件字典以便快速查找
+        local_files_dict = {f['name']: f for f in local_files}
+        
+        # 下载更新的文件
+        updated_count = 0
+        for source_file in source_files:
+            file_name = source_file['name']
+            dest_file_path = os.path.join(dest_sub_dir, file_name)
+            
+            # 保存文件的提交信息，使用子目录作为前缀
+            file_key = f"{sub_dir}/{file_name}"
+            file_commit_info[file_key] = {
+                'commit_message': source_file['last_commit_message'],
+                'commit_sha': source_file['last_commit_sha'],
+                'commit_date': str(source_file['last_commit_date']) if source_file['last_commit_date'] else None,
+                'sub_dir': sub_dir
+            }
+            
+            # 打印文件信息
+            print(f"File: {file_name}")
+            print(f"  Last commit: {source_file['last_commit_sha'][:7]} - {source_file['last_commit_message']}")
+            
+            # 检查文件是否存在或需要更新
+            if file_name not in local_files_dict:
+                print(f"  Action: Downloading new file")
                 if download_file(source_file['download_url'], dest_file_path):
                     updated_count += 1
             else:
-                print(f"  Action: No changes needed")
+                # 使用SHA值比较文件是否有变化
+                local_file = local_files_dict[file_name]
+                if local_file['sha'] != source_file['sha']:
+                    print(f"  Action: Updating file")
+                    if download_file(source_file['download_url'], dest_file_path):
+                        updated_count += 1
+                else:
+                    print(f"  Action: No changes needed")
+        
+        total_updated_count += updated_count
+        print(f"Directory {source_path} sync completed. {updated_count} files updated.")
     
     # 将所有文件的提交信息保存为JSON文件
     json_file_path = os.path.join(os.getcwd(), '.github/scripts/okjack_file_commit_info.json')
-    print(f"Saving commit info to: {json_file_path}")
+    print(f"\nSaving commit info to: {json_file_path}")
     try:
         with open(json_file_path, 'w', encoding='utf-8') as f:
             json.dump(file_commit_info, f, ensure_ascii=False, indent=2)
@@ -190,7 +214,7 @@ def main():
         except Exception as e2:
             print(f"Failed to save to alternative path: {str(e2)}")
     
-    print(f"Sync completed. {updated_count} files updated.")
+    print(f"\nSync completed. Total {total_updated_count} files updated.")
 
 if __name__ == "__main__":
     main()
