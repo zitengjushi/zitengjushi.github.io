@@ -46,8 +46,31 @@ jobs:
           echo "GitHub workspace: $GITHUB_WORKSPACE"
           cd $GITHUB_WORKSPACE
           
+          # 调试信息：检查目录结构和文件
+          echo "Directory structure:"
+          ls -la
+          echo "APK directory:"
+          ls -la ${DEST_PATH}/${SOURCE_BRANCH} 2>/dev/null || echo "Directory not found"
+          echo "Scripts directory:"
+          ls -la .github/scripts/ 2>/dev/null || echo "Directory not found"
+          
+          # 检查JSON文件是否存在
+          if [ -f .github/scripts/okjack_file_commit_info.json ]; then
+            echo "Found JSON file:"
+            cat .github/scripts/okjack_file_commit_info.json
+          else
+            echo "JSON file not found"
+            # 搜索JSON文件
+            echo "Searching for JSON files:"
+            find . -name "*.json" | grep -v "node_modules"
+          fi
+          
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          
+          # 检查文件状态
+          echo "Git status:"
+          git status
           
           # 检查是否有json文件包含文件提交信息
           if [ -f .github/scripts/okjack_file_commit_info.json ]; then
@@ -60,7 +83,7 @@ jobs:
             # 为每个文件创建单独的提交
             for FILE in $FILES; do
               # 检查文件是否有变化
-              if git status --porcelain=v1 | grep -q "${{ env.DEST_PATH }}/$FILE"; then
+              if git status --porcelain=v1 | grep -q "${{ env.DEST_PATH }}/${{ env.SOURCE_BRANCH }}/$FILE"; then
                 # 获取该文件的提交信息
                 COMMIT_MESSAGE=$(jq -r --arg file "$FILE" '.[$file].commit_message' .github/scripts/okjack_file_commit_info.json)
                 
@@ -70,7 +93,7 @@ jobs:
                 fi
                 
                 echo "Committing $FILE with message: $COMMIT_MESSAGE"
-                git add "${{ env.DEST_PATH }}/$FILE"
+                git add "${{ env.DEST_PATH }}/${{ env.SOURCE_BRANCH }}/$FILE"
                 git commit -m "$COMMIT_MESSAGE"
               fi
             done
