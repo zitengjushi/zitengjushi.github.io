@@ -15,8 +15,17 @@ DEST_PATH = os.environ.get('DEST_PATH', 'apk')
 # 确保目标目录存在
 for source_path in SOURCE_PATHS:
     # 从源路径中提取子目录名（如release、kitkat、pro）
-    sub_dir = os.path.basename(source_path.strip())
-    os.makedirs(os.path.join(DEST_PATH, SOURCE_BRANCH, sub_dir), exist_ok=True)
+    # 如果源路径是根目录（如 'apk'），则子目录为空
+    if source_path.strip() == 'apk':
+        sub_dir = ''  # 根目录文件直接保存到目标分支目录
+    else:
+        sub_dir = os.path.basename(source_path.strip())
+    
+    # 创建目标目录
+    if sub_dir:
+        os.makedirs(os.path.join(DEST_PATH, SOURCE_BRANCH, sub_dir), exist_ok=True)
+    else:
+        os.makedirs(os.path.join(DEST_PATH, SOURCE_BRANCH), exist_ok=True)
 
 # 初始化GitHub客户端
 g = Github(GITHUB_TOKEN)
@@ -140,8 +149,16 @@ def main():
             continue
             
         # 从源路径中提取子目录名（如release、kitkat、pro）
-        sub_dir = os.path.basename(source_path)
-        dest_sub_dir = os.path.join(DEST_PATH, SOURCE_BRANCH, sub_dir)
+        if source_path.strip() == 'apk':
+            sub_dir = ''  # 根目录文件直接保存到目标分支目录
+        else:
+            sub_dir = os.path.basename(source_path)
+        
+        # 构建目标目录路径
+        if sub_dir:
+            dest_sub_dir = os.path.join(DEST_PATH, SOURCE_BRANCH, sub_dir)
+        else:
+            dest_sub_dir = os.path.join(DEST_PATH, SOURCE_BRANCH)
         
         print(f"\n--- Syncing directory: {source_path} to {dest_sub_dir} ---")
         
@@ -160,8 +177,12 @@ def main():
             file_name = source_file['name']
             dest_file_path = os.path.join(dest_sub_dir, file_name)
             
-            # 保存文件的提交信息，使用子目录作为前缀
-            file_key = f"{sub_dir}/{file_name}"
+            # 保存文件的提交信息
+            if sub_dir:
+                file_key = f"{sub_dir}/{file_name}"
+            else:
+                file_key = file_name  # 根目录文件直接使用文件名作为key
+                
             file_commit_info[file_key] = {
                 'commit_message': source_file['last_commit_message'],
                 'commit_sha': source_file['last_commit_sha'],
