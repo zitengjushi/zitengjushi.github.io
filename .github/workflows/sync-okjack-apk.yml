@@ -11,7 +11,7 @@ jobs:
     permissions:
       contents: write  # 授予写入权限
     env:
-      DEST_PATH: apk/  # 定义在作业级别，所有步骤都可以使用
+      DEST_PATH: apk  # 定义在作业级别，所有步骤都可以使用
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SOURCE_BRANCH: okjack  # 指定源仓库分支
     steps:
