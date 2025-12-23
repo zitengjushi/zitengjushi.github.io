@@ -168,7 +168,7 @@ def main():
         json.dump(file_commit_info, f, ensure_ascii=False, indent=2)
     
     print(f"Sync completed. {updated_count} files updated.")
-    print("File commit information saved to .github/scripts/file_commit_info.json")
+    print("File commit information saved to .github/scripts/okjack_file_commit_info.json")
 
 if __name__ == "__main__":
     main()
