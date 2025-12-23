@@ -109,10 +109,23 @@ jobs:
               
               # 检查文件是否存在
               if [ -f "$FULL_FILE_PATH" ]; then
-                echo "Committing $DISPLAY_PATH with message: $COMMIT_MESSAGE"
-                # 使用完整路径添加文件
-                git add "$FULL_FILE_PATH"
-                git commit -m "$COMMIT_MESSAGE"
+                echo "Checking $DISPLAY_PATH for changes"
+                # 先检查文件是否已被修改
+                git status --porcelain | grep -q "${DEST_PATH}/${SOURCE_BRANCH}/${DISPLAY_PATH}"
+                if [ $? -eq 0 ]; then
+                  echo "File has been modified, committing $DISPLAY_PATH with message: $COMMIT_MESSAGE"
+                  # 使用完整路径添加文件
+                  git add "$FULL_FILE_PATH"
+                  # 检查是否有实际的更改要提交
+                  git diff --cached --quiet
+                  if [ $? -ne 0 ]; then
+                    git commit -m "$COMMIT_MESSAGE"
+                  else
+                    echo "No actual content changes detected, skipping commit"
+                  fi
+                else
+                  echo "File not modified, skipping commit"
+                fi
               else
                 echo "File not found: $FULL_FILE_PATH"
               fi
@@ -141,8 +154,21 @@ jobs:
           else
             # 如果没有json文件，使用默认提交信息
             echo "No fongmi_file_commit_info.json found, using default commit message"
-            git add ${{ env.DEST_PATH }}/${{ env.SOURCE_BRANCH }}/*
-            git diff --cached --quiet || git commit -m "Update APK files from source repository"
+            # 检查是否有文件已被修改
+            git status --porcelain | grep -q "${DEST_PATH}/${SOURCE_BRANCH}/"
+            if [ $? -eq 0 ]; then
+              echo "Some files in ${DEST_PATH}/${SOURCE_BRANCH}/ have been modified, checking for actual changes"
+              git add ${{ env.DEST_PATH }}/${{ env.SOURCE_BRANCH }}/*
+              # 检查是否有实际的更改要提交
+              git diff --cached --quiet
+              if [ $? -ne 0 ]; then
+                git commit -m "Update APK files from source repository"
+              else
+                echo "No actual content changes detected, skipping commit"
+              fi
+            else
+              echo "No files modified, skipping commit"
+            fi
           fi
           
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
