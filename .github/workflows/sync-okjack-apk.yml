@@ -62,7 +62,7 @@ jobs:
               # 检查文件是否有变化
               if git status --porcelain=v1 | grep -q "${{ env.DEST_PATH }}/$FILE"; then
                 # 获取该文件的提交信息
-                COMMIT_MESSAGE=$(jq -r --arg file "$FILE" '.[$file].commit_message' .github/scripts/file_commit_info.json)
+                COMMIT_MESSAGE=$(jq -r --arg file "$FILE" '.[$file].commit_message' .github/scripts/okjack_file_commit_info.json)
                 
                 # 如果提交信息为空或错误，使用默认信息
                 if [[ -z "$COMMIT_MESSAGE" || "$COMMIT_MESSAGE" == "Error getting commit history" ]]; then
