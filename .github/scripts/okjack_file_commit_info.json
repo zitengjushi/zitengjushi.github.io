@@ -1,0 +1,140 @@
+{
+  "kitkat/leanback.apk": {
+    "commit_message": "2.8.7",
+    "commit_sha": "50c35d4c37673607a3a69db6d54f1fcef46e3c10",
+    "commit_date": "2025-04-16 00:45:47+00:00",
+    "sub_dir": "kitkat"
+  },
+  "kitkat/leanback.json": {
+    "commit_message": "2.8.7",
+    "commit_sha": "50c35d4c37673607a3a69db6d54f1fcef46e3c10",
+    "commit_date": "2025-04-16 00:45:47+00:00",
+    "sub_dir": "kitkat"
+  },
+  "release/leanback-arm64_v8a.apk": {
+    "commit_message": "3.2.2",
+    "commit_sha": "1a6c5706a64c5803cc48ca378243cbdc46987999",
+    "commit_date": "2025-10-24 15:33:17+00:00",
+    "sub_dir": "release"
+  },
+  "release/leanback-armeabi_v7a.apk": {
+    "commit_message": "3.2.2",
+    "commit_sha": "1a6c5706a64c5803cc48ca378243cbdc46987999",
+    "commit_date": "2025-10-24 15:33:17+00:00",
+    "sub_dir": "release"
+  },
+  "release/leanback-java-arm64_v8a.apk": {
+    "commit_message": "2.8.7",
+    "commit_sha": "50c35d4c37673607a3a69db6d54f1fcef46e3c10",
+    "commit_date": "2025-04-16 00:45:47+00:00",
+    "sub_dir": "release"
+  },
+  "release/leanback-java-armeabi_v7a.apk": {
+    "commit_message": "2.8.7",
+    "commit_sha": "50c35d4c37673607a3a69db6d54f1fcef46e3c10",
+    "commit_date": "2025-04-16 00:45:47+00:00",
+    "sub_dir": "release"
+  },
+  "release/leanback-python-arm64_v8a.apk": {
+    "commit_message": "2.8.7",
+    "commit_sha": "50c35d4c37673607a3a69db6d54f1fcef46e3c10",
+    "commit_date": "2025-04-16 00:45:47+00:00",
+    "sub_dir": "release"
+  },
+  "release/leanback-python-armeabi_v7a.apk": {
+    "commit_message": "2.8.7",
+    "commit_sha": "50c35d4c37673607a3a69db6d54f1fcef46e3c10",
+    "commit_date": "2025-04-16 00:45:47+00:00",
+    "sub_dir": "release"
+  },
+  "release/leanback.json": {
+    "commit_message": "3.2.2",
+    "commit_sha": "1a6c5706a64c5803cc48ca378243cbdc46987999",
+    "commit_date": "2025-10-24 15:33:17+00:00",
+    "sub_dir": "release"
+  },
+  "release/mobile-arm64_v8a.apk": {
+    "commit_message": "3.2.2",
+    "commit_sha": "1a6c5706a64c5803cc48ca378243cbdc46987999",
+    "commit_date": "2025-10-24 15:33:17+00:00",
+    "sub_dir": "release"
+  },
+  "release/mobile-armeabi_v7a.apk": {
+    "commit_message": "3.2.2",
+    "commit_sha": "1a6c5706a64c5803cc48ca378243cbdc46987999",
+    "commit_date": "2025-10-24 15:33:17+00:00",
+    "sub_dir": "release"
+  },
+  "release/mobile-java-arm64_v8a.apk": {
+    "commit_message": "2.8.7",
+    "commit_sha": "50c35d4c37673607a3a69db6d54f1fcef46e3c10",
+    "commit_date": "2025-04-16 00:45:47+00:00",
+    "sub_dir": "release"
+  },
+  "release/mobile-java-armeabi_v7a.apk": {
+    "commit_message": "2.8.7",
+    "commit_sha": "50c35d4c37673607a3a69db6d54f1fcef46e3c10",
+    "commit_date": "2025-04-16 00:45:47+00:00",
+    "sub_dir": "release"
+  },
+  "release/mobile-python-arm64_v8a.apk": {
+    "commit_message": "2.8.7",
+    "commit_sha": "50c35d4c37673607a3a69db6d54f1fcef46e3c10",
+    "commit_date": "2025-04-16 00:45:47+00:00",
+    "sub_dir": "release"
+  },
+  "release/mobile-python-armeabi_v7a.apk": {
+    "commit_message": "2.8.7",
+    "commit_sha": "50c35d4c37673607a3a69db6d54f1fcef46e3c10",
+    "commit_date": "2025-04-16 00:45:47+00:00",
+    "sub_dir": "release"
+  },
+  "release/mobile.json": {
+    "commit_message": "3.2.2",
+    "commit_sha": "1a6c5706a64c5803cc48ca378243cbdc46987999",
+    "commit_date": "2025-10-24 15:33:17+00:00",
+    "sub_dir": "release"
+  },
+  "release/海信专版.apk": {
+    "commit_message": "3.2.2",
+    "commit_sha": "1a6c5706a64c5803cc48ca378243cbdc46987999",
+    "commit_date": "2025-10-24 15:33:17+00:00",
+    "sub_dir": "release"
+  },
+  "release/电视版-X5离线.apk": {
+    "commit_message": "3.2.2",
+    "commit_sha": "1a6c5706a64c5803cc48ca378243cbdc46987999",
+    "commit_date": "2025-10-24 15:33:17+00:00",
+    "sub_dir": "release"
+  },
+  "pro/leanback-pro-v8a.apk": {
+    "commit_message": "3.6.9-pro",
+    "commit_sha": "706dffc3f44b45ef463c522c48089a4d63e94e60",
+    "commit_date": "2025-11-05 15:19:46+00:00",
+    "sub_dir": "pro"
+  },
+  "pro/leanback-pro.apk": {
+    "commit_message": "3.6.9-pro",
+    "commit_sha": "706dffc3f44b45ef463c522c48089a4d63e94e60",
+    "commit_date": "2025-11-05 15:19:46+00:00",
+    "sub_dir": "pro"
+  },
+  "pro/mobile-emu-pro.apk": {
+    "commit_message": "3.6.9-pro",
+    "commit_sha": "706dffc3f44b45ef463c522c48089a4d63e94e60",
+    "commit_date": "2025-11-05 15:19:46+00:00",
+    "sub_dir": "pro"
+  },
+  "pro/mobile-pro.apk": {
+    "commit_message": "3.6.9-pro",
+    "commit_sha": "706dffc3f44b45ef463c522c48089a4d63e94e60",
+    "commit_date": "2025-11-05 15:19:46+00:00",
+    "sub_dir": "pro"
+  },
+  "pro/v.txt": {
+    "commit_message": "3.6.9-pro",
+    "commit_sha": "706dffc3f44b45ef463c522c48089a4d63e94e60",
+    "commit_date": "2025-11-05 15:19:46+00:00",
+    "sub_dir": "pro"
+  }
+}
