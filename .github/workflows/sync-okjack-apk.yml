@@ -38,7 +38,7 @@ jobs:
         run: python .github/scripts/sync_okjack_apk.py
         env:
           SOURCE_REPO: FongMi/Release
-          SOURCE_PATH: apk/release
+          SOURCE_PATHS: apk/kitkat,apk/release,apk/pro
 
       - name: Commit and push changes
         run: |
@@ -82,18 +82,22 @@ jobs:
             
             # 为每个文件创建单独的提交
             for FILE in $FILES; do
+              # 从FILE中提取子目录和文件名（格式：sub_dir/filename.apk）
+              SUB_DIR=$(echo $FILE | cut -d'/' -f1)
+              FILENAME=$(echo $FILE | cut -d'/' -f2-)
+              
               # 检查文件是否有变化
-              if git status --porcelain=v1 | grep -q "${{ env.DEST_PATH }}/${{ env.SOURCE_BRANCH }}/$FILE"; then
+              if git status --porcelain=v1 | grep -q "${{ env.DEST_PATH }}/${{ env.SOURCE_BRANCH }}/$SUB_DIR/$FILENAME"; then
                 # 获取该文件的提交信息
                 COMMIT_MESSAGE=$(jq -r --arg file "$FILE" '.[$file].commit_message' .github/scripts/okjack_file_commit_info.json)
                 
                 # 如果提交信息为空或错误，使用默认信息
                 if [[ -z "$COMMIT_MESSAGE" || "$COMMIT_MESSAGE" == "Error getting commit history" ]]; then
-                  COMMIT_MESSAGE="Update $FILE from source repository"
+                  COMMIT_MESSAGE="Update $FILENAME from source repository"
                 fi
                 
-                echo "Committing $FILE with message: $COMMIT_MESSAGE"
-                git add "${{ env.DEST_PATH }}/${{ env.SOURCE_BRANCH }}/$FILE"
+                echo "Committing $SUB_DIR/$FILENAME with message: $COMMIT_MESSAGE"
+                git add "${{ env.DEST_PATH }}/${{ env.SOURCE_BRANCH }}/$SUB_DIR/$FILENAME"
                 git commit -m "$COMMIT_MESSAGE"
               fi
             done
