@@ -1,0 +1,84 @@
+name: Sync APK Files
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天 UTC 时间 00:00 运行
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  sync-apk:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 授予写入权限
+    env:
+      DEST_PATH: apk/  # 定义在作业级别，所有步骤都可以使用
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SOURCE_BRANCH: okjack  # 指定源仓库分支
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install jq (JSON parser)
+        uses: dcarbone/install-jq-action@v2
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+          pip install PyGithub
+
+      - name: Sync APK files
+        run: python .github/scripts/sync_okjack_apk.py
+        env:
+          SOURCE_REPO: FongMi/Release
+          SOURCE_PATH: apk/release
+
+      - name: Commit and push changes
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "GitHub workspace: $GITHUB_WORKSPACE"
+          cd $GITHUB_WORKSPACE
+          
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # 检查是否有json文件包含文件提交信息
+          if [ -f .github/scripts/okjack_file_commit_info.json ]; then
+            # 使用jq工具解析json文件（需要确保已安装jq）
+            echo "Found file_commit_info.json, using per-file commit messages"
+            
+            # 获取所有文件列表
+            FILES=$(jq -r 'keys[]' .github/scripts/okjack_file_commit_info.json)
+            
+            # 为每个文件创建单独的提交
+            for FILE in $FILES; do
+              # 检查文件是否有变化
+              if git status --porcelain=v1 | grep -q "${{ env.DEST_PATH }}/$FILE"; then
+                # 获取该文件的提交信息
+                COMMIT_MESSAGE=$(jq -r --arg file "$FILE" '.[$file].commit_message' .github/scripts/file_commit_info.json)
+                
+                # 如果提交信息为空或错误，使用默认信息
+                if [[ -z "$COMMIT_MESSAGE" || "$COMMIT_MESSAGE" == "Error getting commit history" ]]; then
+                  COMMIT_MESSAGE="Update $FILE from source repository"
+                fi
+                
+                echo "Committing $FILE with message: $COMMIT_MESSAGE"
+                git add "${{ env.DEST_PATH }}/$FILE"
+                git commit -m "$COMMIT_MESSAGE"
+              fi
+            done
+          else
+            # 如果没有json文件，使用默认提交信息
+            echo "No file_commit_info.json found, using default commit message"
+            git add ${{ env.DEST_PATH }}/${{ env.SOURCE_BRANCH }}
+            git diff --cached --quiet || git commit -m "Update APK files from source repository"
+          fi
+          
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
