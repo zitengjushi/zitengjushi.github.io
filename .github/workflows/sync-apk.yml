@@ -8,6 +8,8 @@ on:
 jobs:
   sync-apk:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 授予写入权限
     env:
       DEST_PATH: apk  # 定义在作业级别，所有步骤都可以使用
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
