@@ -120,10 +120,14 @@ def download_file(url, dest_path):
 
 def main():
     print(f"Syncing files from {SOURCE_REPO}/{SOURCE_PATH} to {DEST_PATH}...")
+    print(f"SOURCE_BRANCH: {SOURCE_BRANCH}")
+    print(f"DEST_PATH: {DEST_PATH + '/' + SOURCE_BRANCH}")
     
     # 获取源文件和本地文件
     source_files = get_source_files(source_repo, SOURCE_PATH)
+    print(f"Found {len(source_files)} source files")
     local_files = get_local_files(DEST_PATH + '/' + SOURCE_BRANCH)
+    print(f"Found {len(local_files)} local files")
     
     # 创建本地文件字典以便快速查找
     local_files_dict = {f['name']: f for f in local_files}
@@ -164,11 +168,29 @@ def main():
                 print(f"  Action: No changes needed")
     
     # 将所有文件的提交信息保存为JSON文件
-    with open('.github/scripts/okjack_file_commit_info.json', 'w', encoding='utf-8') as f:
-        json.dump(file_commit_info, f, ensure_ascii=False, indent=2)
+    json_file_path = os.path.join(os.getcwd(), '.github/scripts/okjack_file_commit_info.json')
+    print(f"Saving commit info to: {json_file_path}")
+    try:
+        with open(json_file_path, 'w', encoding='utf-8') as f:
+            json.dump(file_commit_info, f, ensure_ascii=False, indent=2)
+        print(f"Successfully saved commit info to {json_file_path}")
+        # 检查文件是否存在并显示大小
+        if os.path.exists(json_file_path):
+            print(f"JSON file size: {os.path.getsize(json_file_path)} bytes")
+            print(f"Number of files in JSON: {len(file_commit_info)}")
+    except Exception as e:
+        print(f"Failed to save JSON file: {str(e)}")
+        # 尝试使用另一个路径保存
+        alt_json_path = os.path.join(os.environ.get('GITHUB_WORKSPACE', os.getcwd()), '.github/scripts/okjack_file_commit_info.json')
+        print(f"Trying alternative path: {alt_json_path}")
+        try:
+            with open(alt_json_path, 'w', encoding='utf-8') as f:
+                json.dump(file_commit_info, f, ensure_ascii=False, indent=2)
+            print(f"Successfully saved commit info to alternative path: {alt_json_path}")
+        except Exception as e2:
+            print(f"Failed to save to alternative path: {str(e2)}")
     
     print(f"Sync completed. {updated_count} files updated.")
-    print("File commit information saved to .github/scripts/okjack_file_commit_info.json")
 
 if __name__ == "__main__":
     main()
