@@ -12,7 +12,7 @@ SOURCE_PATH = os.environ.get('SOURCE_PATH', 'apk/release')
 DEST_PATH = os.environ.get('DEST_PATH', 'apk')
 
 # 确保目标目录存在
-os.makedirs(DEST_PATH, exist_ok=True)
+os.makedirs(DEST_PATH + '/' + SOURCE_BRANCH, exist_ok=True)
 
 # 初始化GitHub客户端
 g = Github(GITHUB_TOKEN)
@@ -123,7 +123,7 @@ def main():
     
     # 获取源文件和本地文件
     source_files = get_source_files(source_repo, SOURCE_PATH)
-    local_files = get_local_files(DEST_PATH)
+    local_files = get_local_files(DEST_PATH + '/' + SOURCE_BRANCH)
     
     # 创建本地文件字典以便快速查找
     local_files_dict = {f['name']: f for f in local_files}
@@ -135,7 +135,7 @@ def main():
     updated_count = 0
     for source_file in source_files:
         file_name = source_file['name']
-        dest_file_path = os.path.join(DEST_PATH, file_name)
+        dest_file_path = os.path.join(DEST_PATH + '/' + SOURCE_BRANCH, file_name)
         
         # 保存文件的提交信息
         file_commit_info[file_name] = {
@@ -168,7 +168,7 @@ def main():
         json.dump(file_commit_info, f, ensure_ascii=False, indent=2)
     
     print(f"Sync completed. {updated_count} files updated.")
-    print("File commit information saved to .github/scripts/okjack_file_commit_info.json")
+    print("File commit information saved to .github/scripts/file_commit_info.json")
 
 if __name__ == "__main__":
     main()
