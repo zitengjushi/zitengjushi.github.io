@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>应用下载</title>
+    
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        /* 全局样式 */
+        :root {
+            --primary-color: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary-color: #64748b;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --card-hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s ease;
+        }
+        
+        /* 导航栏样式 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            padding: 15px 0;
+            box-shadow: var(--card-shadow);
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+        }
+        
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-item {
+            margin: 0;
+        }
+        
+        .nav-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+            background-color: rgba(79, 70, 229, 0.1);
+        }
+        
+        .nav-link.active {
+            color: white;
+            background-color: var(--primary-color);
+        }
+        
+        body {
+            min-height: 100vh;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            padding: 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        /* 容器样式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 标题样式 */
+        .page-title {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            font-weight: 700;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 卡片容器 */
+        .app-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+        
+        .app-card:hover {
+            box-shadow: var(--card-hover-shadow);
+            transform: translateY(-2px);
+        }
+        
+        /* 应用标题 */
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .app-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 32px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+        
+        th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        td {
+            color: #4b5563;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        /* 文件列表 */
+        .file-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+            align-items: start;
+        }
+        
+        /* 文件项样式 */
+        .file-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+            background: white;
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 卡片顶部装饰条 */
+        .file-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .file-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .file-item:hover::before {
+            opacity: 1;
+        }
+        
+        /* 文件名称 */
+        .file-name {
+            font-weight: 600;
+            color: #1f2937;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            word-break: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 1rem;
+            padding-left: 2px;
+        }
+        
+        .file-name:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+            transform: translateX(4px);
+        }
+        
+        /* 版本标签 */
+        .version {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+            letter-spacing: 0.2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-right: 6px;
+            white-space: nowrap;
+        }
+
+        /* Android信息标签 */
+        .android-version {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+            letter-spacing: 0.2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        /* 版本信息容器 */
+        .version-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-self: flex-start;
+        }
+        
+        .version::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .file-item:hover .version::after {
+            left: 100%;
+        }
+        
+        /* 加载状态 */
+        .loading {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--secondary-color);
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e2e8f0;
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 错误提示 */
+        .error {
+            text-align: center;
+            padding: 40px 20px;
+            color: #dc2626;
+        }
+        
+        /* 空状态 */
+        .empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--secondary-color);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 576px) {
+            body {
+                padding: 10px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            
+            .app-card {
+                padding: 20px;
+            }
+            
+            .app-title {
+                font-size: 1.25rem;
+            }
+            
+            .file-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .version {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white rounded-3 shadow-sm mb-5 py-3">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary rounded-2" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active btn btn-primary text-white rounded-2" href="apk.html">应用下载</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary rounded-2" href="iptv.html">直播线路</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1 class="page-title">应用下载</h1>
+        
+        <!-- 应用分类切换面板 -->
+        <div class="card shadow-lg mb-5">
+            <!-- 标签页导航 -->
+            <ul class="nav nav-tabs" id="appCategoryTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tvbox-tab" data-bs-toggle="tab" data-bs-target="#tvbox-series" type="button" role="tab" aria-controls="tvbox-series" aria-selected="true">TVBOX系列</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="vod-tab" data-bs-toggle="tab" data-bs-target="#vod-apps" type="button" role="tab" aria-controls="vod-apps" aria-selected="false">影视点播</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="iptv-tab" data-bs-toggle="tab" data-bs-target="#iptv-apps" type="button" role="tab" aria-controls="iptv-apps" aria-selected="false">电视直播</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="entertainment-tab" data-bs-toggle="tab" data-bs-target="#entertainment-apps" type="button" role="tab" aria-controls="entertainment-apps" aria-selected="false">娱乐应用</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="other-tab" data-bs-toggle="tab" data-bs-target="#other-apps" type="button" role="tab" aria-controls="other-apps" aria-selected="false">其他</button>
+                </li>
+            </ul>
+            
+            <!-- 标签页内容 -->
+            <div class="tab-content p-4" id="appCategoryTabsContent">
+                <!-- TVBOX系列标签页 -->
+                <div class="tab-pane fade show active" id="tvbox-series" role="tabpanel" aria-labelledby="tvbox-tab">
+                    <div class="row g-4">
+                        <div id="fongmi-section" class="col-12">
+                              <div class="card shadow-sm mb-4">
+                                  <div class="card-header bg-primary text-white">
+                                      <h5 class="mb-0">FONGMI</h5>
+                                  </div>
+                                  <div class="card-body">
+                                      <div id="fongmi-list" class="file-list">
+                                          <div class="text-center text-secondary">
+                                              <div class="spinner-border" role="status">
+                                                  <span class="visually-hidden">加载中...</span>
+                                              </div>
+                                              <div class="mt-3">加载中...</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
+
+                        <div id="okjack-section" class="col-12">
+                              <div class="card shadow-sm mb-4">
+                                  <div class="card-header bg-primary text-white">
+                                      <h5 class="mb-0">OKJACK</h5>
+                                  </div>
+                                  <div class="card-body">
+                                      <div id="okjack-list" class="file-list">
+                                          <div class="text-center text-secondary">
+                                              <div class="spinner-border" role="status">
+                                                  <span class="visually-hidden">加载中...</span>
+                                              </div>
+                                              <div class="mt-3">加载中...</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
+
+                        <div id="tvbox-section" class="col-12">
+                              <div class="card shadow-sm mb-4">
+                                  <div class="card-header bg-primary text-white">
+                                      <h5 class="mb-0">TVBOX</h5>
+                                  </div>
+                                  <div class="card-body">
+                                      <div id="tvbox-list" class="file-list">
+                                          <div class="text-center text-secondary">
+                                              <div class="spinner-border" role="status">
+                                                  <span class="visually-hidden">加载中...</span>
+                                              </div>
+                                              <div class="mt-3">加载中...</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!-- 影视点播标签页 -->
+                <div class="tab-pane fade" id="vod-apps" role="tabpanel" aria-labelledby="vod-tab">
+                    <div class="text-center py-5 text-muted">
+                        <span style="font-size: 3rem; margin-bottom: 16px; display: block;">🎬</span>
+                        <p>影视点播应用内容正在开发中...</p>
+                    </div>
+                </div>
+                
+                <!-- 电视直播标签页 -->
+                <div class="tab-pane fade" id="iptv-apps" role="tabpanel" aria-labelledby="iptv-tab">
+                    <div class="text-center py-5 text-muted">
+                        <span style="font-size: 3rem; margin-bottom: 16px; display: block;">📺</span>
+                        <p>电视直播应用内容正在开发中...</p>
+                    </div>
+                </div>
+                
+                <!-- 娱乐应用标签页 -->
+                <div class="tab-pane fade" id="entertainment-apps" role="tabpanel" aria-labelledby="entertainment-tab">
+                    <div class="text-center py-5 text-muted">
+                        <span style="font-size: 3rem; margin-bottom: 16px; display: block;">🎮</span>
+                        <p>娱乐应用内容正在开发中...</p>
+                    </div>
+                </div>
+                
+                <!-- 其他标签页 -->
+                <div class="tab-pane fade" id="other-apps" role="tabpanel" aria-labelledby="other-tab">
+                    <div class="text-center py-5 text-muted">
+                        <span style="font-size: 3rem; margin-bottom: 16px; display: block;">📁</span>
+                        <p>其他应用内容正在开发中...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="okjack-section" class="card shadow-lg mb-5">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">下载说明</h5>
+            </div>
+            <div class="card-body">
+            <div id="about-list">
+                <p class="text-muted">kitkat = 安卓4.x版本；mobile = 手机版；leanback = 电视版；java = 基础版 / python = 高级版(选择python版本)；hisense = 海信电视专版；generic = 通用版；arm64_v8a = 64 位(新设备使用)；armeabi_v7a = 32 位(arm64_v8a不能安装再安装此版本，老设备使用)</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 加载JSON文件的函数
+        async function loadJson(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Error loading JSON:', error);
+                return null;
+            }
+        }
+
+        // 显示APK列表的函数
+        function displayApkList(containerId, jsonData, type) {
+            const container = document.getElementById(containerId);
+            
+            if (!jsonData) {
+                container.innerHTML = `
+                    <div class="text-center text-danger">
+                        <span style="font-size: 3rem; margin-bottom: 16px; display: block;">⚠️</span>
+                        <p>无法加载${type}数据</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // 过滤出APK文件
+            const apkFiles = Object.keys(jsonData).filter(key => key.endsWith('.apk'));
+            
+            if (apkFiles.length === 0) {
+                container.innerHTML = `
+                    <div class="empty text-center">
+                        <span style="font-size: 3rem; margin-bottom: 16px; color: #cbd5e1; display: block;">📦</span>
+                        <p>没有找到${type}的APK文件</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // 设置不同类型的链接前缀
+            const baseUrl = type === 'okjack' 
+                ? 'https://bgithub.xyz/zitengjushi/zitengjushi.github.io/raw/refs/heads/main/apk/okjack/' 
+                : 'https://bgithub.xyz/zitengjushi/zitengjushi.github.io/raw/refs/heads/main/apk/fongmi/';
+            
+            // 生成HTML
+            let html = '';
+            apkFiles.forEach(filePath => {
+                const fileInfo = jsonData[filePath];
+                const fileName = filePath.split('/').pop(); // 获取文件名
+                // 获取sub_dir和commit_message，当sub_dir不是release时显示在前面
+                const subDir = fileInfo.sub_dir;
+                const commitMsg = fileInfo.commit_message;
+                let version = commitMsg;
+                if (subDir && subDir !== 'release' && subDir !== 'apk') {
+                    version = `${subDir} - ${commitMsg}`;
+                }
+                
+                // 处理文件路径，移除可能重复的'apk/'前缀
+                const cleanPath = filePath.replace(/^apk\//i, '');
+                
+                // 拼接完整URL，保留文件夹路径
+                const fullUrl = baseUrl + cleanPath;
+                
+                html += `
+                    <div class="file-item">
+                        <a href="${fullUrl}" class="file-name" download="${fileName}" title="${fileName}">
+                            <span style="margin-right: 8px;">📦</span>${fileName}
+                        </a>
+                        <span class="version">${version}</span>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // 显示TVBOX列表的函数（处理特殊JSON结构）
+        function displayTvboxList(containerId, jsonData) {
+            const container = document.getElementById(containerId);
+            
+            if (!jsonData) {
+                container.innerHTML = `
+                    <div class="text-center text-danger">
+                        <span style="font-size: 3rem; margin-bottom: 16px; display: block;">⚠️</span>
+                        <p>无法加载TVBOX数据</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // 获取所有TVBOX项目
+            const tvboxItems = Object.keys(jsonData);
+            
+            if (tvboxItems.length === 0) {
+                container.innerHTML = `
+                    <div class="empty text-center">
+                        <span style="font-size: 3rem; margin-bottom: 16px; color: #cbd5e1; display: block;">📦</span>
+                        <p>没有找到TVBOX应用</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // 生成HTML
+            let html = '';
+            tvboxItems.forEach(itemKey => {
+                const item = jsonData[itemKey];
+                const name = item.name;
+                const version = item.version;
+                const filePath = item.sub_dir;
+                const fileName = filePath.split('/').pop();
+                
+                // 处理文件URL
+                let fullUrl;
+                if (filePath.startsWith('http')) {
+                    // 已经是完整URL
+                    fullUrl = filePath;
+                } else {
+                    // 相对路径，需要拼接基础URL
+                    fullUrl = 'https://bgithub.xyz/zitengjushi/zitengjushi.github.io/raw/refs/heads/main/' + filePath;
+                }
+                
+                // 处理logo显示
+                let logoHtml = '';
+                if (item.logo) {
+                    logoHtml = `<img src="${item.logo}" alt="${name} logo" style="width: 24px; height: 24px; margin-right: 8px; vertical-align: middle;" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0yMCAxQzIxLjEgMSAyMiA4LjkgMjIgOEMyMiAxNS4xIDIwIDE4IDE3IDE5LjVDMTQuNCAyMSAxMS44IDIwIDkgMThDNy4yIDE4IDYuMiAxNS4xIDcuMSAxM0MxLjcgOS44IDEuNyA1LjcgNy4xIDNDNi4yIDAuOSA3LjIgMSA5IDFDNDEuOCAxIDE1LjkgMSAxNyAxQzE3IDAgMTkgMCAxOSAwTDIwIDFaIiBmaWxsPSIjRjdGNUYxIi8+CiAgICA8cGF0aCBkPSJNMCAxMkM0LjcgMTMgNi4zIDE5IDkuOCAxOUMxMS43IDE5IDEzLjMgMTcgMTUgMTFDNC42IDExIDMgOS4zIDMgMTRDMCAxOSAxLjcgMjQgNS4zIDI0QzYuOSAyNCA4LjMgMTkgOS44IDE5QzExLjcgMTkgMTMuMyAxNyAxNSAxMUMxNi43IDE3IDE4LjMgMTkgOS44IDE5QzEuNyAxOSAwIDE0IDAgMTJaIiBmaWxsPSIjN0E3QTdBIi8+CiAgICA8cGF0aCBkPSJNNiA5QzYgNy4zIDcuMyA2IDkgNkM0LjQgNiAzLjEgNy4zIDMuMSA5QzMuMSAxMC43IDQuNCAxMiA2IDEyQzcuMyAxMiA5IDEwLjcgOSA5QzkgNy4zIDcuMyA2IDYgNloiIGZpbGw9IiMxQjFCMUQiLz4KPC9zdmc+'; this.style.width='24px'; this.style.height='24px';">`;
+                } else {
+                    logoHtml = `<span style="margin-right: 8px; font-size: 24px; vertical-align: middle;">📦</span>`;
+                }
+
+                // 处理android信息显示
+                let androidHtml = '';
+                if (item.android) {
+                    androidHtml = `<span class="android-version">${item.android}</span>`;
+                }
+
+                html += `
+                    <div class="file-item">
+                        <a href="${fullUrl}" class="file-name" download="${fileName}" title="${name}">
+                            ${logoHtml}${name}
+                        </a>
+                        <div class="version-container">
+                            <span class="version">v${version}</span>${androidHtml}
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 加载并显示Fongmi APK信息
+            const fongmiData = await loadJson('.github/scripts/fongmi_file_commit_info.json');
+            displayApkList('fongmi-list', fongmiData, 'fongmi');
+
+            // 加载并显示Okjack APK信息
+            const okjackData = await loadJson('.github/scripts/okjack_file_commit_info.json');
+            displayApkList('okjack-list', okjackData, 'okjack');
+
+            // 加载并显示TVBOX信息
+            const tvboxData = await loadJson('apk/tvbox.json');
+            displayTvboxList('tvbox-list', tvboxData);
+        });
+    </script>
+</body>
+</html>
