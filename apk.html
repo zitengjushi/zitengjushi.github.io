@@ -669,11 +669,11 @@
         // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', async () => {
             // 加载并显示Fongmi APK信息
-            const fongmiData = await loadJson('.github/scripts/fongmi_file_commit_info.json');
+            const fongmiData = await loadJson('apk/fongmi_file_commit_info.json');
             displayApkList('fongmi-list', fongmiData, 'fongmi');
 
             // 加载并显示Okjack APK信息
-            const okjackData = await loadJson('.github/scripts/okjack_file_commit_info.json');
+            const okjackData = await loadJson('apk/okjack_file_commit_info.json');
             displayApkList('okjack-list', okjackData, 'okjack');
 
             // 加载并显示TVBOX信息
