@@ -13,13 +13,6 @@
     "android": "安卓4.X",
     "sub_dir": "https://bgithub.xyz/o0HalfLife0o/TVBoxOSC/releases/download/20251016-2311/TVBox_q215613905_20251016-2311-python.apk"
   },
-  "tvbox-t": {
-    "version": "20251127",
-    "name": "tvbox(t版 黑盒) arm64-generic",
-    "logo": "/images/tvbox-t.jpeg",
-    "android": "",
-    "sub_dir": "https://bgithub.xyz/o0HalfLife0o/TVBoxOSC/releases/download/20251127-1156/TVBox_takagen99_20251127-1156-arm64-generic-python.apk"
-  },
   "tvbox-t-arm64-generic": {
     "version": "20251127",
     "name": "tvbox(t版 黑盒) arm64-generic",
@@ -58,21 +51,21 @@
   "yingshicang6.1.7-hisense": {
     "version": "6.1.7",
     "name": "影视仓 海信TV版",
-    "logo": "/images/yscsjb.jpeg",
-    "android": "",
+    "logo": "/images/ysc.jpeg",
+    "android": "海信",
     "sub_dir": "apk/tvbox/yingshicang6.1.7-hisense.apk"
   },
   "yingshicang6.1.7": {
     "version": "6.1.7",
     "name": "影视仓 TV版",
-    "logo": "/images/yscsjb.jpeg",
+    "logo": "/images/ysc.jpeg",
     "android": "",
     "sub_dir": "apk/tvbox/yingshicang6.1.7.apk"
   },
   "yingshicang3.0.32": {
     "version": "3.0.32",
-    "name": "影视仓V3",
-    "logo": "/images/yscsjb.jpeg",
+    "name": "影视仓TV V3",
+    "logo": "/images/ysc.jpeg",
     "android": "安卓4.X",
     "sub_dir": "apk/tvbox/yingshicang3.0.32.apk"
   }
