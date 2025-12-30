@@ -11,41 +11,52 @@
     "name": "tvbox(q版 白盒)",
     "logo": "/images/tvbox.jpg",
     "android": "安卓4.X",
-    "sub_dir": "https://bgithub.xyz/o0HalfLife0o/TVBoxOSC/releases/download/20251016-2311/TVBox_q215613905_20251016-2311-python.apk"
+    "desc":"tvbox系列的白盒，兼容安卓4版本，一直保持更新",
+    "url":"https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/o0HalfLife0o/TVBoxOSC/releases/download/20251016-2311/TVBox_q215613905_20251016-2311-python.apk"
   },
   "tvbox-t-arm64-generic": {
     "version": "20251127",
     "name": "tvbox(t版 黑盒) arm64-generic",
     "logo": "/images/tvbox-t.jpeg",
     "android": "",
-    "sub_dir": "https://bgithub.xyz/o0HalfLife0o/TVBoxOSC/releases/download/20251127-1156/TVBox_takagen99_20251127-1156-arm64-generic-python.apk"
+    "desc":"tvbox系列的黑盒通用版，arm64版本适合手机平板等新设备安装，界面更加美观",
+    "url":"https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/o0HalfLife0o/TVBoxOSC/releases/download/20251127-1156/TVBox_takagen99_20251127-1156-arm64-generic-python.apk"
   },
   "tvbox-t-arm64-hisense": {
     "version": "20251127",
     "name": "tvbox(t版 黑盒) arm64-hisense",
     "logo": "/images/tvbox-t.jpeg",
     "android": "海信",
-    "sub_dir": "https://bgithub.xyz/o0HalfLife0o/TVBoxOSC/releases/download/20251127-1156/TVBox_takagen99_20251127-1156-arm64-hisense-python.apk"
+    "desc":"tvbox系列的黑盒，64位的海信版本",
+    "url":"https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/o0HalfLife0o/TVBoxOSC/releases/download/20251127-1156/TVBox_takagen99_20251127-1156-arm64-hisense-python.apk"
   },
   "tvbox-t-armeabi-generic": {
     "version": "20251127",
     "name": "tvbox(t版 黑盒) armeabi-generic",
     "logo": "/images/tvbox-t.jpeg",
     "android": "",
-    "sub_dir": "https://bgithub.xyz/o0HalfLife0o/TVBoxOSC/releases/download/20251127-1156/TVBox_takagen99_20251127-1156-armeabi-generic-python.apk"
+    "desc":"tvbox系列的黑盒32位通用版，适合电视安装",
+    "url":"https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/o0HalfLife0o/TVBoxOSC/releases/download/20251127-1156/TVBox_takagen99_20251127-1156-armeabi-generic-python.apk"
   },
   "tvbox-t-armeabi-hisense": {
     "version": "20251127",
     "name": "tvbox(t版 黑盒) armeabi-hisense",
     "logo": "/images/tvbox-t.jpeg",
     "android": "海信",
-    "sub_dir": "https://bgithub.xyz/o0HalfLife0o/TVBoxOSC/releases/download/20251127-1156/TVBox_takagen99_20251127-1156-armeabi-hisense-python.apk"
+    "desc":"tvbox系列的黑盒32位海信版本",
+    "url":"https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/o0HalfLife0o/TVBoxOSC/releases/download/20251127-1156/TVBox_takagen99_20251127-1156-armeabi-hisense-python.apk"
   },
   "yingshicang3.2.4": {
     "version": "3.2.4",
     "name": "影视仓手机版",
     "logo": "/images/yscsjb.jpeg",
     "android": "",
+    "desc":"手机版本的影视仓，支持多仓",
     "sub_dir": "apk/tvbox/yingshicang3.2.4.apk"
   },
   "yingshicang6.1.7-hisense": {
@@ -53,6 +64,7 @@
     "name": "影视仓 海信TV版",
     "logo": "/images/ysc.jpeg",
     "android": "海信",
+    "desc":"海信版本的影视仓，支持多仓",
     "sub_dir": "apk/tvbox/yingshicang6.1.7-hisense.apk"
   },
   "yingshicang6.1.7": {
@@ -60,6 +72,7 @@
     "name": "影视仓 TV版",
     "logo": "/images/ysc.jpeg",
     "android": "",
+    "desc":"电视通用版本的影视仓，支持多仓",
     "sub_dir": "apk/tvbox/yingshicang6.1.7.apk"
   },
   "yingshicang3.0.32": {
@@ -67,6 +80,7 @@
     "name": "影视仓TV V3",
     "logo": "/images/ysc.jpeg",
     "android": "安卓4.X",
+    "desc":"支持安卓4.X低版本设备的影视仓，支持多仓",
     "sub_dir": "apk/tvbox/yingshicang3.0.32.apk"
   }
 }

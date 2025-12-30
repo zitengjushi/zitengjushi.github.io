@@ -478,10 +478,23 @@
                 
                 <!-- 电视直播标签页 -->
                 <div class="tab-pane fade" id="iptv-apps" role="tabpanel" aria-labelledby="iptv-tab">
-                    <div class="text-center py-5 text-muted">
-                        <span style="font-size: 3rem; margin-bottom: 16px; display: block;">📺</span>
-                        <p>电视直播应用内容正在开发中...</p>
-                    </div>
+                        <div id="tv-section" class="col-12">
+                              <div class="card shadow-sm mb-4">
+                                  <div class="card-header bg-primary text-white">
+                                      <h5 class="mb-0">TVBOX</h5>
+                                  </div>
+                                  <div class="card-body">
+                                      <div id="tv-list" class="file-list">
+                                          <div class="text-center text-secondary">
+                                              <div class="spinner-border" role="status">
+                                                  <span class="visually-hidden">加载中...</span>
+                                              </div>
+                                              <div class="mt-3">加载中...</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
                 </div>
                 
                 <!-- 娱乐应用标签页 -->
@@ -623,6 +636,7 @@
             tvboxItems.forEach(itemKey => {
                 const item = jsonData[itemKey];
                 const name = item.name;
+                const desc = item.desc;
                 const version = item.version;
                 const filePath = item.sub_dir;
                 const fileName = filePath.split('/').pop();
@@ -653,7 +667,7 @@
 
                 html += `
                     <div class="file-item">
-                        <a href="${fullUrl}" class="file-name" download="${fileName}" title="${name}">
+                        <a href="${fullUrl}" class="file-name" download="${fileName}" title="${name} - ${desc}">
                             ${logoHtml}${name}
                         </a>
                         <div class="version-container">
@@ -679,6 +693,10 @@
             // 加载并显示TVBOX信息
             const tvboxData = await loadJson('apk/tvbox.json');
             displayTvboxList('tvbox-list', tvboxData);
+
+            // 加载并显示TV-app信息
+            const tvappData = await loadJson('apk/tv.json');
+            displayTvboxList('tv-list', tvappData);
         });
     </script>
 </body>

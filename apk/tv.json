@@ -1,0 +1,65 @@
+{
+  "my-tv-0_1.3.9.8": {
+    "version": "1.3.9.8",
+    "name": "my-tv",
+    "logo": "/images/wdds.jpeg",
+    "android": "繁体",
+    "desc":"可自定义直播源",
+    "url":"https://github.com/lizongying/my-tv-0",
+    "sub_dir": "https://github.com/lizongying/my-tv-0/releases/download/v1.3.9.8/my-tv-0_1.3.9.8.apk"
+  },
+  "my-tv-0_1.3.9.7-kitkat": {
+    "version": "1.3.9.7",
+    "name": "my-tv kitkat",
+    "logo": "/images/wdds.jpeg",
+    "android": "安卓4.X",
+    "desc":"可自定义直播源，支持安卓4.x低版本安卓设备",
+    "url":"https://github.com/lizongying/my-tv-0",
+    "sub_dir": "https://github.com/lizongying/my-tv-0/releases/download/v1.3.9.7-kitkat/my-tv-0_1.3.9.7-kitkat.apk"
+  },
+  "mytv-android-original.apk": {
+    "version": "1.3.0.172",
+    "name": "电视直播(正常版)",
+    "logo": "/images/dszb.jpeg",
+    "android": "推荐",
+    "desc":"可自定义直播源，基于天光云影3.3.9开发",
+    "url":"https://github.com/mytv-android/mytv-android",
+    "sub_dir": "https://github.com/mytv-android/mytv-android/releases/download/V1.3.0.172/mytv-android-tv-1.3.0.172-all-sdk21-original.apk"
+  },
+  "mytv-android-disguised.apk": {
+    "version": "1.3.0.172",
+    "name": "电视直播(伪装版)",
+    "logo": "/images/dszb.jpeg",
+    "android": "",
+    "desc":"可自定义直播源，基于天光云影3.3.9开发，伪装版本，伪装成Z视介（com.chinablue.tv）。解决鸿蒙系统小窗无法横屏，支持超级桌面。",
+    "url":"https://github.com/mytv-android/mytv-android",
+    "sub_dir": "https://github.com/mytv-android/mytv-android/releases/download/V1.3.0.172/mytv-android-tv-1.3.0.172-all-sdk21-disguised.apk"
+  },
+  "tv-3.3.9-all-sdk21-original": {
+    "version": "3.3.9",
+    "name": "天光云影(正常版)",
+    "logo": "/images/tgyy.png",
+    "android": "",
+    "desc":"可自定义直播源。",
+    "url":"https://github.com/sakana164/mytv-android/",
+    "sub_dir": "https://github.com/sakana164/mytv-android/releases/download/mytv-android/tv-3.3.9-all-sdk21-original.apk"
+  },
+  "tv-3.3.9-all-sdk21-disguised": {
+    "version": "3.3.9",
+    "name": "天光云影(伪装版)",
+    "logo": "/images/tgyy.png",
+    "android": "",
+    "desc":"可自定义直播源，伪装版本，伪装成Z视介（com.chinablue.tv）。解决鸿蒙系统小窗无法横屏，支持超级桌面。",
+    "url":"https://github.com/sakana164/mytv-android/",
+    "sub_dir": "https://github.com/sakana164/mytv-android/releases/download/mytv-android/tv-3.3.9-all-sdk21-disguised.apk"
+  },
+  "htv5.0": {
+    "version": "5.0.0",
+    "name": "HTV",
+    "logo": "/images/htv.jpeg",
+    "android": "安卓4.X",
+    "desc":"可自定义直播源，开源版全新电视直播软件，兼容Android 4.4和IPv4，可播放rtp等各种源。",
+    "url":"https://github.com/HTWMedia/HTV/",
+    "sub_dir": "https://github.com/HTWMedia/HTV/releases/download/v5.0.0%E6%9B%B4%E6%96%B0/HTV-v5.0.0.apk"
+  }
+}
