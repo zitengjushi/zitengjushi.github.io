@@ -11,6 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <!-- 引入Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入代理管理模块 -->
+    <script type="module" src="js/proxyList.js"></script>
 
     <style>
         /* 全局样式 */
@@ -385,6 +387,16 @@
     <div class="container">
         <h1 class="page-title">应用下载</h1>
         
+                <!-- 代理选择器 -->
+        <div class="row mb-4 justify-content-center">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <label class="input-group-text" for="proxySelect">选择代理</label>
+                    <select class="form-select" id="proxySelect"></select>
+                </div>
+            </div>
+        </div>
+        
         <!-- 应用分类切换面板 -->
         <div class="card shadow-lg mb-5">
             <!-- 标签页导航 -->
@@ -414,7 +426,7 @@
                         <div id="fongmi-section" class="col-12">
                               <div class="card shadow-sm mb-4">
                                   <div class="card-header bg-primary text-white">
-                                      <h5 class="mb-0">FONGMI</h5>
+                                      <h5 class="mb-0">FONGMI影视</h5>
                                   </div>
                                   <div class="card-body">
                                       <div id="fongmi-list" class="file-list">
@@ -432,7 +444,7 @@
                         <div id="okjack-section" class="col-12">
                               <div class="card shadow-sm mb-4">
                                   <div class="card-header bg-primary text-white">
-                                      <h5 class="mb-0">OKJACK</h5>
+                                      <h5 class="mb-0">OK影视</h5>
                                   </div>
                                   <div class="card-body">
                                       <div id="okjack-list" class="file-list">
@@ -525,11 +537,16 @@
             </div>
         </div>
     </div>
-    <script>
+    <script type="module">
+        // 导入代理管理模块的函数
+        import { initProxySelector, testAllProxies, updateProxySelectorWithSpeed, getProxiedUrl } from './js/proxyList.js';
+        
         // 加载JSON文件的函数
         async function loadJson(url) {
             try {
-                const response = await fetch(url);
+                // 使用代理处理URL
+                const proxiedUrl = getProxiedUrl(url);
+                const response = await fetch(proxiedUrl);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -567,10 +584,10 @@
                 return;
             }
 
-            // 设置不同类型的链接前缀
+            // 设置不同类型的链接前缀（使用原始GitHub地址）
             const baseUrl = type === 'okjack' 
-                ? 'https://bgithub.xyz/zitengjushi/zitengjushi.github.io/raw/refs/heads/main/apk/okjack/' 
-                : 'https://bgithub.xyz/zitengjushi/zitengjushi.github.io/raw/refs/heads/main/apk/fongmi/';
+                ? 'https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/refs/heads/main/apk/okjack/' 
+                : 'https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/refs/heads/main/apk/fongmi/';
             
             // 生成HTML
             let html = '';
@@ -588,8 +605,8 @@
                 // 处理文件路径，移除可能重复的'apk/'前缀
                 const cleanPath = filePath.replace(/^apk\//i, '');
                 
-                // 拼接完整URL，保留文件夹路径
-                const fullUrl = baseUrl + cleanPath;
+                // 拼接完整URL，保留文件夹路径并应用代理
+                const fullUrl = getProxiedUrl(baseUrl + cleanPath);
                 
                 html += `
                     <div class="file-item">
@@ -644,11 +661,12 @@
                 // 处理文件URL
                 let fullUrl;
                 if (filePath.startsWith('http')) {
-                    // 已经是完整URL
-                    fullUrl = filePath;
+                    // 已经是完整URL，应用代理
+                    fullUrl = getProxiedUrl(filePath);
                 } else {
-                    // 相对路径，需要拼接基础URL
-                    fullUrl = 'https://bgithub.xyz/zitengjushi/zitengjushi.github.io/raw/refs/heads/main/' + filePath;
+                    // 相对路径，需要拼接基础URL并应用代理
+                    const baseUrl = 'https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/refs/heads/main/';
+                    fullUrl = getProxiedUrl(baseUrl + filePath);
                 }
                 
                 // 处理logo显示
@@ -680,15 +698,15 @@
             container.innerHTML = html;
         }
 
-        // 页面加载完成后执行
-        document.addEventListener('DOMContentLoaded', async () => {
+        // 加载所有数据的函数
+        async function loadAllData() {
             // 加载并显示Fongmi APK信息
-            const fongmiData = await loadJson('apk/fongmi_file_commit_info.json');
-            displayApkList('fongmi-list', fongmiData, 'fongmi');
+            const fongmiData = await loadJson('apk/fongmi.json');
+            displayTvboxList('fongmi-list', fongmiData, 'fongmi');
 
             // 加载并显示Okjack APK信息
-            const okjackData = await loadJson('apk/okjack_file_commit_info.json');
-            displayApkList('okjack-list', okjackData, 'okjack');
+            const okjackData = await loadJson('apk/okjack.json');
+            displayTvboxList('okjack-list', okjackData, 'okjack');
 
             // 加载并显示TVBOX信息
             const tvboxData = await loadJson('apk/tvbox.json');
@@ -697,6 +715,24 @@
             // 加载并显示TV-app信息
             const tvappData = await loadJson('apk/tv.json');
             displayTvboxList('tv-list', tvappData);
+        }
+
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 初始化代理选择器
+            const proxySelector = initProxySelector('proxySelect');
+            
+            // 首次加载数据
+            await loadAllData();
+
+            // 执行所有代理的测速，并在检测一个后立即显示一个
+            // 传入回调函数，当自动选择代理后重新加载数据
+            await testAllProxies(proxySelector, async (selectedProxyUrl) => {
+                console.log('自动选择代理后重新加载数据:', selectedProxyUrl);
+                await loadAllData();
+            });
+            
+
         });
     </script>
 </body>

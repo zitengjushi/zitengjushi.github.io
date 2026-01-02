@@ -1,0 +1,56 @@
+{
+  "kitkat/leanback.apk": {
+    "version": "2.8.7",
+    "name": "电视版",
+    "logo": "/images/fongmi.jpeg",
+    "android": "安卓4.X",
+    "desc":"ok影视电视版，支持安卓4.X的老电视和机顶盒",
+    "url":"https://github.com/FongMi/Release/tree/okjack/apk",
+    "sub_dir": "/apk/okjack/kitkat/leanback.apk"
+  },
+  "release/leanback-arm64_v8a.apk": {
+    "version": "3.2.2",
+    "name": "电视版64位",
+    "logo": "/images/fongmi.jpeg",
+    "android": "",
+    "desc":"ok影视电视版，适合新的设备使用",
+    "url":"https://github.com/FongMi/Release/tree/okjack/apk",
+    "sub_dir": "/apk/okjack/release/leanback-arm64_v8a.apk"
+  },
+  "release/leanback-armeabi_v7a.apk": {
+    "version": "3.2.2",
+    "name": "电视版32位",
+    "logo": "/images/fongmi.jpeg",
+    "android": "",
+    "desc":"ok影视电视版，如果电视版64位无法安装可以安装此版本",
+    "url":"https://github.com/FongMi/Release/tree/okjack/apk",
+    "sub_dir": "/apk/okjack/kitkat/leanback-armeabi_v7a.apk"
+  },
+  "release/mobile-arm64_v8a.apk": {
+    "version": "3.2.2",
+    "name": "手机版64位",
+    "logo": "/images/fongmi.jpeg",
+    "android": "",
+    "desc":"ok影视手机版，适合新的设备使用",
+    "url":"https://github.com/FongMi/Release/tree/okjack/apk",
+    "sub_dir": "/apk/okjack/release/mobile-arm64_v8a.apk"
+  },
+  "release/mobile-armeabi_v7a.apk": {
+    "version": "3.2.2",
+    "name": "手机版32位",
+    "logo": "/images/fongmi.jpeg",
+    "android": "",
+    "desc":"ok影视手机版，如果手机版64位无法安装可以安装此版本",
+    "url":"https://github.com/FongMi/Release/tree/okjack/apk",
+    "sub_dir": "/apk/okjack/release/mobile-armeabi_v7a.apk"
+  },
+  "release/海信专版.apk": {
+    "version": "3.2.2",
+    "name": "海信电视专版",
+    "logo": "/images/fongmi.jpeg",
+    "android": "",
+    "desc":"ok影视海信电视专用版",
+    "url":"https://github.com/FongMi/Release/tree/okjack/apk",
+    "sub_dir": "/apk/okjack/release/海信专版.apk"
+  }
+}

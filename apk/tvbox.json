@@ -82,5 +82,29 @@
     "android": "安卓4.X",
     "desc":"支持安卓4.X低版本设备的影视仓，支持多仓",
     "sub_dir": "apk/tvbox/yingshicang3.0.32.apk"
+  },
+  "yueguangbaoheBox": {
+    "version": "20251017",
+    "name": "月光宝盒Box",
+    "logo": "/images/ygbh-box.jpeg",
+    "android": "",
+    "desc":"tvbox衍生系列，单仓版本，内置数据源",
+    "sub_dir": "/apk/tvbox/月光宝盒Box1017.apk"
+  },
+  "yueguangbaoheMax": {
+    "version": "20251017",
+    "name": "月光宝盒Max",
+    "logo": "/images/ygbh-max.jpeg",
+    "android": "",
+    "desc":"基于tvbox黑盒版本魔改，支持多仓线路源，默认是宝盒的站源",
+    "sub_dir": "/apk/tvbox/月光宝盒Max1017.apk"
+  },
+  "yueguangbaohePLUS": {
+    "version": "20250601",
+    "name": "月光宝盒PLUS",
+    "logo": "/images/ygbh-plus.jpeg",
+    "android": "",
+    "desc":"PLUS版本功能较全，内置宝盒数据源",
+    "sub_dir": "/apk/tvbox/月光宝盒PLUS1017.apk"
   }
 }

@@ -58,44 +58,66 @@ def retry(max_retries=3, delay=2):
 @retry(max_retries=3, delay=2)
 def get_source_files(repo, path):
     files = []
-    contents = repo.get_contents(path, ref=SOURCE_BRANCH)
-    while contents:
-        file_content = contents.pop(0)
-        if file_content.type == "dir":
-            contents.extend(repo.get_contents(file_content.path, ref=SOURCE_BRANCH))
-        else:
-            # 获取该文件的最后一次提交信息
-            try:
-                # 添加延迟以避免API限流
-                time.sleep(0.5)
-                # 获取文件的最后一次提交
-                commits = repo.get_commits(path=file_content.path)
-                if commits:
-                    last_commit = commits[0]
-                    last_commit_message = last_commit.commit.message
-                    last_commit_sha = last_commit.sha
-                    last_commit_date = last_commit.commit.author.date
-                else:
-                    last_commit_message = "No commit history"
+    try:
+        contents = repo.get_contents(path, ref=SOURCE_BRANCH)
+        while contents:
+            file_content = contents.pop(0)
+            if file_content.type == "dir":
+                contents.extend(repo.get_contents(file_content.path, ref=SOURCE_BRANCH))
+            else:
+                # 获取该文件的最后一次提交信息
+                try:
+                    # 添加延迟以避免API限流
+                    time.sleep(0.5)
+                    # 获取文件的最后一次提交
+                    commits = repo.get_commits(path=file_content.path)
+                    # 检查是否有提交，使用更安全的方式
+                    try:
+                        # 对于PyGithub的PaginatedList对象，我们不能直接使用len()
+                        # 尝试获取第一个元素，如果没有则会抛出IndexError
+                        if commits:
+                            last_commit = commits[0]
+                            last_commit_message = last_commit.commit.message
+                            last_commit_sha = last_commit.sha
+                            last_commit_date = last_commit.commit.author.date
+                        else:
+                            last_commit_message = "No commit history"
+                            last_commit_sha = ""
+                            last_commit_date = None
+                    except IndexError:
+                        # 处理索引超出范围的情况
+                        last_commit_message = "No commit history (IndexError)"
+                        last_commit_sha = ""
+                        last_commit_date = None
+                    except Exception as e:
+                        # 捕获其他可能的错误
+                        print(f"Additional error checking commits: {str(e)}")
+                        last_commit_message = "No commit history (Unexpected error)"
+                        last_commit_sha = ""
+                        last_commit_date = None
+                except Exception as e:
+                    print(f"Error getting commit history for {file_content.path}: {str(e)}")
+                    last_commit_message = "Error getting commit history"
                     last_commit_sha = ""
                     last_commit_date = None
-            except Exception as e:
-                print(f"Error getting commit history for {file_content.path}: {str(e)}")
-                last_commit_message = "Error getting commit history"
-                last_commit_sha = ""
-                last_commit_date = None
-            
-            files.append({
-                'name': file_content.name,
-                'path': file_content.path,
-                'sha': file_content.sha,
-                'download_url': file_content.download_url,
-                'last_modified': file_content.last_modified,
-                'last_commit_message': last_commit_message,
-                'last_commit_sha': last_commit_sha,
-                'last_commit_date': last_commit_date
-            })
-    return files
+                
+                files.append({
+                    'name': file_content.name,
+                    'path': file_content.path,
+                    'sha': file_content.sha,
+                    'download_url': file_content.download_url,
+                    'last_modified': file_content.last_modified,
+                    'last_commit_message': last_commit_message,
+                    'last_commit_sha': last_commit_sha,
+                    'last_commit_date': last_commit_date
+                })
+        return files
+    except github.GithubException.UnknownObjectException:
+        print(f"Directory {path} not found in repository")
+        return []
+    except Exception as e:
+        print(f"Error getting files from {path}: {str(e)}")
+        return []
 
 # 获取本地文件信息
 def get_local_files(path):
@@ -122,13 +144,34 @@ def get_local_files(path):
 @retry(max_retries=3, delay=2)
 def download_file(url, dest_path):
     try:
-        response = requests.get(url, timeout=30)
+        print(f"  Starting download: {url}")
+        response = requests.get(url, timeout=30, stream=True)  # 使用stream模式下载大文件
         response.raise_for_status()
+        
+        # 获取文件大小
+        file_size = int(response.headers.get('Content-Length', 0))
+        downloaded = 0
+        
         with open(dest_path, 'wb') as f:
-            f.write(response.content)
+            for chunk in response.iter_content(chunk_size=8192):
+                if chunk:
+                    f.write(chunk)
+                    downloaded += len(chunk)
+                    # 每下载1MB输出一次进度
+                    if downloaded % (1024 * 1024) < len(chunk) and file_size > 0:
+                        percent = (downloaded / file_size) * 100
+                        print(f"  Downloaded {downloaded//1024//1024}MB/{file_size//1024//1024}MB ({percent:.1f}%)")
+        
+        print(f"  Successfully downloaded {os.path.basename(dest_path)}")
         return True
+    except requests.exceptions.Timeout:
+        print(f"  Failed to download {os.path.basename(dest_path)}: Request timed out")
+        return False
+    except requests.exceptions.RequestException as e:
+        print(f"  Failed to download {os.path.basename(dest_path)}: {str(e)}")
+        return False
     except Exception as e:
-        print(f"Failed to download {os.path.basename(dest_path)}: {str(e)}")
+        print(f"  Failed to download {os.path.basename(dest_path)}: Unexpected error - {str(e)}")
         return False
 
 def main():
