@@ -61,6 +61,10 @@
             "name": "天微"
         },
         {
+            "url": "http://www.meowtv.vip/tvbox.json",
+            "name": "喵影视"
+        },
+        {
             "url": "https://clun.top/box.json",
             "name": "cluntop"
         },
@@ -77,8 +81,24 @@
             "name": "星辰"
         },
         {
+            "url": "https://gitlab.com/duomv/dzhipy/-/raw/main/index.jso",
+            "name": "道长线路"
+        },
+        {
             "url": "https://tvbox.catvod.com/catvod.json",
             "name": "Catvod"
+        },
+        {
+            "url": "https://cnb.cool/fish2018/zx/-/git/raw/master/FongMi.json",
+            "name": "真心线路"
+        },
+        {
+            "url": "http://fmys.top/fmys.json",
+            "name": "驸马线路"
+        },
+        {
+            "url": "http://rihou.cc:555/nzk/nzk0722.json",
+            "name": "D佬魔改"
         },
         {
             "url": "http://box.ufuzi.com/tv/qq/短剧频道/api.json",

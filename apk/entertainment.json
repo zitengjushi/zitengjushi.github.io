@@ -1,0 +1,29 @@
+{
+  "SimpleLive1.9.8-手机版64位": {
+    "version": "1.9.8",
+    "name": "SimpleLive 手机版",
+    "logo": "/images/simplelive.jpeg",
+    "android": "",
+    "desc":"汇集虎牙直播、斗鱼直播、哔哩哔哩直播、抖音直播与一体自由选择,手机版",
+    "url":"https://github.com/xiaoyaocz/dart_simple_live",
+    "sub_dir": "/apk/entertainment/SimpleLive1.9.8-手机版64位.apk"
+  },
+  "SimpleLive1.5.5-TV版64位": {
+    "version": "1.5.5",
+    "name": "SimpleLive TV版",
+    "logo": "/images/simplelive.jpeg",
+    "android": "",
+    "desc":"汇集虎牙直播、斗鱼直播、哔哩哔哩直播、抖音直播与一体自由选择，TV版本",
+    "url":"https://github.com/xiaoyaocz/dart_simple_live",
+    "sub_dir": "/apk/entertainment/SimpleLive1.5.5-TV版64位.apk"
+  },
+  "纯粹直播2.0.10-电视版本All": {
+    "version": "2.0.10",
+    "name": "纯粹直播 TV版本",
+    "logo": "/images/cczb.jpeg",
+    "android": "",
+    "desc":"第三方多平台直播聚合播放器，支持哔哩哔哩/虎牙/斗鱼/快手/抖音/网易cc/M38自定义源。",
+    "url":"https://github.com/liuchuancong/pure_live",
+    "sub_dir": "https://github.com/liuchuancong/pure_live_TV/releases/download/v2.0.10/app-arm64-v8a-release.apk"
+  }
+}

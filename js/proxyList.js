@@ -2,29 +2,50 @@
 
 // 代理配置
 const proxyList = window.proxyList = [
-    {name: 'GHProxy', url: 'https://ghproxy.com/'},
-    {name: 'ghp-ci', url: 'https://ghp.ci/'},
     {name: 'halonice', url: 'http://gh.halonice.com/'},
-    {name: 'gitdl-cn', url: 'https://gitdl.cn/'},
-    {name: 'gh.xxooo', url: 'https://gh.xxooo.cf/'},
+    {name: 'zhouxiangyang.tech', url: 'https://zhouxiangyang.tech/'},
     {name: 'kr2-proxy', url: 'http://kr2-proxy.gitwarp.com:9980'},
-    {name: 'moeyy', url: 'https://github.moeyy.xyz/'},
+    {name: 'a.llvho.com', url: 'https://a.llvho.com/'},
     {name: 'jp-proxy', url: 'http://jp-proxy.gitwarp.com:3000/'},
     {name: 'gh-proxy-org', url: 'https://gh-proxy.org/'},
     {name: 'ghproxyNet', url: 'https://ghproxy.net/'},
+    {name: 'b.yesican.top', url: 'https://b.yesican.top/'},
+    {name: 'd.6519.top', url: 'https://d.6519.top/'},
+    {name: 'd.scyun.top', url: 'https://d.scyun.top/'},
     {name: 'bgithub', url: 'https://raw.bgithub.xyz/'},
     {name: '直接访问', url: ''}
 ];
 
 // 测速目标文件 - 使用小文件提高测速速度
-const testFile = 'https://github.com/zitengjushi/zitengjushi.github.io/blob/main/README.md';
+const testFile = 'https://raw.github.com/hunshcn/gh-proxy/refs/heads/master/index.js';
 
 // 测速函数
 export async function testProxySpeed(proxy) {
     const startTime = performance.now();
     try {
-        // 构建请求URL：如果代理URL为空则直接访问testFile
-        const requestUrl = proxy.url ? proxy.url + testFile : testFile;
+        let requestUrl;
+        
+        // 构建请求URL：根据不同代理应用不同的规则
+        if (proxy.url) {
+            if (proxy.url === 'https://raw.bgithub.xyz/') {
+                // 对于bgithub代理，应用特殊规则
+                if (testFile.includes('https://raw.githubusercontent.com/')) {
+                    requestUrl = testFile.replace(/^(.*?)(https:\/\/raw\.githubusercontent\.com\/)/, 'https://raw.bgithub.xyz/');
+                } else if (testFile.includes('https://raw.github.com/')) {
+                    requestUrl = testFile.replace(/^(.*?)(https:\/\/raw\.github\.com\/)/, 'https://raw.bgithub.xyz/');
+                } else if (testFile.includes('https://github.com/')) {
+                    requestUrl = testFile.replace(/^(.*?)(https:\/\/github\.com\/)/, 'https://bgithub.xyz/');
+                } else {
+                    requestUrl = proxy.url + testFile;
+                }
+            } else {
+                // 对于其他代理，直接拼接URL
+                requestUrl = proxy.url + testFile;
+            }
+        } else {
+            // 直接访问
+            requestUrl = testFile;
+        }
         
         // 使用HEAD请求减少数据传输，添加禁用缓存和减少请求头选项
         const response = await fetch(requestUrl, {
@@ -86,8 +107,27 @@ export async function testAllProxies(selector = null, onProxySelectedCallback = 
     // 等待所有测试完成
     results.push(...await Promise.all(testPromises));
     
-    // 测试完成后，自动选择第一个测试成功的代理
+    // 测试完成后，优先使用用户之前选择的代理
     if (selector) {
+        // 获取用户之前选择的代理
+        const previouslySelectedProxy = getSelectedProxy();
+        
+        // 检查用户之前选择的代理在当前测速中是否仍然成功
+        if (previouslySelectedProxy) {
+            const userSelectedProxy = proxyList.find(proxy => proxy.url === previouslySelectedProxy);
+            if (userSelectedProxy && userSelectedProxy.speed > 0) {
+                // 用户之前选择的代理仍然成功，保持使用
+                selector.value = userSelectedProxy.url;
+                
+                // 如果提供了回调函数，调用它以应用新的代理规则
+                if (onProxySelectedCallback && typeof onProxySelectedCallback === 'function') {
+                    onProxySelectedCallback(userSelectedProxy.url);
+                }
+                return results;
+            }
+        }
+        
+        // 如果没有用户选择的代理或用户选择的代理失败，才自动选择第一个测试成功的代理
         const firstSuccessProxy = proxyList.find(proxy => proxy.speed > 0);
         if (firstSuccessProxy) {
             // 更新选择器的选中状态
@@ -176,9 +216,12 @@ export function getProxiedUrl(url, proxy) {
             // 把 https://raw.githubusercontent.com 前面的地址去掉，并替换为 https://raw.bgithub.xyz
             proxiedUrl = url.replace(/^(.*?)(https:\/\/raw\.githubusercontent\.com\/)/, 'https://raw.bgithub.xyz/');
         } else if (url.includes('https://github.com/')) {
-            // 处理 https://github.com/ 开头的地址
-            proxiedUrl = url.replace(/^(.*?)(https:\/\/github\.com\/)/, 'https://raw.bgithub.xyz/');
-        } else {
+            // 处理 https://github.com/ 开头的地址，替换为 https://bgithub.xyz/
+            proxiedUrl = url.replace(/^(.*?)(https:\/\/github\.com\/)/, 'https://bgithub.xyz/');
+        } else if (url.includes('https://raw.github.com/')) {
+            // 处理 https://github.com/ 开头的地址，替换为 https://bgithub.xyz/
+            proxiedUrl = url.replace(/^(.*?)(https:\/\/raw\.github\.com\/)/, 'https://raw.bgithub.xyz/');
+        }  else {
             // 其他情况保持不变
             proxiedUrl = url;
         }

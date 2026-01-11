@@ -106,5 +106,29 @@
     "android": "",
     "desc":"PLUS版本功能较全，内置宝盒数据源",
     "sub_dir": "/apk/tvbox/月光宝盒PLUS1017.apk"
+  },
+  "fantaiying": {
+    "version": "9.9.9",
+    "name": "飯太硬",
+    "logo": "/images/fty.jpeg",
+    "android": "",
+    "desc":"改自FONGMI系列，自带饭太硬源。可自定义源。",
+    "sub_dir": "/apk/tvbox/飯太硬_9.9.9.apk"
+  },
+  "MediaMix-tv": {
+    "version": "1.4.8",
+    "name": "MediaMix(原521影视)电视版",
+    "logo": "/images/521.jpeg",
+    "android": "",
+    "desc":"改自FONGMI系列，可自定义源。(原521影视)电视版",
+    "sub_dir": "/apk/tvbox/MediaMix(原521影视)电视版-1.4.8.apk"
+  },
+  "MediaMix-mobile": {
+    "version": "0.6.4",
+    "name": "MediaMix(原521影视)手机版",
+    "logo": "/images/521.jpeg",
+    "android": "",
+    "desc":"改自FONGMI系列，可自定义源。(原521影视)手机版",
+    "sub_dir": "/apk/tvbox/MediaMix(原521影视)手机版-0.6.4.apk"
   }
 }

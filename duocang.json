@@ -1,11 +1,7 @@
 {
 	"storeHouse":
 	[
-		{"sourceName":"综合备1","sourceUrl":"https://ghproxy.net/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/main/ghproxy.json"}, 
-		{"sourceName":"综合备2","sourceUrl":"https://raw.bgithub.xyz/zitengjushi/zitengjushi.github.io/main/bgithub.json"},
-		{"sourceName":"综合备3","sourceUrl":"https://mirror.ghproxy.com/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/main/mirror.json"}, 
-		{"sourceName":"综合备4","sourceUrl":"https://github.moeyy.xyz/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/main/moeyy.json"}, 
-		{"sourceName":"综合备5","sourceUrl":"https://gh-proxy.com/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/main/gh-proxy.json"},
+		{"sourceName":"综合","sourceUrl":"https://gh-proxy.org/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/main/ghproxy.json"}, 
 		{"sourceName":"fish2018","sourceUrl":"https://raw.bgithub.xyz/fish2018/ol/main/all.json"}, 
 		{"sourceName":"qirenzhidao","sourceUrl":"https://raw.bgithub.xyz/qirenzhidao/tvbox18/main/tvbox.json"}, 
 		{"sourceName":"讴歌多线","sourceUrl":"https://xn--tmmt-rp5imh.v.nxog.top/api1.php?id=2"}, 
@@ -15,6 +11,7 @@
 		{"sourceName":"网络名家","sourceUrl":"https://zitengjushi.lvtu369.com/jingdian.json"},
 		{"sourceName":"yangxiaoge","sourceUrl":"https://raw.bgithub.xyz/yangxiaoge/tvbox_cust/refs/heads/master/tvbox/%E5%A4%9A%E4%BB%93.json"},
 		{"sourceName":"ediart","sourceUrl":"https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/urls.json"},
-		{"sourceName":"蜗牛影视","sourceUrl":"https://raw.bgithub.xyz/woniuxs/TVBOX/main/duo"}
+		{"sourceName":"蜗牛影视","sourceUrl":"https://raw.bgithub.xyz/woniuxs/TVBOX/main/duo"},
+		{"sourceName":"9877","sourceUrl":"https://9877.kstore.space/AnotherDS/api.json"}
 	]
 }

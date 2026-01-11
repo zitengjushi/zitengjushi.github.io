@@ -422,6 +422,9 @@
                     <li class="nav-item">
                         <a class="nav-link btn btn-outline-primary rounded-2" href="iptv.html">直播线路</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary rounded-2" href="play.html">m3u8播放器</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -489,6 +492,137 @@
         } from './js/proxyList.js';
         
         document.addEventListener('DOMContentLoaded', async function() {
+            // 复制功能 - 提前定义，确保页面加载后即可使用
+            function handleCopy(text) {
+                // 首先尝试使用现代的Clipboard API
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        showToast(`复制成功！<br/><small class="text-white-50">${text}</small>`, 'success');
+                    }).catch(err => {
+                        console.error('Clipboard API复制失败:', err);
+                        // 降级到传统方法
+                        fallbackCopyTextToClipboard(text);
+                    });
+                } else {
+                    // 直接使用传统方法
+                    fallbackCopyTextToClipboard(text);
+                }
+            }
+            
+            // 传统复制方法（作为备用）
+            function fallbackCopyTextToClipboard(text) {
+                try {
+                    // 创建临时textarea元素
+                    const textArea = document.createElement('textarea');
+                    textArea.value = text;
+                    
+                    // 设置textarea的样式以避免影响页面
+                    textArea.style.top = '0';
+                    textArea.style.left = '0';
+                    textArea.style.position = 'fixed';
+                    textArea.style.opacity = '0';
+                    
+                    // 添加到DOM
+                    document.body.appendChild(textArea);
+                    
+                    // 选中并复制
+                    textArea.focus();
+                    textArea.select();
+                    
+                    // 执行复制命令
+                    const successful = document.execCommand('copy');
+                    
+                    // 移除临时元素
+                    document.body.removeChild(textArea);
+                    
+                    // 显示结果
+                    if (successful) {
+                        showToast(`复制成功！<br/><small class="text-white-50">${text}</small>`, 'success');
+                    } else {
+                        showToast('复制失败，请手动复制！', 'danger');
+                    }
+                } catch (err) {
+                    console.error('传统方法复制失败:', err);
+                    showToast('复制失败，请手动复制！', 'danger');
+                }
+            }
+            
+            // Toast提示功能
+            function showToast(message, type = 'info') {
+                // 确保Bootstrap已加载
+                if (typeof bootstrap === 'undefined') {
+                    alert(message);
+                    return;
+                }
+                
+                // 创建Toast容器（如果不存在）
+                let toastContainer = document.getElementById('toastContainer');
+                if (!toastContainer) {
+                    toastContainer = createToastContainer();
+                }
+                
+                // 创建Toast元素
+                const toast = document.createElement('div');
+                toast.className = `toast align-items-center text-white bg-${type} border-0`;
+                toast.role = 'alert';
+                toast.setAttribute('aria-live', 'assertive');
+                toast.setAttribute('aria-atomic', 'true');
+                
+                toast.innerHTML = `
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            ${message}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                `;
+                
+                // 添加到容器
+                toastContainer.appendChild(toast);
+                
+                // 初始化并显示Toast
+                const bsToast = new bootstrap.Toast(toast, {
+                    autohide: true,
+                    delay: 5000
+                });
+                bsToast.show();
+                
+                // 显示后移除
+                toast.addEventListener('hidden.bs.toast', () => {
+                    toast.remove();
+                });
+            }
+            
+            // 创建Toast容器
+            function createToastContainer() {
+                const container = document.createElement('div');
+                container.id = 'toastContainer';
+                container.className = 'toast-container position-fixed top-0 end-0 p-3';
+                document.body.appendChild(container);
+                return container;
+            }
+
+            // 复制按钮事件监听器 - 提前添加，确保页面加载后即可使用
+            document.addEventListener('click', (e) => {
+                const btn = e.target.closest('.copy-btn');
+                if(btn) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    
+                    // 对URL进行代理处理后再复制
+                    let url = btn.dataset.url;
+                    const processedUrl = getProxiedUrl(url, getSelectedProxy() || '');
+                    
+                    handleCopy(processedUrl);
+                }
+                
+                // 点击多仓标题加载数据
+                const tvboxTitle = e.target.closest('#tvboxTitle');
+                if(tvboxTitle) {
+                    loadDuocangData();
+                }
+            });
+
             // 加载多仓数据函数定义
             async function loadDuocangData() {
                 console.log('loadDuocangData function called');
@@ -706,134 +840,9 @@
                 }
             }
 
-            // 复制功能
-            function handleCopy(text) {
-                // 首先尝试使用现代的Clipboard API
-                if (navigator.clipboard && window.isSecureContext) {
-                    navigator.clipboard.writeText(text).then(() => {
-                        showToast(`复制成功！<br/><small class="text-white-50">${text}</small>`, 'success');
-                    }).catch(err => {
-                        console.error('Clipboard API复制失败:', err);
-                        // 降级到传统方法
-                        fallbackCopyTextToClipboard(text);
-                    });
-                } else {
-                    // 直接使用传统方法
-                    fallbackCopyTextToClipboard(text);
-                }
-            }
-            
-            // 传统复制方法（作为备用）
-            function fallbackCopyTextToClipboard(text) {
-                try {
-                    // 创建临时textarea元素
-                    const textArea = document.createElement('textarea');
-                    textArea.value = text;
-                    
-                    // 设置textarea的样式以避免影响页面
-                    textArea.style.top = '0';
-                    textArea.style.left = '0';
-                    textArea.style.position = 'fixed';
-                    textArea.style.opacity = '0';
-                    
-                    // 添加到DOM
-                    document.body.appendChild(textArea);
-                    
-                    // 选中并复制
-                    textArea.focus();
-                    textArea.select();
-                    
-                    // 执行复制命令
-                    const successful = document.execCommand('copy');
-                    
-                    // 移除临时元素
-                    document.body.removeChild(textArea);
-                    
-                    // 显示结果
-                    if (successful) {
-                        showToast(`复制成功！<br/><small class="text-white-50">${text}</small>`, 'success');
-                    } else {
-                        showToast('复制失败，请手动复制！', 'danger');
-                    }
-                } catch (err) {
-                    console.error('传统方法复制失败:', err);
-                    showToast('复制失败，请手动复制！', 'danger');
-                }
-            }
-            
-            // 显示Toast提示
-            function showToast(message, type = 'info') {
-                // 确保Bootstrap已加载
-                if (typeof bootstrap === 'undefined') {
-                    alert(message);
-                    return;
-                }
-                
-                // 创建或获取toast容器
-                const toastContainer = document.getElementById('toastContainer') || createToastContainer();
-                
-                // 创建toast
-                const toast = document.createElement('div');
-                const bgColor = type === 'success' ? 'bg-success' : type === 'danger' ? 'bg-danger' : 'bg-info';
-                toast.className = `toast align-items-center text-white ${bgColor} border-0`;
-                toast.setAttribute('role', 'alert');
-                toast.setAttribute('aria-live', 'assertive');
-                toast.setAttribute('aria-atomic', 'true');
-                
-                toast.innerHTML = `
-                    <div class="d-flex">
-                        <div class="toast-body">
-                            ${message}
-                        </div>
-                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                `;
-                
-                // 添加到容器
-                toastContainer.appendChild(toast);
-                
-                // 初始化并显示toast
-                const bootstrapToast = new bootstrap.Toast(toast, {
-                    delay: 3000
-                });
-                bootstrapToast.show();
-                
-                // 显示后移除
-                toast.addEventListener('hidden.bs.toast', () => {
-                    toast.remove();
-                });
-            }
-            
-            // 创建Toast容器
-            function createToastContainer() {
-                const container = document.createElement('div');
-                container.id = 'toastContainer';
-                container.className = 'toast-container position-fixed top-0 end-0 p-3';
-                document.body.appendChild(container);
-                return container;
-            }
 
-            // 事件委托优化
-            document.addEventListener('click', (e) => {
-                const btn = e.target.closest('.copy-btn');
-                if(btn) {
-                    e.preventDefault();
-                    e.stopImmediatePropagation();
-                    
-                    // 对URL进行代理处理后再复制
-                    let url = btn.dataset.url;
-                    const processedUrl = getProxiedUrl(url, getSelectedProxy() || '');
-                    
-                    
-                    handleCopy(processedUrl);
-                }
-                
-                // 点击多仓标题加载数据
-                const tvboxTitle = e.target.closest('#tvboxTitle');
-                if(tvboxTitle) {
-                    loadDuocangData();
-                }
-            });
+            
+;
             
 
         });

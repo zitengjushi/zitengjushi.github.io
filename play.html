@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>m3u8播放器</title>
+    
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 引入hls.js库 -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <style>
+        /* 全局样式 */
+        :root {
+            --primary-color: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary-color: #64748b;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --card-hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s ease;
+        }
+        
+        /* 导航栏样式 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            padding: 15px 0;
+            box-shadow: var(--card-shadow);
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+        }
+        
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-item {
+            margin: 0;
+        }
+        
+        .nav-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+            background-color: rgba(79, 70, 229, 0.1);
+        }
+        
+        .nav-link.active {
+            color: white;
+            background-color: var(--primary-color);
+        }
+        
+        body {
+            min-height: 100vh;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            padding: 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        /* 容器样式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 标题样式 */
+        .page-title {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            font-weight: 700;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 卡片容器 */
+        .app-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+        
+        .app-card:hover {
+            box-shadow: var(--card-hover-shadow);
+            transform: translateY(-2px);
+        }
+        
+        /* 应用标题 */
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .app-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 32px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+        
+        th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        td {
+            color: #4b5563;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        /* 文件列表 */
+        .file-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+            align-items: start;
+        }
+        
+        /* 文件项样式 */
+        .file-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+            background: white;
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 卡片顶部装饰条 */
+        .file-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .file-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .file-item:hover::before {
+            opacity: 1;
+        }
+        
+        /* 文件名称 */
+        .file-name {
+            font-weight: 600;
+            color: #1f2937;
+            text-decoration: none;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: all 0.3s ease;
+            word-break: break-word;
+            overflow: visible;
+            white-space: normal;
+            font-size: 1rem;
+            padding-left: 2px;
+            line-height: 1.4;
+        }
+        
+        .file-name:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+            transform: translateX(4px);
+        }
+        
+        /* 版本标签 */
+        .version {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 5px 16px;
+            border-radius: 24px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            align-self: flex-start;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .version::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .file-item:hover .version::after {
+            left: 100%;
+        }
+        
+        /* 加载状态 */
+        .loading {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--secondary-color);
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e2e8f0;
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 错误提示 */
+        .error {
+            text-align: center;
+            padding: 40px 20px;
+            color: #dc2626;
+        }
+        
+        /* 空状态 */
+        .empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--secondary-color);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 576px) {
+            body {
+                padding: 10px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            
+            .app-card {
+                padding: 20px;
+            }
+            
+            .app-title {
+                font-size: 1.25rem;
+            }
+            
+            .file-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .version {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white rounded-3 shadow-sm mb-5 py-3">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary rounded-2" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary rounded-2" href="apk.html">应用下载</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary rounded-2" href="iptv.html">直播线路</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active btn btn-outline-primary text-white rounded-2" href="play.html">M3U8播放器</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1 class="page-title">M3U8播放器</h1>
+        
+        <div id="fongmi-section" class="card shadow-lg mb-5">
+              <div class="card-header bg-primary text-white">
+                  <h5 class="mb-0">M3U8播放器</h5>
+              </div>
+                <div class="card-body">
+                        <!-- M3U8播放器 -->
+                        <div class="player-container" style="width: 100%; max-width: 1000px; margin: 0 auto;">
+                            <!-- M3U8 URL输入区域 -->
+                            <div class="input-group mb-3">
+                                <input type="text" id="m3u8Url" class="form-control" placeholder="输入M3U8视频地址" aria-label="M3U8 URL">
+                                <button class="btn btn-primary" type="button" id="loadBtn">加载播放</button>
+                            </div>
+                            
+                            <!-- 节目列表URL输入区域 -->
+                            <div class="input-group mb-3">
+                                <input type="text" id="playlistUrl" class="form-control" placeholder="输入节目列表地址,支持txt/m3u格式" aria-label="节目列表URL">
+                                <button class="btn btn-secondary" type="button" id="loadPlaylistBtn">加载节目列表</button>
+                            </div>
+                            
+                            <!-- 视频播放区域 -->
+                            <div class="video-wrapper" style="background-color: #000; border-radius: 8px; overflow: hidden; margin-bottom: 10px;">
+                                <video id="videoPlayer" class="video-js vjs-default-skin" controls preload="none" width="100%" height="500px"></video>
+                            </div>
+                            
+                            <!-- 播放器控制信息 -->
+                            <div id="playerInfo" class="alert alert-info" role="alert" style="display: none;">
+                                播放器加载中...
+                            </div>
+                        </div>
+                        
+                        <!-- 节目列表显示区域 -->
+                        <div class="playlist-container" style="margin-top: 30px;">
+                            <h5>节目列表</h5>
+                            <div id="playlistContent" class="mt-3" style="max-height: 500px; overflow-y: auto;">
+                                <p class="text-muted">请加载节目列表</p>
+                            </div>
+                        </div>
+                </div>
+        </div>
+
+        <div id="okjack-section" class="card shadow-lg mb-5">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">免责声明</h5>
+            </div>
+            <div class="card-body">
+            <div id="about-list">
+                <ol dir="auto">
+                <li>此数据全部来源于网络，仅用于学习研究，不保证其合法性、准确性、有效性，请根据情况自行判断，本人对此不承担任何保证责任。</li>
+                <li>由于此数据仅用于学习研究，您必须在下载后 24 小时内将所有内容从您的计算机或手机或任何存储设备中完全删除，若违反规定引起任何事件本人对此均不负责。</li>
+                <li>请勿将此数据用于任何商业或非法目的，若违反规定请自行对此负责。</li>
+                <li>此数据涉及应用与本人无关，本人对因此引起的任何隐私泄漏或其他后果不承担任何责任。</li>
+                <li>本人对任何程序引发的问题概不负责，包括但不限于由程序错误引起的任何损失和损害。</li>
+                <li>如果任何单位或个人认为此程序可能涉嫌侵犯其权利，应及时通知并提供身份证明，所有权证明，我们将在收到认证文件确认后删除此程序。</li>
+                <li>所有直接或间接使用、查看此数据的人均应该仔细阅读此声明。本人保留随时更改或补充此声明的权利。一旦您使用或复制了此数据，即视为您已接受此免责声明。</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+    <!-- M3U8播放器JavaScript代码 -->
+    <script>
+        // 获取DOM元素
+        const videoPlayer = document.getElementById('videoPlayer');
+        const m3u8UrlInput = document.getElementById('m3u8Url');
+        const loadBtn = document.getElementById('loadBtn');
+        const playerInfo = document.getElementById('playerInfo');
+        const playlistUrlInput = document.getElementById('playlistUrl');
+        const loadPlaylistBtn = document.getElementById('loadPlaylistBtn');
+        const playlistContent = document.getElementById('playlistContent');
+        
+        let hls = null;
+        
+        // 显示播放器信息
+        function showPlayerInfo(message, type = 'info') {
+            playerInfo.textContent = message;
+            playerInfo.className = `alert alert-${type}`;
+            playerInfo.style.display = 'block';
+        }
+        
+        // 隐藏播放器信息
+        function hidePlayerInfo() {
+            playerInfo.style.display = 'none';
+        }
+        
+        // 加载M3U8视频
+        function loadM3U8(url, channelName = '') {
+            // 重置播放器
+            if (hls) {
+                hls.destroy();
+                hls = null;
+            }
+            
+            // 清空视频源
+            videoPlayer.src = '';
+            
+            // 显示加载信息
+            const loadingMsg = channelName ? `正在加载频道：${channelName}...` : '正在加载视频...';
+            showPlayerInfo(loadingMsg);
+            
+            // 检查浏览器是否支持HLS
+            if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+                // 原生支持HLS
+                videoPlayer.src = url;
+                videoPlayer.addEventListener('loadedmetadata', () => {
+                    const successMsg = channelName ? `频道 ${channelName} 加载成功，开始播放！` : '视频加载成功，开始播放！';
+                    showPlayerInfo(successMsg, 'success');
+                    videoPlayer.play();
+                });
+                videoPlayer.addEventListener('error', (error) => {
+                    const errorMsg = channelName ? `频道 ${channelName} 加载失败：${error.message}` : '视频加载失败：' + error.message;
+                    showPlayerInfo(errorMsg, 'danger');
+                });
+            } else if (Hls.isSupported()) {
+                // 使用hls.js库
+                hls = new Hls({
+                    enableWorker: true,
+                    lowLatencyMode: true
+                });
+                
+                hls.loadSource(url);
+                hls.attachMedia(videoPlayer);
+                
+                hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                    const successMsg = channelName ? `频道 ${channelName} 加载成功，开始播放！` : '视频加载成功，开始播放！';
+                    showPlayerInfo(successMsg, 'success');
+                    videoPlayer.play();
+                });
+                
+                hls.on(Hls.Events.ERROR, (event, data) => {
+                    if (data.fatal) {
+                        switch (data.type) {
+                            case Hls.ErrorTypes.NETWORK_ERROR:
+                                showPlayerInfo('网络错误，正在重试...', 'warning');
+                                hls.startLoad();
+                                break;
+                            case Hls.ErrorTypes.MEDIA_ERROR:
+                                showPlayerInfo('媒体错误，视频无法播放！', 'danger');
+                                hls.recoverMediaError();
+                                break;
+                            default:
+                                showPlayerInfo('视频加载失败，请检查URL是否正确！', 'danger');
+                                hls.destroy();
+                                break;
+                        }
+                    }
+                });
+            } else {
+                showPlayerInfo('您的浏览器不支持HLS视频格式！', 'danger');
+            }
+        }
+        
+        // 解析txt格式节目列表
+        function parseTxtPlaylist(content) {
+            const lines = content.split('\n');
+            const channels = {};
+            let currentGenre = '默认分类';
+
+            lines.forEach(line => {
+                line = line.trim();
+                if (!line) return;
+
+                // 处理分类标记 - 支持两种格式：
+                // 1. ,#genre#分类名称
+                // 2. 分类名称,#genre#
+                if (line.includes(',#genre#')) {
+                    if (line.startsWith(',#genre#')) {
+                        // 格式：,#genre#分类名称
+                        currentGenre = line.replace(',#genre#', '');
+                    } else if (line.endsWith(',#genre#')) {
+                        // 格式：分类名称,#genre#
+                        currentGenre = line.replace(',#genre#', '');
+                    } else {
+                        // 其他情况，提取中间部分
+                        currentGenre = line.split(',#genre#')[0] || line.split(',#genre#')[1] || '默认分类';
+                    }
+                    
+                    if (!channels[currentGenre]) {
+                        channels[currentGenre] = [];
+                    }
+                } else if (line.includes(',')) {
+                    // 频道行格式：频道名称,URL
+                    const parts = line.split(',');
+                    if (parts.length >= 2) {
+                        const name = parts[0].trim();
+                        const url = parts.slice(1).join(',').trim();
+                        if (name && url) {
+                            channels[currentGenre].push({ name, url });
+                        }
+                    }
+                }
+            });
+
+            return channels;
+        }
+
+        // 解析m3u格式节目列表
+        function parseM3UPlaylist(content) {
+            const lines = content.split('\n');
+            const channels = {};
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (line.startsWith('#EXTINF')) {
+                    // 解析频道信息行
+                    const channelInfo = line;
+                    const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
+                    
+                    if (nextLine && !nextLine.startsWith('#')) {
+                        // 提取频道名称和URL
+                        const nameMatch = channelInfo.match(/,(.*)$/);
+                        const name = nameMatch ? nameMatch[1] : '未知频道';
+                        const url = nextLine;
+                        
+                        // 提取分类信息
+                        const genreMatch = channelInfo.match(/group-title="([^"]+)"/);
+                        const genre = genreMatch ? genreMatch[1] : '默认分类';
+                        
+                        if (!channels[genre]) {
+                            channels[genre] = [];
+                        }
+                        channels[genre].push({ name, url });
+                        
+                        // 跳过URL行
+                        i++;
+                    }
+                }
+            }
+
+            return channels;
+        }
+
+        // 显示节目列表
+        function displayPlaylist(channels) {
+            const container = document.getElementById('playlistContent');
+            
+            if (Object.keys(channels).length === 0) {
+                container.innerHTML = '<p class="text-muted">未找到节目列表内容</p>';
+                return;
+            }
+
+            let html = '';
+            for (const genre in channels) {
+                if (channels.hasOwnProperty(genre)) {
+                    html += `<div class="genre-section mb-4">`;
+                    html += `<h6 class="fw-bold text-primary">${genre}</h6>`;
+                    html += `<div class="channel-list mt-2 d-flex flex-wrap gap-2">`;
+                    
+                    channels[genre].forEach(channel => {
+                        html += `<button class="btn btn-outline-secondary btn-sm channel-btn" data-url="${channel.url}" data-name="${channel.name}">`;
+                        html += `${channel.name}`;
+                        html += `</button>`;
+                    });
+                    
+                    html += `</div></div>`;
+                }
+            }
+            
+            container.innerHTML = html;
+            
+            // 添加频道点击事件
+            document.querySelectorAll('.channel-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const url = btn.getAttribute('data-url');
+                    const name = btn.getAttribute('data-name');
+                    loadM3U8(url, name);
+                });
+            });
+        }
+
+        // 加载节目列表
+        function loadPlaylist(url) {
+            if (!url) {
+                showPlayerInfo('请输入节目列表地址！', 'warning');
+                return;
+            }
+            
+            // 显示加载状态
+            const container = document.getElementById('playlistContent');
+            container.innerHTML = '<div class="text-center"><div class="spinner-border" role="status"><span class="visually-hidden">加载中...</span></div><p class="mt-2">正在加载节目列表...</p></div>';
+            
+            // 发送请求获取节目列表
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`网络错误：${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(content => {
+                    let channels;
+                    // 自动判断文件格式
+                    if (content.trim().startsWith('#EXTM3U')) {
+                        // m3u格式
+                        channels = parseM3UPlaylist(content);
+                    } else {
+                        // txt格式
+                        channels = parseTxtPlaylist(content);
+                    }
+                    // 显示节目列表
+                    displayPlaylist(channels);
+                    showPlayerInfo('节目列表加载成功！', 'success');
+                })
+                .catch(error => {
+                    container.innerHTML = `<p class="text-danger">节目列表加载失败：${error.message}</p>`;
+                    showPlayerInfo('节目列表加载失败，请检查URL是否正确！', 'danger');
+                });
+        }
+        
+        // 加载按钮点击事件
+        loadBtn.addEventListener('click', () => {
+            const url = m3u8UrlInput.value.trim();
+            if (!url) {
+                showPlayerInfo('请输入M3U8视频地址！', 'warning');
+                return;
+            }
+            
+            // 验证URL格式
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                showPlayerInfo('请输入有效的HTTP/HTTPS URL！', 'warning');
+                return;
+            }
+            
+            if (!url.endsWith('.m3u8') && !url.includes('.m3u8?')) {
+                showPlayerInfo('请输入有效的M3U8格式地址！', 'warning');
+                return;
+            }
+            
+            loadM3U8(url);
+        });
+        
+        // 加载节目列表按钮点击事件
+        loadPlaylistBtn.addEventListener('click', () => {
+            const url = playlistUrlInput.value.trim();
+            loadPlaylist(url);
+        });
+        
+        // 回车键加载视频
+        m3u8UrlInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                loadBtn.click();
+            }
+        });
+        
+        // 回车键加载节目列表
+        playlistUrlInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                loadPlaylistBtn.click();
+            }
+        });
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            showPlayerInfo('请输入M3U8视频地址或节目列表地址开始播放', 'info');
+        });
+    </script>
+</body>
+</html>
