@@ -1,0 +1,97 @@
+{
+    "urls": [
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0821.json",
+            "name": "大而全的配置"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0825.json",
+            "name": "小而精的配置"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0826.json",
+            "name": "饭太硬"
+        }, 
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0827.json",
+            "name": "fongmi"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/js.json",
+            "name": "道长drpy"
+        }, 
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
+            "name": "南风无广"
+        }, 
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
+            "name": "分享者"
+        }, 
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/TVBox/main/hanXC.json",
+            "name": "胜寒"
+        }, 
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/asxs123/mytvboxlist/refs/heads/main/merged.json",
+            "name": "asxs123"
+        }, 
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/box.json",
+            "name": "box"
+        }, 
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/woniuxs/TVBOX/main/svip",
+            "name": "蜗牛影视"
+        }, 
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/lege0001/TVbox/main/TV/dj.json",
+            "name": "🔥爱在指尖|短剧🔥"
+        }, 
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/xyq254245/xyqonlinerule/main/XYQTVBox.json",
+            "name": "香雅情"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/Dong-learn9/TVBox-zyjk/main/tvbox2.json",
+            "name": "Dong-learn9"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/franksun1211/TVBOX/main/0706.json",
+            "name": "0706"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/loopool/fan/refs/heads/main/a.json",
+            "name": "loopool"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/heroaku/TVboxo/main/apig.json",
+            "name": "apig"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/yoursmile66/TVBox/heads/main/XC.json",
+            "name": "南风线路"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/4K/4K.json",
+            "name": "4k"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/music.json",
+            "name": "music"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/leevi0709/one/main/jsm.json",
+            "name": "One线路"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/gaotianliuyun/gao/master/js.json",
+            "name": "高天流云"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/2hacc/TVBox/refs/heads/main/oktv.json",
+            "name": "二哈线路"
+        }
+
+    ]
+}

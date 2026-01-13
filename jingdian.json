@@ -41,6 +41,10 @@
             "name": "王二小"
         },
         {
+            "url": "https://9280.kstore.space/wex.json",
+            "name": "王二小备"
+        },
+        {
             "url": "http://我不是.摸鱼儿.com",
             "name": "摸鱼儿"
         },
@@ -97,8 +101,16 @@
             "name": "驸马线路"
         },
         {
+            "url": "http://xhztv.top/4k.json",
+            "name": "盒子4K"
+        },
+        {
             "url": "http://rihou.cc:555/nzk/nzk0722.json",
             "name": "D佬魔改"
+        },
+        {
+            "url": "https://www.yingm.cc/dm/dm.json",
+            "name": "动漫"
         },
         {
             "url": "http://box.ufuzi.com/tv/qq/短剧频道/api.json",
@@ -107,6 +119,10 @@
         {
             "url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer",
             "name": "少儿"
+        },
+        {
+            "url": "https://gitee.com/free-kingdom/dc/raw/main/T4.json",
+            "name": "T4线路"
         }
     ]
 }

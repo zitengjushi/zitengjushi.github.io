@@ -1,0 +1,108 @@
+
+
+# 工作流名称：同步外部仓库内容
+name: Sync External Repository
+
+# 触发条件配置
+on:
+  # 定时触发：每小时检查一次外部仓库的更新
+  schedule:
+    - cron: '0 * * * *'  # cron表达式，格式：分钟 小时 日期 月份 星期
+  # 手动触发：允许通过GitHub界面手动运行此工作流
+  workflow_dispatch:
+
+# 定义作业
+jobs:
+  sync:  # 作业名称
+    runs-on: ubuntu-latest  # 运行环境：最新版本的Ubuntu
+    steps:  # 作业步骤
+      # 步骤1：检出当前仓库
+      - name: Checkout your repository
+        uses: actions/checkout@v4  # 使用GitHub官方的checkout动作
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # 使用GitHub自动生成的令牌进行身份验证
+          fetch-depth: 0  # 检出所有历史提交，而不仅仅是最新的一个
+
+      # 步骤2：配置Git用户信息
+      - name: Set up Git
+        run: |
+          # 配置Git用户名和邮箱，用于后续的提交操作
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+
+      # 步骤3：克隆目标外部仓库
+      - name: Clone target repository
+        uses: actions/checkout@v4  # 再次使用checkout动作，但这次用于克隆外部仓库
+        with:
+          repository: PizazzGY/NewTVBox  # 目标仓库地址
+          token: ${{ secrets.GITHUB_TOKEN }}  # 身份验证令牌
+          path: synced-content  # 克隆到本地的目录名称
+          fetch-depth: 1  # 只获取最新的一次提交，减少不必要的网络传输
+
+      # 步骤4：检查外部仓库是否有变化
+      - name: Check if there are changes
+        id: check-changes  # 步骤ID，用于后续步骤引用此步骤的输出
+        run: |
+          # 检查synced-content目录中的Git仓库是否有未提交的更改
+          if [ -n "$(git -C synced-content diff HEAD --name-only)" ]; then
+            # 如果有更改，设置output变量changes为true
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            # 如果没有更改，设置output变量changes为false
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      # 步骤5：如果有变化，将文件复制到目标文件夹并提交
+      - name: Copy files to target folder
+        if: steps.check-changes.outputs.changes == 'true'  # 仅当changes为true时执行此步骤
+        run: |
+          # 删除克隆仓库中的.git目录，避免嵌套Git仓库
+          rm -rf synced-content/.git
+          # 创建目标目录（如果不存在）
+          mkdir -p tvboxlist/PizazzGY
+          # 将克隆仓库中的所有文件复制到目标目录
+          cp -r synced-content/* tvboxlist/PizazzGY/
+          # 将目标目录的更改添加到Git暂存区
+          git add tvboxlist/PizazzGY/
+          # 提交更改，使用当前UTC时间作为提交信息的一部分
+          git commit -m "chore: sync updates from external repo $(date -u '+%Y-%m-%d %H:%M:%S UTC')" || echo "No changes to commit"
+          # 将更改推送到远程仓库
+          git push
+
+      # 步骤6：清理临时文件
+      - name: Cleanup
+        run: rm -rf synced-content  # 删除克隆的外部仓库目录，清理工作区
+
+      # 步骤7：克隆第二个目标外部仓库 (ediart/tvbox)
+      - name: Clone second target repository
+        uses: actions/checkout@v4
+        with:
+          repository: ediart/tvbox  # 第二个目标仓库地址
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: synced-content-ediart  # 不同的临时目录，避免冲突
+          fetch-depth: 1
+
+      # 步骤8：检查第二个外部仓库是否有变化
+      - name: Check if there are changes in second repo
+        id: check-changes-ediart
+        run: |
+          if [ -n "$(git -C synced-content-ediart diff HEAD --name-only)" ]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      # 步骤9：如果有变化，将第二个仓库的文件复制到目标文件夹并提交
+      - name: Copy files from second repo to target folder
+        if: steps.check-changes-ediart.outputs.changes == 'true'
+        run: |
+          rm -rf synced-content-ediart/.git
+          mkdir -p tvboxlist/ediart
+          cp -r synced-content-ediart/* tvboxlist/ediart/
+          git add tvboxlist/ediart/
+          git commit -m "chore: sync updates from ediart/tvbox $(date -u '+%Y-%m-%d %H:%M:%S UTC')" || echo "No changes to commit"
+          git push
+
+      # 步骤10：清理第二个临时文件
+      - name: Cleanup second repo
+        run: rm -rf synced-content-ediart
