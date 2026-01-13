@@ -7,7 +7,7 @@ name: Sync External Repository
 on:
   # 定时触发：每小时检查一次外部仓库的更新
   schedule:
-    - cron: '0 * * * *'  # cron表达式，格式：分钟 小时 日期 月份 星期
+    - cron: '0 0 * * *'  # cron表达式，格式：分钟 小时 日期 月份 星期
   # 手动触发：允许通过GitHub界面手动运行此工作流
   workflow_dispatch:
 
