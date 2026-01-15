@@ -5,7 +5,7 @@ name: Sync External Repository
 
 # 触发条件配置
 on:
-  # 定时触发：每小时检查一次外部仓库的更新
+  # 定时触发：每天检查一次外部仓库的更新
   schedule:
     - cron: '0 0 * * *'  # cron表达式，格式：分钟 小时 日期 月份 星期
   # 手动触发：允许通过GitHub界面手动运行此工作流
@@ -39,16 +39,16 @@ jobs:
           path: synced-content  # 克隆到本地的目录名称
           fetch-depth: 1  # 只获取最新的一次提交，减少不必要的网络传输
 
-      # 步骤4：检查外部仓库是否有变化
-      - name: Check if there are changes
+      # 步骤4：检查外部仓库是否有内容
+      - name: Check if there are files to copy
         id: check-changes  # 步骤ID，用于后续步骤引用此步骤的输出
         run: |
-          # 检查synced-content目录中的Git仓库是否有未提交的更改
-          if [ -n "$(git -C synced-content diff HEAD --name-only)" ]; then
-            # 如果有更改，设置output变量changes为true
+          # 检查synced-content目录中是否有文件
+          if [ "$(ls -A synced-content)" ]; then
+            # 如果有文件，设置output变量changes为true
             echo "changes=true" >> $GITHUB_OUTPUT
           else
-            # 如果没有更改，设置output变量changes为false
+            # 如果没有文件，设置output变量changes为false
             echo "changes=false" >> $GITHUB_OUTPUT
           fi
 
@@ -82,11 +82,12 @@ jobs:
           path: synced-content-ediart  # 不同的临时目录，避免冲突
           fetch-depth: 1
 
-      # 步骤8：检查第二个外部仓库是否有变化
-      - name: Check if there are changes in second repo
+      # 步骤8：检查第二个外部仓库是否有内容
+      - name: Check if there are files to copy in second repo
         id: check-changes-ediart
         run: |
-          if [ -n "$(git -C synced-content-ediart diff HEAD --name-only)" ]; then
+          # 检查synced-content-ediart目录中是否有文件
+          if [ "$(ls -A synced-content-ediart)" ]; then
             echo "changes=true" >> $GITHUB_OUTPUT
           else
             echo "changes=false" >> $GITHUB_OUTPUT
