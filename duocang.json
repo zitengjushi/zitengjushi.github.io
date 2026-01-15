@@ -1,7 +1,7 @@
 {
 	"storeHouse":
 	[
-		{"sourceName":"网络名家","sourceUrl":"https://zitengjushi.lvtu369.com/jingdian.json"},
+		{"sourceName":"网络名家","sourceUrl":"https://tv.zitengju.top/jingdian.json"},
 		{"sourceName":"github","sourceUrl":"https://gh-proxy.org/https://raw.githubusercontent.com/zitengjushi/zitengjushi.github.io/main/github.json"}, 
 		{"sourceName":"fish2018","sourceUrl":"https://raw.bgithub.xyz/fish2018/ol/main/all.json"}, 
 		{"sourceName":"qirenzhidao","sourceUrl":"https://raw.bgithub.xyz/qirenzhidao/tvbox18/main/tvbox.json"}, 
