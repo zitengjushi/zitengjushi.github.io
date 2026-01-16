@@ -1,0 +1,122 @@
+{
+  "vbskycn": {
+    "version": "1.9.8",
+    "name": "vbskycn-ipv4直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u",
+    "sub_dir": ""
+  },
+  "suxuang": {
+    "version": "1.9.8",
+    "name": "suxuang-ipv4直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/suxuang/myIPTV/main/ipv4.m3u",
+    "sub_dir": ""
+  },
+  "suxuang移动iptv": {
+    "version": "1.9.8",
+    "name": "suxuang移动iptv",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/suxuang/myIPTV/main/移动IPTV.m3u",
+    "sub_dir": ""
+  },
+    "hujingguang": {
+    "version": "1.9.8",
+    "name": "hujingguang直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/hujingguang/ChinaIPTV/refs/heads/main/cnTV_AutoUpdate.m3u8",
+    "sub_dir": ""
+  },
+    "lalifeier-iptv": {
+    "version": "1.9.8",
+    "name": "lalifeier-iptv直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/lalifeier/IPTV/main/m3u/IPTV.m3u",
+    "sub_dir": ""
+  },
+    "lalifeier-酒店": {
+    "version": "1.9.8",
+    "name": "lalifeier酒店直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/lalifeier/IPTV/main/txt/hotel/全国.txt",
+    "sub_dir": ""
+  },
+    "lalifeier-虎牙": {
+    "version": "1.9.8",
+    "name": "lalifeier-虎牙直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/lalifeier/IPTV/main/m3u/huya.m3u",
+    "sub_dir": ""
+  },
+    "lalifeier-douyu": {
+    "version": "1.9.8",
+    "name": "lalifeier-斗鱼直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/lalifeier/IPTV/main/m3u/douyu.m3u",
+    "sub_dir": ""
+  },
+    "lalifeier-yy": {
+    "version": "1.9.8",
+    "name": "lalifeier-YY直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/lalifeier/IPTV/main/m3u/yy.m3u",
+    "sub_dir": ""
+  },
+    "skddyj": {
+    "version": "1.9.8",
+    "name": "skddyj 直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/skddyj/iptv/refs/heads/main/IPTV.m3u",
+    "sub_dir": ""
+  },
+    "fanmingming": {
+    "version": "1.9.8",
+    "name": "fanmingming-ipv6直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u",
+    "sub_dir": ""
+  },
+    "kakaxi": {
+    "version": "1.9.8",
+    "name": "kakaxi ipv4直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/kakaxi-1/IPTV/refs/heads/main/ipv4.txt",
+    "sub_dir": ""
+  },
+    "kakaxi-iptv": {
+    "version": "1.9.8",
+    "name": "kakaxi-iptv直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/kakaxi-1/IPTV/refs/heads/main/iptv.txt",
+    "sub_dir": ""
+  },
+    "atsushi444": {
+    "version": "1.9.8",
+    "name": "atsushi444 直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/atsushi444/iptv/refs/heads/main/tv.m3u",
+    "sub_dir": ""
+  },
+    "q1017673817": {
+    "version": "1.9.8",
+    "name": "q1017673817 直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/q1017673817/iptvz/refs/heads/main/zubo_all.txt",
+    "sub_dir": ""
+  }
+}

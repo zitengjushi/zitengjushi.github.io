@@ -52,10 +52,24 @@ jobs:
             echo "changes=false" >> $GITHUB_OUTPUT
           fi
 
+      # 步骤4.1：获取目标仓库的最后一个commit信息
+      - name: Get last commit message from PizazzGY/NewTVBox
+        id: get-last-commit-pizazzgy
+        if: steps.check-changes.outputs.changes == 'true'
+        run: |
+          # 进入同步的外部仓库目录
+          cd synced-content
+          # 获取最后一个commit的完整信息
+          LAST_COMMIT=$(git log -1 --pretty=format:"Sync PizazzGY/NewTVBox: %h %s")
+          # 设置为输出变量，供后续步骤使用
+          echo "last_commit=$LAST_COMMIT" >> $GITHUB_OUTPUT
+
       # 步骤5：如果有变化，将文件复制到目标文件夹并提交
       - name: Copy files to target folder
         if: steps.check-changes.outputs.changes == 'true'  # 仅当changes为true时执行此步骤
         run: |
+          # 保存外部仓库的最后一个commit信息
+          LAST_COMMIT="${{ steps.get-last-commit-pizazzgy.outputs.last_commit }}"
           # 删除克隆仓库中的.git目录，避免嵌套Git仓库
           rm -rf synced-content/.git
           # 创建目标目录（如果不存在）
@@ -64,8 +78,8 @@ jobs:
           cp -r synced-content/* tvboxlist/PizazzGY/
           # 将目标目录的更改添加到Git暂存区
           git add tvboxlist/PizazzGY/
-          # 提交更改，使用当前UTC时间作为提交信息的一部分
-          git commit -m "chore: sync updates from external repo $(date -u '+%Y-%m-%d %H:%M:%S UTC')" || echo "No changes to commit"
+          # 提交更改，使用外部仓库的最后一个commit信息
+          git commit -m "$LAST_COMMIT $(date -u '+%Y-%m-%d %H:%M:%S UTC')" || echo "No changes to commit"
           # 将更改推送到远程仓库
           git push
 
@@ -93,15 +107,30 @@ jobs:
             echo "changes=false" >> $GITHUB_OUTPUT
           fi
 
+      # 步骤8.1：获取第二个目标仓库的最后一个commit信息
+      - name: Get last commit message from ediart/tvbox
+        id: get-last-commit-ediart
+        if: steps.check-changes-ediart.outputs.changes == 'true'
+        run: |
+          # 进入同步的第二个外部仓库目录
+          cd synced-content-ediart
+          # 获取最后一个commit的完整信息
+          LAST_COMMIT=$(git log -1 --pretty=format:"Sync ediart/tvbox: %h %s")
+          # 设置为输出变量，供后续步骤使用
+          echo "last_commit=$LAST_COMMIT" >> $GITHUB_OUTPUT
+
       # 步骤9：如果有变化，将第二个仓库的文件复制到目标文件夹并提交
       - name: Copy files from second repo to target folder
         if: steps.check-changes-ediart.outputs.changes == 'true'
         run: |
+          # 保存外部仓库的最后一个commit信息
+          LAST_COMMIT="${{ steps.get-last-commit-ediart.outputs.last_commit }}"
           rm -rf synced-content-ediart/.git
           mkdir -p tvboxlist/ediart
           cp -r synced-content-ediart/* tvboxlist/ediart/
           git add tvboxlist/ediart/
-          git commit -m "chore: sync updates from ediart/tvbox $(date -u '+%Y-%m-%d %H:%M:%S UTC')" || echo "No changes to commit"
+          # 提交更改，使用第二个外部仓库的最后一个commit信息
+          git commit -m "$LAST_COMMIT $(date -u '+%Y-%m-%d %H:%M:%S UTC')" || echo "No changes to commit"
           git push
 
       # 步骤10：清理第二个临时文件

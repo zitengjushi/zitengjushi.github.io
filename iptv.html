@@ -219,13 +219,12 @@
             color: #1f2937;
             text-decoration: none;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
             transition: all 0.3s ease;
             word-break: break-word;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            overflow-wrap: break-word;
+            line-height: 1.3;
             font-size: 1rem;
             padding-left: 2px;
         }
@@ -362,6 +361,28 @@
     
     <div class="container">
         <h1 class="page-title">直播线路</h1>
+        
+        <!-- 代理选择器 -->
+        <div class="row mb-4 justify-content-center">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <label class="input-group-text" for="proxySelect">选择代理</label>
+                    <select class="form-select" id="proxySelect"></select>
+                </div>
+            </div>
+        </div>
+        
+        <div id="network-live-section" class="card shadow-lg mb-5">
+              <div class="card-header bg-primary text-white">
+                  <h5 class="mb-0">网络直播源</h5>
+              </div>
+              <div class="card-body">
+                  <div class="mt-1">
+                      <h6 class="text-primary mb-3">GitHub直播源</h6>
+                      <div id="iptv-github-list" class="file-list"></div>
+                  </div>
+              </div>
+        </div>
         
         <div id="fongmi-section" class="card shadow-lg mb-5">
               <div class="card-header bg-primary text-white">
@@ -680,6 +701,97 @@
             </div>
         </div>
     </div>
+    <script type="module">
+        // 导入代理管理模块的函数
+        import { initProxySelector, testAllProxies, updateProxySelectorWithSpeed, getProxiedUrl } from './js/proxyList.js';
+        
+        // 加载JSON文件的函数
+        async function loadJson(url) {
+            try {
+                // 使用代理处理URL
+                const proxiedUrl = getProxiedUrl(url);
+                const response = await fetch(proxiedUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Error loading JSON:', error);
+                return null;
+            }
+        }
+
+        // 显示IPTV GitHub直播源列表的函数
+        function displayIptvGithubList(containerId, jsonData) {
+            const container = document.getElementById(containerId);
+            
+            if (!jsonData) {
+                container.innerHTML = `
+                    <div class="text-center text-danger">
+                        <span style="font-size: 3rem; margin-bottom: 16px; display: block;">⚠️</span>
+                        <p>无法加载GitHub直播源数据</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // 获取所有直播源项目
+            const iptvItems = Object.keys(jsonData);
+            
+            if (iptvItems.length === 0) {
+                container.innerHTML = `
+                    <div class="empty text-center">
+                        <span style="font-size: 3rem; margin-bottom: 16px; color: #cbd5e1; display: block;">📦</span>
+                        <p>没有找到GitHub直播源</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // 生成HTML
+            let html = '';
+            iptvItems.forEach(itemKey => {
+                const item = jsonData[itemKey];
+                const name = item.name;
+                const version = item.version;
+                const url = item.url;
+                
+                // 使用代理处理URL
+                const proxiedUrl = getProxiedUrl(url);
+                
+                html += `
+                    <div class="file-item">
+                        <a href="${proxiedUrl}" class="file-name" target="_blank" title="${name}">
+                            <span style="margin-right: 8px; font-size: 24px; vertical-align: middle;">📡</span>${name}
+                        </a>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 初始化代理选择器
+            const proxySelector = initProxySelector('proxySelect');
+            
+            // 加载并显示IPTV GitHub直播源
+            const loadIptvData = async () => {
+                const iptvGithubData = await loadJson('apk/iptv-github.json');
+                displayIptvGithubList('iptv-github-list', iptvGithubData);
+            };
+            
+            // 首次加载数据
+            await loadIptvData();
+            
+            // 执行所有代理的测速，并在自动选择代理后重新加载数据
+            await testAllProxies(proxySelector, async (selectedProxyUrl) => {
+                console.log('自动选择代理后重新加载数据:', selectedProxyUrl);
+                await loadIptvData();
+            });
+        });
+    </script>
     <script>
         var _hmt = _hmt || [];
         (function() {
