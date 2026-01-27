@@ -889,6 +889,12 @@
             }
         },
         {
+            "key": "爱听音乐",
+            "name": "爱听｜音乐",
+            "type": 3,
+            "api": "./py/爱听音乐.py"
+        },
+        {
             "key": "六月听书",
             "name": "六月｜听书",
             "type": 3,
@@ -1560,7 +1566,7 @@
         },
         {
             "name": "SMT",
-            "url": "http://96.44.160.246:9999/smt.php"
+            "url": "http://159.69.45.173:9999/smt.php"
         },
         {
             "name": "MyTvSuper",
@@ -1582,7 +1588,7 @@
         },
         {
             "name": "YouTube直播",
-            "url": "https://down.nigx.cn/raw.githubusercontent.com/zzq1234567890/epg/refs/heads/main/youtubelive.m3u"
+            "url": "https://down.nigx.cn/raw.githubusercontent.com/zzq1234567890/epg/refs/heads/main/youtube.m3u"
         },
         {
             "name": "备用直播一",
