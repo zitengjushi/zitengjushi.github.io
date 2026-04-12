@@ -6,7 +6,7 @@
     "android": "",
     "desc": "FongMi影视电视版，适合新的设备使用",
     "url": "https://bgithub.xyz/FongMi/Release/tree/fongmi/apk",
-    "sub_dir": "/apk/fongmi/leanback-arm64_v8a.apk"
+    "sub_dir": "https://github.com/FongMi/Release/raw/refs/heads/fongmi/apk/leanback-arm64_v8a.apk"
   },
   "leanback-armeabi_v7a.apk": {
     "version": "5.3.6",
@@ -15,7 +15,7 @@
     "android": "",
     "desc": "FongMi影视电视版，如果电视版64位无法安装可以安装此版本",
     "url": "https://github.com/FongMi/Release/tree/fongmi/apk",
-    "sub_dir": "/apk/fongmi/leanback-armeabi_v7a.apk"
+    "sub_dir": "https://github.com/FongMi/Release/raw/refs/heads/fongmi/apk/leanback-armeabi_v7a.apk"
   },
   "mobile-arm64_v8a.apk": {
     "version": "5.3.6",
@@ -24,7 +24,7 @@
     "android": "",
     "desc": "FongMi影视手机版，适合新的设备使用",
     "url": "https://github.com/FongMi/Release/tree/fongmi/apk",
-    "sub_dir": "/apk/fongmi/mobile-arm64_v8a.apk"
+    "sub_dir": "https://github.com/FongMi/Release/raw/refs/heads/fongmi/apk/mobile-arm64_v8a.apk"
   },
   "mobile-armeabi_v7a.apk": {
     "version": "5.3.6",
@@ -33,6 +33,6 @@
     "android": "",
     "desc": "FongMi影视手机版，如果手机版64位无法安装可以安装此版本",
     "url": "https://github.com/FongMi/Release/tree/fongmi/apk",
-    "sub_dir": "/apk/fongmi/mobile-armeabi_v7a.apk"
+    "sub_dir": "https://github.com/FongMi/Release/raw/refs/heads/fongmi/apk/mobile-armeabi_v7a.apk"
   }
 }
