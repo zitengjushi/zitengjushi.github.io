@@ -1,0 +1,49 @@
+name: 每日同步 APK 版本信息
+
+on:
+  schedule:
+    # 每天 UTC 02:00（北京时间 10:00）自动运行
+    - cron: "0 2 * * *"
+  workflow_dispatch:   # 支持手动触发
+
+permissions:
+  contents: write      # 允许 Action 提交修改
+
+jobs:
+  sync-apk-versions:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 检出仓库
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. 配置 Python 环境（只用标准库，无需安装第三方包）
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 3. 执行版本同步脚本
+      - name: Run version sync
+        id: sync
+        env:
+          # GITHUB_TOKEN 自动注入，无需手动配置 Secret
+          # 使用 Token 可将 API 速率上限从 60次/h 提升至 1000次/h
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/fongmi.py
+
+      # 4. 有变更时自动 commit 并 push
+      - name: Commit and push changes
+        if: steps.sync.outputs.updated != '0'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add apk/okjack.json apk/fongmi.json
+          git commit -m "chore: 自动同步 APK 版本信息 [skip ci]"
+          git push
+
+      # 5. 无变更时打印提示（不提交）
+      - name: No changes
+        if: steps.sync.outputs.updated == '0'
+        run: echo "✔ 所有 APK 版本均为最新，无需提交。"
