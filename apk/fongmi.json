@@ -1,5 +1,5 @@
 {
-  "release/leanback-arm64_v8a.apk": {
+  "leanback-arm64_v8a.apk": {
     "version": "5.0.7",
     "name": "电视版64位",
     "logo": "/images/fongmi.jpeg",
@@ -8,7 +8,7 @@
     "url":"https://bgithub.xyz/FongMi/Release/tree/fongmi/apk",
     "sub_dir": "/apk/fongmi/leanback-arm64_v8a.apk"
   },
-  "release/leanback-armeabi_v7a.apk": {
+  "leanback-armeabi_v7a.apk": {
     "version": "5.0.7",
     "name": "电视版32位",
     "logo": "/images/fongmi.jpeg",
@@ -17,7 +17,7 @@
     "url":"https://github.com/FongMi/Release/tree/fongmi/apk",
     "sub_dir": "/apk/fongmi/leanback-armeabi_v7a.apk"
   },
-  "release/mobile-arm64_v8a.apk": {
+  "mobile-arm64_v8a.apk": {
     "version": "5.0.7",
     "name": "手机版64位",
     "logo": "/images/fongmi.jpeg",
@@ -26,7 +26,7 @@
     "url":"https://github.com/FongMi/Release/tree/fongmi/apk",
     "sub_dir": "/apk/fongmi/mobile-arm64_v8a.apk"
   },
-  "release/mobile-armeabi_v7a.apk": {
+  "mobile-armeabi_v7a.apk": {
     "version": "5.0.7",
     "name": "手机版32位",
     "logo": "/images/fongmi.jpeg",
