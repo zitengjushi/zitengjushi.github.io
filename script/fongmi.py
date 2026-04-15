@@ -4,7 +4,7 @@ update_apk_versions.py
 统一管理多个 APK JSON 配置文件的版本自动更新。
 每个 JSON 文件对应一个 GitHub 上的 branch/目录，
 通过 GitHub API 获取每个文件最新 commit message，
-提取版本号后与本地 JSON 对比，若不同则更新 version 和 sub_dir。
+提取版本号后与本地 JSON 对比，若不同则仅更新 version 字段。
 
 用法:
     python scripts/update_apk_versions.py
@@ -13,7 +13,6 @@ update_apk_versions.py
 import json
 import os
 import re
-import sys
 import time
 import urllib.error
 import urllib.request
@@ -32,27 +31,21 @@ API_BASE    = f"https://api.github.com/repos/{GITHUB_REPO}"
 @dataclass
 class JsonConfig:
     """描述一个需要维护的本地 JSON 文件及其对应的 GitHub 来源。"""
-    json_path:      str   # 本地 JSON 路径（相对仓库根目录）
-    branch:         str   # 对应的 GitHub branch
-    remote_dir:     str   # 远端仓库内的目录前缀（如 "apk"）
-    sub_dir_prefix: str   # sub_dir 路径前缀（如 "/apk/okjack"）
-    keep_subpath:   bool  # True=sub_dir 保留子目录(release/xxx), False=只保留文件名
+    json_path:  str   # 本地 JSON 路径（相对仓库根目录）
+    branch:     str   # 对应的 GitHub branch
+    remote_dir: str   # 远端仓库内的目录前缀（如 "apk"）
 
 
 CONFIGS: list[JsonConfig] = [
     JsonConfig(
-        json_path      = "apk/okjack.json",
-        branch         = "okjack",
-        remote_dir     = "apk",
-        sub_dir_prefix = "/apk/okjack",
-        keep_subpath   = True,   # → /apk/okjack/release/leanback-arm64_v8a.apk
+        json_path  = "apk/okjack.json",
+        branch     = "okjack",
+        remote_dir = "apk",
     ),
     JsonConfig(
-        json_path      = "apk/fongmi.json",
-        branch         = "fongmi",
-        remote_dir     = "apk",
-        sub_dir_prefix = "/apk/fongmi",
-        keep_subpath   = False,  # → /apk/fongmi/leanback-arm64_v8a.apk（去掉 release/ 前缀）
+        json_path  = "apk/fongmi.json",
+        branch     = "fongmi",
+        remote_dir = "apk",
     ),
     # 如需新增更多 JSON，在此继续追加 JsonConfig(...)
 ]
@@ -115,19 +108,6 @@ def extract_version(msg: str) -> str | None:
     return m.group(1) if m else None
 
 
-def build_sub_dir(cfg: JsonConfig, file_key: str) -> str:
-    """
-    根据配置构造 sub_dir 字段值。
-    keep_subpath=True  → /apk/okjack/release/leanback-arm64_v8a.apk
-    keep_subpath=False → /apk/fongmi/leanback-arm64_v8a.apk
-    """
-    if cfg.keep_subpath:
-        return f"{cfg.sub_dir_prefix}/{file_key}"
-    else:
-        filename = Path(file_key).name          # 只取文件名，去掉 release/ 等子目录
-        return f"{cfg.sub_dir_prefix}/{filename}"
-
-
 def process_json(cfg: JsonConfig) -> int:
     """处理单个 JSON 配置，返回更新条目数。"""
     json_path = Path(cfg.json_path)
@@ -158,30 +138,18 @@ def process_json(cfg: JsonConfig) -> int:
             print(f"    ❌ 获取 commit 失败: {exc}，跳过\n")
             continue
 
-        msg         = commit_info["message"]
-        remote_ver  = extract_version(msg)
-        local_ver   = entry.get("version", "")
-        new_sub_dir = build_sub_dir(cfg, file_key)
+        msg        = commit_info["message"]
+        remote_ver = extract_version(msg)
+        local_ver  = entry.get("version", "")
 
         print(f"    本地 version : {local_ver}")
         print(f"    Commit msg   : {msg[:80]}")
         print(f"    解析 version : {remote_ver or '(未识别，保留原值)'}")
 
-        need_update = False
-
-        # ① 版本号变化
+        # 仅在版本号发生变化时更新
         if remote_ver and remote_ver != local_ver:
             print(f"    🔄 version: {local_ver} → {remote_ver}")
             entry["version"] = remote_ver
-            need_update = True
-
-        # ② sub_dir 偏差修正
-        if entry.get("sub_dir") != new_sub_dir:
-            print(f"    🔄 sub_dir: {entry.get('sub_dir')} → {new_sub_dir}")
-            entry["sub_dir"] = new_sub_dir
-            need_update = True
-
-        if need_update:
             updated_count += 1
             print(f"    ✅ 已标记更新")
         else:
@@ -216,9 +184,6 @@ def main():
     if env_file:
         with open(env_file, "a") as f:
             f.write(f"updated={total_updated}\n")
-
-    # 有更新时以非零退出码标记（可选，Actions 里用 outputs.updated 判断更精准）
-    # sys.exit(1 if total_updated else 0)
 
 
 if __name__ == "__main__":
