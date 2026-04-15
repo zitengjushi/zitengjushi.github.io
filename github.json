@@ -2,71 +2,71 @@
     "urls": [
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0821.json",
-            "name": "大而全的配置"
+            "name": "大而全的配置 2026-02-05"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0825.json",
-            "name": "小而精的配置"
+            "name": "小而精的配置 2026-02-05"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0826.json",
-            "name": "饭太硬"
-        }, 
+            "name": "饭太硬 2025-07-03"
+        },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0827.json",
-            "name": "fongmi"
+            "name": "fongmi 2024-09-23"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/js.json",
-            "name": "道长drpy"
-        }, 
+            "name": "道长drpy 2026-02-05"
+        },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
-            "name": "南风无广"
-        }, 
+            "name": "南风无广 2026-04-14"
+        },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
-            "name": "分享者"
-        }, 
+            "name": "分享者 2026-04-07"
+        },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/TVBox/main/hanXC.json",
             "name": "胜寒"
-        }, 
+        },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/asxs123/mytvboxlist/refs/heads/main/merged.json",
-            "name": "asxs123"
-        }, 
+            "name": "asxs123 2025-06-28"
+        },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/box.json",
-            "name": "box"
-        }, 
+            "name": "box 2026-03-26"
+        },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/woniuxs/TVBOX/main/svip",
-            "name": "蜗牛影视"
-        }, 
+            "name": "蜗牛影视 2026-02-09"
+        },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/lege0001/TVbox/main/TV/dj.json",
-            "name": "🔥爱在指尖|短剧🔥"
-        }, 
+            "name": "🔥爱在指尖|短剧🔥 2025-08-27"
+        },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/xyq254245/xyqonlinerule/main/XYQTVBox.json",
-            "name": "香雅情"
+            "name": "香雅情 2026-04-02"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/Dong-learn9/TVBox-zyjk/main/tvbox2.json",
-            "name": "Dong-learn9"
+            "name": "Dong-learn9 2024-12-27"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/franksun1211/TVBOX/main/0706.json",
-            "name": "0706"
+            "name": "0706 2026-04-14"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/loopool/fan/refs/heads/main/a.json",
-            "name": "loopool"
+            "name": "loopool 2026-04-14"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/heroaku/TVboxo/main/apig.json",
-            "name": "apig"
+            "name": "apig 2026-02-11"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/yoursmile66/TVBox/heads/main/XC.json",
@@ -74,24 +74,23 @@
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/4K/4K.json",
-            "name": "4k"
+            "name": "4k 2026-01-31"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/music.json",
-            "name": "music"
+            "name": "music 2026-02-01"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/leevi0709/one/main/jsm.json",
-            "name": "One线路"
+            "name": "One线路 2025-02-11"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/gaotianliuyun/gao/master/js.json",
-            "name": "高天流云"
+            "name": "高天流云 2024-10-10"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/2hacc/TVBox/refs/heads/main/oktv.json",
-            "name": "二哈线路"
+            "name": "二哈线路 2024-12-15"
         }
-
     ]
 }
