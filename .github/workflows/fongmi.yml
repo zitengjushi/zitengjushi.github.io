@@ -31,7 +31,7 @@ jobs:
           # GITHUB_TOKEN 自动注入，无需手动配置 Secret
           # 使用 Token 可将 API 速率上限从 60次/h 提升至 1000次/h
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python script/update_apk_versions.py
+        run: python script/fongmi.py
 
       # 4. 有变更时自动 commit 并 push
       - name: Commit and push changes
