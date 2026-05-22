@@ -1,0 +1,345 @@
+#EXTM3U x-tvg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz"
+#EXTINF:-1 tvg-name="CCTV1" tvg-logo="https://epg.112114.xyz/logo/CCTV1.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV1
+http://219.150.217.47:6610/PLTV1/40/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV1" tvg-logo="https://epg.112114.xyz/logo/CCTV1.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV1
+http://219.150.217.47:6610/PLTV1/940/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV2" tvg-logo="https://epg.112114.xyz/logo/CCTV2.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV2
+http://219.150.217.47:6610/PLTV1/60/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV3" tvg-logo="https://epg.112114.xyz/logo/CCTV3.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV3
+http://219.150.217.47:6610/PLTV1/80/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV4" tvg-logo="https://epg.112114.xyz/logo/CCTV4.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV4
+http://219.150.217.47:6610/PLTV1/100/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV5" tvg-logo="https://epg.112114.xyz/logo/CCTV5.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV5
+http://219.150.217.47:6610/PLTV2/3680/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV5" tvg-logo="https://epg.112114.xyz/logo/CCTV5.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV5
+http://219.150.217.47:6610/PLTV1/120/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV6" tvg-logo="https://epg.112114.xyz/logo/CCTV6.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV6
+http://219.150.217.47:6610/PLTV1/140/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV7" tvg-logo="https://epg.112114.xyz/logo/CCTV7.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV7
+http://219.150.217.47:6610/PLTV1/160/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV8" tvg-logo="https://epg.112114.xyz/logo/CCTV8.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV8
+http://219.150.217.47:6610/PLTV1/180/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV9" tvg-logo="https://epg.112114.xyz/logo/CCTV9.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV9
+http://219.150.217.47:6610/PLTV1/200/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV10" tvg-logo="https://epg.112114.xyz/logo/CCTV10.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV10
+http://219.150.217.47:6610/PLTV1/220/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV11" tvg-logo="https://epg.112114.xyz/logo/CCTV11.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV11
+http://219.150.217.47:6610/PLTV1/240/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV12" tvg-logo="https://epg.112114.xyz/logo/CCTV12.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV12
+http://219.150.217.47:6610/PLTV1/260/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV13" tvg-logo="https://epg.112114.xyz/logo/CCTV13.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV13
+http://219.150.217.47:6610/PLTV1/280/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV14" tvg-logo="https://epg.112114.xyz/logo/CCTV14.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV14
+http://219.150.217.47:6610/PLTV1/300/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV15" tvg-logo="https://epg.112114.xyz/logo/CCTV15.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV15
+http://219.150.217.47:6610/PLTV1/320/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV5+" tvg-logo="https://epg.112114.xyz/logo/CCTV5+.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV5+
+http://219.150.217.47:6610/PLTV1/380/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV5+" tvg-logo="https://epg.112114.xyz/logo/CCTV5+.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV5+
+http://222.85.25.226/PLTV/88888888/224/3221227220/1.m3u8
+#EXTINF:-1 tvg-name="CCTV17" tvg-logo="https://epg.112114.xyz/logo/CCTV17.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV17
+http://219.150.217.47:6610/PLTV1/360/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CCTV17" tvg-logo="https://epg.112114.xyz/logo/CCTV17.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV17
+http://222.85.25.226/PLTV/88888888/224/3221227072/1.m3u8
+#EXTINF:-1 tvg-name="CCTV4K" tvg-logo="https://epg.112114.xyz/logo/CCTV4K.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV4K
+http://123.160.108.7:6610/PLTV1/190059/1.m3u8?
+#EXTINF:-1 tvg-name="CCTV4K" tvg-logo="https://epg.112114.xyz/logo/CCTV4K.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CCTV4K
+http://123.160.108.15:6610/PLTV1/190059/1.m3u8?
+#EXTINF:-1 tvg-name="CETV1" tvg-logo="https://epg.112114.xyz/logo/CETV1.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CETV1
+http://219.150.217.47:6610/PLTV1/400/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="CGTN" tvg-logo="https://epg.112114.xyz/logo/CGTN.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",CGTN
+http://219.150.217.47:6610/PLTV1/340/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河南卫视" tvg-logo="https://epg.112114.xyz/logo/河南卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河南卫视
+http://219.150.217.47:6610/PLTV1/580/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河南卫视" tvg-logo="https://epg.112114.xyz/logo/河南卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河南卫视
+http://222.85.25.226/PLTV/88888888/224/3221226984/1.m3u8
+#EXTINF:-1 tvg-name="东方卫视" tvg-logo="https://epg.112114.xyz/logo/东方卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",东方卫视
+http://219.150.217.47:6610/PLTV1/980/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="江苏卫视" tvg-logo="https://epg.112114.xyz/logo/江苏卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",江苏卫视
+http://219.150.217.47:6610/PLTV1/1000/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="湖南卫视" tvg-logo="https://epg.112114.xyz/logo/湖南卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",湖南卫视
+http://219.150.217.47:6610/PLTV1/1220/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="北京卫视" tvg-logo="https://epg.112114.xyz/logo/北京卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",北京卫视
+http://219.150.217.47:6610/PLTV1/1020/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="北京卫视4K" tvg-logo="https://epg.112114.xyz/logo/北京卫视4K.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",北京卫视4K
+http://123.160.108.7:6610/PLTV1/190057/1.m3u8?
+#EXTINF:-1 tvg-name="北京卫视4K" tvg-logo="https://epg.112114.xyz/logo/北京卫视4K.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",北京卫视4K
+http://123.160.108.15:6610/PLTV1/190057/1.m3u8?
+#EXTINF:-1 tvg-name="浙江卫视" tvg-logo="https://epg.112114.xyz/logo/浙江卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",浙江卫视
+http://219.150.217.47:6610/PLTV1/960/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="广东卫视" tvg-logo="https://epg.112114.xyz/logo/广东卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",广东卫视
+http://219.150.217.47:6610/PLTV1/1040/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="广东卫视4K" tvg-logo="https://epg.112114.xyz/logo/广东卫视4K.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",广东卫视4K
+http://123.160.108.7:6610/PLTV1/190142/1.m3u8?
+#EXTINF:-1 tvg-name="广东卫视4K" tvg-logo="https://epg.112114.xyz/logo/广东卫视4K.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",广东卫视4K
+http://123.160.108.15:6610/PLTV1/190142/1.m3u8?
+#EXTINF:-1 tvg-name="深圳卫视" tvg-logo="https://epg.112114.xyz/logo/深圳卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",深圳卫视
+http://219.150.217.47:6610/PLTV1/1240/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="深圳卫视4K" tvg-logo="https://epg.112114.xyz/logo/深圳卫视4K.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",深圳卫视4K
+http://123.160.108.15:6610/PLTV1/190141/1.m3u8?
+#EXTINF:-1 tvg-name="深圳卫视4K" tvg-logo="https://epg.112114.xyz/logo/深圳卫视4K.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",深圳卫视4K
+http://123.160.108.7:6610/PLTV1/190141/1.m3u8?
+#EXTINF:-1 tvg-name="安徽卫视" tvg-logo="https://epg.112114.xyz/logo/安徽卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",安徽卫视
+http://219.150.217.47:6610/PLTV1/1100/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="安徽卫视" tvg-logo="https://epg.112114.xyz/logo/安徽卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",安徽卫视
+http://222.85.25.226/PLTV/88888888/224/3221227017/1.m3u8
+#EXTINF:-1 tvg-name="山东卫视" tvg-logo="https://epg.112114.xyz/logo/山东卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",山东卫视
+http://219.150.217.47:6610/PLTV1/1080/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="东南卫视" tvg-logo="https://epg.112114.xyz/logo/东南卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",东南卫视
+http://219.150.217.47:6610/PLTV1/1400/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="甘肃卫视" tvg-logo="https://epg.112114.xyz/logo/甘肃卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",甘肃卫视
+http://219.150.217.47:6610/PLTV1/1500/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="广西卫视" tvg-logo="https://epg.112114.xyz/logo/广西卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",广西卫视
+http://219.150.217.47:6610/PLTV1/1440/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="贵州卫视" tvg-logo="https://epg.112114.xyz/logo/贵州卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",贵州卫视
+http://219.150.217.47:6610/PLTV1/1160/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="海南卫视" tvg-logo="https://epg.112114.xyz/logo/海南卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",海南卫视
+http://219.150.217.47:6610/PLTV1/1480/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河北卫视" tvg-logo="https://epg.112114.xyz/logo/河北卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河北卫视
+http://219.150.217.47:6610/PLTV1/1180/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="黑龙江卫视" tvg-logo="https://epg.112114.xyz/logo/黑龙江卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",黑龙江卫视
+http://219.150.217.47:6610/PLTV1/1060/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="湖北卫视" tvg-logo="https://epg.112114.xyz/logo/湖北卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",湖北卫视
+http://219.150.217.47:6610/PLTV1/1280/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="吉林卫视" tvg-logo="https://epg.112114.xyz/logo/吉林卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",吉林卫视
+http://219.150.217.47:6610/PLTV1/1360/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="江西卫视" tvg-logo="https://epg.112114.xyz/logo/江西卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",江西卫视
+http://219.150.217.47:6610/PLTV1/1200/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="辽宁卫视" tvg-logo="https://epg.112114.xyz/logo/辽宁卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",辽宁卫视
+http://219.150.217.47:6610/PLTV1/1120/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="内蒙古卫视" tvg-logo="https://epg.112114.xyz/logo/内蒙古卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",内蒙古卫视
+http://219.150.217.47:6610/PLTV1/1420/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="宁夏卫视" tvg-logo="https://epg.112114.xyz/logo/宁夏卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",宁夏卫视
+http://219.150.217.47:6610/PLTV1/1380/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="青海卫视" tvg-logo="https://epg.112114.xyz/logo/青海卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",青海卫视
+http://219.150.217.47:6610/PLTV1/1520/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="山西卫视" tvg-logo="https://epg.112114.xyz/logo/山西卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",山西卫视
+http://219.150.217.47:6610/PLTV1/1460/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="陕西卫视" tvg-logo="https://epg.112114.xyz/logo/陕西卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",陕西卫视
+http://219.150.217.47:6610/PLTV1/1140/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="四川卫视" tvg-logo="https://epg.112114.xyz/logo/四川卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",四川卫视
+http://219.150.217.47:6610/PLTV1/1260/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="天津卫视" tvg-logo="https://epg.112114.xyz/logo/天津卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",天津卫视
+http://219.150.217.47:6610/PLTV1/1300/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="西藏卫视" tvg-logo="https://epg.112114.xyz/logo/西藏卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",西藏卫视
+http://219.150.217.47:6610/PLTV1/1640/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="新疆卫视" tvg-logo="https://epg.112114.xyz/logo/新疆卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",新疆卫视
+http://219.150.217.47:6610/PLTV1/1620/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="云南卫视" tvg-logo="https://epg.112114.xyz/logo/云南卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",云南卫视
+http://219.150.217.47:6610/PLTV1/1320/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="重庆卫视" tvg-logo="https://epg.112114.xyz/logo/重庆卫视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",重庆卫视
+http://219.150.217.47:6610/PLTV1/1340/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河南4K试验" tvg-logo="https://epg.112114.xyz/logo/河南4K试验.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河南4K试验
+http://219.150.217.47:6610/PLTV2/2780/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河南都市频道" tvg-logo="https://epg.112114.xyz/logo/河南都市频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河南都市频道
+http://219.150.217.47:6610/PLTV1/600/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河南民生频道" tvg-logo="https://epg.112114.xyz/logo/河南民生频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河南民生频道
+http://219.150.217.47:6610/PLTV1/620/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河南法制频道" tvg-logo="https://epg.112114.xyz/logo/河南法制频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河南法制频道
+http://219.150.217.47:6610/PLTV1/640/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河南电视剧频道" tvg-logo="https://epg.112114.xyz/logo/河南电视剧频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河南电视剧频道
+http://219.150.217.47:6610/PLTV1/660/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河南新闻频道" tvg-logo="https://epg.112114.xyz/logo/河南新闻频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河南新闻频道
+http://219.150.217.47:6610/PLTV1/720/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河南公共频道" tvg-logo="https://epg.112114.xyz/logo/河南公共频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河南公共频道
+http://219.150.217.47:6610/PLTV1/760/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河南乡村频道" tvg-logo="https://epg.112114.xyz/logo/河南乡村频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河南乡村频道
+http://219.150.217.47:6610/PLTV1/780/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河南中华功夫" tvg-logo="https://epg.112114.xyz/logo/河南中华功夫.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河南中华功夫
+http://219.150.217.47:6610/PLTV1/860/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河南收藏天下" tvg-logo="https://epg.112114.xyz/logo/河南收藏天下.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河南收藏天下
+http://219.150.217.47:6610/PLTV1/820/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河南戏曲" tvg-logo="https://epg.112114.xyz/logo/河南戏曲.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河南戏曲
+http://219.150.217.47:6610/PLTV1/840/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="睛彩河南曲艺" tvg-logo="https://epg.112114.xyz/logo/睛彩河南曲艺.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",睛彩河南曲艺
+http://219.150.217.47:6610/PLTV1/700/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="睛彩移动戏曲" tvg-logo="https://epg.112114.xyz/logo/睛彩移动戏曲.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",睛彩移动戏曲
+http://219.150.217.47:6610/PLTV1/800/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="大象调解剧场" tvg-logo="https://epg.112114.xyz/logo/大象调解剧场.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",大象调解剧场
+http://219.150.217.47:6610/PLTV1/920/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="河南导视" tvg-logo="https://epg.112114.xyz/logo/河南导视.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",河南导视
+http://219.150.217.47:6610/PLTV2/3540/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="大美河南" tvg-logo="https://epg.112114.xyz/logo/大美河南.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",大美河南
+http://219.150.217.47:6610/PLTV2/2100/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="大美河南" tvg-logo="https://epg.112114.xyz/logo/大美河南.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",大美河南
+http://219.150.217.47:6610/PLTV2/2200/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="北京纪实科教" tvg-logo="https://epg.112114.xyz/logo/北京纪实科教.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",北京纪实科教
+http://123.160.108.15:6610/PLTV1/190074/1.m3u8?
+#EXTINF:-1 tvg-name="北京纪实科教" tvg-logo="https://epg.112114.xyz/logo/北京纪实科教.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",北京纪实科教
+http://222.85.25.226/PLTV/88888888/224/3221227250/1.m3u8
+#EXTINF:-1 tvg-name="卡酷少儿" tvg-logo="https://epg.112114.xyz/logo/卡酷少儿.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",卡酷少儿
+http://219.150.217.47:6610/PLTV1/1580/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="国学频道" tvg-logo="https://epg.112114.xyz/logo/国学频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",国学频道
+http://219.150.217.47:6610/PLTV2/3720/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="优漫卡通" tvg-logo="https://epg.112114.xyz/logo/优漫卡通.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",优漫卡通
+http://219.150.217.47:6610/PLTV1/1660/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="哈哈炫动" tvg-logo="https://epg.112114.xyz/logo/哈哈炫动.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",哈哈炫动
+http://219.150.217.47:6610/PLTV1/1600/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="嘉佳卡通" tvg-logo="https://epg.112114.xyz/logo/嘉佳卡通.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",嘉佳卡通
+http://219.150.217.47:6610/PLTV1/1560/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="金鹰卡通" tvg-logo="https://epg.112114.xyz/logo/金鹰卡通.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",金鹰卡通
+http://219.150.217.47:6610/PLTV1/1540/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="郑州新闻综合" tvg-logo="https://epg.112114.xyz/logo/郑州新闻综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",郑州新闻综合
+http://219.150.217.47:6610/PLTV1/1680/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="郑州商都频道" tvg-logo="https://epg.112114.xyz/logo/郑州商都频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",郑州商都频道
+http://219.150.217.47:6610/PLTV1/1700/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="郑州文体旅游" tvg-logo="https://epg.112114.xyz/logo/郑州文体旅游.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",郑州文体旅游
+http://219.150.217.47:6610/PLTV1/1720/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="郑州豫剧频道" tvg-logo="https://epg.112114.xyz/logo/郑州豫剧频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",郑州豫剧频道
+http://219.150.217.47:6610/PLTV1/1740/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="郑州妇女儿童" tvg-logo="https://epg.112114.xyz/logo/郑州妇女儿童.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",郑州妇女儿童
+http://219.150.217.47:6610/PLTV1/1760/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="郑州都市生活" tvg-logo="https://epg.112114.xyz/logo/郑州都市生活.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",郑州都市生活
+http://219.150.217.47:6610/PLTV1/1780/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="郑州教育台" tvg-logo="https://epg.112114.xyz/logo/郑州教育台.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",郑州教育台
+http://222.85.25.226/PLTV/88888888/224/3221227315/1.m3u8
+#EXTINF:-1 tvg-name="开封新闻综合" tvg-logo="https://epg.112114.xyz/logo/开封新闻综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",开封新闻综合
+http://219.150.217.47:6610/PLTV1/1800/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="开封文化旅游" tvg-logo="https://epg.112114.xyz/logo/开封文化旅游.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",开封文化旅游
+http://219.150.217.47:6610/PLTV1/1820/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="祥符" tvg-logo="https://epg.112114.xyz/logo/祥符.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",祥符
+http://222.85.25.226/PLTV/88888888/224/3221227235/1.m3u8
+#EXTINF:-1 tvg-name="洛阳新闻综合" tvg-logo="https://epg.112114.xyz/logo/洛阳新闻综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",洛阳新闻综合
+http://219.150.217.47:6610/PLTV1/1840/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="洛阳文体频道" tvg-logo="https://epg.112114.xyz/logo/洛阳文体频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",洛阳文体频道
+http://219.150.217.47:6610/PLTV1/1880/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="洛阳科教频道" tvg-logo="https://epg.112114.xyz/logo/洛阳科教频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",洛阳科教频道
+http://219.150.217.47:6610/PLTV1/1860/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="孟津" tvg-logo="https://epg.112114.xyz/logo/孟津.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",孟津
+http://219.150.217.47:6610/PLTV2/3860/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="新安" tvg-logo="https://epg.112114.xyz/logo/新安.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",新安
+http://123.160.108.7:6610/PLTV1/190043/1.m3u8?
+#EXTINF:-1 tvg-name="新安" tvg-logo="https://epg.112114.xyz/logo/新安.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",新安
+http://123.160.108.15:6610/PLTV1/190043/1.m3u8?
+#EXTINF:-1 tvg-name="嵩县" tvg-logo="https://epg.112114.xyz/logo/嵩县.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",嵩县
+http://219.150.217.47:6610/PLTV2/3900/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="洛宁" tvg-logo="https://epg.112114.xyz/logo/洛宁.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",洛宁
+http://123.160.108.7:6610/PLTV1/190041/1.m3u8?
+#EXTINF:-1 tvg-name="平顶山新闻综合" tvg-logo="https://epg.112114.xyz/logo/平顶山新闻综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",平顶山新闻综合
+http://219.150.217.47:6610/PLTV1/1900/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="平顶山城市频道" tvg-logo="https://epg.112114.xyz/logo/平顶山城市频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",平顶山城市频道
+http://219.150.217.47:6610/PLTV1/1920/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="平顶山公共频道" tvg-logo="https://epg.112114.xyz/logo/平顶山公共频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",平顶山公共频道
+http://219.150.217.47:6610/PLTV1/1940/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="平顶山教育台" tvg-logo="https://epg.112114.xyz/logo/平顶山教育台.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",平顶山教育台
+http://123.160.108.7:6610/PLTV1/190015/1.m3u8?
+#EXTINF:-1 tvg-name="平顶山教育台" tvg-logo="https://epg.112114.xyz/logo/平顶山教育台.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",平顶山教育台
+http://123.160.108.15:6610/PLTV1/190015/1.m3u8?
+#EXTINF:-1 tvg-name="舞钢" tvg-logo="https://epg.112114.xyz/logo/舞钢.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",舞钢
+http://219.150.217.47:6610/PLTV2/2620/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="叶县" tvg-logo="https://epg.112114.xyz/logo/叶县.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",叶县
+http://123.160.108.15:6610/PLTV1/190019/1.m3u8?
+#EXTINF:-1 tvg-name="叶县" tvg-logo="https://epg.112114.xyz/logo/叶县.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",叶县
+http://123.160.108.7:6610/PLTV1/190019/1.m3u8?
+#EXTINF:-1 tvg-name="鲁山" tvg-logo="https://epg.112114.xyz/logo/鲁山.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",鲁山
+http://123.160.108.7:6610/PLTV1/190053/1.m3u8?
+#EXTINF:-1 tvg-name="鲁山" tvg-logo="https://epg.112114.xyz/logo/鲁山.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",鲁山
+http://123.160.108.15:6610/PLTV1/190053/1.m3u8?
+#EXTINF:-1 tvg-name="郏县" tvg-logo="https://epg.112114.xyz/logo/郏县.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",郏县
+http://219.150.217.47:6610/PLTV2/3910/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="安阳新闻综合" tvg-logo="https://epg.112114.xyz/logo/安阳新闻综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",安阳新闻综合
+http://219.150.217.47:6610/PLTV1/1960/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="安阳文旅" tvg-logo="https://epg.112114.xyz/logo/安阳文旅.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",安阳文旅
+http://219.150.217.47:6610/PLTV1/1980/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="林州" tvg-logo="https://epg.112114.xyz/logo/林州.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",林州
+http://123.160.108.7:6610/PLTV1/190058/1.m3u8?
+#EXTINF:-1 tvg-name="林州" tvg-logo="https://epg.112114.xyz/logo/林州.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",林州
+http://123.160.108.15:6610/PLTV1/190058/1.m3u8?
+#EXTINF:-1 tvg-name="汤阴" tvg-logo="https://epg.112114.xyz/logo/汤阴.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",汤阴
+http://123.160.108.7:6610/PLTV1/190056/1.m3u8?
+#EXTINF:-1 tvg-name="汤阴" tvg-logo="https://epg.112114.xyz/logo/汤阴.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",汤阴
+http://123.160.108.15:6610/PLTV1/190056/1.m3u8?
+#EXTINF:-1 tvg-name="内黄" tvg-logo="https://epg.112114.xyz/logo/内黄.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",内黄
+http://219.150.217.47:6610/PLTV2/2640/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="鹤壁新闻综合" tvg-logo="https://epg.112114.xyz/logo/鹤壁新闻综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",鹤壁新闻综合
+http://219.150.217.47:6610/PLTV1/2000/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="新乡新闻综合" tvg-logo="https://epg.112114.xyz/logo/新乡新闻综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",新乡新闻综合
+http://219.150.217.47:6610/PLTV2/2020/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="新乡公共" tvg-logo="https://epg.112114.xyz/logo/新乡公共.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",新乡公共
+http://219.150.217.47:6610/PLTV2/2040/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="新乡县" tvg-logo="https://epg.112114.xyz/logo/新乡县.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",新乡县
+http://219.150.217.47:6610/PLTV2/2760/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="获嘉" tvg-logo="https://epg.112114.xyz/logo/获嘉.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",获嘉
+http://123.160.108.15:6610/PLTV1/190017/1.m3u8?
+#EXTINF:-1 tvg-name="封丘" tvg-logo="https://epg.112114.xyz/logo/封丘.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",封丘
+http://219.150.217.47:6610/PLTV2/2740/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="焦作综合" tvg-logo="https://epg.112114.xyz/logo/焦作综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",焦作综合
+http://219.150.217.47:6610/PLTV2/2060/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="焦作公共" tvg-logo="https://epg.112114.xyz/logo/焦作公共.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",焦作公共
+http://219.150.217.47:6610/PLTV2/2080/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="温县" tvg-logo="https://epg.112114.xyz/logo/温县.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",温县
+http://123.160.108.7:6610/PLTV1/190042/1.m3u8?
+#EXTINF:-1 tvg-name="温县" tvg-logo="https://epg.112114.xyz/logo/温县.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",温县
+http://123.160.108.15:6610/PLTV1/190042/1.m3u8?
+#EXTINF:-1 tvg-name="濮阳综合" tvg-logo="https://epg.112114.xyz/logo/濮阳综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",濮阳综合
+http://219.150.217.47:6610/PLTV2/2140/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="濮阳公共" tvg-logo="https://epg.112114.xyz/logo/濮阳公共.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",濮阳公共
+http://219.150.217.47:6610/PLTV2/2120/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="华龙" tvg-logo="https://epg.112114.xyz/logo/华龙.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",华龙
+http://123.160.108.15:6610/PLTV1/190045/1.m3u8?
+#EXTINF:-1 tvg-name="华龙" tvg-logo="https://epg.112114.xyz/logo/华龙.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",华龙
+http://123.160.108.7:6610/PLTV1/190045/1.m3u8?
+#EXTINF:-1 tvg-name="许昌综合" tvg-logo="https://epg.112114.xyz/logo/许昌综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",许昌综合
+http://219.150.217.47:6610/PLTV2/2180/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="许昌农业科教" tvg-logo="https://epg.112114.xyz/logo/许昌农业科教.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",许昌农业科教
+http://219.150.217.47:6610/PLTV2/2160/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="漯河新闻综合" tvg-logo="https://epg.112114.xyz/logo/漯河新闻综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",漯河新闻综合
+http://219.150.217.47:6610/PLTV2/2220/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="三门峡新闻综合" tvg-logo="https://epg.112114.xyz/logo/三门峡新闻综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",三门峡新闻综合
+http://219.150.217.47:6610/PLTV2/2240/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="陕州" tvg-logo="https://epg.112114.xyz/logo/陕州.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",陕州
+http://123.160.108.7:6610/PLTV1/190025/1.m3u8?
+#EXTINF:-1 tvg-name="陕州" tvg-logo="https://epg.112114.xyz/logo/陕州.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",陕州
+http://123.160.108.15:6610/PLTV1/190025/1.m3u8?
+#EXTINF:-1 tvg-name="灵宝" tvg-logo="https://epg.112114.xyz/logo/灵宝.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",灵宝
+http://123.160.108.15:6610/PLTV1/190018/1.m3u8?
+#EXTINF:-1 tvg-name="南阳新闻综合" tvg-logo="https://epg.112114.xyz/logo/南阳新闻综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",南阳新闻综合
+http://219.150.217.47:6610/PLTV2/2440/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="南阳科教" tvg-logo="https://epg.112114.xyz/logo/南阳科教.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",南阳科教
+http://219.150.217.47:6610/PLTV2/2480/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="南阳公共" tvg-logo="https://epg.112114.xyz/logo/南阳公共.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",南阳公共
+http://219.150.217.47:6610/PLTV2/2460/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="邓州" tvg-logo="https://epg.112114.xyz/logo/邓州.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",邓州
+http://219.150.217.47:6610/PLTV2/2720/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="方城" tvg-logo="https://epg.112114.xyz/logo/方城.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",方城
+http://222.85.25.226/PLTV/88888888/224/3221227226/1.m3u8
+#EXTINF:-1 tvg-name="商丘新闻综合" tvg-logo="https://epg.112114.xyz/logo/商丘新闻综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",商丘新闻综合
+http://219.150.217.47:6610/PLTV2/2260/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="商丘公共频道" tvg-logo="https://epg.112114.xyz/logo/商丘公共频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",商丘公共频道
+http://219.150.217.47:6610/PLTV2/2280/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="商丘文体科教" tvg-logo="https://epg.112114.xyz/logo/商丘文体科教.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",商丘文体科教
+http://219.150.217.47:6610/PLTV2/2300/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="信阳新闻综合" tvg-logo="https://epg.112114.xyz/logo/信阳新闻综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",信阳新闻综合
+http://219.150.217.47:6610/PLTV2/2500/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="信阳新闻综合" tvg-logo="https://epg.112114.xyz/logo/信阳新闻综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",信阳新闻综合
+http://222.85.25.226/PLTV/88888888/224/3221226967/1.m3u8
+#EXTINF:-1 tvg-name="信阳文旅频道" tvg-logo="https://epg.112114.xyz/logo/信阳文旅频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",信阳文旅频道
+http://219.150.217.47:6610/PLTV2/2520/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="平桥" tvg-logo="https://epg.112114.xyz/logo/平桥.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",平桥
+http://219.150.217.47:6610/PLTV2/2560/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="平桥" tvg-logo="https://epg.112114.xyz/logo/平桥.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",平桥
+http://222.85.25.226/PLTV/88888888/224/3221226960/1.m3u8
+#EXTINF:-1 tvg-name="浉河" tvg-logo="https://epg.112114.xyz/logo/浉河.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",浉河
+http://219.150.217.47:6610/PLTV2/2540/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="周口新闻综合" tvg-logo="https://epg.112114.xyz/logo/周口新闻综合.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",周口新闻综合
+http://219.150.217.47:6610/PLTV2/2320/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="周口公共频道" tvg-logo="https://epg.112114.xyz/logo/周口公共频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",周口公共频道
+http://219.150.217.47:6610/PLTV2/2340/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="周口教育频道" tvg-logo="https://epg.112114.xyz/logo/周口教育频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",周口教育频道
+http://219.150.217.47:6610/PLTV2/2360/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="项城" tvg-logo="https://epg.112114.xyz/logo/项城.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",项城
+http://219.150.217.47:6610/PLTV2/2660/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="西华" tvg-logo="https://epg.112114.xyz/logo/西华.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",西华
+http://222.85.25.226/PLTV/88888888/224/3221227232/1.m3u8
+#EXTINF:-1 tvg-name="驻马店新闻综合频道" tvg-logo="https://epg.112114.xyz/logo/驻马店新闻综合频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",驻马店新闻综合频道
+http://219.150.217.47:6610/PLTV2/2380/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="驻马店公共频道" tvg-logo="https://epg.112114.xyz/logo/驻马店公共频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",驻马店公共频道
+http://219.150.217.47:6610/PLTV2/2420/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="驻马店科教频道" tvg-logo="https://epg.112114.xyz/logo/驻马店科教频道.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",驻马店科教频道
+http://219.150.217.47:6610/PLTV2/2400/index.m3u8?icpid=dxrm1
+#EXTINF:-1 tvg-name="泌阳" tvg-logo="https://epg.112114.xyz/logo/泌阳.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",泌阳
+http://222.85.25.226/PLTV/88888888/224/3221227238/1.m3u8
+#EXTINF:-1 tvg-name="遂平" tvg-logo="https://epg.112114.xyz/logo/遂平.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",遂平
+http://222.85.25.226/PLTV/88888888/224/3221227247/1.m3u8
+#EXTINF:-1 tvg-name="济源" tvg-logo="https://epg.112114.xyz/logo/济源.png" epg-url="https://gitee.com/gsls200808/xmltvepg/raw/master/e9.xml.gz",济源
+http://219.150.217.47:6610/PLTV2/2580/index.m3u8?icpid=dxrm1
