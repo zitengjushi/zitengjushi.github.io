@@ -1,3 +1,4 @@
+央视,#genre#
 CCTV1,http://219.150.217.47:6610/PLTV1/40/index.m3u8?icpid=dxrm1
 CCTV1,http://219.150.217.47:6610/PLTV1/940/index.m3u8?icpid=dxrm1
 CCTV2,http://219.150.217.47:6610/PLTV1/60/index.m3u8?icpid=dxrm1
@@ -23,6 +24,8 @@ CCTV4K,http://123.160.108.7:6610/PLTV1/190059/1.m3u8?
 CCTV4K,http://123.160.108.15:6610/PLTV1/190059/1.m3u8?
 CETV1,http://219.150.217.47:6610/PLTV1/400/index.m3u8?icpid=dxrm1
 CGTN,http://219.150.217.47:6610/PLTV1/340/index.m3u8?icpid=dxrm1
+
+卫视,#genre#
 河南卫视,http://219.150.217.47:6610/PLTV1/580/index.m3u8?icpid=dxrm1
 河南卫视,http://222.85.25.226/PLTV/88888888/224/3221226984/1.m3u8
 东方卫视,http://219.150.217.47:6610/PLTV1/980/index.m3u8?icpid=dxrm1
@@ -63,6 +66,8 @@ CGTN,http://219.150.217.47:6610/PLTV1/340/index.m3u8?icpid=dxrm1
 新疆卫视,http://219.150.217.47:6610/PLTV1/1620/index.m3u8?icpid=dxrm1
 云南卫视,http://219.150.217.47:6610/PLTV1/1320/index.m3u8?icpid=dxrm1
 重庆卫视,http://219.150.217.47:6610/PLTV1/1340/index.m3u8?icpid=dxrm1
+
+其他,#genre#
 河南4K试验,http://219.150.217.47:6610/PLTV2/2780/index.m3u8?icpid=dxrm1
 河南都市频道,http://219.150.217.47:6610/PLTV1/600/index.m3u8?icpid=dxrm1
 河南民生频道,http://219.150.217.47:6610/PLTV1/620/index.m3u8?icpid=dxrm1
