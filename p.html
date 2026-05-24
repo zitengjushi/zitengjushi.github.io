@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>认识PUA · 防范操控 · 保护自己</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red:    #e8251a;
+    --red2:   #ff4d42;
+    --dark:   #0e0e0e;
+    --dark2:  #181818;
+    --dark3:  #242424;
+    --border: #333;
+    --text:   #e8e0d4;
+    --muted:  #888;
+    --gold:   #c9a84c;
+    --mono:   'JetBrains Mono', monospace;
+    --serif:  'Noto Serif SC', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: var(--serif);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── 噪点纹理覆盖层 ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: .5;
+  }
+
+  /* ══════════════════════════════════════
+     HERO
+  ══════════════════════════════════════ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px 60px;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  /* 背景斜线警戒纹 */
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 40px,
+      rgba(232,37,26,.03) 40px,
+      rgba(232,37,26,.03) 41px
+    );
+  }
+
+  /* 红色光晕 */
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -120px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(232,37,26,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--red2);
+    border: 1px solid var(--red);
+    padding: 6px 16px;
+    margin-bottom: 36px;
+    animation: pulse-border 2s ease-in-out infinite;
+  }
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--red2);
+    animation: blink 1.2s step-end infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  @keyframes pulse-border {
+    0%,100% { box-shadow: 0 0 0 0 rgba(232,37,26,.4); }
+    50%      { box-shadow: 0 0 0 6px rgba(232,37,26,0); }
+  }
+
+  .hero-title {
+    font-size: clamp(42px, 8vw, 96px);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -.02em;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .hero-title .pua {
+    color: var(--red);
+    position: relative;
+    display: inline-block;
+  }
+  /* 划掉线 */
+  .hero-title .pua::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    top: 50%;
+    height: 4px;
+    background: var(--text);
+    transform: translateY(-50%) rotate(-2deg);
+  }
+
+  .hero-sub {
+    font-size: clamp(14px, 2.5vw, 20px);
+    color: var(--muted);
+    margin-top: 24px;
+    max-width: 560px;
+    line-height: 1.8;
+    font-weight: 400;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 700; }
+
+  .hero-warning {
+    margin-top: 48px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    max-width: 620px;
+    background: rgba(232,37,26,.08);
+    border: 1px solid rgba(232,37,26,.3);
+    border-left: 4px solid var(--red);
+    padding: 20px 24px;
+    text-align: left;
+  }
+  .hero-warning .icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .hero-warning p { font-size: 14px; line-height: 1.8; color: #c8bfb5; }
+  .hero-warning p strong { color: var(--red2); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    color: var(--muted);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: fade-up 2s ease-in-out infinite;
+  }
+  .scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--muted), transparent);
+  }
+  @keyframes fade-up {
+    0%,100%{opacity:.4;transform:translateX(-50%) translateY(0)}
+    50%{opacity:1;transform:translateX(-50%) translateY(-6px)}
+  }
+
+  /* ══════════════════════════════════════
+     STATS BAR
+  ══════════════════════════════════════ */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item {
+    padding: 32px 24px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+    animation: fade-in .6s ease both;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--red);
+    font-family: var(--mono);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: .08em;
+    font-family: var(--mono);
+  }
+
+  /* ══════════════════════════════════════
+     SECTION
+  ══════════════════════════════════════ */
+  .section { max-width: 1100px; margin: 0 auto; padding: 80px 24px; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--red);
+    letter-spacing: .15em;
+    background: rgba(232,37,26,.1);
+    border: 1px solid rgba(232,37,26,.3);
+    padding: 3px 8px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 700;
+    letter-spacing: -.01em;
+  }
+
+  /* ══════════════════════════════════════
+     TACTIC CARDS（PUA手法）
+  ══════════════════════════════════════ */
+  .tactics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .tactic-card {
+    background: var(--dark2);
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: background .2s;
+  }
+  .tactic-card:hover { background: var(--dark3); }
+  .tactic-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--red);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform .3s ease;
+  }
+  .tactic-card:hover::before { transform: scaleY(1); }
+  .tactic-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--red);
+    letter-spacing: .12em;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .tactic-name {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .tactic-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .tactic-alert {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--red2);
+    font-family: var(--mono);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ══════════════════════════════════════
+     BOOK LIST
+  ══════════════════════════════════════ */
+  .books-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filter-btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .2s;
+    text-transform: uppercase;
+  }
+  .filter-btn:hover,
+  .filter-btn.active {
+    border-color: var(--red);
+    color: var(--red2);
+    background: rgba(232,37,26,.07);
+  }
+  .search-box {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    background: var(--dark2);
+  }
+  .search-box input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 12px;
+    width: 180px;
+  }
+  .search-box input::placeholder { color: var(--muted); }
+  .search-icon { color: var(--muted); font-size: 13px; }
+
+  .books-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .books-count span { color: var(--red2); }
+
+  .books-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .book-item {
+    background: var(--dark2);
+    display: flex;
+    align-items: center;
+    gap: 0;
+    transition: background .18s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+  }
+  .book-item:hover { background: var(--dark3); }
+  .book-item::after {
+    content: '阅读 →';
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--red2);
+    letter-spacing: .08em;
+    transition: right .25s ease;
+  }
+  .book-item:hover::after { right: 14px; }
+
+  .book-ext {
+    width: 48px;
+    min-width: 48px;
+    height: 100%;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    border-right: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .ext-pdf  { color: #e05c5c; background: rgba(224,92,92,.08); }
+  .ext-epub { color: #5ca8e0; background: rgba(92,168,224,.08); }
+
+  .book-info {
+    padding: 14px 50px 14px 16px;
+    flex: 1;
+    min-width: 0;
+  }
+  .book-name {
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+  .book-author {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* 隐藏的书 */
+  .book-item.hidden { display: none; }
+
+  /* ══════════════════════════════════════
+     WARNING SECTION
+  ══════════════════════════════════════ */
+  .warning-section {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--red);
+    padding: 48px;
+    margin: 0 auto;
+    max-width: 1100px;
+    margin-bottom: 80px;
+  }
+  .warning-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 32px;
+    margin-top: 32px;
+  }
+  .warning-point { }
+  .warning-point-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .warning-point-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .warning-point-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  /* ══════════════════════════════════════
+     FOOTER
+  ══════════════════════════════════════ */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 24px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: .08em;
+    line-height: 2;
+  }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--red2); }
+
+  /* ══════════════════════════════════════
+     ANIMATIONS
+  ══════════════════════════════════════ */
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate { animation: fade-in .5s ease both; }
+
+  /* ══════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════ */
+  @media (max-width: 640px) {
+    .stats-bar { grid-template-columns: 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .warning-section { padding: 28px 20px; }
+    .books-list { grid-template-columns: 1fr; }
+    .search-box { margin-left: 0; width: 100%; }
+    .search-box input { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero">
+  <div class="badge">
+    <span class="badge-dot"></span>
+    警示教育资料
+  </div>
+
+  <h1 class="hero-title">
+    认识 <span class="pua">PUA</span><br>保护自己
+  </h1>
+
+  <p class="hero-sub">
+    本页整理了网络流传的 PUA 相关书籍，<br>
+    目的是让你<strong>看清这些操控手法的本质</strong>，<br>
+    从而识别、拒绝并帮助身边的人远离伤害。
+  </p>
+
+  <div class="hero-warning">
+    <span class="icon">⚠️</span>
+    <p>
+      <strong>重要声明：</strong>本页面所列书籍均来自公开 GitHub 仓库，仅供研究和防范参考。
+      PUA 是一种系统性的心理操控技术，其核心是<strong>欺骗与控制他人</strong>，
+      会对受害者造成严重的心理伤害。了解它，是为了更好地防范它。
+    </p>
+  </div>
+
+  <div class="scroll-hint">向下滚动</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     STATS BAR
+══════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-num" id="cnt-total">76</span>
+    <span class="stat-label">收录书籍总数</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">8+</span>
+    <span class="stat-label">常见操控手法</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">∞</span>
+    <span class="stat-label">需要保护的人</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 1：PUA 核心手法
+══════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">01 / 手法识别</span>
+    <h2 class="section-title">PUA 常见操控手法——认识它才能防范它</h2>
+  </div>
+
+  <div class="tactics-grid">
+    <div class="tactic-card animate">
+      <span class="tactic-num">TACTIC-01</span>
+      <div class="tactic-name">贬低与煤气灯效应</div>
+      <div class="tactic-desc">通过持续的批评、嘲笑使对方产生自我怀疑，逐渐摧毁自信心，形成依赖关系。</div>
+      <div class="tactic-alert">⚡ 高频手法</div>
+    </div>
+    <div class="tactic-card animate">
+      <span class="tactic-num">TACTIC-02</span>
+      <div class="tactic-name">轰炸式示爱（Love Bombing）</div>
+      <div class="tactic-desc">初期以过量的关注、赞美、礼物轰炸对方，制造"完美伴侣"的假象，在对方依赖后迅速撤回。</div>
+      <div class="tactic-alert">⚡ 高频手法</div>
+    </div>
+    <div class="tactic-card animate">
+      <span class="tactic-num">TACTIC-03</span>
+      <div class="tactic-name">冷暴力与奖惩循环</div>
+      <div class="tactic-desc">忽视、冷漠与热情之间反复切换，制造情绪不稳定感，让对方持续追逐认可。</div>
+      <div class="tactic-alert">⚡ 高频手法</div>
+    </div>
+    <div class="tactic-card animate">
+      <span class="tactic-num">TACTIC-04</span>
+      <div class="tactic-name">社会孤立</div>
+      <div class="tactic-desc">逐步切断对方与朋友、家人的联系，使其在情感和社交上完全依赖操控者。</div>
+      <div class="tactic-alert">⚡ 危险信号</div>
+    </div>
+    <div class="tactic-card animate">
+      <span class="tactic-num">TACTIC-05</span>
+      <div class="tactic-name">虚假稀缺与竞争威胁</div>
+      <div class="tactic-desc">暗示自己有很多追求者，制造"你随时可能失去我"的焦虑感，操控对方主动迎合。</div>
+      <div class="tactic-alert">⚡ 常见套路</div>
+    </div>
+    <div class="tactic-card animate">
+      <span class="tactic-num">TACTIC-06</span>
+      <div class="tactic-name">脚本化搭讪（Opening Routine）</div>
+      <div class="tactic-desc">使用预设的话术剧本进行接触，表面自然随机，实为精心设计的操控流程。</div>
+      <div class="tactic-alert">⚡ 话术识别</div>
+    </div>
+    <div class="tactic-card animate">
+      <span class="tactic-num">TACTIC-07</span>
+      <div class="tactic-name">刺激与测试（Negging）</div>
+      <div class="tactic-desc">用隐晦的贬低或"玩笑"激起对方的反应，打破对方的心理防线，使其渴望获得认可。</div>
+      <div class="tactic-alert">⚡ 高频手法</div>
+    </div>
+    <div class="tactic-card animate">
+      <span class="tactic-num">TACTIC-08</span>
+      <div class="tactic-name">框架控制</div>
+      <div class="tactic-desc">通过提问和语言技巧将对方引入预设的思维框架，使对方在不知不觉中接受操控者的逻辑。</div>
+      <div class="tactic-alert">⚡ 心理操控</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 2：书单
+══════════════════════════════════════ -->
+<div class="section" style="padding-top:0">
+  <div class="section-header">
+    <span class="section-num">02 / 书单存档</span>
+    <h2 class="section-title">流传书籍一览——了解操控者的"教材"</h2>
+  </div>
+
+  <div class="books-controls">
+    <button class="filter-btn active" onclick="filterBooks('all', this)">全部</button>
+    <button class="filter-btn" onclick="filterBooks('pdf', this)">PDF</button>
+    <button class="filter-btn" onclick="filterBooks('epub', this)">EPUB</button>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search" placeholder="搜索书名 / 作者..." oninput="searchBooks(this.value)">
+    </div>
+  </div>
+
+  <div class="books-count">显示 <span id="visible-count">76</span> / 76 本</div>
+
+  <div class="books-list" id="bookList">
+    <!-- PDF 书籍 -->
+    <a class="book-item" data-ext="pdf" data-name="Brad P 时尚圣经 Brad P" href="https://github.com/LeonYanghaha/pua-books/raw/master/Brad%20P%20%E6%97%B6%E5%B0%9A%E5%9C%A3%E7%BB%8F.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">Brad P 时尚圣经</div><div class="book-author">Brad P</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="PUA玩家手册完整版 康纳" href="https://github.com/LeonYanghaha/pua-books/raw/master/PUA%E7%8E%A9%E5%AE%B6%E6%89%8B%E5%86%8C%EF%BC%88%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%89-%20%E5%BA%B7%E7%BA%B3.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">PUA玩家手册（完整版）</div><div class="book-author">康纳</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="Q帝把妹文集" href="https://github.com/qq380155392/pua-books/raw/master/Q%E5%B8%9D%E6%8A%8A%E5%A6%B9%E6%96%87%E9%9B%86.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">Q帝把妹文集</div><div class="book-author">Q帝</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="alpha阿尔法吸引 Steve Scott" href="https://github.com/qq380155392/pua-books/raw/master/alpha%E9%98%BF%E5%B0%94%E6%B3%95%E5%90%B8%E5%BC%95%E2%80%94%E2%80%94%E6%8A%8A%E5%A6%B9%E5%88%B6%E8%83%9C%E7%9A%8433%E6%9D%A1%E8%A7%84%E5%88%99%20-%20Steve%20Scott.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">alpha 阿尔法吸引——33条规则</div><div class="book-author">Steve Scott</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="中国男性究极进化手册" href="https://github.com/qq380155392/pua-books/raw/master/%E4%B8%AD%E5%9B%BD%E7%94%B7%E6%80%A7%E7%A9%B6%E6%9E%81%E8%BF%9B%E5%8C%96%E6%89%8B%E5%86%8C.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">中国男性究极进化手册</div><div class="book-author">-</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="中国男性究极进化手册第二版" href="https://github.com/qq380155392/pua-books/raw/master/%E4%B8%AD%E5%9B%BD%E7%94%B7%E6%80%A7%E7%A9%B6%E6%9E%81%E8%BF%9B%E5%8C%96%E6%89%8B%E5%86%8C%E7%AC%AC%E4%BA%8C%E7%89%88.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">中国男性究极进化手册 第二版</div><div class="book-author">-</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="五步陷阱技术深度解剖 Jacob" href="https://github.com/qq380155392/pua-books/raw/master/%E4%BA%94%E6%AD%A5%E9%99%B7%E9%98%B1%E6%8A%80%E6%9C%AF%E6%B7%B1%E5%BA%A6%E8%A7%A3%E5%89%96%20-%20Jacob.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">五步陷阱技术深度解剖</div><div class="book-author">Jacob</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="五步陷阱课件 死囚漫步" href="https://github.com/qq380155392/pua-books/raw/master/%E4%BA%94%E6%AD%A5%E9%99%B7%E9%98%B1%E8%AF%BE%E4%BB%B6%20-%20%E6%AD%BB%E5%9B%9A%E6%BC%AB%E6%AD%A5.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">五步陷阱课件</div><div class="book-author">死囚漫步</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="从1到N 浪迹" href="https://github.com/qq380155392/pua-books/raw/master/%E4%BB%8E1%E5%88%B0N%20-%20%E6%B5%AA%E8%BF%B9.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">从1到N</div><div class="book-author">浪迹</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="从新手到大师训练计划 源靖" href="https://github.com/qq380155392/pua-books/raw/master/%E4%BB%8E%E6%96%B0%E6%89%8B%E5%88%B0%E5%A4%A7%E5%B8%88%E8%AE%AD%E7%BB%83%E8%AE%A1%E5%88%92%20-%20%E6%BA%90%E9%9D%96.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">从新手到大师训练计划</div><div class="book-author">源靖</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="你不可不知的情场致胜秘密" href="https://github.com/qq380155392/pua-books/raw/master/%E4%BD%A0%E4%B8%8D%E5%8F%AF%E4%B8%8D%E7%9F%A5%E7%9A%84%E6%83%85%E5%9C%BA%E8%87%B4%E8%83%9C%E7%A7%98%E5%AF%86.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">你不可不知的情场致胜秘密</div><div class="book-author">-</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="再次路过网络泡妞骨灰级教程" href="https://github.com/qq380155392/pua-books/raw/master/%E5%86%8D%E6%AC%A1%E8%B7%AF%E8%BF%87%E4%B9%8B%E5%92%8C%E7%BD%91%E7%BB%9C%E6%B3%A1%E5%A6%9E%E9%AA%A8%E7%81%B0%E7%BA%A7%E6%95%99%E7%A8%8B%E7%BB%88%E6%9E%81%E6%95%B4%E7%90%86%E7%89%88.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">再次路过之网络泡妞骨灰级教程</div><div class="book-author">-</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="冷眼观爱2 冷爱" href="https://github.com/qq380155392/pua-books/raw/master/%E5%86%B7%E7%9C%BC%E8%A7%82%E7%88%B12%20-%20%E5%86%B7%E7%88%B1.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">冷眼观爱 2</div><div class="book-author">冷爱</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="冷读术 石井裕之" href="https://github.com/qq380155392/pua-books/raw/master/%E5%86%B7%E8%AF%BB%E6%9C%AF%20-%20%E7%9F%B3%E4%BA%95%E8%A3%95%E4%B9%8B.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">冷读术</div><div class="book-author">石井裕之</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="前线笔记 尼尔" href="https://github.com/qq380155392/pua-books/raw/master/%E5%89%8D%E7%BA%BF%E7%AC%94%E8%AE%B0%20-%20%E5%B0%BC%E5%B0%94.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">前线笔记</div><div class="book-author">尼尔</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="十月男人 IN10SE" href="https://github.com/qq380155392/pua-books/raw/master/%E5%8D%81%E6%9C%88%E7%94%B7%E4%BA%BA%20-%20IN10SE.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">十月男人</div><div class="book-author">IN10SE</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="卡萨诺瓦自传" href="https://github.com/qq380155392/pua-books/raw/master/%E5%8D%A1%E8%90%A8%E8%AF%BA%E7%93%A6%E8%87%AA%E4%BC%A0%EF%BC%9A%E6%88%91%E7%9A%84%E4%B8%80%E7%94%9F.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">卡萨诺瓦自传：我的一生</div><div class="book-author">卡萨诺瓦</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="叔叔教你护妹子 刘毓卿" href="https://github.com/qq380155392/pua-books/raw/master/%E5%8F%94%E5%8F%94%E6%95%99%E4%BD%A0%E6%8A%A4%E5%A6%B9%E5%AD%90%20-%20%E5%88%98%E6%AF%93%E5%8D%BF.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">叔叔教你护妹子</div><div class="book-author">刘毓卿</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="吸引不是选择 大卫D" href="https://github.com/qq380155392/pua-books/raw/master/%E5%90%B8%E5%BC%95%E4%B8%8D%E6%98%AF%E9%80%89%E6%8B%A9%20-%20%E5%A4%A7%E5%8D%ABD.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">吸引不是选择</div><div class="book-author">大卫D</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="坏男人红药丸法则" href="https://github.com/qq380155392/pua-books/raw/master/%E5%9D%8F%E7%94%B7%E4%BA%BA%E7%9A%84%E7%BA%A2%E8%8D%AF%E4%B8%B8%E6%B3%95%E5%88%99_%E6%89%AB%E6%8F%8F%E7%89%88_15.6M.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">坏男人的红药丸法则</div><div class="book-author">-</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="坏蛋之道 约书亚佩雷斯" href="https://github.com/qq380155392/pua-books/raw/master/%E5%9D%8F%E8%9B%8B%E4%B9%8B%E9%81%93%20-%20%E7%BA%A6%E4%B9%A6%E4%BA%9A%C2%B7%E4%BD%A9%E9%9B%B7%E6%96%AF.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">坏蛋之道</div><div class="book-author">约书亚·佩雷斯</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="墨攻 黑子" href="https://github.com/qq380155392/pua-books/raw/master/%E5%A2%A8%E6%94%BB%20-%20%E9%BB%91%E5%AD%90.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">墨攻</div><div class="book-author">黑子</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="大卫X方法" href="https://github.com/qq380155392/pua-books/raw/master/%E5%A4%A7%E5%8D%ABX%E6%96%B9%E6%B3%95%20-%20%E5%A4%A7%E5%8D%ABX.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">大卫X方法</div><div class="book-author">大卫X</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="大都会泡妞手册 Paul Janka" href="https://github.com/qq380155392/pua-books/raw/master/%E5%A4%A7%E9%83%BD%E4%BC%9A%E6%B3%A1%E5%A6%9E%E6%89%8B%E5%86%8C%20-%20Paul%20Janka.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">大都会泡妞手册</div><div class="book-author">Paul Janka</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="女人眼中的约会和长期关系 菠菜" href="https://github.com/qq380155392/pua-books/raw/master/%E5%A5%B3%E4%BA%BA%E7%9C%BC%E4%B8%AD%E7%9A%84%E7%BA%A6%E4%BC%9A%E5%92%8C%E9%95%BF%E6%9C%9F%E5%85%B3%E7%B3%BB%20-%20%E8%8F%A0%E8%8F%9C.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">女人眼中的约会和长期关系</div><div class="book-author">菠菜</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="女性分类课程笔记 但丁Law" href="https://github.com/qq380155392/pua-books/raw/master/%E5%A5%B3%E6%80%A7%E5%88%86%E7%B1%BB%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%20-%20%E4%BD%86%E4%B8%81Law.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">女性分类课程笔记</div><div class="book-author">但丁Law</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="如何和女人见面与沟通 杂耍人" href="https://github.com/qq380155392/pua-books/raw/master/%E5%A6%82%E4%BD%95%E5%92%8C%E5%A5%B3%E4%BA%BA%E8%A7%81%E9%9D%A2%E4%B8%8E%E6%B2%9F%E9%80%9A%20-%20%E6%9D%82%E8%80%8D%E4%BA%BA.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">如何和女人见面与沟通</div><div class="book-author">杂耍人</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="属性 PUANEY" href="https://github.com/qq380155392/pua-books/raw/master/%E5%B1%9E%E6%80%A7%20-%20PUANEY.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">属性</div><div class="book-author">PUANEY</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="微信撩妹72招 PUANEY" href="https://github.com/qq380155392/pua-books/raw/master/%E5%BE%AE%E4%BF%A1%E6%92%A9%E5%A6%B972%E6%8B%9B%20-%20PUANEY.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">微信撩妹72招</div><div class="book-author">PUANEY</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="恋爱指南play连招 乌鸦救赎" href="https://github.com/qq380155392/pua-books/raw/master/%E6%81%8B%E7%88%B1%E6%8C%87%E5%8D%97%E2%80%94%E2%80%94play%20%E8%BF%9E%E6%8B%9B%20-%20%E4%B9%8C%E9%B8%A6%E6%95%91%E8%B5%8E.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">恋爱指南——play 连招</div><div class="book-author">乌鸦救赎</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="情狼日记 海兵" href="https://github.com/qq380155392/pua-books/raw/master/%E6%83%85%E7%8B%BC%E6%97%A5%E8%AE%B0%20-%20%E6%B5%B7%E5%85%B5.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">情狼日记</div><div class="book-author">海兵</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="情绪流方法论 损友" href="https://github.com/qq380155392/pua-books/raw/master/%E6%83%85%E7%BB%AA%E6%B5%81%E6%96%B9%E6%B3%95%E8%AE%BA%20-%20%E6%8D%9F%E5%8F%8B.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">情绪流方法论</div><div class="book-author">损友</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="惯例军火库" href="https://github.com/qq380155392/pua-books/raw/master/%E6%83%AF%E4%BE%8B%E5%86%9B%E7%81%AB%E5%BA%93.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">惯例军火库</div><div class="book-author">-</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="惯例手册 爱情体系" href="https://github.com/qq380155392/pua-books/raw/master/%E6%83%AF%E4%BE%8B%E6%89%8B%E5%86%8C%20-%20%E7%88%B1%E6%83%85%E4%BD%93%E7%B3%BB.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">惯例手册</div><div class="book-author">爱情体系</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="我希望在地狱仍有酒喝" href="https://github.com/qq380155392/pua-books/raw/master/%E6%88%91%E5%B8%8C%E6%9C%9B%E5%9C%A8%E5%9C%B0%E7%8B%B1%E4%BB%8D%E6%9C%89%E9%85%92%E5%96%9D.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">我希望在地狱仍有酒喝</div><div class="book-author">-</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="打破和谐感的81种方法 Adam Lyons" href="https://github.com/qq380155392/pua-books/raw/master/%E6%89%93%E7%A0%B4%E5%92%8C%E8%B0%90%E6%84%9F%E7%9A%8481%E7%A7%8D%E6%96%B9%E6%B3%95%20-%20Adam%20Lyons.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">打破和谐感的81种方法</div><div class="book-author">Adam Lyons</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="把妹达人 尼尔" href="https://github.com/qq380155392/pua-books/raw/master/%E6%8A%8A%E5%A6%B9%E8%BE%BE%E4%BA%BA%20-%20%E5%B0%BC%E5%B0%94.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">把妹达人</div><div class="book-author">尼尔</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="把妹那些事 Jacob" href="https://github.com/qq380155392/pua-books/raw/master/%E6%8A%8A%E5%A6%B9%E9%82%A3%E4%BA%9B%E4%BA%8B%20-%20Jacob.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">把妹那些事</div><div class="book-author">Jacob</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="指男针 老岸" href="https://github.com/qq380155392/pua-books/raw/master/%E6%8C%87%E7%94%B7%E9%92%88%20-%20%E8%80%81%E5%B2%B8.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">指男针</div><div class="book-author">老岸</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="晚熟青年杂译集" href="https://github.com/qq380155392/pua-books/raw/master/%E6%99%9A%E7%86%9F%E9%9D%92%E5%B9%B4%E6%9D%82%E8%AF%91%E9%9B%86.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">晚熟青年杂译集</div><div class="book-author">晚熟青年</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="杂耍人新作24篇通译 晚熟青年" href="https://github.com/qq380155392/pua-books/raw/master/%E6%9D%82%E8%80%8D%E4%BA%BA%E6%96%B0%E4%BD%9C24%E7%AF%87%E9%80%9A%E8%AF%91%20-%20%E6%99%9A%E7%86%9F%E9%9D%92%E5%B9%B4.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">杂耍人新作24篇通译</div><div class="book-author">晚熟青年</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="杂耍人方法" href="https://github.com/qq380155392/pua-books/raw/master/%E6%9D%82%E8%80%8D%E4%BA%BA%E6%96%B9%E6%B3%95%20-%20%E6%9D%82%E8%80%8D%E4%BA%BA.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">杂耍人方法</div><div class="book-author">杂耍人</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="极限话术 死囚漫步" href="https://github.com/qq380155392/pua-books/raw/master/%E6%9E%81%E9%99%90%E8%AF%9D%E6%9C%AF%20-%20%E6%AD%BB%E5%9B%9A%E6%BC%AB%E6%AD%A5.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">极限话术</div><div class="book-author">死囚漫步</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="枪巫方法 Gunwitch" href="https://github.com/qq380155392/pua-books/raw/master/%E6%9E%AA%E5%B7%AB%E6%96%B9%E6%B3%95%20-%20Gunwitch.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">枪巫方法</div><div class="book-author">Gunwitch</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="校园情圣 马克雷德曼" href="https://github.com/qq380155392/pua-books/raw/master/%E6%A0%A1%E5%9B%AD%E6%83%85%E5%9C%A3%20-%20%E9%A9%AC%E5%85%8B%C2%B7%E9%9B%B7%E5%BE%B7%E6%9B%BC.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">校园情圣</div><div class="book-author">马克·雷德曼</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="正妹心理学 郑匡宇" href="https://github.com/qq380155392/pua-books/raw/master/%E6%AD%A3%E5%A6%B9%E5%BF%83%E7%90%86%E5%AD%A6%20-%20%E9%83%91%E5%8C%A1%E5%AE%87.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">正妹心理学</div><div class="book-author">郑匡宇</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="泡丁解妞 斑马" href="https://github.com/qq380155392/pua-books/raw/master/%E6%B3%A1%E4%B8%81%E8%A7%A3%E5%A6%9E%20-%20%E6%96%91%E9%A9%AC.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">泡丁解妞</div><div class="book-author">斑马</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="泡秘 华山论剑" href="https://github.com/qq380155392/pua-books/raw/master/%E6%B3%A1%E7%A7%98%20-%20%E5%8D%8E%E5%B1%B1%E8%AE%BA%E5%89%91.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">泡秘</div><div class="book-author">华山论剑</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="泳湿吾爱天涯文章汇总" href="https://github.com/qq380155392/pua-books/raw/master/%E6%B3%B3%E6%B9%BF%E5%90%BE%E7%88%B1%E5%A4%A9%E6%B6%AF%E6%96%87%E7%AB%A0%E6%B1%87%E6%80%BB.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">泳湿吾爱天涯文章汇总</div><div class="book-author">泳湿吾爱</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="海蒂性学报告男人篇" href="https://github.com/qq380155392/pua-books/raw/master/%E6%B5%B7%E8%92%82%E6%80%A7%E5%AD%A6%E6%8A%A5%E5%91%8A%20-%20%E7%94%B7%E4%BA%BA%E7%AF%87.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">海蒂性学报告·男人篇</div><div class="book-author">海蒂</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="消除搭讪焦虑 晚熟青年" href="https://github.com/qq380155392/pua-books/raw/master/%E6%B6%88%E9%99%A4%E6%90%AD%E8%AE%AA%E7%84%A6%E8%99%91%20-%20%E6%99%9A%E7%86%9F%E9%9D%92%E5%B9%B4.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">消除搭讪焦虑</div><div class="book-author">晚熟青年</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="游戏 IN10SE" href="https://github.com/qq380155392/pua-books/raw/master/%E6%B8%B8%E6%88%8F%20-%20IN10SE.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">游戏</div><div class="book-author">IN10SE</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="游戏加速论 万恶" href="https://github.com/qq380155392/pua-books/raw/master/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F%E8%AE%BA%20-%20%E4%B8%87%E6%81%B6.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">游戏加速论</div><div class="book-author">万恶</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="潘多拉魔盒 迪卡洛" href="https://github.com/qq380155392/pua-books/raw/master/%E6%BD%98%E5%A4%9A%E6%8B%89%E9%AD%94%E7%9B%92%20-%20%E8%BF%AA%E5%8D%A1%E6%B4%9B.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">潘多拉魔盒</div><div class="book-author">迪卡洛</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="灵丹妙药 恋爱体系" href="https://github.com/qq380155392/pua-books/raw/master/%E7%81%B5%E4%B8%B9%E5%A6%99%E8%8D%AF%20-%20%E6%81%8B%E7%88%B1%E4%BD%93%E7%B3%BB.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">灵丹妙药</div><div class="book-author">恋爱体系</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="现实世界的诱惑术 Swinggcat" href="https://github.com/qq380155392/pua-books/raw/master/%E7%8E%B0%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E8%AF%B1%E6%83%91%E6%9C%AF%20-%20Swinggcat.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">现实世界的诱惑术</div><div class="book-author">Swinggcat</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="男人来自火星女人来自金星" href="https://github.com/qq380155392/pua-books/raw/master/%E7%94%B7%E4%BA%BA%E6%9D%A5%E8%87%AA%E7%81%AB%E6%98%9F%E5%A5%B3%E4%BA%BA%E6%9D%A5%E8%87%AA%E9%87%91%E6%98%9F.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">男人来自火星女人来自金星</div><div class="book-author">约翰·格雷</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="白天约会宝典 Jeremy Soul" href="https://github.com/qq380155392/pua-books/raw/master/%E7%99%BD%E5%A4%A9%E7%BA%A6%E4%BC%9A%E5%AE%9D%E5%85%B8%20-%20Jeremy%20Soul.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">白天约会宝典</div><div class="book-author">Jeremy Soul</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="短信和电话把妹游戏终极指南 爱情体系" href="https://github.com/qq380155392/pua-books/raw/master/%E7%9F%AD%E4%BF%A1%E5%92%8C%E7%94%B5%E8%AF%9D%E6%8A%8A%E5%A6%B9%E6%B8%B8%E6%88%8F%E4%B9%8B%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%97%20-%20%E7%88%B1%E6%83%85%E4%BD%93%E7%B3%BB.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">短信和电话把妹游戏之终极指南</div><div class="book-author">爱情体系</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="神撩术 欧阳浮夸" href="https://github.com/qq380155392/pua-books/raw/master/%E7%A5%9E%E6%92%A9%E6%9C%AF%20-%20%E6%AC%A7%E9%98%B3%E6%B5%AE%E5%A4%B8.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">神撩术</div><div class="book-author">欧阳浮夸</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="禁忌的力量一 但丁Law" href="https://github.com/qq380155392/pua-books/raw/master/%E7%A6%81%E5%BF%8C%E7%9A%84%E5%8A%9B%E9%87%8F%E4%B8%80%EF%BC%9A%E4%BD%86%E4%B8%81%E7%9A%84%E5%A4%9A%E7%BB%B4%E4%BA%BA%E7%94%9F%20%20-%20%E4%BD%86%E4%B8%81Law.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">禁忌的力量一：但丁的多维人生</div><div class="book-author">但丁Law</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="禁忌的力量二 但丁Law" href="https://github.com/qq380155392/pua-books/raw/master/%E7%A6%81%E5%BF%8C%E7%9A%84%E5%8A%9B%E9%87%8F%E4%BA%8C%EF%BC%9A%E6%A0%B8%E5%BF%83%E5%90%B8%E5%BC%95%E6%B3%95%E5%88%99%20-%20%E4%BD%86%E4%B8%81Law.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">禁忌的力量二：核心吸引法则</div><div class="book-author">但丁Law</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="禁忌的力量三 但丁Law" href="https://github.com/qq380155392/pua-books/raw/master/%E7%A6%81%E5%BF%8C%E7%9A%84%E5%8A%9B%E9%87%8F%E4%B8%89%EF%BC%9A%E6%8A%80%E5%B7%A7%E7%9A%84%E6%9E%81%E8%87%B4%20-%20%E4%BD%86%E4%B8%81Law.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">禁忌的力量三：技巧的极致</div><div class="book-author">但丁Law</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="禁忌的力量四 但丁Law" href="https://github.com/qq380155392/pua-books/raw/master/%E7%A6%81%E5%BF%8C%E7%9A%84%E5%8A%9B%E9%87%8F%E5%9B%9B%EF%BC%9A%E7%9C%9F%E7%9B%B8%EF%BC%81%E6%9C%80%E6%98%82%E8%B4%B5%E7%9A%84%E7%A4%BE%E4%BA%A4%E6%99%BA%E6%85%A7%E8%AF%BE%20-%20%E4%BD%86%E4%B8%81Law.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">禁忌的力量四：最昂贵的社交智慧课</div><div class="book-author">但丁Law</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="禁忌的力量五 但丁Law" href="https://github.com/qq380155392/pua-books/raw/master/%E7%A6%81%E5%BF%8C%E7%9A%84%E5%8A%9B%E9%87%8F%E4%BA%94%EF%BC%9A%E5%A4%A9%E4%BD%BF%E5%BF%83%E9%AD%94%E9%AC%BC%E7%9C%BC%20%20-%20%E4%BD%86%E4%B8%81Law.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">禁忌的力量五：天使心魔鬼眼</div><div class="book-author">但丁Law</div></div>
+    </a>
+    <a class="book-item" data-ext="pdf" data-name="筛选的101种方式 Adam Lyons" href="https://github.com/qq380155392/pua-books/raw/master/%E7%AD%9B%E9%80%89%E7%9A%84101%E7%A7%8D%E6%96%B9%E5%BC%8F%20-%20Adam%20Lyons.pdf" target="_blank">
+      <div class="book-ext ext-pdf">PDF</div>
+      <div class="book-info"><div class="book-name">筛选的101种方式</div><div class="book-author">Adam Lyons</div></div>
+    </a>
+
+    <!-- EPUB 书籍 -->
+    <a class="book-item" data-ext="epub" data-name="4EG方法 Rob Judge Zack Bauer" href="https://github.com/qq380155392/pua-books/raw/master/4EG%E6%96%B9%E6%B3%95%20-%20Rob%20Judge%20%26%20Zack%20Bauer.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">4EG方法</div><div class="book-author">Rob Judge & Zack Bauer</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="MACK把妹方法 Dean Cortez" href="https://github.com/qq380155392/pua-books/raw/master/MACK%E6%8A%8A%E5%A6%B9%E6%96%B9%E6%B3%95%20-%20Dean%20Cortez.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">MACK把妹方法</div><div class="book-author">Dean Cortez</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="三十三条雄性领袖法诱惑美女法则 史蒂夫斯科特" href="https://github.com/qq380155392/pua-books/raw/master/%E4%B8%89%E5%8D%81%E4%B8%89%E6%9D%A1%E9%9B%84%E6%80%A7%E9%A2%86%E8%A2%96%E6%B3%95%E8%AF%B1%E6%83%91%E7%BE%8E%E5%A5%B3%E6%B3%95%E5%88%99%20-%20%E5%8F%B2%E8%92%82%E5%A4%AB%C2%B7%E6%96%AF%E7%A7%91%E7%89%B9.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">三十三条雄性领袖法诱惑美女法则</div><div class="book-author">史蒂夫·斯科特</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="中国把妹达人 浪迹" href="https://github.com/qq380155392/pua-books/raw/master/%E4%B8%AD%E5%9B%BD%E6%8A%8A%E5%A6%B9%E8%BE%BE%E4%BA%BA%20-%20%E6%B5%AA%E8%BF%B9.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">中国把妹达人</div><div class="book-author">浪迹</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="五步陷阱 死囚漫步" href="https://github.com/qq380155392/pua-books/raw/master/%E4%BA%94%E6%AD%A5%E9%99%B7%E9%98%B1%20-%20%E6%AD%BB%E5%9B%9A%E6%BC%AB%E6%AD%A5.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">五步陷阱</div><div class="book-author">死囚漫步</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="决胜网络把妹 Kezia Noble" href="https://github.com/qq380155392/pua-books/raw/master/%E5%86%B3%E8%83%9C%E7%BD%91%E7%BB%9C%E6%8A%8A%E5%A6%B9%20-%20Kezia%20Noble.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">决胜网络把妹</div><div class="book-author">Kezia Noble</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="冷眼观爱 冷爱" href="https://github.com/qq380155392/pua-books/raw/master/%E5%86%B7%E7%9C%BC%E8%A7%82%E7%88%B1%20-%20%E5%86%B7%E7%88%B1.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">冷眼观爱</div><div class="book-author">冷爱</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="剽悍生活博客2018" href="https://github.com/qq380155392/pua-books/raw/master/%E5%89%BD%E6%82%8D%E7%94%9F%E6%B4%BB%E5%8D%9A%E5%AE%A2%202018.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">剽悍生活博客 2018</div><div class="book-author">-</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="剽悍生活博客2019" href="https://github.com/qq380155392/pua-books/raw/master/%E5%89%BD%E6%82%8D%E7%94%9F%E6%B4%BB%E5%8D%9A%E5%AE%A2%202019.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">剽悍生活博客 2019</div><div class="book-author">-</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="剽悍生活博客2020" href="https://github.com/qq380155392/pua-books/raw/master/%E5%89%BD%E6%82%8D%E7%94%9F%E6%B4%BB%E5%8D%9A%E5%AE%A2%202020.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">剽悍生活博客 2020</div><div class="book-author">-</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="十五步让你成为诱惑大师 Kezia Noble" href="https://github.com/qq380155392/pua-books/raw/master/%E5%8D%81%E4%BA%94%E6%AD%A5%E8%AE%A9%E4%BD%A0%E6%88%90%E4%B8%BA%E8%AF%B1%E6%83%91%E5%A4%A7%E5%B8%88%20-%20Kezia%20Noble.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">十五步让你成为诱惑大师</div><div class="book-author">Kezia Noble</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="坏男人女人无法抵御的诱惑 英格" href="https://github.com/qq380155392/pua-books/raw/master/%E5%9D%8F%E7%94%B7%E4%BA%BA%EF%BC%9A%E5%A5%B3%E4%BA%BA%E6%97%A0%E6%B3%95%E6%8A%B5%E5%BE%A1%E7%9A%84%E8%AF%B1%E6%83%91%E3%80%81%E5%8E%86%E7%BB%8F%E4%B8%8E%E5%86%92%E9%99%A9%20-%20%E8%8B%B1%E6%A0%BC.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">坏男人：女人无法抵御的诱惑</div><div class="book-author">英格</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="婚恋中男人不能犯的100个错误 廖康强" href="https://github.com/qq380155392/pua-books/raw/master/%E5%A9%9A%E6%81%8B%E4%B8%AD%E7%94%B7%E4%BA%BA%E4%B8%8D%E8%83%BD%E7%8A%AF%E7%9A%84100%E4%B8%AA%E9%94%99%E8%AF%AF%20-%20%E5%BB%96%E5%BA%B7%E5%BC%BA.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">婚恋中男人不能犯的100个错误</div><div class="book-author">廖康强</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="完美约会计划 Brad P" href="https://github.com/qq380155392/pua-books/raw/master/%E5%AE%8C%E7%BE%8E%E7%BA%A6%E4%BC%9A%E8%AE%A1%E5%88%92%20-%20Brad%20P.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">完美约会计划</div><div class="book-author">Brad P</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="吸引力原理 Adam Lyons" href="https://github.com/qq380155392/pua-books/raw/master/%E5%90%B8%E5%BC%95%E5%8A%9B%E5%8E%9F%E7%90%86%20-%20Adam%20Lyons.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">吸引力原理</div><div class="book-author">Adam Lyons</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="懒汉把妹 大卫X" href="https://github.com/qq380155392/pua-books/raw/master/%E6%87%92%E6%B1%89%E6%8A%8A%E5%A6%B9%20-%20%E5%A4%A7%E5%8D%ABX.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">懒汉把妹</div><div class="book-author">大卫X</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="杂耍人文集及语录" href="https://github.com/qq380155392/pua-books/raw/master/%E6%9D%82%E8%80%8D%E4%BA%BA%E6%96%87%E9%9B%86%E5%8F%8A%E8%AF%AD%E5%BD%95%20-%20%E6%9D%82%E8%80%8D%E4%BA%BA.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">杂耍人文集及语录</div><div class="book-author">杂耍人</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="杂耍人方法精义 晚熟青年" href="https://github.com/qq380155392/pua-books/raw/master/%E6%9D%82%E8%80%8D%E4%BA%BA%E6%96%B9%E6%B3%95%E7%B2%BE%E4%B9%89%20-%20%E6%99%9A%E7%86%9F%E9%9D%92%E5%B9%B4.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">杂耍人方法精义</div><div class="book-author">晚熟青年</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="极限话术 死囚漫步" href="https://github.com/qq380155392/pua-books/raw/master/%E6%9E%81%E9%99%90%E8%AF%9D%E6%9C%AF%20-%20%E6%AD%BB%E5%9B%9A%E6%BC%AB%E6%AD%A5.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">极限话术</div><div class="book-author">死囚漫步</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="泡妞实战速查手册" href="https://github.com/qq380155392/pua-books/raw/master/%E6%B3%A1%E5%A6%9E%E5%AE%9E%E6%88%98%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">泡妞实战速查手册</div><div class="book-author">-</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="泡妞必杀技 爱情体系" href="https://github.com/qq380155392/pua-books/raw/master/%E6%B3%A1%E5%A6%9E%E5%BF%85%E6%9D%80%E6%8A%80%20-%20%E7%88%B1%E6%83%85%E4%BD%93%E7%B3%BB.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">泡妞必杀技</div><div class="book-author">爱情体系</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="电击开场 Brad P" href="https://github.com/qq380155392/pua-books/raw/master/%E7%94%B5%E5%87%BB%E5%BC%80%E5%9C%BA%20-%20Brad%20P.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">电击开场</div><div class="book-author">Brad P</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="搭讪圣经 郑匡宇" href="https://github.com/qq380155392/pua-books/raw/master/%E6%90%AD%E8%AE%AA%E5%9C%A3%E7%BB%8F%20-%20%E9%83%91%E5%8C%A1%E5%AE%87.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">搭讪圣经</div><div class="book-author">郑匡宇</div></div>
+    </a>
+    <a class="book-item" data-ext="epub" data-name="把妹达人圣经 尼尔" href="https://github.com/qq380155392/pua-books/raw/master/%E6%8A%8A%E5%A6%B9%E8%BE%BE%E4%BA%BA%E5%9C%A3%E7%BB%8F%20-%20%E5%B0%BC%E5%B0%94.epub" target="_blank">
+      <div class="book-ext ext-epub">EPUB</div>
+      <div class="book-info"><div class="book-name">把妹达人圣经</div><div class="book-author">尼尔</div></div>
+    </a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     WARNING SECTION
+══════════════════════════════════════ -->
+<div style="padding: 0 24px 0; max-width:1100px; margin: 0 auto">
+  <div class="warning-section">
+    <div class="section-header" style="border-color:rgba(232,37,26,.3); margin-bottom:0; padding-bottom:20px">
+      <span class="section-num">03 / 如何保护自己</span>
+      <h2 class="section-title">识别操控，守护自己和身边的人</h2>
+    </div>
+    <div class="warning-grid">
+      <div class="warning-point">
+        <span class="warning-point-icon">🧠</span>
+        <div class="warning-point-title">建立自我价值感</div>
+        <div class="warning-point-desc">PUA 的一切手法都依赖于让你怀疑自己的价值。清楚地知道自己值得被尊重，是最根本的防护。</div>
+      </div>
+      <div class="warning-point">
+        <span class="warning-point-icon">🚩</span>
+        <div class="warning-point-title">识别红旗信号</div>
+        <div class="warning-point-desc">过度热情 → 突然冷漠、反复贬低 → 偶尔认可、试图孤立你与亲友——这些都是操控者的典型模式。</div>
+      </div>
+      <div class="warning-point">
+        <span class="warning-point-icon">💬</span>
+        <div class="warning-point-title">保持社交联系</div>
+        <div class="warning-point-desc">操控者的核心目标是孤立你。维持与朋友、家人的稳定联系，是打破操控的最有效手段。</div>
+      </div>
+      <div class="warning-point">
+        <span class="warning-point-icon">🛑</span>
+        <div class="warning-point-title">果断设立边界</div>
+        <div class="warning-point-desc">感到不舒适时，明确说"不"并观察对方的反应。尊重你边界的人，才是值得信任的人。</div>
+      </div>
+      <div class="warning-point">
+        <span class="warning-point-icon">🤝</span>
+        <div class="warning-point-title">帮助身边的人</div>
+        <div class="warning-point-desc">如果你怀疑朋友正在遭受 PUA，不要评判，耐心倾听，帮助他们看清模式，鼓励寻求专业帮助。</div>
+      </div>
+      <div class="warning-point">
+        <span class="warning-point-icon">📚</span>
+        <div class="warning-point-title">了解才能防范</div>
+        <div class="warning-point-desc">知道操控者使用什么手法，就能在它发生时识别出来。这也是本页面整理这些书籍的唯一意义。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div>本页面内容仅用于 PUA 手法的公众教育与防范宣传</div>
+  <div style="margin-top:8px">书籍来源：<a href="https://github.com/LeonYanghaha/pua-books" target="_blank">github.com/LeonYanghaha/pua-books</a> 及其 Fork 仓库</div>
+  <div style="margin-top:8px; color:#555">如有心理困扰，可拨打心理援助热线：<strong style="color:#888">北京 010-82951332 · 全国 400-161-9995</strong></div>
+</footer>
+
+<script>
+  // ── 筛选 ──
+  let currentExt = 'all';
+  let currentSearch = '';
+
+  function filterBooks(ext, btn) {
+    currentExt = ext;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilter();
+  }
+
+  function searchBooks(val) {
+    currentSearch = val.toLowerCase();
+    applyFilter();
+  }
+
+  function applyFilter() {
+    const items = document.querySelectorAll('.book-item');
+    let visible = 0;
+    items.forEach(item => {
+      const extMatch = currentExt === 'all' || item.dataset.ext === currentExt;
+      const nameMatch = !currentSearch || item.dataset.name.toLowerCase().includes(currentSearch);
+      if (extMatch && nameMatch) {
+        item.classList.remove('hidden');
+        visible++;
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+    document.getElementById('visible-count').textContent = visible;
+  }
+
+  // ── 统计总数 ──
+  document.getElementById('cnt-total').textContent =
+    document.querySelectorAll('.book-item').length;
+
+  // ── 滚动入场动画 ──
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.tactic-card').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = `opacity .4s ease ${i * 0.06}s, transform .4s ease ${i * 0.06}s`;
+    observer.observe(el);
+  });
+
+  // ── 在线阅读功能拦截 ──
+  document.querySelectorAll('.book-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.preventDefault(); // 阻止默认的链接跳转与下载行为
+
+      const originalUrl = this.getAttribute('href');
+      const ext = this.getAttribute('data-ext');
+
+      // 1. 将 GitHub Raw 链接平滑转换为 jsDelivr CDN 链接
+      // 这一步消除了强制下载 Header，同时解决了 EPUB 渲染时的跨域限制 (CORS)
+      const cdnUrl = originalUrl
+        .replace('https://github.com/', 'https://cdn.jsdelivr.net/gh/')
+        .replace('/raw/master/', '@master/');
+
+      // 2. 根据文件扩展名调用对应的阅读方案
+      if (ext === 'pdf') {
+        // PDF：直接通过新标签页打开 CDN 链接，触发浏览器原生 PDF 阅读器
+        window.open(cdnUrl, '_blank');
+      } else if (ext === 'epub') {
+        // EPUB：借助 epub.js 提供的官方 Web 阅读器进行解析、分页和渲染
+        const epubViewerUrl = 'https://epubjs.org/reader/?url=' + encodeURIComponent(cdnUrl);
+        window.open(epubViewerUrl, '_blank');
+      }
+    });
+  });
+</script>
+</body>
+</html>
