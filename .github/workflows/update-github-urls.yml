@@ -1,42 +1,45 @@
 name: 每日更新 github.json 订阅时间
-
 on:
   schedule:
     # 每天 UTC 02:00（北京时间 10:00）自动运行
     - cron: "0 2 * * *"
   workflow_dispatch:   # 支持手动触发
-
 permissions:
   contents: write
-
 jobs:
   update-github-urls:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
       - name: Run update script
         id: updater
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python script/update_github_urls.py
-
+      - name: Run jingdian check script
+        id: jingdian
+        run: python script/update_jingdian_urls.py jingdian.json
+      - name: Check for changes
+        id: changes
+        run: |
+          if [ -n "$(git status --porcelain github.json jingdian.json)" ]; then
+            echo "updated=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "updated=0" >> "$GITHUB_OUTPUT"
+          fi
       - name: Commit and push changes
-        if: steps.updater.outputs.updated != '0'
+        if: steps.changes.outputs.updated == '1'
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add github.json
-          git commit -m "chore: 自动更新订阅源最后修改时间 [skip ci]"
+          git add github.json jingdian.json
+          git commit -m "chore: 自动更新订阅源最后修改时间及链接可用性 [skip ci]"
           git push
-
       - name: No changes
-        if: steps.updater.outputs.updated == '0'
+        if: steps.changes.outputs.updated == '0'
         run: echo "✔ 所有订阅源均为最新，无需提交。"
