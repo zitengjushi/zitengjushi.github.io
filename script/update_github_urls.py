@@ -2,10 +2,9 @@
 """
 update_github_urls.py
 读取 github.json 中每个 url 条目，去掉代理前缀后访问 GitHub API
-获取目标文件的最后修改时间（年月日），将 name 字段更新为：
-  原始 name（去掉上次附加的日期部分）+ 新日期，例如：
-  "大而全的配置" → "大而全的配置 2025-04-10"
-  "大而全的配置 2025-04-10" → "大而全的配置 2025-04-15"（再次运行时）
+获取目标文件的最后修改时间（年月日），然后按最后修改时间对条目排序后重新保存：
+  - 最新时间排在最前面
+  - 无法获取到时间的条目排在最后面
 
 用法:
     python scripts/update_github_urls.py
@@ -125,7 +124,7 @@ def main():
     entries: list[dict] = data.get("urls", [])
     print(f"🔍 共 {len(entries)} 个 URL 需要检查\n")
 
-    updated_count = 0
+    checked_count = 0
 
     for entry in entries:
         raw_proxy_url = entry.get("url", "")
@@ -143,6 +142,7 @@ def main():
         parsed = parse_raw_url(real_url)
         if not parsed:
             print(f"    ⚠️  无法解析为 GitHub raw URL，跳过\n")
+            entry["_last_modified"] = None
             continue
 
         repo, branch, file_path = parsed
@@ -151,25 +151,29 @@ def main():
             last_date = get_file_last_modified(repo, branch, file_path)
         except FileNotFoundError:
             print(f"    ⚠️  GitHub 上找不到此文件（{repo}/{file_path}），跳过\n")
+            entry["_last_modified"] = None
             continue
         except Exception as exc:
             print(f"    ❌ 获取失败: {exc}，跳过\n")
+            entry["_last_modified"] = None
             continue
 
         if not last_date:
             print(f"    ⚠️  未能获取最后修改时间，跳过\n")
+            entry["_last_modified"] = None
             continue
+
+        print(f"    最后修改: {last_date}")
+        entry["_last_modified"] = last_date
+        checked_count += 1
 
         # 构造新 name：去掉旧日期后缀 + 新日期
         base_name = strip_date_suffix(original_name)
         new_name  = f"{base_name} {last_date}"
 
-        print(f"    最后修改: {last_date}")
-
         if new_name != original_name:
             print(f"    🔄 name: {original_name!r} → {new_name!r}")
             entry["name"] = new_name
-            updated_count += 1
             print(f"    ✅ 已更新")
         else:
             print(f"    ✔  无变化")
@@ -177,19 +181,29 @@ def main():
         print()
         time.sleep(0.3)  # 礼貌性延迟
 
-    # 有变更时写回文件
-    if updated_count:
-        with JSON_PATH.open("w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=4)
-        print(f"💾 已写回 {JSON_PATH}，共更新 {updated_count} 个条目")
-    else:
-        print(f"✔  所有条目均为最新，无需写入")
+    # 按最后修改时间排序：最新的在最前面，无法获取到时间的排在最后面
+    dated    = [e for e in entries if e["_last_modified"] is not None]
+    undated  = [e for e in entries if e["_last_modified"] is None]
+    dated.sort(key=lambda e: e["_last_modified"], reverse=True)
+    entries[:] = dated + undated
+
+    # 清理临时字段，写回文件
+    for e in entries:
+        e.pop("_last_modified", None)
+
+    data["urls"] = entries
+    with JSON_PATH.open("w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+    print(
+        f"💾 已更新 name 日期并按最后修改时间排序，写回 {JSON_PATH}"
+        f"（成功获取时间 {checked_count}/{len(entries)} 个）"
+    )
 
     # 输出给 GitHub Actions
     env_file = os.getenv("GITHUB_OUTPUT", "")
     if env_file:
         with open(env_file, "a") as f:
-            f.write(f"updated={updated_count}\n")
+            f.write(f"updated={checked_count}\n")
 
 
 if __name__ == "__main__":
