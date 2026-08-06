@@ -17,10 +17,6 @@
             "name": "俊于✓"
         },
         {
-            "url": "https://clun.top/box.json",
-            "name": "cluntop✓"
-        },
-        {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
             "name": "qist✓"
         },
@@ -119,6 +115,10 @@
         {
             "name": "🌱环宇轩✓",
             "url": "https://6492.kstore.space/xnf/xnf.json"
+        },
+        {
+            "url": "https://clun.top/box.json",
+            "name": "cluntop✗"
         },
         {
             "url": "http://hb.小虎斑.site:25252/仅供测试",
