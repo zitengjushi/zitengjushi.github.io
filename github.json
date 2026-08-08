@@ -1,6 +1,22 @@
 {
     "urls": [
         {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/box.json",
+            "name": "cluntop box 2026-08-08"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/jsm.json",
+            "name": "cluntop PG 2026-08-08"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
+            "name": "分享者 2026-08-07"
+        },
+        {
+            "name": "tianjitop 2026-08-07",
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/tianjitop/llllo/refs/heads/main/api.json"
+        },
+        {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
             "name": "南风无广 2026-08-06"
         },
@@ -21,24 +37,8 @@
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/ljlfct01/ljlfct01.github.io/refs/heads/main/%E9%9D%92%E8%8B%B9%E6%9E%9C"
         },
         {
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
-            "name": "分享者 2026-08-02"
-        },
-        {
             "name": "woshishiq1-moyu 2026-08-02",
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/woshishiq1/jiemi/refs/heads/main/moyu.json"
-        },
-        {
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/box.json",
-            "name": "cluntop box 2026-08-02"
-        },
-        {
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/jsm.json",
-            "name": "cluntop PG 2026-08-01"
-        },
-        {
-            "name": "tianjitop 2026-07-26",
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/tianjitop/llllo/refs/heads/main/api.json"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/woniuxs/TVBOX/main/svip",
