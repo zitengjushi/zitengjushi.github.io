@@ -18,22 +18,22 @@
     "sub_dir": "https://github.com/lizongying/my-tv-0/releases/download/v1.3.9.7-kitkat/my-tv-0_1.3.9.7-kitkat.apk"
   },
   "mytv-android-original.apk": {
-    "version": "1.3.0.172",
+    "version": "2.1.0.212",
     "name": "电视直播(正常版)",
     "logo": "/images/dszb.jpeg",
     "android": "推荐",
     "desc":"可自定义直播源，基于天光云影3.3.9开发",
     "url":"https://github.com/mytv-android/mytv-android",
-    "sub_dir": "https://github.com/mytv-android/mytv-android/releases/download/V1.3.0.172/mytv-android-tv-1.3.0.172-all-sdk21-original.apk"
+    "sub_dir": "https://github.com/mytv-android/mytv-android/releases/download/V2.1.0.212/mytv-android-tv-2.1.0.212-all-sdk23-original.apk"
   },
   "mytv-android-disguised.apk": {
-    "version": "1.3.0.172",
+    "version": "2.1.0.212",
     "name": "电视直播(伪装版)",
     "logo": "/images/dszb.jpeg",
     "android": "",
     "desc":"可自定义直播源，基于天光云影3.3.9开发，伪装版本，伪装成Z视介（com.chinablue.tv）。解决鸿蒙系统小窗无法横屏，支持超级桌面。",
     "url":"https://github.com/mytv-android/mytv-android",
-    "sub_dir": "https://github.com/mytv-android/mytv-android/releases/download/V1.3.0.172/mytv-android-tv-1.3.0.172-all-sdk21-disguised.apk"
+    "sub_dir": "https://github.com/mytv-android/mytv-android/releases/download/V2.1.0.212/mytv-android-tv-2.1.0.212-all-sdk23-disguised.apk"
   },
   "tv-3.3.9-all-sdk21-original": {
     "version": "3.3.9",
