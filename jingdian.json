@@ -69,10 +69,6 @@
             "url": "https://szyyds.cn/tv/x.json"
         },
         {
-            "url": "http://rihou.cc:555/nzk/nzk0722.json",
-            "name": "D佬魔改✓"
-        },
-        {
             "url": "https://www.yingm.cc/dm/dm.json",
             "name": "动漫✓"
         },
@@ -83,14 +79,6 @@
         {
             "url": "https://8815.kstore.vip/tvbox/wmz",
             "name": "网络接口✓"
-        },
-        {
-            "url": "http://rihou.cc:88/demo.php",
-            "name": "vo✓"
-        },
-        {
-            "url": "http://rihou.cc:88/demo.php",
-            "name": "vo✓"
         },
         {
             "url": "https://9280.kstore.vip/newwex.json",
@@ -117,8 +105,20 @@
             "name": "cluntop✓"
         },
         {
-            "name": "🌱环宇轩✗",
+            "name": "🌱环宇轩✓",
             "url": "https://6492.kstore.space/xnf/xnf.json"
+        },
+        {
+            "url": "http://rihou.cc:555/nzk/nzk0722.json",
+            "name": "D佬魔改✗"
+        },
+        {
+            "url": "http://rihou.cc:88/demo.php",
+            "name": "vo✗"
+        },
+        {
+            "url": "http://rihou.cc:88/demo.php",
+            "name": "vo✗"
         },
         {
             "url": "http://hb.小虎斑.site:25252/仅供测试",
