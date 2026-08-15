@@ -1,24 +1,44 @@
 {
     "urls": [
         {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
+            "name": "南风无广 2026-08-15"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0821.json",
+            "name": "大而全的配置 2026-08-15"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0825.json",
+            "name": "小而精的配置 2026-08-15"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/js.json",
+            "name": "道长drpy 2026-08-15"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0826.json",
+            "name": "饭太硬 2026-08-15"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0827.json",
+            "name": "fongmi 2026-08-15"
+        },
+        {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
             "name": "分享者 2026-08-14"
         },
         {
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
-            "name": "南风无广 2026-08-14"
+            "name": "ggrrttyyiii 2026-08-14",
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/ggrrttyyiii/CatVodSpider/refs/heads/main/json/demo.json"
+        },
+        {
+            "name": "woshishiq1-zy 2026-08-14",
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/woshishiq1/jiemi/refs/heads/main/zy.json"
         },
         {
             "name": "青苹果 2026-08-13",
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/ljlfct01/ljlfct01.github.io/refs/heads/main/%E9%9D%92%E8%8B%B9%E6%9E%9C"
-        },
-        {
-            "name": "ggrrttyyiii 2026-08-13",
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/ggrrttyyiii/CatVodSpider/refs/heads/main/json/demo.json"
-        },
-        {
-            "name": "woshishiq1-zy 2026-08-12",
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/woshishiq1/jiemi/refs/heads/main/zy.json"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/YJL20190405/TVBOX/refs/heads/main/ysm.json",
@@ -81,18 +101,6 @@
             "name": "apig 2026-02-11"
         },
         {
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0821.json",
-            "name": "大而全的配置 2026-02-05"
-        },
-        {
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0825.json",
-            "name": "小而精的配置 2026-02-05"
-        },
-        {
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/js.json",
-            "name": "道长drpy 2026-02-05"
-        },
-        {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/music.json",
             "name": "music 2026-02-01"
         },
@@ -103,10 +111,6 @@
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/lege0001/TVbox/main/TV/dj.json",
             "name": "🔥爱在指尖|短剧🔥 2025-08-27"
-        },
-        {
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0826.json",
-            "name": "饭太硬 2025-07-03"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/asxs123/mytvboxlist/refs/heads/main/merged.json",
@@ -123,10 +127,6 @@
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/gaotianliuyun/gao/master/js.json",
             "name": "高天流云 2024-10-10"
-        },
-        {
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/qist/tvbox/master/0827.json",
-            "name": "fongmi 2024-09-23"
         },
         {
             "name": "🌱南瓜 2024-04-08",
