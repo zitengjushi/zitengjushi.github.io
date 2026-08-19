@@ -63,22 +63,11 @@ const proxyList = window.proxyList = [
     {name: 'gh-proxy.net', url: 'https://gh-proxy.net/'},
     {name: 'ghpxy.hwinzniej.top', url: 'https://ghpxy.hwinzniej.top/'},
     {name: 'git.669966.xyz', url: 'https://git.669966.xyz/'},
-    {name: 'github.chenc.dev', url: 'https://github.chenc.dev/'},
-    {name: 'github.ednovas.xyz', url: 'https://github.ednovas.xyz/'},
-    {name: 'github.geekery.cn', url: 'https://github.geekery.cn/'},
-    {name: 'github.ikgy.top', url: 'https://github.ikgy.top/'},
-    {name: 'github.mxw.qzz.io', url: 'https://github.mxw.qzz.io/'},
-    {name: 'github.nswrz.cn', url: 'https://github.nswrz.cn/'},
-    {name: 'github.starrlzy.cn', url: 'https://github.starrlzy.cn/'},
-    {name: 'github.tmby.shop', url: 'https://github.tmby.shop/'},
-    {name: 'github.xxlab.tech', url: 'https://github.xxlab.tech/'},
     {name: 'githubdog.com', url: 'https://githubdog.com/'},
     {name: 'gitproxy.127731.xyz', url: 'https://gitproxy.127731.xyz/'},
     {name: 'gitproxy.click', url: 'https://gitproxy.click/'},
     {name: 'gitproxy.mrhjx.cn', url: 'https://gitproxy.mrhjx.cn/'},
     {name: 'gp.zkitefly.eu.org', url: 'https://gp.zkitefly.eu.org/'},
-    {name: 'j.1lin.dpdns.org', url: 'https://j.1lin.dpdns.org/'},
-    {name: 'j.1win.ggff.net', url: 'https://j.1win.ggff.net/'},
     {name: 'js.jiangss.shop', url: 'https://js.jiangss.shop/'},
     {name: 'proxy.yaoyaoling.net', url: 'https://proxy.yaoyaoling.net/'},
     {name: 'slink.ltd', url: 'https://slink.ltd/'},
@@ -89,9 +78,20 @@ const proxyList = window.proxyList = [
 // 测速目标文件 - 使用小文件提高测速速度
 const testFile = 'https://github.com/microsoft/terminal/releases/download/v1.22.10731.0/Microsoft.WindowsTerminal_1.22.10731.0_x64.zip';
 
+// 默认测速超时时间（毫秒）
+// 注意：原生fetch()并不支持传入timeout参数（那是axios的写法），
+// 之前的 { timeout: 2000 } 实际上被浏览器直接忽略，导致卡住的代理会
+// 一直挂到浏览器默认的网络超时（可能长达一二十秒甚至更久），这才是
+// "等待时间太长"的根本原因。这里改用 AbortController 实现真正生效的超时。
+const DEFAULT_TIMEOUT_MS = 2000;
+
 // 测速函数
-export async function testProxySpeed(proxy) {
+export async function testProxySpeed(proxy, timeoutMs = DEFAULT_TIMEOUT_MS) {
     const startTime = performance.now();
+    const controller = new AbortController();
+    // 到时间强制中断这个请求，不再傻等
+    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+    
     try {
         let requestUrl;
         
@@ -117,17 +117,21 @@ export async function testProxySpeed(proxy) {
             requestUrl = testFile;
         }
         
-        // 使用HEAD请求减少数据传输，添加禁用缓存和减少请求头选项
+        // 使用HEAD请求减少数据传输，添加禁用缓存选项
+        // 注意：去掉了原来的自定义User-Agent请求头——浏览器本来就会忽略/禁止
+        // 覆盖这个头，留着它没有任何效果，反而多一个自定义头有触发CORS预检
+        // （多一次OPTIONS请求）的风险，白白拖慢测速
         const response = await fetch(requestUrl, {
             method: 'HEAD',
             mode: 'cors',
-            timeout: 2000, // 2秒超时，平衡速度和准确性
             cache: 'no-cache', // 禁用缓存，确保每次测试都是新请求
+            signal: controller.signal, // 绑定超时控制
             headers: {
-                'Accept': '*/*', // 接受所有类型的响应
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+                'Accept': '*/*' // 接受所有类型的响应
             }
         });
+        
+        clearTimeout(timeoutId);
         
         if (!response.ok) {
             return { proxy, speed: -1, error: `HTTP错误: ${response.status}` };
@@ -137,26 +141,53 @@ export async function testProxySpeed(proxy) {
         const speed = Math.round(endTime - startTime); // 毫秒
         return { proxy, speed, error: null };
     } catch (error) {
+        clearTimeout(timeoutId);
+        if (error.name === 'AbortError') {
+            return { proxy, speed: -1, error: `超时(>${timeoutMs}ms)` };
+        }
         return { proxy, speed: -1, error: error.message };
     }
 }
 
 // 批量测速 - 并行测试所有代理，提高速度
-export async function testAllProxies(selector = null, onProxySelectedCallback = null) {
+// options.timeoutMs  单个代理的测速超时时间（毫秒），默认2000ms。代理再多，
+//                     总耗时上限也基本等于这个值（因为是并行测速），不会随
+//                     代理数量线性增长。
+// options.quickSelect 是否启用"先出结果先用"：默认true。第一个测速成功的
+//                     代理会立刻被选中并生效，不用等全部代理都测完；其余
+//                     代理仍在后台继续测速，全部完成后再校正为真正最快的那个。
+export async function testAllProxies(selector = null, onProxySelectedCallback = null, options = {}) {
+    const { timeoutMs = DEFAULT_TIMEOUT_MS, quickSelect = true } = options;
     const results = [];
+    let quickSelected = false; // 是否已经完成过快速选择，避免重复触发
+    
+    const applySelection = (proxy) => {
+        if (!selector) return;
+        selector.value = proxy.url;
+        saveSelectedProxy(proxy.url);
+        if (onProxySelectedCallback && typeof onProxySelectedCallback === 'function') {
+            onProxySelectedCallback(proxy.url);
+        }
+    };
     
     // 创建一个Promise数组，并行测试所有代理
     const testPromises = proxyList.map(async (proxy) => {
         try {
-            const result = await testProxySpeed(proxy);
+            const result = await testProxySpeed(proxy, timeoutMs);
             
             // 更新proxyList，添加测速结果
             proxy.speed = result.speed;
             proxy.error = result.error;
             
-            // 如果提供了选择器，立即更新显示
+            // 如果提供了选择器，立即更新显示（哪怕最终顺序还没排好，也先让用户看到进度）
             if (selector) {
                 updateProxySelectorWithSpeed(selector);
+                
+                // 先出结果先用：第一个测速成功的代理立刻生效，不用死等全部测完
+                if (quickSelect && !quickSelected && result.speed > 0) {
+                    quickSelected = true;
+                    applySelection(proxy);
+                }
             }
             
             return result;
@@ -174,7 +205,8 @@ export async function testAllProxies(selector = null, onProxySelectedCallback = 
         }
     });
     
-    // 等待所有测试完成
+    // 等待所有测试完成——由于单个请求有超时上限兜底，这里最长也只会等约
+    // timeoutMs左右，不会因为某个代理卡住而被拖到很久
     results.push(...await Promise.all(testPromises));
     
     // 根据测速结果对 proxyList 排序：成功的按速度从快到慢排列，失败/未知的排在最后
@@ -186,17 +218,11 @@ export async function testAllProxies(selector = null, onProxySelectedCallback = 
         // 重新填充每个选项的测速文本（名称 + 速度/失败提示）
         updateProxySelectorWithSpeed(selector);
         
-        // 排序后第一个测速成功的代理即为最快的代理，将其设为当前选中项
+        // 全部测完后，用真正最快的代理做一次最终校正
+        // （快速选择阶段选的只是"第一个测完的"，未必是真正最快的那个）
         const fastestProxy = proxyList.find(proxy => proxy.speed > 0);
         if (fastestProxy) {
-            selector.value = fastestProxy.url;
-            // 保存到localStorage
-            saveSelectedProxy(fastestProxy.url);
-            
-            // 如果提供了回调函数，调用它以应用新的代理规则
-            if (onProxySelectedCallback && typeof onProxySelectedCallback === 'function') {
-                onProxySelectedCallback(fastestProxy.url);
-            }
+            applySelection(fastestProxy);
         }
     }
     
