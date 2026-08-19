@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>落雪音乐</title>
+    
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.staticfile.org/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入jQuery -->
+    <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.staticfile.org/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        /* 全局样式 */
+        :root {
+            --primary-color: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary-color: #64748b;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --card-hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s ease;
+        }
+        
+        /* 导航栏样式 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            padding: 15px 0;
+            box-shadow: var(--card-shadow);
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+        }
+        
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-item {
+            margin: 0;
+        }
+        
+        .nav-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+            background-color: rgba(79, 70, 229, 0.1);
+        }
+        
+        .nav-link.active {
+            color: white;
+            background-color: var(--primary-color);
+        }
+        
+        body {
+            min-height: 100vh;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            padding: 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        /* 容器样式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 标题样式 */
+        .page-title {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            font-weight: 700;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 卡片容器 */
+        .app-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+        
+        .app-card:hover {
+            box-shadow: var(--card-hover-shadow);
+            transform: translateY(-2px);
+        }
+        
+        /* 应用标题 */
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .app-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 32px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+        
+        th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        td {
+            color: #4b5563;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        /* 文件列表 */
+        .file-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+            align-items: start;
+        }
+        
+        /* 文件项样式 */
+        .file-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+            background: white;
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 卡片顶部装饰条 */
+        .file-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .file-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .file-item:hover::before {
+            opacity: 1;
+        }
+        
+        /* 文件名称 */
+        .file-name {
+            font-weight: 600;
+            color: #1f2937;
+            text-decoration: none;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: all 0.3s ease;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            line-height: 1.3;
+            font-size: 1rem;
+            padding-left: 2px;
+        }
+        
+        .file-name:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+            transform: translateX(4px);
+        }
+        
+        /* 版本标签 */
+        .version {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 5px 16px;
+            border-radius: 24px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            align-self: flex-start;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .version::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .file-item:hover .version::after {
+            left: 100%;
+        }
+        
+        /* 加载状态 */
+        .loading {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--secondary-color);
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e2e8f0;
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 错误提示 */
+        .error {
+            text-align: center;
+            padding: 40px 20px;
+            color: #dc2626;
+        }
+        
+        /* 空状态 */
+        .empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--secondary-color);
+        }
+        
+        /* 文件树样式 */
+        .file-tree {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.95rem;
+            text-align: left;
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 16px;
+            max-height: 600px;
+            overflow-y: auto;
+            display: block;
+        }
+        
+        .file-tree ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 0 0 20px;
+        }
+        
+        .file-tree > ul {
+            padding-left: 0;
+        }
+        
+        .file-tree li {
+            margin: 2px 0;
+        }
+        
+        .tree-folder {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 8px;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+            font-weight: 500;
+            color: #1f2937;
+        }
+        
+        .tree-folder:hover {
+            background: #e0e7ff;
+        }
+        
+        .tree-folder .toggle-icon {
+            display: inline-block;
+            width: 16px;
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        
+        .tree-folder .toggle-icon::before {
+            content: '−';
+        }
+        
+        .tree-folder.collapsed .toggle-icon::before {
+            content: '+';
+        }
+        
+        .tree-folder-icon {
+            font-size: 1.1em;
+        }
+        
+        .tree-children {
+            overflow: hidden;
+        }
+        
+        .tree-folder.collapsed + .tree-children {
+            display: none;
+        }
+        
+        .tree-file {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 8px;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .tree-file:hover {
+            background: #e0e7ff;
+        }
+        
+        .tree-file-info {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #374151;
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .tree-file-icon {
+            font-size: 1.1em;
+        }
+        
+        .tree-file-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .copy-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            margin-left: 8px;
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+        }
+        
+        .copy-btn.copied {
+            background: #10b981;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 576px) {
+            body {
+                padding: 10px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            
+            .app-card {
+                padding: 20px;
+            }
+            
+            .app-title {
+                font-size: 1.25rem;
+            }
+            
+            .file-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .version {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white rounded-3 shadow-sm mb-5 py-3">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary rounded-2" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary rounded-2" href="apk.html">应用下载</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary rounded-2" href="iptv.html">直播线路</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary rounded-2" href="play.html">m3u8播放器</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active btn btn-outline-primary text-white rounded-2" href="lx.html">落雪音乐</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1 class="page-title">落雪音乐</h1>
+        
+        <!-- 代理选择器 -->
+        <div class="row mb-4 justify-content-center">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <label class="input-group-text" for="proxySelect">选择代理</label>
+                    <select class="form-select" id="proxySelect"></select>
+                </div>
+            </div>
+        </div>
+        
+        <div id="network-live-section" class="card shadow-lg mb-5">
+              <div class="card-header bg-primary text-white">
+                  <h5 class="mb-0">落雪音乐</h5>
+              </div>
+              <div class="card-body">
+                  <div class="mt-1">
+                      <h6 class="text-primary mb-3">GitHub音乐源</h6>
+                      <div id="lx-github-list" class="file-list"></div>
+                  </div>
+              </div>
+        </div>
+
+        <div id="okjack-section" class="card shadow-lg mb-5">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">免责声明</h5>
+            </div>
+            <div class="card-body">
+            <div id="about-list">
+                <ol dir="auto">
+                <li>此数据全部来源于网络，仅用于学习研究，不保证其合法性、准确性、有效性，请根据情况自行判断，本人对此不承担任何保证责任。</li>
+                <li>由于此数据仅用于学习研究，您必须在下载后 24 小时内将所有内容从您的计算机或手机或任何存储设备中完全删除，若违反规定引起任何事件本人对此均不负责。</li>
+                <li>请勿将此数据用于任何商业或非法目的，若违反规定请自行对此负责。</li>
+                <li>此数据涉及应用与本人无关，本人对因此引起的任何隐私泄漏或其他后果不承担任何责任。</li>
+                <li>本人对任何程序引发的问题概不负责，包括但不限于由程序错误引起的任何损失和损害。</li>
+                <li>如果任何单位或个人认为此程序可能涉嫌侵犯其权利，应及时通知并提供身份证明，所有权证明，我们将在收到认证文件确认后删除此程序。</li>
+                <li>所有直接或间接使用、查看此数据的人均应该仔细阅读此声明。本人保留随时更改或补充此声明的权利。一旦您使用或复制了此数据，即视为您已接受此免责声明。</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        // 导入代理管理模块的函数
+        import { initProxySelector, testAllProxies, updateProxySelectorWithSpeed, getProxiedUrl } from './js/proxyList.js';
+        
+        // 加载JSON文件的函数
+        async function loadJson(url) {
+            try {
+                // 使用代理处理URL
+                const proxiedUrl = getProxiedUrl(url);
+                const response = await fetch(proxiedUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Error loading JSON:', error);
+                return null;
+            }
+        }
+
+        // 显示落雪音乐文件树的函数
+        async function displayLxFileTree(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            // 显示加载状态
+            container.className = '';
+            container.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>正在加载文件列表...</p>
+                </div>
+            `;
+            
+            try {
+                // GitHub API 获取仓库树（尝试 main 和 master 分支）
+                const repoOwner = 'zitengjushi';
+                const repoName = 'zitengjushi.github.io';
+                const branches = ['main', 'master'];
+                
+                let treeData = null;
+                let lastError = null;
+                
+                for (const branch of branches) {
+                    try {
+                        const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/git/trees/${branch}?recursive=1`;
+                        const response = await fetch(apiUrl);
+                        if (response.ok) {
+                            treeData = await response.json();
+                            break;
+                        }
+                    } catch (e) {
+                        lastError = e;
+                    }
+                }
+                
+                if (!treeData) {
+                    throw new Error(lastError ? lastError.message : '无法获取仓库信息');
+                }
+                
+                // 过滤出 lx 文件夹下的所有文件
+                const lxFiles = treeData.tree.filter(item => 
+                    item.type === 'blob' && item.path.startsWith('lx/')
+                );
+                
+                if (lxFiles.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty">
+                            <span style="font-size: 3rem; margin-bottom: 16px; color: #cbd5e1; display: block;">📦</span>
+                            <p>lx 文件夹暂无文件</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // 构建树结构
+                const treeRoot = buildTreeStructure(lxFiles);
+                
+                // 渲染树
+                container.className = 'file-tree';
+                container.innerHTML = '';
+                const treeUl = document.createElement('ul');
+                treeUl.appendChild(renderTreeNode(treeRoot));
+                container.appendChild(treeUl);
+                
+            } catch (error) {
+                console.error('加载lx文件树失败:', error);
+                container.className = '';
+                container.innerHTML = `
+                    <div class="error">
+                        <span style="font-size: 3rem; margin-bottom: 16px; display: block;">⚠️</span>
+                        <p>加载文件列表失败</p>
+                        <p style="font-size: 0.85rem; color: #6b7280;">${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // 从文件路径列表构建树结构
+        function buildTreeStructure(files) {
+            const root = { name: 'lx', path: 'lx', type: 'tree', children: {} };
+            
+            files.forEach(file => {
+                // 去掉 lx/ 前缀
+                const relativePath = file.path.replace(/^lx\//, '');
+                const parts = relativePath.split('/');
+                let current = root;
+                
+                parts.forEach((part, index) => {
+                    const isFile = index === parts.length - 1;
+                    const fullPath = 'lx/' + parts.slice(0, index + 1).join('/');
+                    
+                    if (!current.children[part]) {
+                        current.children[part] = {
+                            name: part,
+                            path: fullPath,
+                            type: isFile ? 'blob' : 'tree',
+                            children: isFile ? null : {}
+                        };
+                    }
+                    current = current.children[part];
+                });
+            });
+            
+            return root;
+        }
+
+        // 渲染树节点
+        function renderTreeNode(node) {
+            const li = document.createElement('li');
+            
+            if (node.type === 'tree') {
+                // 文件夹节点（默认折叠）
+                const folderDiv = document.createElement('div');
+                folderDiv.className = 'tree-folder collapsed';
+                folderDiv.innerHTML = `
+                    <span class="toggle-icon"></span>
+                    <span class="tree-folder-icon">📁</span>
+                    <span>${node.name}</span>
+                `;
+                
+                // 点击折叠/展开
+                folderDiv.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    folderDiv.classList.toggle('collapsed');
+                    const children = folderDiv.nextElementSibling;
+                    if (children) {
+                        children.style.display = folderDiv.classList.contains('collapsed') ? 'none' : '';
+                    }
+                });
+                
+                li.appendChild(folderDiv);
+                
+                // 子节点
+                const childUl = document.createElement('ul');
+                childUl.className = 'tree-children';
+                
+                const childNodes = Object.values(node.children || {});
+                // 文件夹在前，文件在后
+                childNodes.sort((a, b) => {
+                    if (a.type === 'tree' && b.type !== 'tree') return -1;
+                    if (a.type !== 'tree' && b.type === 'tree') return 1;
+                    return a.name.localeCompare(b.name);
+                });
+                
+                childNodes.forEach(child => {
+                    childUl.appendChild(renderTreeNode(child));
+                });
+                
+                li.appendChild(childUl);
+            } else {
+                // 文件节点
+                const fileDiv = document.createElement('div');
+                fileDiv.className = 'tree-file';
+                
+                // 构建文件URL：当前域名 + 路径
+                const fileUrl = window.location.origin + '/' + node.path;
+                
+                fileDiv.innerHTML = `
+                    <div class="tree-file-info">
+                        <span class="tree-file-icon">📄</span>
+                        <span class="tree-file-name" title="${node.name}">${node.name}</span>
+                    </div>
+                    <button class="copy-btn" data-url="${fileUrl}">复制</button>
+                `;
+                
+                // 复制按钮事件
+                const copyBtn = fileDiv.querySelector('.copy-btn');
+                copyBtn.addEventListener('click', async (e) => {
+                    e.stopPropagation();
+                    try {
+                        await navigator.clipboard.writeText(fileUrl);
+                    } catch (err) {
+                        // 降级方案：使用 textarea + execCommand
+                        const textarea = document.createElement('textarea');
+                        textarea.value = fileUrl;
+                        textarea.style.position = 'fixed';
+                        textarea.style.opacity = '0';
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textarea);
+                    }
+                    copyBtn.textContent = '已复制';
+                    copyBtn.classList.add('copied');
+                    setTimeout(() => {
+                        copyBtn.textContent = '复制';
+                        copyBtn.classList.remove('copied');
+                    }, 2000);
+                });
+                
+                li.appendChild(fileDiv);
+            }
+            
+            return li;
+        }
+
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 初始化代理选择器
+            const proxySelector = initProxySelector('proxySelect');
+            
+            // 加载并显示落雪音乐文件树
+            const loadLxTree = async () => {
+                await displayLxFileTree('lx-github-list');
+            };
+            
+            // 首次加载数据
+            await loadLxTree();
+            
+            // 执行所有代理的测速
+            await testAllProxies(proxySelector);
+        });
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?fac5c1f8972f83bcb3f110a92ff9b839";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</body>
+</html>
