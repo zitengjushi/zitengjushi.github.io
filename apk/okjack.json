@@ -8,7 +8,7 @@
     "url": "https://github.com/FongMi/Release/tree/okjack/apk",
     "sub_dir": "https://github.com/zitengjushi/zitengjushi.github.io/raw/refs/heads/main/apk/okjack/kitkat/leanback.apk"
   },
-    "release/leanback-arm64_v8a.apk": {
+    "release/leanback-arm64_v8a_516.apk": {
     "version": "5.1.6",
     "name": "电视版64位",
     "logo": "/images/fongmi.jpeg",
@@ -17,7 +17,7 @@
     "url": "https://github.com/FongMi/Release/tree/okjack/apk",
     "sub_dir": "https://github.com/lystv/fmapp/releases/download/5.1.6/leanback-arm64_v8a.apk"
   },
-  "release/leanback-armeabi_v7a.apk": {
+  "release/leanback-armeabi_v7a_516.apk": {
     "version": "5.1.6",
     "name": "电视版32位",
     "logo": "/images/fongmi.jpeg",
@@ -26,7 +26,7 @@
     "url": "https://github.com/FongMi/Release/tree/okjack/apk",
     "sub_dir": "https://github.com/lystv/fmapp/releases/download/5.1.6/leanback-armeabi_v7a.apk"
   },
-  "release/mobile-arm64_v8a.apk": {
+  "release/mobile-arm64_v8a_516.apk": {
     "version": "5.1.6",
     "name": "手机版64位",
     "logo": "/images/fongmi.jpeg",
@@ -35,7 +35,7 @@
     "url": "https://github.com/FongMi/Release/tree/okjack/apk",
     "sub_dir": "https://github.com/lystv/fmapp/releases/download/5.1.6/mobile-arm64_v8a.apk"
   },
-  "release/mobile-armeabi_v7a.apk": {
+  "release/mobile-armeabi_v7a_516.apk": {
     "version": "5.1.6",
     "name": "手机版32位",
     "logo": "/images/fongmi.jpeg",
@@ -80,7 +80,7 @@
     "url": "https://github.com/FongMi/Release/tree/okjack/apk",
     "sub_dir": "https://github.com/zitengjushi/zitengjushi.github.io/raw/refs/heads/main/apk/okjack/release/mobile-armeabi_v7a.apk"
   },
-  "release/海信专版.apk": {
+  "release/海信专版_516.apk": {
     "version": "5.1.6",
     "name": "海信电视专版",
     "logo": "/images/fongmi.jpeg",
