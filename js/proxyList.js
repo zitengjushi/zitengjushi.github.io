@@ -2,22 +2,92 @@
 
 // 代理配置
 const proxyList = window.proxyList = [
-    {name: 'halonice', url: 'http://gh.halonice.com/'},
-    {name: 'zhouxiangyang.tech', url: 'https://zhouxiangyang.tech/'},
-    {name: 'kr2-proxy', url: 'http://kr2-proxy.gitwarp.com:9980'},
-    {name: 'a.llvho.com', url: 'https://a.llvho.com/'},
-    {name: 'jp-proxy', url: 'http://jp-proxy.gitwarp.com:3000/'},
     {name: 'gh-proxy-org', url: 'https://gh-proxy.org/'},
     {name: 'ghproxyNet', url: 'https://ghproxy.net/'},
     {name: 'b.yesican.top', url: 'https://b.yesican.top/'},
     {name: 'd.6519.top', url: 'https://d.6519.top/'},
     {name: 'd.scyun.top', url: 'https://d.scyun.top/'},
     {name: 'bgithub', url: 'https://raw.bgithub.xyz/'},
+    {name: 'gh-proxy.com', url: 'https://gh-proxy.com/'},
+    {name: 'github.tbap.top', url: 'https://github.tbap.top/'},
+    {name: 'github.dpik.top', url: 'https://github.dpik.top/'},
+    {name: 'gh.dpik.top', url: 'https://gh.dpik.top/'},
+    {name: 'ghf.无名氏.top', url: 'https://ghf.无名氏.top/'},
+    {name: 'github-proxy.memory-echoes.cn', url: 'https://github-proxy.memory-echoes.cn/'},
+    {name: 'ghfile.geekertao.top', url: 'https://ghfile.geekertao.top/'},
+    {name: 'git.yylx.win', url: 'https://git.yylx.win/'},
+    {name: 'cdn.gh-proxy.com', url: 'https://cdn.gh-proxy.com/'},
+    {name: 'jiashu.1win.eu.org', url: 'https://jiashu.1win.eu.org/'},
+    {name: 'gh.bugdey.us.kg', url: 'https://gh.bugdey.us.kg/'},
+    {name: 'gh.927223.xyz', url: 'https://gh.927223.xyz/'},
+    {name: 'down.mxw.xx.kg', url: 'https://down.mxw.xx.kg/'},
+    {name: '777.z321.cc.cd', url: 'https://777.z321.cc.cd/'},
+    {name: 'cdn.akaere.online', url: 'https://cdn.akaere.online/'},
+    {name: 'cfgh.ikgy.top', url: 'https://cfgh.ikgy.top/'},
+    {name: 'down.mxw.qzz.io', url: 'https://down.mxw.qzz.io/'},
+    {name: 'fastgit.cc', url: 'https://fastgit.cc/'},
+    {name: 'free.cn.eu.org', url: 'https://free.cn.eu.org/'},
+    {name: 'g.blfrp.cn', url: 'https://g.blfrp.cn/'},
+    {name: 'g.z321.cc.cd', url: 'https://g.z321.cc.cd/'},
+    {name: 'gap.andyjin.website', url: 'https://gap.andyjin.website/'},
+    {name: 'gg.z321.cc.cd', url: 'https://gg.z321.cc.cd/'},
+    {name: 'gh.07150721.xyz', url: 'https://gh.07150721.xyz/'},
+    {name: 'gh.acmsz.top', url: 'https://gh.acmsz.top/'},
+    {name: 'gh.b52m.cn', url: 'https://gh.b52m.cn/'},
+    {name: 'gh.catmak.name', url: 'https://gh.catmak.name/'},
+    {name: 'gh.chjina.com', url: 'https://gh.chjina.com/'},
+    {name: 'gh.ddlc.top', url: 'https://gh.ddlc.top/'},
+    {name: 'gh.felicity.ac.cn', url: 'https://gh.felicity.ac.cn/'},
+    {name: 'gh.idayer.com', url: 'https://gh.idayer.com/'},
+    {name: 'gh.jasonzeng.dev', url: 'https://gh.jasonzeng.dev/'},
+    {name: 'gh.jjj.gv.uy', url: 'https://gh.jjj.gv.uy/'},
+    {name: 'gh.meali.top', url: 'https://gh.meali.top/'},
+    {name: 'gh.monlor.com', url: 'https://gh.monlor.com/'},
+    {name: 'gh.my-website.ccwu.cc', url: 'https://gh.my-website.ccwu.cc/'},
+    {name: 'gh.noki.icu', url: 'https://gh.noki.icu/'},
+    {name: 'gh.qfmc0721.cc.cd', url: 'https://gh.qfmc0721.cc.cd/'},
+    {name: 'gh.ruan.dpdns.org', url: 'https://gh.ruan.dpdns.org/'},
+    {name: 'gh.sixyin.com', url: 'https://gh.sixyin.com/'},
+    {name: 'gh.tryxd.cn', url: 'https://gh.tryxd.cn/'},
+    {name: 'gh.zhai.edu.pl', url: 'https://gh.zhai.edu.pl/'},
+    {name: 'ghfast.top', url: 'https://ghfast.top/'},
+    {name: 'ghm.078465.xyz', url: 'https://ghm.078465.xyz/'},
+    {name: 'ghp.arslantu.xyz', url: 'https://ghp.arslantu.xyz/'},
+    {name: 'ghp.keleyaa.com', url: 'https://ghp.keleyaa.com/'},
+    {name: 'ghpr.cc', url: 'https://ghpr.cc/'},
+    {name: 'ghproxy.1888866.xyz', url: 'https://ghproxy.1888866.xyz/'},
+    {name: 'ghproxy.cxkpro.top', url: 'https://ghproxy.cxkpro.top/'},
+    {name: 'ghproxy.felicity.land', url: 'https://ghproxy.felicity.land/'},
+    {name: 'ghproxy.imciel.com', url: 'https://ghproxy.imciel.com/'},
+    {name: 'ghproxy.monkeyray.net', url: 'https://ghproxy.monkeyray.net/'},
+    {name: 'gh-proxy.net', url: 'https://gh-proxy.net/'},
+    {name: 'ghpxy.hwinzniej.top', url: 'https://ghpxy.hwinzniej.top/'},
+    {name: 'git.669966.xyz', url: 'https://git.669966.xyz/'},
+    {name: 'github.chenc.dev', url: 'https://github.chenc.dev/'},
+    {name: 'github.ednovas.xyz', url: 'https://github.ednovas.xyz/'},
+    {name: 'github.geekery.cn', url: 'https://github.geekery.cn/'},
+    {name: 'github.ikgy.top', url: 'https://github.ikgy.top/'},
+    {name: 'github.mxw.qzz.io', url: 'https://github.mxw.qzz.io/'},
+    {name: 'github.nswrz.cn', url: 'https://github.nswrz.cn/'},
+    {name: 'github.starrlzy.cn', url: 'https://github.starrlzy.cn/'},
+    {name: 'github.tmby.shop', url: 'https://github.tmby.shop/'},
+    {name: 'github.xxlab.tech', url: 'https://github.xxlab.tech/'},
+    {name: 'githubdog.com', url: 'https://githubdog.com/'},
+    {name: 'gitproxy.127731.xyz', url: 'https://gitproxy.127731.xyz/'},
+    {name: 'gitproxy.click', url: 'https://gitproxy.click/'},
+    {name: 'gitproxy.mrhjx.cn', url: 'https://gitproxy.mrhjx.cn/'},
+    {name: 'gp.zkitefly.eu.org', url: 'https://gp.zkitefly.eu.org/'},
+    {name: 'j.1lin.dpdns.org', url: 'https://j.1lin.dpdns.org/'},
+    {name: 'j.1win.ggff.net', url: 'https://j.1win.ggff.net/'},
+    {name: 'js.jiangss.shop', url: 'https://js.jiangss.shop/'},
+    {name: 'proxy.yaoyaoling.net', url: 'https://proxy.yaoyaoling.net/'},
+    {name: 'slink.ltd', url: 'https://slink.ltd/'},
+    {name: 'xsadwsd.kdns.fr', url: 'https://xsadwsd.kdns.fr/'},
     {name: '直接访问', url: ''}
 ];
 
 // 测速目标文件 - 使用小文件提高测速速度
-const testFile = 'https://raw.github.com/hunshcn/gh-proxy/refs/heads/master/index.js';
+const testFile = 'https://github.com/microsoft/terminal/releases/download/v1.22.10731.0/Microsoft.WindowsTerminal_1.22.10731.0_x64.zip';
 
 // 测速函数
 export async function testProxySpeed(proxy) {
@@ -107,42 +177,47 @@ export async function testAllProxies(selector = null, onProxySelectedCallback = 
     // 等待所有测试完成
     results.push(...await Promise.all(testPromises));
     
-    // 测试完成后，优先使用用户之前选择的代理
+    // 根据测速结果对 proxyList 排序：成功的按速度从快到慢排列，失败/未知的排在最后
+    sortProxyListBySpeed();
+    
     if (selector) {
-        // 获取用户之前选择的代理
-        const previouslySelectedProxy = getSelectedProxy();
+        // 按排序后的顺序重新渲染下拉框选项
+        populateProxySelector(selector);
+        // 重新填充每个选项的测速文本（名称 + 速度/失败提示）
+        updateProxySelectorWithSpeed(selector);
         
-        // 检查用户之前选择的代理在当前测速中是否仍然成功
-        if (previouslySelectedProxy) {
-            const userSelectedProxy = proxyList.find(proxy => proxy.url === previouslySelectedProxy);
-            if (userSelectedProxy && userSelectedProxy.speed > 0) {
-                // 用户之前选择的代理仍然成功，保持使用
-                selector.value = userSelectedProxy.url;
-                
-                // 如果提供了回调函数，调用它以应用新的代理规则
-                if (onProxySelectedCallback && typeof onProxySelectedCallback === 'function') {
-                    onProxySelectedCallback(userSelectedProxy.url);
-                }
-                return results;
-            }
-        }
-        
-        // 如果没有用户选择的代理或用户选择的代理失败，才自动选择第一个测试成功的代理
-        const firstSuccessProxy = proxyList.find(proxy => proxy.speed > 0);
-        if (firstSuccessProxy) {
-            // 更新选择器的选中状态
-            selector.value = firstSuccessProxy.url;
+        // 排序后第一个测速成功的代理即为最快的代理，将其设为当前选中项
+        const fastestProxy = proxyList.find(proxy => proxy.speed > 0);
+        if (fastestProxy) {
+            selector.value = fastestProxy.url;
             // 保存到localStorage
-            saveSelectedProxy(firstSuccessProxy.url);
+            saveSelectedProxy(fastestProxy.url);
             
             // 如果提供了回调函数，调用它以应用新的代理规则
             if (onProxySelectedCallback && typeof onProxySelectedCallback === 'function') {
-                onProxySelectedCallback(firstSuccessProxy.url);
+                onProxySelectedCallback(fastestProxy.url);
             }
         }
     }
     
     return results;
+}
+
+// 根据测速结果对 proxyList 进行排序
+// 规则：测速成功（speed > 0）的代理按速度从快到慢排在前面；
+// 测速失败或未测速的代理排在最后，彼此之间保持原有相对顺序
+export function sortProxyListBySpeed() {
+    proxyList.sort((a, b) => {
+        const aOk = typeof a.speed === 'number' && a.speed > 0;
+        const bOk = typeof b.speed === 'number' && b.speed > 0;
+        
+        if (aOk && bOk) {
+            return a.speed - b.speed; // 都测速成功，速度快的排前面
+        }
+        if (aOk && !bOk) return -1; // 只有a成功，a排前面
+        if (!aOk && bOk) return 1;  // 只有b成功，b排前面
+        return 0; // 都失败/未知，保持原有相对顺序（Array.sort是稳定排序）
+    });
 }
 
 // 更新代理选择器，显示测速结果
