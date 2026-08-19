@@ -24,10 +24,22 @@ jobs:
       - name: Run jingdian check script
         id: jingdian
         run: python script/update_jingdian_urls.py jingdian.json
+      - name: Sync lxmusic- repo to lx folder
+        id: lxsync
+        run: |
+          set -e
+          rm -rf /tmp/lxmusic-src
+          # 只拉取最新一次提交，不带历史记录，速度更快
+          git clone --depth 1 https://github.com/guoyue2010/lxmusic-.git /tmp/lxmusic-src
+          mkdir -p lx
+          # 用rsync同步全部文件到lx目录，--delete表示源仓库里删掉的文件本地也同步删除，
+          # 排除.git目录，避免把上游仓库自己的git记录也同步进来
+          rsync -av --delete --exclude=".git" /tmp/lxmusic-src/ lx/
+          rm -rf /tmp/lxmusic-src
       - name: Check for changes
         id: changes
         run: |
-          if [ -n "$(git status --porcelain github.json jingdian.json)" ]; then
+          if [ -n "$(git status --porcelain github.json jingdian.json lx)" ]; then
             echo "updated=1" >> "$GITHUB_OUTPUT"
           else
             echo "updated=0" >> "$GITHUB_OUTPUT"
@@ -37,8 +49,8 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add github.json jingdian.json
-          git commit -m "chore: 自动更新订阅源最后修改时间及链接可用性 [skip ci]"
+          git add github.json jingdian.json lx
+          git commit -m "chore: 自动更新订阅源最后修改时间及链接可用性，同步lxmusic-最新文件 [skip ci]"
           git push
       - name: No changes
         if: steps.changes.outputs.updated == '0'
