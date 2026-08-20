@@ -362,30 +362,10 @@
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white rounded-3 shadow-sm mb-5 py-3">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav gap-3">
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-outline-primary rounded-2" href="index.html">首页</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active btn btn-primary text-white rounded-2" href="apk.html">应用下载</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-outline-primary rounded-2" href="iptv.html">直播线路</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-outline-primary rounded-2" href="play.html">m3u8播放器</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- 导航栏（由 js/navbar.js 动态生成） -->
+    <div id="navbar-container"></div>
+    <script src="js/navbar.js"></script>
+    <script>renderNavbar('apk.html');</script>
     
     <div class="container">
         <h1 class="page-title">应用下载</h1>
@@ -521,6 +501,24 @@
                                   </div>
                                   <div class="card-body">
                                       <div id="entertainment-list" class="file-list">
+                                          <div class="text-center text-secondary">
+                                              <div class="spinner-border" role="status">
+                                                  <span class="visually-hidden">加载中...</span>
+                                              </div>
+                                              <div class="mt-3">加载中...</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
+
+                        <div id="tv-section" class="col-12">
+                              <div class="card shadow-sm mb-4">
+                                  <div class="card-header bg-primary text-white">
+                                      <h5 class="mb-0">落雪音乐</h5>
+                                  </div>
+                                  <div class="card-body">
+                                      <div id="lx-list" class="file-list">
                                           <div class="text-center text-secondary">
                                               <div class="spinner-border" role="status">
                                                   <span class="visually-hidden">加载中...</span>
@@ -667,6 +665,11 @@
             // 加载并显示TV-app信息
             const tvappData = await loadJson('apk/tv.json');
             displayTvboxList('tv-list', tvappData);
+
+
+            // 加载并显示落雪音乐信息
+            const lxappData = await loadJson('apk/lx.json');
+            displayTvboxList('lx-list', lxappData);
 
             // 加载并显示TV-app信息
             const entertainmentappData = await loadJson('apk/entertainment.json');
