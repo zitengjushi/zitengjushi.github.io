@@ -1,0 +1,47 @@
+{
+  "LXMUSIC1.8.4-arm64-v8a": {
+    "version": "1.8.4",
+    "name": "落雪音乐arm64-v8a 手机版",
+    "logo": "https://lxmusic.toside.cn/img/logo.svg",
+    "android": "",
+    "desc":"落雪音乐LX MUSIC,手机版",
+    "url":"https://github.com/lyswhut/lx-music-mobile/releases",
+    "sub_dir": "https://github.com/lyswhut/lx-music-mobile/releases/download/v1.8.4/lx-music-mobile-v1.8.4-arm64-v8a.apk"
+  },
+  "LXMUSIC1.8.4-armeabi-v7a": {
+    "version": "1.8.4",
+    "name": "落雪音乐armeabi-v7a 手机版",
+    "logo": "https://lxmusic.toside.cn/img/logo.svg",
+    "android": "",
+    "desc":"落雪音乐LX MUSIC,手机版",
+    "url":"https://github.com/lyswhut/lx-music-mobile/releases",
+    "sub_dir": "https://github.com/lyswhut/lx-music-mobile/releases/download/v1.8.4/lx-music-mobile-v1.8.4-armeabi-v7a.apk"
+  },
+  "LXMUSIC1.8.4-universal": {
+    "version": "1.8.4",
+    "name": "落雪音乐universal 手机版",
+    "logo": "https://lxmusic.toside.cn/img/logo.svg",
+    "android": "",
+    "desc":"落雪音乐LX MUSIC,手机版",
+    "url":"https://github.com/lyswhut/lx-music-mobile/releases",
+    "sub_dir": "https://github.com/lyswhut/lx-music-mobile/releases/download/v1.8.4/lx-music-mobile-v1.8.4-universal.apk"
+  },
+  "LXMUSIC2.12.2-arm64-Setup": {
+    "version": "2.12.2",
+    "name": "落雪音乐arm64-Setup桌面版",
+    "logo": "https://lxmusic.toside.cn/img/logo.svg",
+    "android": "",
+    "desc":"落雪音乐LX MUSIC,arm64-Setup桌面版",
+    "url":"https://github.com/lyswhut/lx-music-desktop/releases",
+    "sub_dir": "https://github.com/lyswhut/lx-music-desktop/releases/download/v2.12.2/lx-music-desktop-v2.12.2-arm64-Setup.exe"
+  },
+  "LXMUSIC2.12.2-win7_x64-green": {
+    "version": "2.12.2",
+    "name": "落雪音乐win7_x64-green桌面版",
+    "logo": "https://lxmusic.toside.cn/img/logo.svg",
+    "android": "",
+    "desc":"落雪音乐LX MUSIC,win7_x64-green桌面版",
+    "url":"https://github.com/lyswhut/lx-music-desktop/releases",
+    "sub_dir": "https://github.com/lyswhut/lx-music-desktop/releases/download/v2.12.2/lx-music-desktop-v2.12.2-win7_x64-green.7z"
+  }
+}
