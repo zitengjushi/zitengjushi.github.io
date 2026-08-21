@@ -49,7 +49,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [ -n "$(git status --porcelain github.json jingdian.json apk/tv.json apk/tvbox.json lx)" ]; then
+          if [ -n "$(git status --porcelain github.json jingdian.json jingdian_md5.json apk/tv.json apk/tvbox.json lx)" ]; then
             echo "updated=1" >> "$GITHUB_OUTPUT"
           else
             echo "updated=0" >> "$GITHUB_OUTPUT"
@@ -59,7 +59,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add github.json jingdian.json apk/tv.json apk/tvbox.json lx
+          git add github.json jingdian.json jingdian_md5.json apk/tv.json apk/tvbox.json lx
           git commit -m "chore: 自动更新订阅源最后修改时间及链接可用性，同步mytv-android/TVBoxOSC最新APK，同步lxmusic-最新文件 [skip ci]"
           git push
       - name: No changes
