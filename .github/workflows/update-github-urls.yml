@@ -20,15 +20,15 @@ jobs:
         id: updater
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/update_github_urls.py
+        run: python script/update_github_urls.py
       - name: Run jingdian check script
         id: jingdian
-        run: python scripts/update_jingdian_urls.py jingdian.json
+        run: python script/update_jingdian_urls.py jingdian.json
       - name: Sync mytv-android latest APKs to apk/tv.json
         id: mytv_android
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/update_mytv_android.py
+        run: python script/update_mytv_android.py
       - name: Sync lxmusic- repo to lx folder
         id: lxsync
         run: |
