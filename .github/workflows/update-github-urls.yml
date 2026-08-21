@@ -24,6 +24,11 @@ jobs:
       - name: Run jingdian check script
         id: jingdian
         run: python script/update_jingdian_urls.py jingdian.json
+      - name: Sync mytv-android latest APKs to apk/tv.json
+        id: mytv_android
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python script/update_mytv_android.py
       - name: Sync lxmusic- repo to lx folder
         id: lxsync
         run: |
@@ -39,7 +44,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [ -n "$(git status --porcelain github.json jingdian.json lx)" ]; then
+          if [ -n "$(git status --porcelain github.json jingdian.json apk/tv.json lx)" ]; then
             echo "updated=1" >> "$GITHUB_OUTPUT"
           else
             echo "updated=0" >> "$GITHUB_OUTPUT"
@@ -49,8 +54,8 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add github.json jingdian.json lx
-          git commit -m "chore: 自动更新订阅源最后修改时间及链接可用性，同步lxmusic-最新文件 [skip ci]"
+          git add github.json jingdian.json apk/tv.json lx
+          git commit -m "chore: 自动更新订阅源最后修改时间及链接可用性，同步mytv-android最新APK，同步lxmusic-最新文件 [skip ci]"
           git push
       - name: No changes
         if: steps.changes.outputs.updated == '0'
