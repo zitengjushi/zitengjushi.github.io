@@ -13,7 +13,8 @@
                                                           日期沿用旧记录（没有则 1970-01-01）
 4. 把上面得到的日期拼进 name 里：原name + " [日期]" + ✓/✗
    能访问的：在末尾加 "✓"；不能访问的：在末尾加 "✗"
-5. 能访问的排在前面，不能访问的排在后面
+5. 排序：能访问的排在前面，不能访问的排在后面；
+   每组内部再按更新日期从新到旧排（最新更新的排最上面）
 6. 重新写回 jingdian.json（覆盖原文件），并保存 jingdian_md5.json
 
 用法：
@@ -155,7 +156,7 @@ def process_item(item: dict, md5_store: dict, today_str: str) -> dict:
     new_item = dict(item)
     new_item["name"] = new_name
 
-    return {"item": new_item, "ok": ok, "url": url, "store_update": store_update}
+    return {"item": new_item, "ok": ok, "url": url, "date": date_str, "store_update": store_update}
 
 
 def main():
@@ -195,7 +196,10 @@ def main():
                 item = dict(urls_list[idx])
                 raw_name = clean_base_name(item.get("name", ""))
                 item["name"] = f"{raw_name} [{DEFAULT_DATE}]{FAIL_MARK}"
-                result = {"item": item, "ok": False, "url": item.get("url", ""), "store_update": None}
+                result = {
+                    "item": item, "ok": False, "url": item.get("url", ""),
+                    "date": DEFAULT_DATE, "store_update": None,
+                }
             results[idx] = result
             done_count += 1
             status = "可访问" if result["ok"] else "不可访问"
@@ -206,9 +210,14 @@ def main():
         if r["store_update"] is not None and r["url"]:
             md5_store[r["url"]] = r["store_update"]
 
-    # 按可访问状态排序：可访问的在前，不可访问的在后；组内保持原相对顺序（稳定排序）
-    ok_items = [r["item"] for r in results if r["ok"]]
-    fail_items = [r["item"] for r in results if not r["ok"]]
+    # 排序规则：可访问的在前，不可访问的在后；每组内部按更新日期从新到旧。
+    # 用两次稳定排序实现多级排序：先按日期降序排一遍，再按可访问状态排一遍
+    # （sorted() 是稳定排序，第二次排序不会打乱同状态内部已经按日期排好的顺序）。
+    results_by_date = sorted(results, key=lambda r: r["date"], reverse=True)
+    results_sorted = sorted(results_by_date, key=lambda r: 0 if r["ok"] else 1)
+
+    ok_items = [r["item"] for r in results_sorted if r["ok"]]
+    fail_items = [r["item"] for r in results_sorted if not r["ok"]]
 
     data["urls"] = ok_items + fail_items
 
