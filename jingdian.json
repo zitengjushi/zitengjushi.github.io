@@ -2,7 +2,19 @@
     "urls": [
         {
             "url": "https://tv.nxog.top/m/?&wZX",
-            "name": "讴歌 [2026-08-23]✓"
+            "name": "讴歌 [2026-08-24]✓"
+        },
+        {
+            "name": "🌵网友分享 [2026-08-24]✓",
+            "url": "https://raw.githubusercontent.com/maoystv/6/main/000.json"
+        },
+        {
+            "url": "http://rihou.cc:88/demo.php",
+            "name": "vo [2026-08-24]✓"
+        },
+        {
+            "url": "http://rihou.cc:88/demo.php",
+            "name": "vo [2026-08-24]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
@@ -11,18 +23,6 @@
         {
             "url": "https://qist.ugigc.dpdns.org/dianshi.json",
             "name": "qist2 [2026-08-23]✓"
-        },
-        {
-            "name": "🌵网友分享 [2026-08-23]✓",
-            "url": "https://raw.githubusercontent.com/maoystv/6/main/000.json"
-        },
-        {
-            "url": "http://rihou.cc:88/demo.php",
-            "name": "vo [2026-08-22]✓"
-        },
-        {
-            "url": "http://rihou.cc:88/demo.php",
-            "name": "vo [2026-08-22]✓"
         },
         {
             "url": "https://raw.liucn.cc/box/m.json",
