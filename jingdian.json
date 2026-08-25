@@ -2,19 +2,23 @@
     "urls": [
         {
             "url": "https://tv.nxog.top/m/?&wZX",
-            "name": "讴歌 [2026-08-24]✓"
+            "name": "讴歌 [2026-08-25]✓"
+        },
+        {
+            "url": "http://rihou.cc:88/demo.php",
+            "name": "vo [2026-08-25]✓"
+        },
+        {
+            "url": "http://rihou.cc:88/demo.php",
+            "name": "vo [2026-08-25]✓"
+        },
+        {
+            "name": "🌱小马影视 [2026-08-25]✓",
+            "url": "https://szyyds.cn/tv/x.json"
         },
         {
             "name": "🌵网友分享 [2026-08-24]✓",
             "url": "https://raw.githubusercontent.com/maoystv/6/main/000.json"
-        },
-        {
-            "url": "http://rihou.cc:88/demo.php",
-            "name": "vo [2026-08-24]✓"
-        },
-        {
-            "url": "http://rihou.cc:88/demo.php",
-            "name": "vo [2026-08-24]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
@@ -67,10 +71,6 @@
         {
             "name": "🌱小苹果 [1970-01-01]✓",
             "url": "https://bitbucket.org/xduo/duoapi/raw/master/xpg.json"
-        },
-        {
-            "name": "🌱小马影视 [1970-01-01]✓",
-            "url": "https://szyyds.cn/tv/x.json"
         },
         {
             "url": "https://www.yingm.cc/dm/dm.json",
