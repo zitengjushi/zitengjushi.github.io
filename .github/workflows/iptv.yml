@@ -1,0 +1,35 @@
+name: Sync Multicast/Unicast from upstream
+
+on:
+  schedule:
+    # 每天 UTC 0:00 运行（北京时间 08:00），可自行修改
+    - cron: "0 0 * * *"
+  workflow_dispatch: {}  # 允许手动触发，方便测试
+
+permissions:
+  contents: write  # 需要写权限才能提交更新的文件
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (仅用于放置脚本，脚本本身通过 GitHub API 直接操作仓库)
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run sync script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          TARGET_BRANCH: main
+          SOURCE_REPO: xisohi/CHINA-IPTV
+          SOURCE_BRANCH: main
+          SYNC_DIRS: "Multicast,Unicast"
+        run: python script/sync_from_iptv.py
