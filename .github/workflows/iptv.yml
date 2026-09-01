@@ -32,4 +32,8 @@ jobs:
           SOURCE_REPO: xisohi/CHINA-IPTV
           SOURCE_BRANCH: main
           SYNC_DIRS: "Multicast,Unicast"
-        run: python script/sync_from_iptv.py
+          IPTV_HTML_PATH: "iptv.html"       # iptv.html 在仓库里的路径，按需修改
+          PLACEHOLDER_TEXT: "🌐暂无"
+          UNICAST_ICON: "🔗单播"
+          MULTICAST_ICON: "🛰️组播"
+        run: python script/sync_from_source.py
