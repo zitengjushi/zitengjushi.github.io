@@ -2,39 +2,43 @@
     "urls": [
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-09-01]✓"
+            "name": "qist [2026-09-02]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-09-01]✓"
+            "name": "qist2 [2026-09-02]✓"
         },
         {
-            "url": "http://rihou.cc:88/demo.php",
-            "name": "vo [2026-09-01]✓"
-        },
-        {
-            "url": "http://rihou.cc:88/demo.php",
-            "name": "vo [2026-09-01]✓"
-        },
-        {
-            "name": "🌵网友分享 [2026-09-01]✓",
+            "name": "🌵网友分享 [2026-09-02]✓",
             "url": "https://raw.githubusercontent.com/maoystv/6/main/000.json"
+        },
+        {
+            "url": "https://6800.kstore.vip/fish.json",
+            "name": "摸鱼儿 [2026-09-02]✓"
+        },
+        {
+            "url": "https://8815.kstore.vip/tvbox/wmz",
+            "name": "网络接口 [2026-09-02]✓"
+        },
+        {
+            "url": "https://clun.top/box.json",
+            "name": "cluntop [2026-09-02]✓"
+        },
+        {
+            "url": "http://rihou.cc:88/demo.php",
+            "name": "vo [2026-09-01]✓"
+        },
+        {
+            "url": "http://rihou.cc:88/demo.php",
+            "name": "vo [2026-09-01]✓"
         },
         {
             "url": "https://9280.kstore.vip/newwex.json",
             "name": "王二小 [2026-08-31]✓"
         },
         {
-            "url": "https://6800.kstore.vip/fish.json",
-            "name": "摸鱼儿 [2026-08-31]✓"
-        },
-        {
             "name": "嗷呜 [2026-08-30]✓",
             "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
-        },
-        {
-            "url": "https://8815.kstore.vip/tvbox/wmz",
-            "name": "网络接口 [2026-08-27]✓"
         },
         {
             "name": "🌱小马影视 [2026-08-25]✓",
@@ -99,10 +103,6 @@
         {
             "name": "潇洒哥 [1970-01-01]✓",
             "url": "https://cnb.cool/fish2035/xs/-/git/raw/main/api.json"
-        },
-        {
-            "url": "https://clun.top/box.json",
-            "name": "cluntop [1970-01-01]✓"
         },
         {
             "name": "🌵HG [1970-01-01]✓",
