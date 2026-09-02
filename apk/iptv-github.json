@@ -23,52 +23,52 @@
     "url":"https://raw.githubusercontent.com/suxuang/myIPTV/main/移动IPTV.m3u",
     "sub_dir": ""
   },
+    "zilong7728": {
+    "version": "1.9.8",
+    "name": "zilong7728直播源",
+    "android": "",
+    "desc":"",
+    "url":"https://raw.githubusercontent.com/zilong7728/Collect-IPTV/refs/heads/main/best_sorted.m3u",
+    "sub_dir": ""
+  },
     "hujingguang": {
     "version": "1.9.8",
-    "name": "hujingguang直播源",
+    "name": "ChinaIPTV直播源",
     "android": "",
     "desc":"",
     "url":"https://raw.githubusercontent.com/hujingguang/ChinaIPTV/refs/heads/main/cnTV_AutoUpdate.m3u8",
     "sub_dir": ""
   },
-    "lalifeier-iptv": {
+    "best-fan": {
     "version": "1.9.8",
-    "name": "lalifeier-iptv直播源",
+    "name": "best-fan直播源",
     "android": "",
     "desc":"",
-    "url":"https://raw.githubusercontent.com/lalifeier/IPTV/main/m3u/IPTV.m3u",
+    "url":"https://raw.githubusercontent.com/best-fan/iptv-sources/master/cn_all.m3u8",
     "sub_dir": ""
   },
-    "lalifeier-酒店": {
+    "zhi35": {
     "version": "1.9.8",
-    "name": "lalifeier酒店直播源",
+    "name": "zhi35直播源",
     "android": "",
     "desc":"",
-    "url":"https://raw.githubusercontent.com/lalifeier/IPTV/main/txt/hotel/全国.txt",
+    "url":"https://raw.githubusercontent.com/zhi35/iptv/refs/heads/master/iptv.m3u",
     "sub_dir": ""
   },
-    "lalifeier-虎牙": {
+    "CCSH": {
     "version": "1.9.8",
-    "name": "lalifeier-虎牙直播源",
+    "name": "CCSH直播源",
     "android": "",
     "desc":"",
-    "url":"https://raw.githubusercontent.com/lalifeier/IPTV/main/m3u/huya.m3u",
+    "url":"https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/live.m3u",
     "sub_dir": ""
   },
-    "lalifeier-douyu": {
+    "lemonTV": {
     "version": "1.9.8",
-    "name": "lalifeier-斗鱼直播源",
+    "name": "MIGU直播源",
     "android": "",
     "desc":"",
-    "url":"https://raw.githubusercontent.com/lalifeier/IPTV/main/m3u/douyu.m3u",
-    "sub_dir": ""
-  },
-    "lalifeier-yy": {
-    "version": "1.9.8",
-    "name": "lalifeier-YY直播源",
-    "android": "",
-    "desc":"",
-    "url":"https://raw.githubusercontent.com/lalifeier/IPTV/main/m3u/yy.m3u",
+    "url":"https://raw.githubusercontent.com/jia070310/lemonTV/refs/heads/main/iptv-fe.m3u",
     "sub_dir": ""
   },
     "skddyj": {
