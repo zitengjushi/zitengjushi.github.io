@@ -2,11 +2,15 @@
     "urls": [
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-09-02]✓"
+            "name": "qist [2026-09-03]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-09-02]✓"
+            "name": "qist2 [2026-09-03]✓"
+        },
+        {
+            "url": "https://8815.kstore.vip/tvbox/wmz",
+            "name": "网络接口 [2026-09-03]✓"
         },
         {
             "name": "🌵网友分享 [2026-09-02]✓",
@@ -15,10 +19,6 @@
         {
             "url": "https://6800.kstore.vip/fish.json",
             "name": "摸鱼儿 [2026-09-02]✓"
-        },
-        {
-            "url": "https://8815.kstore.vip/tvbox/wmz",
-            "name": "网络接口 [2026-09-02]✓"
         },
         {
             "url": "https://clun.top/box.json",
@@ -35,10 +35,6 @@
         {
             "url": "https://9280.kstore.vip/newwex.json",
             "name": "王二小 [2026-08-31]✓"
-        },
-        {
-            "name": "嗷呜 [2026-08-30]✓",
-            "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
         },
         {
             "name": "🌱小马影视 [2026-08-25]✓",
@@ -111,6 +107,10 @@
         {
             "url": "http://rihou.cc:555/nzk/nzk0722.json",
             "name": "D佬魔改 [1970-01-01]✓"
+        },
+        {
+            "name": "嗷呜 [2026-08-30]✗",
+            "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
         },
         {
             "url": "https://tv.nxog.top/m/?&wZX",
