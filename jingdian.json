@@ -1,6 +1,10 @@
 {
     "urls": [
         {
+            "name": "🌵网友分享 [2026-09-05]✓",
+            "url": "https://raw.githubusercontent.com/maoystv/6/main/000.json"
+        },
+        {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
             "name": "qist [2026-09-04]✓"
         },
@@ -11,10 +15,6 @@
         {
             "url": "https://8815.kstore.vip/tvbox/wmz",
             "name": "网络接口 [2026-09-04]✓"
-        },
-        {
-            "name": "🌵网友分享 [2026-09-04]✓",
-            "url": "https://raw.githubusercontent.com/maoystv/6/main/000.json"
         },
         {
             "url": "http://rihou.cc:88/demo.php",
