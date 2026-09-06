@@ -2,7 +2,11 @@
     "urls": [
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
-            "name": "分享者 2026-09-05"
+            "name": "分享者 2026-09-06"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/box.json",
+            "name": "cluntop box 2026-09-05"
         },
         {
             "name": "tvbox聚合 2026-09-04",
@@ -27,10 +31,6 @@
         {
             "name": "woshishiq1-moyu 2026-09-01",
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/woshishiq1/jiemi/refs/heads/main/moyu.json"
-        },
-        {
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/box.json",
-            "name": "cluntop box 2026-09-01"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
