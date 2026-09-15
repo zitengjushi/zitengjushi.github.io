@@ -2,27 +2,23 @@
     "urls": [
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-09-14]✓"
+            "name": "qist [2026-09-15]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-09-14]✓"
+            "name": "qist2 [2026-09-15]✓"
         },
         {
             "url": "https://8815.kstore.vip/tvbox/wmz",
-            "name": "网络接口 [2026-09-14]✓"
+            "name": "网络接口 [2026-09-15]✓"
         },
         {
-            "name": "🌵网友分享 [2026-09-14]✓",
+            "name": "🌵网友分享 [2026-09-15]✓",
             "url": "https://raw.githubusercontent.com/maoystv/6/main/000.json"
         },
         {
-            "url": "http://rihou.cc:88/demo.php",
-            "name": "vo [2026-09-14]✓"
-        },
-        {
-            "url": "http://rihou.cc:88/demo.php",
-            "name": "vo [2026-09-14]✓"
+            "name": "潇洒哥 [2026-09-15]✓",
+            "url": "https://cnb.cool/fish2035/xs/-/git/raw/main/api.json"
         },
         {
             "url": "https://9280.kstore.vip/newwex.json",
@@ -85,10 +81,6 @@
             "name": "东篱 [1970-01-01]✓"
         },
         {
-            "name": "潇洒哥 [1970-01-01]✓",
-            "url": "https://cnb.cool/fish2035/xs/-/git/raw/main/api.json"
-        },
-        {
             "name": "🌵HG [1970-01-01]✓",
             "url": "https://api.hgyx.vip/hgyx.json"
         },
@@ -99,6 +91,14 @@
         {
             "name": "🌱苹果 [1970-01-01]✓",
             "url": "https://pastebin.com/raw/gtbKvnE1"
+        },
+        {
+            "url": "http://rihou.cc:88/demo.php",
+            "name": "vo [2026-09-14]✗"
+        },
+        {
+            "url": "http://rihou.cc:88/demo.php",
+            "name": "vo [2026-09-14]✗"
         },
         {
             "name": "🌱小苹果 [2026-09-06]✗",
