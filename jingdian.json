@@ -2,19 +2,19 @@
     "urls": [
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-09-16]✓"
+            "name": "qist [2026-09-17]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-09-16]✓"
+            "name": "qist2 [2026-09-17]✓"
+        },
+        {
+            "url": "https://9280.kstore.vip/newwex.json",
+            "name": "王二小 [2026-09-17]✓"
         },
         {
             "url": "https://8815.kstore.vip/tvbox/wmz",
             "name": "网络接口 [2026-09-16]✓"
-        },
-        {
-            "url": "https://9280.kstore.vip/newwex.json",
-            "name": "王二小 [2026-09-16]✓"
         },
         {
             "url": "https://clun.top/box.json",
