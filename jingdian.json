@@ -1,8 +1,20 @@
 {
     "urls": [
         {
-            "name": "🌵网友分享 [2026-09-25]✓",
+            "name": "🌵网友分享 [2026-09-26]✓",
             "url": "https://raw.githubusercontent.com/maoystv/6/main/000.json"
+        },
+        {
+            "url": "https://qist.ugigc.dpdns.org/jsm.json",
+            "name": "qist [2026-09-26]✓"
+        },
+        {
+            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
+            "name": "qist2 [2026-09-26]✓"
+        },
+        {
+            "name": "嗷呜 [2026-09-26]✓",
+            "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
         },
         {
             "url": "https://8815.kstore.vip/tvbox/wmz",
@@ -23,14 +35,6 @@
         {
             "name": "❤️L佬 [2026-09-24]✓",
             "url": "https://android.lushunming.qzz.io/json/index.json"
-        },
-        {
-            "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-09-21]✓"
-        },
-        {
-            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-09-21]✓"
         },
         {
             "name": "潇洒哥 [2026-09-15]✓",
@@ -87,10 +91,6 @@
         {
             "name": "🌱苹果 [1970-01-01]✓",
             "url": "https://pastebin.com/raw/gtbKvnE1"
-        },
-        {
-            "name": "嗷呜 [2026-09-22]✗",
-            "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
         },
         {
             "url": "http://rihou.cc:88/demo.php",
