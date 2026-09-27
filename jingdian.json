@@ -1,24 +1,24 @@
 {
     "urls": [
         {
-            "name": "🌵网友分享 [2026-09-26]✓",
+            "name": "🌵网友分享 [2026-09-27]✓",
             "url": "https://raw.githubusercontent.com/maoystv/6/main/000.json"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-09-26]✓"
+            "name": "qist [2026-09-27]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-09-26]✓"
+            "name": "qist2 [2026-09-27]✓"
+        },
+        {
+            "url": "https://8815.kstore.vip/tvbox/wmz",
+            "name": "网络接口 [2026-09-27]✓"
         },
         {
             "name": "嗷呜 [2026-09-26]✓",
             "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
-        },
-        {
-            "url": "https://8815.kstore.vip/tvbox/wmz",
-            "name": "网络接口 [2026-09-25]✓"
         },
         {
             "url": "https://clun.top/box.json",
