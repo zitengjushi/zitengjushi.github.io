@@ -34,54 +34,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python script/update_tvbox.py
-      - name: Sync lxmusic- latest release to lx folder
+      - name: Sync lxmusic- repo to lx folder
         id: lxsync
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          set -euo pipefail
-          REPO="guoyue2010/lxmusic-"
-
-          # 1. 获取最新一次 release 的 tag 和 zip 下载地址
-          LATEST_TAG=$(gh api "repos/$REPO/releases/latest" --jq '.tag_name')
-          ZIP_URL=$(gh api "repos/$REPO/releases/latest" \
-            --jq '[.assets[] | select(.name | endswith(".zip"))][0].browser_download_url')
-          echo "最新 release: $LATEST_TAG"
-
-          if [ -z "$ZIP_URL" ] || [ "$ZIP_URL" = "null" ]; then
-            echo "⚠ 最新 release ($LATEST_TAG) 中没有找到 zip 文件，跳过同步。"
-            exit 0
-          fi
-
-          # 2. 与已同步的版本比较，相同则不更新
-          CURRENT_TAG=$(cat lx/.release_tag 2>/dev/null || echo "")
-          if [ "$CURRENT_TAG" = "$LATEST_TAG" ]; then
-            echo "✔ lx 目录已是最新 release ($LATEST_TAG)，无需更新。"
-            exit 0
-          fi
-          echo "发现新版本: ${CURRENT_TAG:-无} -> $LATEST_TAG"
-
-          # 3. 下载并解压
-          rm -rf /tmp/lx-release /tmp/lx-release.zip
-          mkdir -p /tmp/lx-release
-          curl -fL --retry 3 -o /tmp/lx-release.zip "$ZIP_URL"
-          unzip -q /tmp/lx-release.zip -d /tmp/lx-release
-
-          # 4. 如果压缩包里只有一个顶层文件夹，就以该文件夹内容为准（忽略 __MACOSX）
-          SRC=/tmp/lx-release
-          mapfile -t ENTRIES < <(find /tmp/lx-release -mindepth 1 -maxdepth 1 ! -name "__MACOSX")
-          if [ "${#ENTRIES[@]}" -eq 1 ] && [ -d "${ENTRIES[0]}" ]; then
-            SRC="${ENTRIES[0]}"
-          fi
-
-          # 5. 同步到 lx 目录（--delete 会清理旧版本中已删除的文件）
+          set -e
+          rm -rf /tmp/lxmusic-src
+          # 只拉取最新一次提交，不带历史记录，速度更快
+          git clone --depth 1 https://github.com/guoyue2010/lxmusic-.git /tmp/lxmusic-src
           mkdir -p lx
-          rsync -av --delete --exclude="__MACOSX" "$SRC"/ lx/
-
-          # 6. 记录本次同步的版本号（需在 rsync 之后写入，否则会被 --delete 删掉）
-          echo "$LATEST_TAG" > lx/.release_tag
-
-          rm -rf /tmp/lx-release /tmp/lx-release.zip
+          # 用rsync同步全部文件到lx目录，--delete表示源仓库里删掉的文件本地也同步删除，
+          # 排除.git目录，避免把上游仓库自己的git记录也同步进来
+          rsync -av --delete --exclude=".git" /tmp/lxmusic-src/ lx/
+          rm -rf /tmp/lxmusic-src
       - name: Check for changes
         id: changes
         run: |
@@ -96,7 +60,7 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add github.json jingdian.json jingdian_md5.json apk/tv.json apk/tvbox.json lx
-          git commit -m "chore: 自动更新订阅源最后修改时间及链接可用性，同步mytv-android/TVBoxOSC最新APK，同步lxmusic-最新release [skip ci]"
+          git commit -m "chore: 自动更新订阅源最后修改时间及链接可用性，同步mytv-android/TVBoxOSC最新APK，同步lxmusic-最新文件 [skip ci]"
           git push
       - name: No changes
         if: steps.changes.outputs.updated == '0'
