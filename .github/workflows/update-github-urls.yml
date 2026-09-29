@@ -1,4 +1,4 @@
-name: 每日更新 github.json 订阅时间
+name: 每日更新订阅时间、mytv、lxmusic
 on:
   schedule:
     # 每天 UTC 02:00（北京时间 10:00）自动运行
@@ -34,18 +34,54 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python script/update_tvbox.py
-      - name: Sync lxmusic- repo to lx folder
+      - name: Sync lxmusic- latest release folder into lx
         id: lxsync
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          set -e
-          rm -rf /tmp/lxmusic-src
-          # 只拉取最新一次提交，不带历史记录，速度更快
-          git clone --depth 1 https://github.com/guoyue2010/lxmusic-.git /tmp/lxmusic-src
+          set -euo pipefail
+          REPO="guoyue2010/lxmusic-"
+
+          # 1. 获取最新一次 release 的 tag 和 zip 下载地址
+          LATEST_TAG=$(gh api "repos/$REPO/releases/latest" --jq '.tag_name')
+          ZIP_URL=$(gh api "repos/$REPO/releases/latest" \
+            --jq '[.assets[] | select(.name | endswith(".zip"))][0].browser_download_url')
+          echo "最新 release: $LATEST_TAG"
+
+          if [ -z "$ZIP_URL" ] || [ "$ZIP_URL" = "null" ]; then
+            echo "⚠ 最新 release ($LATEST_TAG) 中没有找到 zip 文件，跳过同步。"
+            exit 0
+          fi
+
+          # 2. 目标文件夹：lx/<LATEST_TAG>，已存在就说明上传过了，直接跳过
           mkdir -p lx
-          # 用rsync同步全部文件到lx目录，--delete表示源仓库里删掉的文件本地也同步删除，
-          # 排除.git目录，避免把上游仓库自己的git记录也同步进来
-          rsync -av --delete --exclude=".git" /tmp/lxmusic-src/ lx/
-          rm -rf /tmp/lxmusic-src
+          DEST="lx/$LATEST_TAG"
+          if [ -d "$DEST" ]; then
+            echo "✔ lx/$LATEST_TAG 已存在，说明该 release 已上传过，无需更新。"
+            exit 0
+          fi
+          echo "发现新版本: $LATEST_TAG，准备下载。"
+
+          # 3. 下载并解压
+          rm -rf /tmp/lx-release /tmp/lx-release.zip
+          mkdir -p /tmp/lx-release
+          curl -fL --retry 3 -o /tmp/lx-release.zip "$ZIP_URL"
+          unzip -q /tmp/lx-release.zip -d /tmp/lx-release
+
+          # 4. 如果压缩包里只有一个顶层文件夹（如 V260926），就用它作为要上传的整体文件夹；
+          #    否则把解压出的所有内容当作这个 release 的文件夹内容（忽略 __MACOSX）
+          SRC=/tmp/lx-release
+          mapfile -t ENTRIES < <(find /tmp/lx-release -mindepth 1 -maxdepth 1 ! -name "__MACOSX")
+          if [ "${#ENTRIES[@]}" -eq 1 ] && [ -d "${ENTRIES[0]}" ]; then
+            SRC="${ENTRIES[0]}"
+          fi
+
+          # 5. 把整个文件夹放进 lx/<LATEST_TAG>，不触碰 lx 目录下的其他已有内容
+          mkdir -p "$DEST"
+          cp -a "$SRC"/. "$DEST"/
+
+          rm -rf /tmp/lx-release /tmp/lx-release.zip
+          echo "已将 $LATEST_TAG 上传到 $DEST"
       - name: Check for changes
         id: changes
         run: |
@@ -60,7 +96,7 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add github.json jingdian.json jingdian_md5.json apk/tv.json apk/tvbox.json lx
-          git commit -m "chore: 自动更新订阅源最后修改时间及链接可用性，同步mytv-android/TVBoxOSC最新APK，同步lxmusic-最新文件 [skip ci]"
+          git commit -m "chore: 自动更新订阅源最后修改时间及链接可用性，同步mytv-android/TVBoxOSC最新APK，同步lxmusic-最新release [skip ci]"
           git push
       - name: No changes
         if: steps.changes.outputs.updated == '0'
