@@ -6,7 +6,15 @@
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
-            "name": "分享者 2026-09-29"
+            "name": "分享者 2026-09-30"
+        },
+        {
+            "name": "接口聚合 2026-09-30",
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/refs/heads/main/output/%E5%8D%95%E4%BB%93%E8%81%9A%E5%90%88.json"
+        },
+        {
+            "name": "青苹果 2026-09-30",
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/ljlfct01/ljlfct01.github.io/refs/heads/main/%E9%9D%92%E8%8B%B9%E6%9E%9C"
         },
         {
             "name": "zheng197600 2026-09-29",
@@ -27,10 +35,6 @@
         {
             "name": "ggrrttyyiii 2026-09-21",
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/ggrrttyyiii/CatVodSpider/refs/heads/main/json/demo.json"
-        },
-        {
-            "name": "接口聚合 2026-09-11",
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/refs/heads/main/output/%E5%8D%95%E4%BB%93%E8%81%9A%E5%90%88.json"
         },
         {
             "name": "tvbox聚合 2026-09-04",
@@ -67,10 +71,6 @@
         {
             "name": "tushen6 2026-08-15",
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/tushen6/Tomorrow/refs/heads/master/tvbox.json"
-        },
-        {
-            "name": "青苹果 2026-08-13",
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/ljlfct01/ljlfct01.github.io/refs/heads/main/%E9%9D%92%E8%8B%B9%E6%9E%9C"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/woniuxs/TVBOX/main/svip",
