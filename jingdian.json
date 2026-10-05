@@ -1,8 +1,16 @@
 {
     "urls": [
         {
-            "name": "🌵网友分享 [2026-10-04]✓",
+            "name": "🌵网友分享 [2026-10-05]✓",
             "url": "https://raw.githubusercontent.com/maoystv/6/main/000.json"
+        },
+        {
+            "url": "http://rihou.cc:88/demo.php",
+            "name": "vo [2026-10-05]✓"
+        },
+        {
+            "url": "http://rihou.cc:88/demo.php",
+            "name": "vo [2026-10-05]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
@@ -39,6 +47,10 @@
         {
             "name": "潇洒哥 [2026-09-15]✓",
             "url": "https://cnb.cool/fish2035/xs/-/git/raw/main/api.json"
+        },
+        {
+            "url": "http://rihou.cc:555/nzk/nzk0722.json",
+            "name": "D佬魔改 [2026-09-07]✓"
         },
         {
             "name": "🌱小马影视 [2026-08-25]✓",
@@ -85,16 +97,8 @@
             "url": "https://pastebin.com/raw/gtbKvnE1"
         },
         {
-            "url": "http://rihou.cc:88/demo.php",
-            "name": "vo [2026-09-14]✗"
-        },
-        {
-            "url": "http://rihou.cc:88/demo.php",
-            "name": "vo [2026-09-14]✗"
-        },
-        {
-            "url": "http://rihou.cc:555/nzk/nzk0722.json",
-            "name": "D佬魔改 [2026-09-07]✗"
+            "name": "❤️科技长青 [1970-01-01]✓",
+            "url": "https://13413.kstore.space/tv/changqing.json"
         },
         {
             "name": "🌱小苹果 [2026-09-06]✗",
@@ -107,10 +111,6 @@
         {
             "url": "https://tv.nxog.top/m/?&wZX",
             "name": "讴歌 [2026-08-25]✗"
-        },
-        {
-            "name": "❤️科技长青 [1970-01-01]✗",
-            "url": "https://13413.kstore.space/tv/changqing.json"
         },
         {
             "url": "http://fmys.top/fmys.json",
