@@ -1,36 +1,40 @@
 {
     "urls": [
         {
-            "name": "🌵网友分享 [2026-10-05]✓",
+            "name": "🌵网友分享 [2026-10-06]✓",
             "url": "https://raw.githubusercontent.com/maoystv/6/main/000.json"
         },
         {
-            "url": "http://rihou.cc:88/demo.php",
-            "name": "vo [2026-10-05]✓"
-        },
-        {
-            "url": "http://rihou.cc:88/demo.php",
-            "name": "vo [2026-10-05]✓"
-        },
-        {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-10-04]✓"
+            "name": "qist [2026-10-06]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-10-04]✓"
+            "name": "qist2 [2026-10-06]✓"
         },
         {
             "url": "https://clun.top/box.json",
-            "name": "cluntop [2026-10-04]✓"
+            "name": "cluntop [2026-10-06]✓"
+        },
+        {
+            "url": "https://8815.kstore.vip/tvbox/wmz",
+            "name": "网络接口 [2026-10-06]✓"
+        },
+        {
+            "url": "https://9280.kstore.space/wex.json",
+            "name": "王二小备 [2026-10-06]✓"
+        },
+        {
+            "url": "http://rihou.cc:88/demo.php",
+            "name": "vo [2026-10-05]✓"
+        },
+        {
+            "url": "http://rihou.cc:88/demo.php",
+            "name": "vo [2026-10-05]✓"
         },
         {
             "name": "❤️L佬 [2026-09-30]✓",
             "url": "https://android.lushunming.qzz.io/json/index.json"
-        },
-        {
-            "url": "https://8815.kstore.vip/tvbox/wmz",
-            "name": "网络接口 [2026-09-27]✓"
         },
         {
             "name": "嗷呜 [2026-09-26]✓",
@@ -39,10 +43,6 @@
         {
             "url": "https://9280.kstore.vip/newwex.json",
             "name": "王二小 [2026-09-24]✓"
-        },
-        {
-            "url": "https://9280.kstore.space/wex.json",
-            "name": "王二小备 [2026-09-24]✓"
         },
         {
             "name": "潇洒哥 [2026-09-15]✓",
