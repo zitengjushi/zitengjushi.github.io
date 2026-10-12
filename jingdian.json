@@ -1,8 +1,16 @@
 {
     "urls": [
         {
-            "name": "🌵网友分享 [2026-10-11]✓",
+            "name": "🌵网友分享 [2026-10-12]✓",
             "url": "https://raw.githubusercontent.com/maoystv/6/main/000.json"
+        },
+        {
+            "url": "https://qist.ugigc.dpdns.org/jsm.json",
+            "name": "qist [2026-10-12]✓"
+        },
+        {
+            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
+            "name": "qist2 [2026-10-12]✓"
         },
         {
             "url": "https://8815.kstore.vip/tvbox/wmz",
@@ -11,14 +19,6 @@
         {
             "url": "https://9280.kstore.vip/newwex.json",
             "name": "王二小 [2026-10-11]✓"
-        },
-        {
-            "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-10-10]✓"
-        },
-        {
-            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-10-10]✓"
         },
         {
             "name": "嗷呜 [2026-10-08]✓",
