@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """
 update_iptv_github_urls.py
-读取 github.json 中每个 url 条目，去掉代理前缀后访问 GitHub API
-获取目标文件的最后修改时间（年月日），然后按最后修改时间对条目排序后重新保存：
-  - 最新时间排在最前面
-  - 无法获取到时间的条目排在最后面
+读取 iptv-github.json 中每个条目的 url，去掉代理前缀后访问 GitHub API
+获取目标文件的最后修改时间（北京时间 YYYY-MM-DD），
+将日期更新到对应 name 的末尾（自动覆盖旧日期），
+最后按最后修改时间对所有条目倒序重新排序并写回。
 
 用法:
-    python scripts/update_iptv_github_urls.py
+    python script/update_iptv_github_urls.py
 """
 
+from datetime import datetime, timezone, timedelta
 import json
 import os
 import re
@@ -63,22 +64,13 @@ def gh_get(url: str, retries: int = 3) -> dict | list:
 def parse_raw_url(raw_url: str) -> tuple[str, str, str] | None:
     """
     从 raw.githubusercontent.com URL 中解析出 owner/repo、branch、文件路径。
-
-    输入示例:
-      https://raw.githubusercontent.com/qist/tvbox/master/0821.json
-    返回:
-      ("qist/tvbox", "master", "0821.json")
-
-    对于带 refs/heads/ 的路径也能正确处理：
-      https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json
-    返回:
-      ("maoystv/6", "main", "000.json")
+    支持带 refs/heads/ 的路径。
     """
     prefix = "https://raw.githubusercontent.com/"
     if not raw_url.startswith(prefix):
         return None
 
-    rest  = raw_url[len(prefix):]          # owner/repo/branch/...path
+    rest  = raw_url[len(prefix):]
     parts = rest.split("/")
     if len(parts) < 4:
         return None
@@ -99,18 +91,25 @@ def parse_raw_url(raw_url: str) -> tuple[str, str, str] | None:
 
 def get_file_last_modified(repo: str, branch: str, file_path: str) -> str | None:
     """
-    通过 GitHub Commits API 获取文件最后一次提交的日期（YYYY-MM-DD）。
+    通过 GitHub Commits API 获取文件最后一次提交的日期（转换为北京时间 YYYY-MM-DD）。
     """
     url  = f"{API_BASE}/repos/{repo}/commits?sha={branch}&path={file_path}&per_page=1"
     data = gh_get(url)
     if not data:
         return None
-    date_str = data[0]["commit"]["committer"]["date"]  # e.g. "2025-04-10T08:23:11Z"
-    return date_str[:10]                               # 取 YYYY-MM-DD
+    
+    utc_date_str = data[0]["commit"]["committer"]["date"]  # e.g. "2026-04-10T23:30:00Z"
+    
+    # 转换成 datetime 对象并转为北京时间 (UTC+8)
+    dt_utc = datetime.strptime(utc_date_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    tz_beijing = timezone(timedelta(hours=8))
+    dt_bj = dt_utc.astimezone(tz_beijing)
+    
+    return dt_bj.strftime("%Y-%m-%d")
 
 
 def strip_date_suffix(name: str) -> str:
-    """去掉 name 末尾上次追加的日期（如 ' 2025-04-10'），返回原始 name。"""
+    """去掉 name 末尾上次追加的日期（如 ' 2026-04-10'），返回原始 name。"""
     return DATE_SUFFIX_RE.sub("", name)
 
 
@@ -121,14 +120,16 @@ def main():
     with JSON_PATH.open(encoding="utf-8") as f:
         data: dict = json.load(f)
 
-    entries: list[dict] = data.get("urls", [])
-    print(f"🔍 共 {len(entries)} 个 URL 需要检查\n")
-
+    print(f"🔍 共 {len(data)} 个源需要检查\n")
     checked_count = 0
 
-    for entry in entries:
-        raw_proxy_url = entry.get("url", "")
-        original_name = entry.get("name", "")
+    # 用于暂存带有最后修改时间的数据，以便后续排序
+    # 每个元素格式为：(key, item_dict, last_modified_date)
+    processed_items = []
+
+    for key, item in data.items():
+        raw_proxy_url = item.get("url", "")
+        original_name = item.get("name", "")
 
         # 去掉代理前缀，还原真实 raw URL
         if raw_proxy_url.startswith(PROXY_PREFIX):
@@ -136,13 +137,13 @@ def main():
         else:
             real_url = raw_proxy_url
 
-        print(f"  ▶ {original_name}")
+        print(f"  ▶ [{key}] {original_name}")
         print(f"    URL: {real_url}")
 
         parsed = parse_raw_url(real_url)
         if not parsed:
             print(f"    ⚠️  无法解析为 GitHub raw URL，跳过\n")
-            entry["_last_modified"] = None
+            processed_items.append((key, item, None))
             continue
 
         repo, branch, file_path = parsed
@@ -151,20 +152,19 @@ def main():
             last_date = get_file_last_modified(repo, branch, file_path)
         except FileNotFoundError:
             print(f"    ⚠️  GitHub 上找不到此文件（{repo}/{file_path}），跳过\n")
-            entry["_last_modified"] = None
+            processed_items.append((key, item, None))
             continue
         except Exception as exc:
             print(f"    ❌ 获取失败: {exc}，跳过\n")
-            entry["_last_modified"] = None
+            processed_items.append((key, item, None))
             continue
 
         if not last_date:
             print(f"    ⚠️  未能获取最后修改时间，跳过\n")
-            entry["_last_modified"] = None
+            processed_items.append((key, item, None))
             continue
 
-        print(f"    最后修改: {last_date}")
-        entry["_last_modified"] = last_date
+        print(f"    最后修改 (北京时间): {last_date}")
         checked_count += 1
 
         # 构造新 name：去掉旧日期后缀 + 新日期
@@ -173,33 +173,38 @@ def main():
 
         if new_name != original_name:
             print(f"    🔄 name: {original_name!r} → {new_name!r}")
-            entry["name"] = new_name
+            item["name"] = new_name
             print(f"    ✅ 已更新")
         else:
             print(f"    ✔  无变化")
 
         print()
+        processed_items.append((key, item, last_date))
         time.sleep(0.3)  # 礼貌性延迟
 
-    # 按最后修改时间排序：最新的在最前面，无法获取到时间的排在最后面
-    dated    = [e for e in entries if e["_last_modified"] is not None]
-    undated  = [e for e in entries if e["_last_modified"] is None]
-    dated.sort(key=lambda e: e["_last_modified"], reverse=True)
-    entries[:] = dated + undated
+    # ── 按最后修改时间排序 ─────────────────────────────────────────────────────
+    # 分为 有日期的项 和 无日期的项
+    dated = [x for x in processed_items if x[2] is not None]
+    undated = [x for x in processed_items if x[2] is None]
 
-    # 清理临时字段，写回文件
-    for e in entries:
-        e.pop("_last_modified", None)
+    # 按时间倒序（最新的在最前面）
+    dated.sort(key=lambda x: x[2], reverse=True)
 
-    data["urls"] = entries
+    # 重新组装成有序的字典
+    new_data = {}
+    for key, item, _ in dated + undated:
+        new_data[key] = item
+
+    # 写回文件
     with JSON_PATH.open("w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+        json.dump(new_data, f, ensure_ascii=False, indent=4)
+
     print(
-        f"💾 已更新 name 日期并按最后修改时间排序，写回 {JSON_PATH}"
-        f"（成功获取时间 {checked_count}/{len(entries)} 个）"
+        f"💾 已更新 name 日期并按最后修改时间重新排序，写回 {JSON_PATH} "
+        f"（成功获取时间 {checked_count}/{len(data)} 个）"
     )
 
-    # 输出给 GitHub Actions
+    # 输出给 GitHub Actions（如果有需要）
     env_file = os.getenv("GITHUB_OUTPUT", "")
     if env_file:
         with open(env_file, "a") as f:
