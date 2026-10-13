@@ -1,4 +1,4 @@
-name: Sync Multicast/Unicast from upstream
+name: 同步更新IPTV
 
 on:
   schedule:
