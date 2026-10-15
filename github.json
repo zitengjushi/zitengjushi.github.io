@@ -1,20 +1,20 @@
 {
     "urls": [
         {
-            "name": "xiaohaozifeifeifei 2026-10-13",
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
+            "name": "南风无广 2026-10-15"
+        },
+        {
+            "name": "xiaohaozifeifeifei 2026-10-14",
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/xiaohaozifeifeifei/bd/refs/heads/main/ys/api.json"
+        },
+        {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
+            "name": "分享者 2026-10-14"
         },
         {
             "name": "woshishiq1-zy 2026-10-13",
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/woshishiq1/jiemi/refs/heads/main/zy.json"
-        },
-        {
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
-            "name": "南风无广 2026-10-12"
-        },
-        {
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
-            "name": "分享者 2026-10-12"
         },
         {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/box.json",
