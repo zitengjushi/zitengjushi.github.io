@@ -103,6 +103,14 @@
         "url": "https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u",
         "sub_dir": ""
     },
+    "kimwang1978": {
+        "version": "1.9.8",
+        "name": "港澳台",
+        "android": "",
+        "desc": "",
+        "url": "https://raw.githubusercontent.com/kimwang1978/collect-txt/refs/heads/main/work/%E6%B8%AF%E6%BE%B3%E5%8F%B0.txt",
+        "sub_dir": ""
+    },
     "suxuang移动iptv": {
         "version": "1.9.8",
         "name": "suxuang移动iptv",
