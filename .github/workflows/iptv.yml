@@ -1,4 +1,4 @@
-name: 同步更新IPTV
+name: 同步xisohi/CHINA-IPTV更新IPTV
 
 on:
   schedule:
