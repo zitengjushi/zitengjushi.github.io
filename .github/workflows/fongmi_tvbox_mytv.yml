@@ -1,0 +1,57 @@
+name: 每日更新同步Fongmi、mytv-android、Tvbox-Q版、Tvbox-T版、影视仓
+on:
+  schedule:
+    # 每天 UTC 04:00（北京时间 12:00）自动运行
+    - cron: "0 4 * * *"
+  workflow_dispatch:   # 支持手动触发
+permissions:
+  contents: write
+jobs:
+  update-github-urls:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sync fongmi latest APKs to apk/fongmi.json
+        id: fongmi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python script/fongmi.py
+      - name: Sync mytv-android latest APKs to apk/tv.json
+        id: mytv_android
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python script/update_mytv_android.py
+      - name: Sync TVBoxOSC latest APKs to apk/tvboxq.json/apk/tvboxt.json
+        id: tvboxqt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python script/update_tvbox-q-t.py
+      - name: Update yingshicang APKs to apk/ysc.json
+        id: yingshicang
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python script/update_yingshicang.py
+      - name: Check for changes
+        id: changes
+        run: |
+          if [ -n "$(git status --porcelain apk/fongmi.json apk/tv.json apk/tvboxt.json apk/tvboxq.json apk/ysc.json )" ]; then
+            echo "updated=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "updated=0" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Commit and push changes
+        if: steps.changes.outputs.updated == '1'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add apk/fongmi.json apk/tv.json apk/tvboxt.json apk/tvboxq.json apk/ysc.json
+          git commit -m "chore: 自动更新同步Fongmi、mytv-android、Tvbox-Q版、Tvbox-T版、影视仓最新版APK链接 [skip ci]"
+          git push
+      - name: No changes
+        if: steps.changes.outputs.updated == '0'
+        run: echo "✔ 所有数据均为最新，无需提交。"
