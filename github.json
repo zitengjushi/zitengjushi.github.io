@@ -1,16 +1,20 @@
 {
     "urls": [
         {
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
+            "name": "分享者 2026-10-16"
+        },
+        {
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
             "name": "南风无广 2026-10-15"
         },
         {
-            "name": "xiaohaozifeifeifei 2026-10-14",
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/xiaohaozifeifeifei/bd/refs/heads/main/ys/api.json"
+            "name": "接口聚合 2026-10-15",
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/refs/heads/main/output/%E5%8D%95%E4%BB%93%E8%81%9A%E5%90%88.json"
         },
         {
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
-            "name": "分享者 2026-10-14"
+            "name": "xiaohaozifeifeifei 2026-10-14",
+            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/xiaohaozifeifeifei/bd/refs/heads/main/ys/api.json"
         },
         {
             "name": "woshishiq1-zy 2026-10-13",
@@ -23,10 +27,6 @@
         {
             "name": "zheng197600 2026-10-05",
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/zheng197600/tvbox/refs/heads/main/0820.json"
-        },
-        {
-            "name": "接口聚合 2026-09-30",
-            "url": "https://gh-proxy.org/https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/refs/heads/main/output/%E5%8D%95%E4%BB%93%E8%81%9A%E5%90%88.json"
         },
         {
             "name": "青苹果 2026-09-30",
