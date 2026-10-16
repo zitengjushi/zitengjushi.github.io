@@ -1,4 +1,4 @@
-name: 每日更新订阅时间、mytv、lxmusic
+name: 每日更新订阅源的更新时间、同步lxmusic最新源
 on:
   schedule:
     # 每天 UTC 02:00（北京时间 10:00）自动运行
@@ -29,16 +29,6 @@ jobs:
       - name: Run jingdian check script
         id: jingdian
         run: python script/update_jingdian_urls.py jingdian.json
-      - name: Sync mytv-android latest APKs to apk/tv.json
-        id: mytv_android
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python script/update_mytv_android.py
-      - name: Sync TVBoxOSC latest APKs to apk/tvbox.json
-        id: tvbox
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python script/update_tvbox.py
       - name: Sync lxmusic- latest release folder into lx
         id: lxsync
         env:
@@ -90,7 +80,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [ -n "$(git status --porcelain github.json jingdian.json jingdian_md5.json apk/iptv-github.json apk/tv.json apk/tvbox.json lx)" ]; then
+          if [ -n "$(git status --porcelain github.json jingdian.json jingdian_md5.json apk/iptv-github.json lx)" ]; then
             echo "updated=1" >> "$GITHUB_OUTPUT"
           else
             echo "updated=0" >> "$GITHUB_OUTPUT"
@@ -100,8 +90,8 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add github.json jingdian.json jingdian_md5.json apk/iptv-github.json apk/tv.json apk/tvbox.json lx
-          git commit -m "chore: 自动更新订阅源最后修改时间及链接可用性，同步mytv-android/TVBoxOSC最新APK，同步lxmusic-最新release [skip ci]"
+          git add github.json jingdian.json jingdian_md5.json apk/iptv-github.json lx
+          git commit -m "chore: 自动更新订阅源及github直播源最后修改时间及链接可用性，同步lxmusic-最新release [skip ci]"
           git push
       - name: No changes
         if: steps.changes.outputs.updated == '0'
