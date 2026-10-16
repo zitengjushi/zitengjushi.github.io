@@ -555,19 +555,37 @@
         // 导入代理管理模块的函数
         import { initProxySelector, testAllProxies, updateProxySelectorWithSpeed, getProxiedUrl } from './js/proxyList.js';
         
-        // 加载JSON文件的函数
-        async function loadJson(url) {
+        // 加载JSON文件的函数（支持一个或多个文件，单个文件失败时忽略并不影响其他）
+        async function loadJson(...urls) {
             try {
-                // 使用代理处理URL
-                const proxiedUrl = getProxiedUrl(url);
-                const response = await fetch(proxiedUrl);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                if (urls.length === 1) {
+                    const proxiedUrl = getProxiedUrl(urls[0]);
+                    const response = await fetch(proxiedUrl);
+                    if (!response.ok) return null; // 单个文件不存在时返回 null
+                    return await response.json();
                 }
-                return await response.json();
+
+                // 多个文件并发加载，每个文件独立捕获错误，互不影响
+                const promises = urls.map(async (url) => {
+                    try {
+                        const proxiedUrl = getProxiedUrl(url);
+                        const response = await fetch(proxiedUrl);
+                        if (!response.ok) {
+                            console.warn(`Warning: Failed to load ${url}, status: ${response.status}`);
+                            return {}; // 失败时返回空对象，忽略该文件
+                        }
+                        const data = await response.json();
+                        return data || {}; // 如果文件内容为空，返回空对象
+                    } catch (err) {
+                        console.warn(`Warning: Error processing ${url}`, err);
+                        return {}; // 发生异常时返回空对象
+                    }
+                });
+
+                return await Promise.all(promises);
             } catch (error) {
-                console.error('Error loading JSON:', error);
-                return null;
+                console.error('Error in loadJson:', error);
+                return urls.length === 1 ? null : [];
             }
         }
 
@@ -651,16 +669,19 @@
         // 加载所有数据的函数
         async function loadAllData() {
             // 加载并显示Fongmi APK信息
-            const fongmiData = await loadJson('apk/fongmi.json');
-            displayTvboxList('fongmi-list', fongmiData, 'fongmi');
+            const fongmiData = await loadJson('apk/fongmi.json','apk/fongmi2.json');
+            const fongmiDatas = Object.assign({}, ...fongmiData);
+            displayTvboxList('fongmi-list', fongmiDatas, 'fongmi');
 
             // 加载并显示Okjack APK信息
-            const okjackData = await loadJson('apk/okjack.json');
-            displayTvboxList('okjack-list', okjackData, 'okjack');
+            const okjackData = await loadJson('apk/okjack.json','apk/okjack2.json');
+            const okjackDatas = Object.assign({}, ...okjackData);
+            displayTvboxList('okjack-list', okjackDatas, 'okjack');
 
             // 加载并显示TVBOX信息
-            const tvboxData = await loadJson('apk/tvbox.json');
-            displayTvboxList('tvbox-list', tvboxData);
+            const tvboxData = await loadJson('apk/tvboxq.json','apk/tvboxt.json','apk/ysc.json','apk/ysc2.json','apk/tvbox.json','apk/other.json');
+            const tvboxDatas = Object.assign({}, ...tvboxData);
+            displayTvboxList('tvbox-list', tvboxDatas);
 
             // 加载并显示TV-app信息
             const tvappData = await loadJson('apk/tv.json');
