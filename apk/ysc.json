@@ -1,0 +1,90 @@
+{
+  "影视仓-6.1.7-32位_海信版": {
+    "version": "6.1.7",
+    "name": "32位_海信版",
+    "logo": "/images/yscsjb.jpeg",
+    "android": "",
+    "desc": "影视仓-6.1.7-32位_海信版的影视仓，支持多仓",
+    "sub_dir": "https://raw.githubusercontent.com/youhunwl/TVAPP/main/影视/影视仓/影视仓-6.1.7-32位_海信版.apk"
+  },
+  "影视仓-TV-32位-6.2.8": {
+    "version": "6.2.8",
+    "name": "影视仓-TV-32位-6.2.8",
+    "logo": "/images/ysc.jpeg",
+    "android": "",
+    "desc": "影视仓-TV-32位-6.2.8的影视仓，支持多仓",
+    "sub_dir": "https://raw.githubusercontent.com/youhunwl/TVAPP/main/影视/影视仓/影视仓-TV-32位-6.2.8.apk"
+  },
+  "影视仓-TV-64位-6.2.8": {
+    "version": "6.2.8",
+    "name": "影视仓-TV-64位-6.2.8",
+    "logo": "/images/ysc.jpeg",
+    "android": "",
+    "desc": "影视仓-TV-64位-6.2.8的影视仓，支持多仓",
+    "sub_dir": "https://raw.githubusercontent.com/youhunwl/TVAPP/main/影视/影视仓/影视仓-TV-64位-6.2.8.apk"
+  },
+  "影视仓-手机平板-64位-3.3.8_opt": {
+    "version": "3.3.8",
+    "name": "影视仓-手机平板-64位-3.3.8_opt",
+    "logo": "/images/ysc.jpeg",
+    "android": "",
+    "desc": "影视仓-手机平板-64位-3.3.8_opt的影视仓，支持多仓",
+    "sub_dir": "https://raw.githubusercontent.com/youhunwl/TVAPP/main/影视/影视仓/影视仓-手机平板-64位-3.3.8_opt.apk"
+  },
+  "影视仓V3稳定版-3.0.32_兼容安卓4": {
+    "version": "3.0.32",
+    "name": "影视仓V3稳定版",
+    "logo": "/images/ysc.jpeg",
+    "android": "",
+    "desc": "影视仓V3稳定版-3.0.32_兼容安卓4的影视仓，支持多仓",
+    "sub_dir": "https://raw.githubusercontent.com/youhunwl/TVAPP/main/影视/影视仓/影视仓V3稳定版-3.0.32_兼容安卓4.apk"
+  },
+  "影视仓V3稳定版-3.0.36_兼容安卓4": {
+    "version": "3.0.36",
+    "name": "影视仓V3稳定版-3.0.36_兼容安卓4",
+    "logo": "/images/ysc.jpeg",
+    "android": "",
+    "desc": "影视仓V3稳定版-3.0.36_兼容安卓4的影视仓，支持多仓",
+    "sub_dir": "https://raw.githubusercontent.com/youhunwl/TVAPP/main/影视/影视仓/影视仓V3稳定版-3.0.36_兼容安卓4.apk"
+  },
+  "影视仓_3.3.7_手机平板": {
+    "version": "3.3.7",
+    "name": "影视仓_3.3.7_手机平板",
+    "logo": "/images/ysc.jpeg",
+    "android": "",
+    "desc": "影视仓_3.3.7_手机平板的影视仓，支持多仓",
+    "sub_dir": "https://raw.githubusercontent.com/youhunwl/TVAPP/main/影视/影视仓/影视仓_3.3.7_手机平板.apk"
+  },
+  "影视仓_5.0.40.1": {
+    "version": "5.0.40",
+    "name": "影视仓_5.0.40.1",
+    "logo": "/images/ysc.jpeg",
+    "android": "",
+    "desc": "影视仓_5.0.40.1的影视仓，支持多仓",
+    "sub_dir": "https://raw.githubusercontent.com/youhunwl/TVAPP/main/影视/影视仓/影视仓_5.0.40.1.apk"
+  },
+  "影视仓_6.2.7_32位电视": {
+    "version": "6.2.7",
+    "name": "影视仓_6.2.7_32位电视",
+    "logo": "/images/ysc.jpeg",
+    "android": "",
+    "desc": "影视仓_6.2.7_32位电视的影视仓，支持多仓",
+    "sub_dir": "https://raw.githubusercontent.com/youhunwl/TVAPP/main/影视/影视仓/影视仓_6.2.7_32位电视.apk"
+  },
+  "影视仓_6.2.7_64位电视版": {
+    "version": "6.2.7",
+    "name": "影视仓_6.2.7_64位电视版",
+    "logo": "/images/ysc.jpeg",
+    "android": "",
+    "desc": "影视仓_6.2.7_64位电视版的影视仓，支持多仓",
+    "sub_dir": "https://raw.githubusercontent.com/youhunwl/TVAPP/main/影视/影视仓/影视仓_6.2.7_64位电视版.apk"
+  },
+  "影视仓手机版_3.3.1_360": {
+    "version": "3.3.1",
+    "name": "影视仓手机版_3.3.1_360",
+    "logo": "/images/ysc.jpeg",
+    "android": "",
+    "desc": "影视仓手机版_3.3.1_360的影视仓，支持多仓",
+    "sub_dir": "https://raw.githubusercontent.com/youhunwl/TVAPP/main/影视/影视仓/影视仓手机版_3.3.1_360.apk"
+  }
+}

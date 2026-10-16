@@ -1,0 +1,56 @@
+{
+  "TVBox_q215613905_20260914-1520-java": {
+    "version": "20260914-1520",
+    "name": "java(q版 白盒)",
+    "logo": "/images/tvbox.jpg",
+    "android": "安卓4.X",
+    "desc": "tvbox系列的白盒，兼容安卓4版本，一直保持更新",
+    "url": "https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/j4Uq/TVBoxOSC/releases/download/20260914-1520/TVBox_q215613905_20260914-1520-java.apk"
+  },
+  "TVBox_q215613905_20260914-1520-java32": {
+    "version": "20260914-1520",
+    "name": "java32(q版 白盒)",
+    "logo": "/images/tvbox.jpg",
+    "android": "安卓4.X",
+    "desc": "tvbox系列的白盒，兼容安卓4版本，一直保持更新",
+    "url": "https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/j4Uq/TVBoxOSC/releases/download/20260914-1520/TVBox_q215613905_20260914-1520-java32.apk"
+  },
+  "TVBox_q215613905_20260914-1520-java64": {
+    "version": "20260914-1520",
+    "name": "java64(q版 白盒)",
+    "logo": "/images/tvbox.jpg",
+    "android": "安卓4.X",
+    "desc": "tvbox系列的白盒，兼容安卓4版本，一直保持更新",
+    "url": "https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/j4Uq/TVBoxOSC/releases/download/20260914-1520/TVBox_q215613905_20260914-1520-java64.apk"
+  },
+  "TVBox_q215613905_20260914-1520-python": {
+    "version": "20260914-1520",
+    "name": "python(q版 白盒)",
+    "logo": "/images/tvbox.jpg",
+    "android": "安卓4.X",
+    "desc": "tvbox系列的白盒，兼容安卓4版本，一直保持更新",
+    "url": "https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/j4Uq/TVBoxOSC/releases/download/20260914-1520/TVBox_q215613905_20260914-1520-python.apk"
+  },
+  "TVBox_q215613905_20260914-1520-python32": {
+    "version": "20260914-1520",
+    "name": "python32(q版 白盒)",
+    "logo": "/images/tvbox.jpg",
+    "android": "安卓4.X",
+    "desc": "tvbox系列的白盒，兼容安卓4版本，一直保持更新",
+    "url": "https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/j4Uq/TVBoxOSC/releases/download/20260914-1520/TVBox_q215613905_20260914-1520-python32.apk"
+  },
+  "TVBox_q215613905_20260914-1520-python64": {
+    "version": "20260914-1520",
+    "name": "python64(q版 白盒)",
+    "logo": "/images/tvbox.jpg",
+    "android": "安卓4.X",
+    "desc": "tvbox系列的白盒，兼容安卓4版本，一直保持更新",
+    "url": "https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/j4Uq/TVBoxOSC/releases/download/20260914-1520/TVBox_q215613905_20260914-1520-python64.apk"
+  }
+}

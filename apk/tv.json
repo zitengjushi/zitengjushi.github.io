@@ -35,6 +35,33 @@
     "url": "https://github.com/sakana164/mytv-android/",
     "sub_dir": "https://github.com/sakana164/mytv-android/releases/download/mytv-android/tv-3.3.9-all-sdk21-disguised.apk"
   },
+  "tv-3.3.9-all-sdk21-original-X5.apk": {
+    "version": "3.3.9",
+    "name": "天光云影X5",
+    "logo": "/images/tgyy.png",
+    "android": "",
+    "desc": "可自定义直播源。",
+    "url": "https://github.com/sakana164/mytv-android/",
+    "sub_dir": "https://github.com/sakana164/mytv-android/releases/download/mytv-android/tv-3.3.9-all-sdk21-disguised.apk"
+  },
+  "tv-3.3.8-all-sdk21-original": {
+    "version": "3.3.8",
+    "name": "天光云影(正常版)",
+    "logo": "/images/tgyy.png",
+    "android": "",
+    "desc": "可自定义直播源。",
+    "url": "https://github.com/sakana164/mytv-android/",
+    "sub_dir": "https://github.com/sakana164/mytv-android/releases/download/mytv-android/mytv-android-tv-3.3.8-all-sdk21-original.apk"
+  },
+  "tv-3.3.8-all-sdk21-disguised": {
+    "version": "3.3.8",
+    "name": "天光云影(伪装版)",
+    "logo": "/images/tgyy.png",
+    "android": "",
+    "desc": "可自定义直播源，伪装版本，伪装成Z视介（com.chinablue.tv）。解决鸿蒙系统小窗无法横屏，支持超级桌面。",
+    "url": "https://github.com/sakana164/mytv-android/",
+    "sub_dir": "https://github.com/sakana164/mytv-android/releases/download/mytv-android/mytv-android-tv-3.3.8-all-sdk21-disguised.apk"
+  },
   "htv5.0": {
     "version": "5.0.0",
     "name": "HTV",

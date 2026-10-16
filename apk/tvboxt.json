@@ -1,0 +1,74 @@
+{
+  "TVBox_takagen99_20260227-1116-arm64-generic-java": {
+    "version": "20260227-1116",
+    "name": "arm64-generic-java(t版 黑盒)",
+    "logo": "/images/tvbox-t.jpeg",
+    "android": "",
+    "desc":"tvbox系列的黑盒通用版，arm64版本适合手机平板等新设备安装，界面更加美观",
+    "url":"https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/j4Uq/TVBoxOSC/releases/download/20260227-1116/TVBox_takagen99_20260227-1116-arm64-generic-java.apk"
+  },
+  "TVBox_takagen99_20260227-1116-arm64-generic-python": {
+    "version": "20260227-1116",
+    "name": "arm64-generic-python(t版 黑盒)",
+    "logo": "/images/tvbox-t.jpeg",
+    "android": "",
+    "desc":"tvbox系列的黑盒通用版，arm64版本适合手机平板等新设备安装，界面更加美观",
+    "url":"https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/j4Uq/TVBoxOSC/releases/download/20260227-1116/TVBox_takagen99_20260227-1116-arm64-generic-python.apk"
+  },
+  "TVBox_takagen99_20260227-1116-arm64-hisense-java": {
+    "version": "20260227-1116",
+    "name": "arm64-hisense-java(t版 黑盒)",
+    "logo": "/images/tvbox-t.jpeg",
+    "android": "",
+    "desc":"tvbox系列的黑盒通用版，arm64版本适合手机平板等新设备安装，界面更加美观",
+    "url":"https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/j4Uq/TVBoxOSC/releases/download/20260227-1116/TVBox_takagen99_20260227-1116-arm64-hisense-java.apk"
+  },
+  "TVBox_takagen99_20260227-1116-armeabi-generic-java": {
+    "version": "20260227-1116",
+    "name": "armeabi-generic-java(t版 黑盒)",
+    "logo": "/images/tvbox-t.jpeg",
+    "android": "",
+    "desc":"tvbox系列的黑盒通用版，arm64版本适合手机平板等新设备安装，界面更加美观",
+    "url":"https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/j4Uq/TVBoxOSC/releases/download/20260227-1116/TVBox_takagen99_20260227-1116-armeabi-generic-java.apk"
+  },
+  "TVBox_takagen99_20260227-1116-armeabi-generic-python": {
+    "version": "20260227-1116",
+    "name": "armeabi-generic-python(t版 黑盒)",
+    "logo": "/images/tvbox-t.jpeg",
+    "android": "",
+    "desc":"tvbox系列的黑盒通用版，arm64版本适合手机平板等新设备安装，界面更加美观",
+    "url":"https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/j4Uq/TVBoxOSC/releases/download/20260227-1116/TVBox_takagen99_20260227-1116-armeabi-generic-python.apk"
+  },
+  "TVBox_takagen99_20260227-1116-armeabi-hisense-java": {
+    "version": "20260227-1116",
+    "name": "armeabi-hisense-java(t版 黑盒)",
+    "logo": "/images/tvbox-t.jpeg",
+    "android": "",
+    "desc":"tvbox系列的黑盒通用版，arm64版本适合手机平板等新设备安装，界面更加美观",
+    "url":"https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/j4Uq/TVBoxOSC/releases/download/20260227-1116/TVBox_takagen99_20260227-1116-armeabi-hisense-java.apk"
+  },
+  "TVBox_takagen99_20260227-1116-armeabi-hisense-python": {
+    "version": "20260227-1116",
+    "name": "armeabi-hisense-python(t版 黑盒)",
+    "logo": "/images/tvbox-t.jpeg",
+    "android": "",
+    "desc":"tvbox系列的黑盒通用版，arm64版本适合手机平板等新设备安装，界面更加美观",
+    "url":"https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/j4Uq/TVBoxOSC/releases/download/20260227-1116/TVBox_takagen99_20260227-1116-armeabi-hisense-python.apk"
+  },
+  "TVBox_takagen99_20260227-1116-arm64-hisense-python": {
+    "version": "20260227-1116",
+    "name": "arm64-hisense-python(t版 黑盒)",
+    "logo": "/images/tvbox-t.jpeg",
+    "android": "",
+    "desc":"tvbox系列的黑盒通用版，arm64版本适合手机平板等新设备安装，界面更加美观",
+    "url":"https://github.com/o0HalfLife0o/TVBoxOSC",
+    "sub_dir": "https://github.com/j4Uq/TVBoxOSC/releases/download/20260227-1116/TVBox_takagen99_20260227-1116-arm64-hisense-python.apk"
+  }
+}
