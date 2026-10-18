@@ -1,20 +1,24 @@
 {
     "urls": [
         {
-            "name": "🌵网友分享 [2026-10-17]✓",
+            "name": "🌵网友分享 [2026-10-18]✓",
             "url": "https://raw.githubusercontent.com/maoystv/6/main/000.json"
+        },
+        {
+            "url": "https://qist.ugigc.dpdns.org/jsm.json",
+            "name": "qist [2026-10-18]✓"
+        },
+        {
+            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
+            "name": "qist2 [2026-10-18]✓"
+        },
+        {
+            "name": "嗷呜 [2026-10-18]✓",
+            "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
         },
         {
             "url": "https://9280.kstore.vip/newwex.json",
             "name": "王二小 [2026-10-17]✓"
-        },
-        {
-            "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-10-17]✓"
-        },
-        {
-            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-10-17]✓"
         },
         {
             "url": "https://clun.top/box.json",
@@ -27,10 +31,6 @@
         {
             "url": "https://8815.kstore.vip/tvbox/wmz",
             "name": "网络接口 [2026-10-11]✓"
-        },
-        {
-            "name": "嗷呜 [2026-10-08]✓",
-            "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
         },
         {
             "url": "https://9280.kstore.space/wex.json",
