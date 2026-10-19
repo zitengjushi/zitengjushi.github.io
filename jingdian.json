@@ -1,6 +1,14 @@
 {
     "urls": [
         {
+            "name": "EasyTV备用 [2026-10-19]✓",
+            "url": "https://easyzz.dpdns.org/easytv.jpg"
+        },
+        {
+            "name": "❤️DG音乐|真六 [2026-10-19]✓",
+            "url": "https://ddzb.fun/dgmusic/api.json"
+        },
+        {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
             "name": "qist [2026-10-18]✓"
         },
@@ -63,10 +71,6 @@
         {
             "url": "https://www.yingm.cc/dm/dm.json",
             "name": "动漫 [1970-01-01]✓"
-        },
-        {
-            "url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer",
-            "name": "少儿 [1970-01-01]✓"
         },
         {
             "url": "https://16151.kstore.space",
@@ -169,10 +173,6 @@
             "url": "https://dxawi.github.io/0/0.json"
         },
         {
-            "name": "EasyTV备用 [1970-01-01]✓",
-            "url": "https://easyzz.dpdns.org/easytv.jpg"
-        },
-        {
             "name": "摸鱼儿 [1970-01-01]✓",
             "url": "http://www.y456y.com"
         },
@@ -187,10 +187,6 @@
         {
             "name": "喵呜 [1970-01-01]✓",
             "url": "http://mytv6688.xyz/aowu/config.webp"
-        },
-        {
-            "name": "王二小备 [1970-01-01]✓",
-            "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top"
         },
         {
             "name": "🌟潇洒单仓pro [1970-01-01]✓",
@@ -229,16 +225,20 @@
             "url": "https://d.kstore.dev/download/4684/1api.json?password=d0e28b9dbb9d51773f231238b787789c-1732729526488"
         },
         {
-            "name": "❤️DG音乐|真六 [1970-01-01]✓",
-            "url": "https://ddzb.fun/dgmusic/api.json"
-        },
-        {
             "name": "◶私藏💚真六 [1970-01-01]✓",
             "url": "https://cccimg.com/down.php/e621fdf576dfea9b9a168e8ca172360d.json"
         },
         {
             "name": "💚VIP🥮真六 [1970-01-01]✓",
             "url": "https://cccimg.com/down.php/65d804dde9c2ad49bf5c1146003d7900.json"
+        },
+        {
+            "url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer",
+            "name": "少儿 [1970-01-01]✗"
+        },
+        {
+            "name": "王二小备 [1970-01-01]✗",
+            "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top"
         }
     ]
 }
