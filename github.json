@@ -157,6 +157,22 @@
             "url": "https://gh-proxy.org/https://raw.githubusercontent.com/tianjitop/llllo/refs/heads/main/api.json"
         },
         {
+            "name": "牛虎 2026-09-04",
+            "url": "https://raw.githubusercontent.com/niubihu1/tvbox/refs/heads/main/1.json"
+        },
+        {
+            "name": "xiaolong69 2026-09-04",
+            "url": "https://raw.githubusercontent.com/xiaolong69/tv/main/1.json"
+        },
+        {
+            "name": "thqPrivateRepo 2026-09-04",
+            "url": "https://raw.githubusercontent.com/thqPrivateRepo/tvbox-dc/main/mybox.json"
+        },
+        {
+            "name": "爬虫单仓 2026-09-04",
+            "url": "https://raw.githubusercontent.com/thqPrivateRepo/tvbox-dc/main/mybox-self.json"
+        },
+        {
             "name": "🌟潇洒单仓pro",
             "url": "https://gh-proxy.org/https://github.com/niuber/niuber/raw/refs/heads/main/tvbox/TVBoxOSC/tvbox/api.json"
         }
