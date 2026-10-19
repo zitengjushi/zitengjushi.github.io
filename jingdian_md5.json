@@ -1,4 +1,8 @@
 {
+  "http://bp.tvbox.cam": {
+    "date": "1970-01-01",
+    "md5": "afbe330143c5efb9508022215e718b7b"
+  },
   "http://fmys.top/fmys.json": {
     "date": "1970-01-01",
     "md5": "872e2aca5c6119bd1ea1871f4c4c3496"
@@ -6,6 +10,14 @@
   "http://home.jundie.top:81/top98.json": {
     "date": "1970-01-01",
     "md5": "54574a39fcdf4bbb2db1774c45ebe1ba"
+  },
+  "http://itv666.cc/aowu/config.webp": {
+    "date": "1970-01-01",
+    "md5": "0d10142205d4c759bd9fca9d1c7f63ab"
+  },
+  "http://mytv6688.xyz/aowu/config.webp": {
+    "date": "1970-01-01",
+    "md5": "634ce671f476ccabde4ce4231dacce62"
   },
   "http://rihou.cc:555/nzk/nzk0722.json": {
     "date": "2026-09-07",
@@ -15,9 +27,21 @@
     "date": "2026-10-05",
     "md5": "1a2fea2d6b4d2253a7149fba95b20f3f"
   },
+  "http://szyyds.cn/tv/x.json": {
+    "date": "1970-01-01",
+    "md5": "692f6a647ddd4a685ca6fd38ef64ed2c"
+  },
+  "http://tvbox.xn--4kq62z5rby2qupq9ub.top": {
+    "date": "1970-01-01",
+    "md5": "d808780e39675b1e690e14a7f0b18754"
+  },
   "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv": {
     "date": "2026-10-18",
     "md5": "0d10142205d4c759bd9fca9d1c7f63ab"
+  },
+  "http://www.y456y.com": {
+    "date": "1970-01-01",
+    "md5": "eea2fddf1d907b96efd59e334b061430"
   },
   "http://xhztv.top/4k.json": {
     "date": "1970-01-01",
@@ -26,6 +50,10 @@
   "http://xhztv.top/xhz": {
     "date": "1970-01-01",
     "md5": "f083d2c171ea50e8b838c3e212f112b6"
+  },
+  "http://zhangqun1818.serv00.net/zq/api.json": {
+    "date": "1970-01-01",
+    "md5": "e977a64f13c2da67643bf2804c2e6c83"
   },
   "https://13413.kstore.space/tv/changqing.json": {
     "date": "1970-01-01",
@@ -39,6 +67,10 @@
     "date": "2026-09-02",
     "md5": "c1711e9592b7e8d342b0bef8cbe1f7e3"
   },
+  "https://700sjro44343.vicp.fun/eggp/qzku/tv.json": {
+    "date": "1970-01-01",
+    "md5": "0466dd386de0bde5c3deb32fd783d46b"
+  },
   "https://8815.kstore.vip/tvbox/wmz": {
     "date": "2026-10-11",
     "md5": "58545e8def07415ec6764feac1e4cd6f"
@@ -51,6 +83,10 @@
     "date": "2026-10-17",
     "md5": "9d7f97582b3f76475d5aa4070f1db1f0"
   },
+  "https://9763.kstore.space/aowu.json": {
+    "date": "1970-01-01",
+    "md5": "3e139c8b461bce4882d8816110b23378"
+  },
   "https://android.lushunming.qzz.io/json/index.json": {
     "date": "2026-10-16",
     "md5": "ec17628ac28ec0b50210911073639b30"
@@ -59,9 +95,57 @@
     "date": "1970-01-01",
     "md5": "9c999abbe2c7b6bfc32780796ac8c854"
   },
+  "https://bitbucket.org/1771245847/tvbox/raw/main/tvbox.json": {
+    "date": "1970-01-01",
+    "md5": "923c9064f7ced2aff8a0b56272eadd6d"
+  },
   "https://bitbucket.org/xduo/duoapi/raw/master/xpg.json": {
     "date": "2026-09-06",
     "md5": "3ac4a0cbcc151347f69ade2fcf91c6eb"
+  },
+  "https://box.iqinu.com/": {
+    "date": "1970-01-01",
+    "md5": "1f07958a8ee87816c16bbd810158721c"
+  },
+  "https://cccimg.com/down.php/0fbefabf1f8189bf6b326edac97d4a2b.json": {
+    "date": "1970-01-01",
+    "md5": "0fbefabf1f8189bf6b326edac97d4a2b"
+  },
+  "https://cccimg.com/down.php/65d804dde9c2ad49bf5c1146003d7900.json": {
+    "date": "1970-01-01",
+    "md5": "65d804dde9c2ad49bf5c1146003d7900"
+  },
+  "https://cccimg.com/down.php/e621fdf576dfea9b9a168e8ca172360d.json": {
+    "date": "1970-01-01",
+    "md5": "e621fdf576dfea9b9a168e8ca172360d"
+  },
+  "https://cdn.jsdelivr.net/gh/liu673cn/box@main/m.json": {
+    "date": "1970-01-01",
+    "md5": "f3357ca13e600f1676dd9ed712023c93"
+  },
+  "https://cdn.jsdelivr.net/gh/qirenzhidao/tvbox18@main/XYQTVBox/drpy_js/drjs_config.json": {
+    "date": "1970-01-01",
+    "md5": "db2623817cd53d5fc818d488c11ff382"
+  },
+  "https://cdn.jsdelivr.net/gh/qirenzhidao/tvbox18@main/app.json": {
+    "date": "1970-01-01",
+    "md5": "c4ec67d7fff668ed75a187cb9cba21e6"
+  },
+  "https://cdn.jsdelivr.net/gh/qirenzhidao/tvbox18@main/fan.json": {
+    "date": "1970-01-01",
+    "md5": "5cc21aa01b40d86122b4fe2645a2c61c"
+  },
+  "https://cdn.jsdelivr.net/gh/qirenzhidao/tvbox18@main/fongmi.json": {
+    "date": "1970-01-01",
+    "md5": "52b7edc9593c3cac14b4fcd3df69a9c9"
+  },
+  "https://cdn.jsdelivr.net/gh/qirenzhidao/tvbox18@main/tv.json": {
+    "date": "1970-01-01",
+    "md5": "86c44234d9c2a142e823123d2f652de2"
+  },
+  "https://cdn.jsdelivr.net/gh/yangxiaoge/tvbox_cust@master/tvbox/alist/cust_littleyang.json": {
+    "date": "1970-01-01",
+    "md5": "e50beefb6b4d7ffc9d18415c460e2b00"
   },
   "https://clun.top/box.json": {
     "date": "2026-10-17",
@@ -70,6 +154,58 @@
   "https://cnb.cool/fish2035/xs/-/git/raw/main/api.json": {
     "date": "2026-09-15",
     "md5": "fdba74d76a82ca6b9ad69541c5b53eb1"
+  },
+  "https://d.kstore.dev/download/4684/1api.json?password=d0e28b9dbb9d51773f231238b787789c-1732729526488": {
+    "date": "1970-01-01",
+    "md5": "9c161f3e723b76ac99e6f3ce4a4275fc"
+  },
+  "https://d.kstore.dev/download/4684/api.json?password=53889b4301c033c63bbb0cd0e6d07001-1732730182556": {
+    "date": "1970-01-01",
+    "md5": "a49dbb3d536c25b680903e4e3a08299f"
+  },
+  "https://d.kstore.dev/download/4684/fhhfs.json": {
+    "date": "1970-01-01",
+    "md5": "a817280f8ab49ad53488a2d59dbe60f9"
+  },
+  "https://d.kstore.dev/download/4684/hgrc.json": {
+    "date": "1970-01-01",
+    "md5": "3a1af533359846fd82d72ad4a046538f"
+  },
+  "https://ddzb.fun/dgmusic/api.json": {
+    "date": "1970-01-01",
+    "md5": "abdd40eade223489bf4df390e1e0b98d"
+  },
+  "https://dxawi.github.io/0/0.json": {
+    "date": "1970-01-01",
+    "md5": "81b3efadc8c334eb71c37ed78d987966"
+  },
+  "https://easyzz.dpdns.org/easytv.jpg": {
+    "date": "1970-01-01",
+    "md5": "54b23e5d8b79818023d0acb068f7f18e"
+  },
+  "https://gcore.jsdelivr.net/gh/gaotianliuyun/gao@master/js.json": {
+    "date": "1970-01-01",
+    "md5": "99dc3fad760b623d13d743a668c2dc2b"
+  },
+  "https://gh-proxy.org/https://github.com/niuber/niuber/raw/refs/heads/main/tvbox/TVBoxOSC/tvbox/api.json": {
+    "date": "1970-01-01",
+    "md5": "5f1737d6ae1d1e769d9003d196d1313a"
+  },
+  "https://gitlab.com/noimank/tvbox/-/raw/main/tvbox1.json": {
+    "date": "1970-01-01",
+    "md5": "02ec067025b6b767427e51edde8f2449"
+  },
+  "https://gitlab.hk/iii/qq/-/raw/main/20.json": {
+    "date": "1970-01-01",
+    "md5": "480f37a92a46d0fa903810bded3176ea"
+  },
+  "https://jiekou.netlify.app/svip.json": {
+    "date": "1970-01-01",
+    "md5": "7eadc74a674024cb7c192fc8e7bebb97"
+  },
+  "https://jihulab.com/xuanzhuapp/xzys/-/raw/main/xzvip.json": {
+    "date": "1970-01-01",
+    "md5": "eebe549ee4f7bf7d7cef1cfa0c79b72d"
   },
   "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer": {
     "date": "1970-01-01",
@@ -87,6 +223,10 @@
     "date": "2026-10-18",
     "md5": "086c6180331f399fac8a10aac98dae74"
   },
+  "https://raw.bgithub.xyz/hanhan8127/TVBox/main/hanXC.json": {
+    "date": "1970-01-01",
+    "md5": "107401537eead08d1f2d330767df74c1"
+  },
   "https://raw.githubusercontent.com/maoystv/6/main/000.json": {
     "date": "2026-10-19",
     "md5": "1f2fd4faf537386c71af41aefcc5ff06"
@@ -102,6 +242,22 @@
   "https://tv.nxog.top/m/?&wZX": {
     "date": "2026-08-25",
     "md5": "858afa1bf92ce098be31bbd0da8962f0"
+  },
+  "https://tv.xn--11x555b.top/svip": {
+    "date": "1970-01-01",
+    "md5": "ac425af5f3f3fc32869c30ffadd5ebc6"
+  },
+  "https://tv.xn--yhqu5zs87a.top": {
+    "date": "1970-01-01",
+    "md5": "02fbe463b810daaae73292fa9ecf0681"
+  },
+  "https://www.252035.xyz/z/FongMi.json": {
+    "date": "1970-01-01",
+    "md5": "453aa5dc5c6e41ed6a346beb9bb9251b"
+  },
+  "https://www.lianyingtv.com/fast/fast": {
+    "date": "1970-01-01",
+    "md5": "00d5e66421d44574bb2a02d4f90150a3"
   },
   "https://www.yingm.cc/dm/dm.json": {
     "date": "1970-01-01",
