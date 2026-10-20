@@ -470,6 +470,66 @@
             initProxySelector,
             getProxiedUrl
         } from './js/proxyList.js';
+
+        // ──────────────────────────────────────────────────────────────
+        // 工具函数：宽松 JSON 解析 + 带 CORS 兜底的智能 fetch
+        // ──────────────────────────────────────────────────────────────
+
+        /**
+         * 剥离 // 行注释和 /* *\/ 块注释后再做 JSON.parse。
+         * 像 t.json 开头的 "// 此多仓接口列表由..." 这种非标准 JSON 注释，
+         * 标准 JSON.parse 无法处理，这里做兼容处理。
+         * 注意：只移除"整行均为注释"的行（允许行首有空白），
+         * 不会误伤值内容中包含 // 的正常字符串（如 https://xxx）。
+         */
+        function parseJsonLoose(text) {
+            const noBlockComments = text.replace(/\/\*[\s\S]*?\*\//g, '');
+            const noLineComments = noBlockComments.replace(/^[ \t]*\/\/.*$/gm, '');
+            return JSON.parse(noLineComments);
+        }
+
+        // 公共 CORS 代理兜底列表，direct fetch 失败时按顺序尝试
+        const CORS_FALLBACK_PROXIES = [
+            (url) => `https://cors.zitengju.top/?${encodeURIComponent(url)}`,
+            (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+        ];
+
+        /**
+         * 智能获取某个 url 的 JSON 内容：
+         * 1. 先尝试直连 fetch；
+         * 2. 若直连因 CORS / 网络错误失败，依次尝试公共 CORS 代理兜底；
+         * 3. 所有方式均失败则抛出最初的错误。
+         * 返回值已经过 parseJsonLoose 处理，兼容带注释的 JSON。
+         */
+        async function fetchJsonSmart(url) {
+            let lastError = null;
+
+            // 1) 直连尝试
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return parseJsonLoose(await res.text());
+            } catch (err) {
+                lastError = err;
+                console.warn(`直连失败 (${url})，尝试 CORS 代理兜底:`, err.message);
+            }
+
+            // 2) 依次尝试 CORS 代理兜底
+            for (const buildProxyUrl of CORS_FALLBACK_PROXIES) {
+                const proxyUrl = buildProxyUrl(url);
+                try {
+                    const res = await fetch(proxyUrl);
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    return parseJsonLoose(await res.text());
+                } catch (err) {
+                    lastError = err;
+                    console.warn(`CORS 代理兜底失败 (${proxyUrl}):`, err.message);
+                }
+            }
+
+            // 3) 全部失败
+            throw lastError || new Error('未知错误：无法获取数据');
+        }
         
         document.addEventListener('DOMContentLoaded', async function() {
             // 复制功能 - 提前定义，确保页面加载后即可使用
@@ -616,9 +676,7 @@
                 
                 try {
                     console.log('Attempting to fetch duocang.json');
-                    const response = await fetch('duocang.json');
-                    console.log('duocang.json fetched successfully');
-                    const data = await response.json();
+                    const data = await fetchJsonSmart('duocang.json');
                     console.log('duocang.json parsed successfully');
                     console.log('Data:', data);
                     
@@ -723,8 +781,7 @@
                     // 使用代理管理模块的getProxiedUrl函数处理URL
                     const proxiedUrl = getProxiedUrl(url, proxy);
                     
-                    const response = await fetch(proxiedUrl);
-                    const data = await response.json();
+                    const data = await fetchJsonSmart(proxiedUrl);
                     
                     // 防御性编程：检查数据结构
                     if (data.urls && Array.isArray(data.urls)) {
