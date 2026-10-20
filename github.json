@@ -1,308 +1,168 @@
 {
     "urls": [
         {
-            "name": "MY俊俊 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/MY俊俊.txt"
+            "url": "https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
+            "name": "分享者 2026-10-19"
         },
         {
-            "name": "MY巧巧 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/MY巧巧.txt"
+            "url": "https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
+            "name": "南风无广 2026-10-19"
         },
         {
-            "name": "MY探探 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/MY探探.txt"
+            "name": "EasyTV主力 2026-10-19",
+            "url": "https://raw.githubusercontent.com/EasyXC/EasyTVbox/main/easytv.jpg"
         },
         {
-            "name": "MY桐桐 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/MY桐桐.txt"
+            "name": "接口聚合 2026-10-18",
+            "url": "https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/refs/heads/main/output/%E5%8D%95%E4%BB%93%E8%81%9A%E5%90%88.json"
         },
         {
-            "name": "MY欧歌 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/MY欧歌.txt"
+            "name": "牛虎 2026-10-18",
+            "url": "https://raw.githubusercontent.com/niubihu1/tvbox/refs/heads/main/1.json"
         },
         {
-            "name": "MY洒哥 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/MY洒哥.txt"
+            "name": "thqPrivateRepo 2026-10-18",
+            "url": "https://raw.githubusercontent.com/thqPrivateRepo/tvbox-dc/main/mybox.json"
         },
         {
-            "name": "MY猫猫 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/MY猫猫.txt"
+            "name": "潇洒 2026-10-18",
+            "url": "https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json"
         },
         {
-            "name": "MY空空 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/MY空空.txt"
+            "url": "https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/box.json",
+            "name": "cluntop box 2026-10-17"
         },
         {
-            "name": "MY自用标清 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/MY自用标清.txt"
+            "url": "https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/jsm.json",
+            "name": "cluntop PG 2026-10-17"
         },
         {
-            "name": "MY荷城茶秀 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/MY荷城茶秀.txt"
+            "name": "woshishiq1-zy 2026-10-17",
+            "url": "https://raw.githubusercontent.com/woshishiq1/jiemi/refs/heads/main/zy.json"
         },
         {
-            "name": "MY要要 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/MY要要.txt"
+            "name": "爬虫单仓 2026-10-17",
+            "url": "https://raw.githubusercontent.com/thqPrivateRepo/tvbox-dc/main/mybox-self.json"
         },
         {
-            "name": "taoiptv源 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/taoiptv源.txt"
+            "name": "xiaohaozifeifeifei 2026-10-14",
+            "url": "https://raw.githubusercontent.com/xiaohaozifeifeifei/bd/refs/heads/main/ys/api.json"
         },
         {
-            "name": "ware云盘 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/ware云盘.txt"
+            "name": "xiaolong69 2026-10-11",
+            "url": "https://raw.githubusercontent.com/xiaolong69/tv/main/1.json"
         },
         {
-            "name": "ware体育 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/ware体育.txt"
+            "name": "雷蒙 2026-10-08",
+            "url": "https://raw.githubusercontent.com/n3rddd/N3RD/master/JN/lempg.json"
         },
         {
-            "name": "ware动漫 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/ware动漫.txt"
+            "name": "zheng197600 2026-10-05",
+            "url": "https://raw.githubusercontent.com/zheng197600/tvbox/refs/heads/main/0820.json"
         },
         {
-            "name": "ware影视 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/ware影视.txt"
+            "name": "青苹果 2026-09-30",
+            "url": "https://raw.githubusercontent.com/ljlfct01/ljlfct01.github.io/refs/heads/main/%E9%9D%92%E8%8B%B9%E6%9E%9C"
         },
         {
-            "name": "ware教育 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/ware教育.txt"
+            "name": "ggrrttyyiii 2026-09-21",
+            "url": "https://raw.githubusercontent.com/ggrrttyyiii/CatVodSpider/refs/heads/main/json/demo.json"
         },
         {
-            "name": "ware文艺 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/ware文艺.txt"
+            "name": "tvbox聚合 2026-09-04",
+            "url": "https://raw.githubusercontent.com/jifeng250/tvbox-sources/main/tvbox.json"
         },
         {
-            "name": "ware直播 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/ware直播.txt"
+            "url": "https://raw.githubusercontent.com/franksun1211/TVBOX/main/0706.json",
+            "name": "0706 2026-09-03"
         },
         {
-            "name": "ware磁力 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/ware磁力.txt"
+            "name": "woshishiq1-moyu 2026-09-01",
+            "url": "https://raw.githubusercontent.com/woshishiq1/jiemi/refs/heads/main/moyu.json"
         },
         {
-            "name": "大卫 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/大卫.txt"
+            "url": "https://raw.githubusercontent.com/YJL20190405/TVBOX/refs/heads/main/ysm.json",
+            "name": "诗曼 2026-08-31"
         },
         {
-            "name": "小雅TV 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/小雅TV.txt"
+            "name": "tianjitop 2026-09-04",
+            "url": "https://raw.githubusercontent.com/tianjitop/llllo/refs/heads/main/api.json"
         },
         {
-            "name": "影视2025 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/影视2025.txt"
+            "url": "https://raw.githubusercontent.com/qist/tvbox/master/0825.json",
+            "name": "小而精的配置 2026-08-16"
         },
         {
-            "name": "欧哥 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/欧哥.txt"
+            "url": "https://raw.githubusercontent.com/qist/tvbox/master/js.json",
+            "name": "道长drpy 2026-08-16"
         },
         {
-            "name": "王小二 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/王小二.txt"
+            "url": "https://raw.githubusercontent.com/qist/tvbox/master/0821.json",
+            "name": "大而全的配置 2026-08-15"
         },
         {
-            "name": "运输车{跑马灯} 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/运输车{跑马灯}.txt"
+            "url": "https://raw.githubusercontent.com/qist/tvbox/master/0826.json",
+            "name": "饭太硬 2026-08-15"
         },
         {
-            "name": "骚零 2025-02-24",
-            "url": "https://raw.githubusercontent.com/vbskycn/tvbox/main/骚零.txt"
+            "url": "https://raw.githubusercontent.com/qist/tvbox/master/0827.json",
+            "name": "fongmi 2026-08-15"
         },
         {
-            "name": "2游魂收集不分排名 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/2游魂收集不分排名.txt"
+            "name": "tushen6 2026-08-15",
+            "url": "https://raw.githubusercontent.com/tushen6/Tomorrow/refs/heads/master/tvbox.json"
         },
         {
-            "name": "D佬 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/D佬.txt"
+            "name": "林中小屋 2026-08-15",
+            "url": "https://raw.githubusercontent.com/tushen6/Tattoo/refs/heads/main/OK/okys.json"
         },
         {
-            "name": "云星日记 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/云星日记.txt"
+            "url": "https://raw.githubusercontent.com/woniuxs/TVBOX/main/svip",
+            "name": "蜗牛影视 2026-07-23"
         },
         {
-            "name": "俊佬 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/俊佬.txt"
+            "name": "分享者 2026-07-18",
+            "url": "https://raw.githubusercontent.com/maoystv/6/main/001.json"
         },
         {
-            "name": "南风 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/南风.txt"
+            "name": "🌱东篱 2026-07-15",
+            "url": "https://raw.githubusercontent.com/chitue/dongliTV/main/api.json"
         },
         {
-            "name": "吾爱 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/吾爱.txt"
+            "url": "https://raw.githubusercontent.com/loopool/fan/refs/heads/main/a.json",
+            "name": "loopool 2026-06-12"
         },
         {
-            "name": "天天开心 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/天天开心.txt"
+            "url": "https://raw.githubusercontent.com/xyq254245/xyqonlinerule/main/XYQTVBox.json",
+            "name": "香雅情 2026-06-11"
         },
         {
-            "name": "小米 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/小米.txt"
+            "name": "小伟 2026-06-06",
+            "url": "https://raw.githubusercontent.com/yigedashu/xwck/refs/heads/main/lrzy/api.json"
         },
         {
-            "name": "小马 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/小马.txt"
+            "url": "https://raw.githubusercontent.com/leevi0709/one/main/jsm.json",
+            "name": "One线路 2026-06-01"
         },
         {
-            "name": "巧技 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/巧技.txt"
+            "name": "你懂的 2026-04-01",
+            "url": "https://raw.githubusercontent.com/yigedashu/xwck/refs/heads/main/20260103.json"
         },
         {
-            "name": "摸鱼 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/摸鱼.txt"
+            "name": "宝盒接口【apkck.top】 2026-01-21",
+            "url": "https://raw.githubusercontent.com/guot55/yg/main/pg/bh.json"
         },
         {
-            "name": "放牛 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/放牛.txt"
+            "url": "https://raw.githubusercontent.com/heroaku/TVboxo/main/apig.json",
+            "name": "apig 2026-02-11"
         },
         {
-            "name": "月光 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/月光.txt"
+            "url": "https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/music.json",
+            "name": "music 2026-02-01"
         },
         {
-            "name": "游魂云盘2 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/游魂云盘2.txt"
-        },
-        {
-            "name": "游魂学习3 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/游魂学习3.txt"
-        },
-        {
-            "name": "游魂家庭1 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/游魂家庭1.txt"
-        },
-        {
-            "name": "盒子迷 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/盒子迷.txt"
-        },
-        {
-            "name": "老刘备 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/老刘备.txt"
-        },
-        {
-            "name": "肥猫 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/肥猫.txt"
-        },
-        {
-            "name": "荷城茶秀 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/荷城茶秀.txt"
-        },
-        {
-            "name": "饭太硬 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/饭太硬.txt"
-        },
-        {
-            "name": "香雅情 2024-09-12",
-            "url": "https://raw.githubusercontent.com/fish2018/ol/main/香雅情.txt"
-        },
-        {
-            "name": "01 技巧 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/技巧.json"
-        },
-        {
-            "name": "02 🅰️阿里精品专线 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/阿里精品专线.json"
-        },
-        {
-            "name": "03 🎬云盘线路 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/云盘线路.json"
-        },
-        {
-            "name": "04 🚚运输车主线[516] 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/运输车主线.json"
-        },
-        {
-            "name": "05 🚚运输车CF加速 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/运输车CF加速.json"
-        },
-        {
-            "name": "06 🍄dong-learn[527] 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/dong-learn.json"
-        },
-        {
-            "name": "⏰巧儿[521] 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/巧儿.json"
-        },
-        {
-            "name": "⏰东2[0526] 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/东2.json"
-        },
-        {
-            "name": "⏰暴脾气[0608] 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/暴脾气.json"
-        },
-        {
-            "name": "Ⓜ️M线路[0608] 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/M线路.json"
-        },
-        {
-            "name": "Ⓜ️N线路[0608] 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/N线路.json"
-        },
-        {
-            "name": "线路2（肥猫） 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/肥猫.json"
-        },
-        {
-            "name": "线路3（夜猫子） 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/夜猫子.json"
-        },
-        {
-            "name": "线路4（运输车） 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/运输车.json"
-        },
-        {
-            "name": "线路5（dxawi） 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/dxawi.json"
-        },
-        {
-            "name": "线路6（多多） 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/多多.json"
-        },
-        {
-            "name": "线路7（香雅情） 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/香雅情.json"
-        },
-        {
-            "name": "线路8（菜妮丝） 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/菜妮丝.json"
-        },
-        {
-            "name": "线路9（巧儿02） 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/巧儿02.json"
-        },
-        {
-            "name": "线路10（南风） 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/南风.json"
-        },
-        {
-            "name": "线路11（JS） 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/JS.json"
-        },
-        {
-            "name": "线路12（PY） 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/PY.json"
-        },
-        {
-            "name": "⏯️爽翻天〔多条线路〕 2024-04-20",
-            "url": "https://raw.githubusercontent.com/felixiao/TVBoxSource/main/源/爽翻天.json"
-        },
-        {
-            "name": "一木自用 2023-07-10",
-            "url": "https://raw.githubusercontent.com/xianyuyimu/TVBOX-/main/TVBox/一木自用.json"
-        },
-        {
-            "name": "🌟潇洒单仓pro",
-            "url": "https://github.com/niuber/niuber/raw/refs/heads/main/tvbox/TVBoxOSC/tvbox/api.json"
-        },
-        {
-            "name": "🚀6-FongMI线路",
-            "url": "https://raw.githubusercontent.com//gaotianliuyun/gao/master/0827.json"
-        },
-        {
-            "name": "霜辉月明",
-            "url": "https://raw.githubusercontent.com/lm317379829/PyramidStore/pyramid/py.json"
+            "url": "https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/4K/4K.json",
+            "name": "4k 2026-01-31"
         }
     ]
 }
