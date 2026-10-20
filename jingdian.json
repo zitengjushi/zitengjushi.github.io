@@ -18,11 +18,11 @@
         },
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-10-18]✓"
+            "name": "qist [2026-10-20]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-10-18]✓"
+            "name": "qist2 [2026-10-20]✓"
         },
         {
             "name": "嗷呜 [2026-10-18]✓",
@@ -237,7 +237,7 @@
             "name": "少儿 [1970-01-01]✓"
         },
         {
-            "name": "王二小备 [1970-01-01]✓",
+            "name": "王二小备 [1970-01-01]✗",
             "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top"
         }
     ]
