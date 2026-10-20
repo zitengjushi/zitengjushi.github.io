@@ -15,6 +15,7 @@ import os
 import re
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -101,7 +102,14 @@ def get_file_last_modified(repo: str, branch: str, file_path: str) -> str | None
     """
     通过 GitHub Commits API 获取文件最后一次提交的日期（YYYY-MM-DD）。
     """
-    url  = f"{API_BASE}/repos/{repo}/commits?sha={branch}&path={file_path}&per_page=1"
+    # file_path / branch 中可能含有中文等非 ASCII 字符（如 "源/技巧.json"），
+    # 必须先做百分号编码，否则 urllib 构造请求行时会因无法用 ascii 编码而报错：
+    #   'ascii' codec can't encode character '\uXXXX' in position N
+    query = urllib.parse.urlencode(
+        {"sha": branch, "path": file_path, "per_page": 1},
+        quote_via=urllib.parse.quote,
+    )
+    url  = f"{API_BASE}/repos/{urllib.parse.quote(repo)}/commits?{query}"
     data = gh_get(url)
     if not data:
         return None
