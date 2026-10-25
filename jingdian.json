@@ -1,16 +1,32 @@
 {
     "urls": [
         {
-            "name": "❤️DG音乐|真六 [2026-10-24]✓",
+            "name": "❤️DG音乐|真六 [2026-10-25]✓",
             "url": "https://ddzb.fun/dgmusic/api.json"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-10-24]✓"
+            "name": "qist [2026-10-25]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-10-24]✓"
+            "name": "qist2 [2026-10-25]✓"
+        },
+        {
+            "name": "嗷呜 [2026-10-25]✓",
+            "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
+        },
+        {
+            "name": "嗷呜 [2026-10-25]✓",
+            "url": "http://itv666.cc/aowu/config.webp"
+        },
+        {
+            "name": "嗷呜 [2026-10-25]✓",
+            "url": "https://9763.kstore.space/aowu.json"
+        },
+        {
+            "name": "东曦视界 [2026-10-25]✓",
+            "url": "https://box.iqinu.com/"
         },
         {
             "name": "摸鱼儿 [2026-10-24]✓",
@@ -31,18 +47,6 @@
         {
             "name": "EasyTV备用 [2026-10-23]✓",
             "url": "https://easyzz.dpdns.org/easytv.jpg"
-        },
-        {
-            "name": "嗷呜 [2026-10-23]✓",
-            "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
-        },
-        {
-            "name": "嗷呜 [2026-10-23]✓",
-            "url": "http://itv666.cc/aowu/config.webp"
-        },
-        {
-            "name": "嗷呜 [2026-10-23]✓",
-            "url": "https://9763.kstore.space/aowu.json"
         },
         {
             "url": "https://clun.top/box.json",
@@ -131,10 +135,6 @@
         {
             "name": "采集 [1970-01-01]✓",
             "url": "http://zhangqun1818.serv00.net/zq/api.json"
-        },
-        {
-            "name": "东曦视界 [1970-01-01]✓",
-            "url": "https://box.iqinu.com/"
         },
         {
             "name": "胜寒 [1970-01-01]✓",

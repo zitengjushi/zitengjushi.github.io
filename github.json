@@ -1,7 +1,7 @@
 {
     "urls": [
         {
-            "name": "潇洒 2026-10-24",
+            "name": "潇洒 2026-10-25",
             "url": "https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json"
         },
         {
@@ -9,12 +9,16 @@
             "name": "分享者 2026-10-24"
         },
         {
-            "name": "thqPrivateRepo 2026-10-23",
+            "name": "thqPrivateRepo 2026-10-24",
             "url": "https://raw.githubusercontent.com/thqPrivateRepo/tvbox-dc/main/mybox.json"
         },
         {
-            "name": "爬虫单仓 2026-10-23",
+            "name": "爬虫单仓 2026-10-24",
             "url": "https://raw.githubusercontent.com/thqPrivateRepo/tvbox-dc/main/mybox-self.json"
+        },
+        {
+            "name": "牛虎 2026-10-24",
+            "url": "https://raw.githubusercontent.com/niubihu1/tvbox/refs/heads/main/1.json"
         },
         {
             "name": "ggrrttyyiii 2026-10-23",
@@ -35,10 +39,6 @@
         {
             "url": "https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
             "name": "南风无广 2026-10-21"
-        },
-        {
-            "name": "牛虎 2026-10-21",
-            "url": "https://raw.githubusercontent.com/niubihu1/tvbox/refs/heads/main/1.json"
         },
         {
             "name": "woshishiq1-zy 2026-10-20",
