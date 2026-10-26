@@ -1,8 +1,28 @@
 {
     "urls": [
         {
-            "name": "❤️DG音乐|真六 [2026-10-25]✓",
+            "name": "❤️DG音乐|真六 [2026-10-26]✓",
             "url": "https://ddzb.fun/dgmusic/api.json"
+        },
+        {
+            "name": "东曦视界 [2026-10-26]✓",
+            "url": "https://box.iqinu.com/"
+        },
+        {
+            "url": "https://9280.kstore.vip/newwex.json",
+            "name": "王二小 [2026-10-26]✓"
+        },
+        {
+            "name": "茄子接口【apkck.top】 [2026-10-26]✓",
+            "url": "https://700sjro44343.vicp.fun/eggp/qzku/tv.json"
+        },
+        {
+            "name": "EasyTV备用 [2026-10-26]✓",
+            "url": "https://easyzz.dpdns.org/easytv.jpg"
+        },
+        {
+            "name": "喵呜 [2026-10-26]✓",
+            "url": "http://mytv6688.xyz/aowu/config.webp"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
@@ -25,28 +45,12 @@
             "url": "https://9763.kstore.space/aowu.json"
         },
         {
-            "name": "东曦视界 [2026-10-25]✓",
-            "url": "https://box.iqinu.com/"
-        },
-        {
             "name": "摸鱼儿 [2026-10-24]✓",
             "url": "http://www.y456y.com"
         },
         {
             "url": "https://8815.kstore.vip/tvbox/wmz",
             "name": "网络接口 [2026-10-24]✓"
-        },
-        {
-            "url": "https://9280.kstore.vip/newwex.json",
-            "name": "王二小 [2026-10-24]✓"
-        },
-        {
-            "name": "茄子接口【apkck.top】 [2026-10-24]✓",
-            "url": "https://700sjro44343.vicp.fun/eggp/qzku/tv.json"
-        },
-        {
-            "name": "EasyTV备用 [2026-10-23]✓",
-            "url": "https://easyzz.dpdns.org/easytv.jpg"
         },
         {
             "url": "https://clun.top/box.json",
@@ -231,10 +235,6 @@
         {
             "name": "王二小备 [1970-01-01]✗",
             "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top"
-        },
-        {
-            "name": "喵呜 [1970-01-01]✗",
-            "url": "http://mytv6688.xyz/aowu/config.webp"
         },
         {
             "name": "🌵影视资源 [1970-01-01]✗",
