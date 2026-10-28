@@ -1,7 +1,7 @@
 {
     "vbskycn": {
         "version": "1.9.8",
-        "name": "vbskycn-ipv4直播源 2026-10-27",
+        "name": "vbskycn-ipv4直播源 2026-10-28",
         "android": "",
         "desc": "",
         "url": "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u",
@@ -9,7 +9,7 @@
     },
     "zilong7728": {
         "version": "1.9.8",
-        "name": "zilong7728直播源 2026-10-27",
+        "name": "zilong7728直播源 2026-10-28",
         "android": "",
         "desc": "",
         "url": "https://raw.githubusercontent.com/zilong7728/Collect-IPTV/refs/heads/main/best_sorted.m3u",
@@ -17,7 +17,7 @@
     },
     "hujingguang": {
         "version": "1.9.8",
-        "name": "ChinaIPTV直播源 2026-10-27",
+        "name": "ChinaIPTV直播源 2026-10-28",
         "android": "",
         "desc": "",
         "url": "https://raw.githubusercontent.com/hujingguang/ChinaIPTV/refs/heads/main/cnTV_AutoUpdate.m3u8",
@@ -25,7 +25,7 @@
     },
     "zhi35": {
         "version": "1.9.8",
-        "name": "zhi35直播源 2026-10-27",
+        "name": "zhi35直播源 2026-10-28",
         "android": "",
         "desc": "",
         "url": "https://raw.githubusercontent.com/zhi35/iptv/refs/heads/master/iptv.m3u",
@@ -33,7 +33,7 @@
     },
     "CCSH": {
         "version": "1.9.8",
-        "name": "CCSH直播源 2026-10-27",
+        "name": "CCSH直播源 2026-10-28",
         "android": "",
         "desc": "",
         "url": "https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/live.m3u",
@@ -41,7 +41,7 @@
     },
     "lemonTV": {
         "version": "1.9.8",
-        "name": "MIGU直播源 2026-10-27",
+        "name": "MIGU直播源 2026-10-28",
         "android": "",
         "desc": "",
         "url": "https://raw.githubusercontent.com/jia070310/lemonTV/refs/heads/main/iptv-fe.m3u",
@@ -49,7 +49,7 @@
     },
     "q1017673817": {
         "version": "1.9.8",
-        "name": "q1017673817 直播源 2026-10-27",
+        "name": "q1017673817 直播源 2026-10-28",
         "android": "",
         "desc": "",
         "url": "https://raw.githubusercontent.com/q1017673817/iptvz/refs/heads/main/zubo_all.txt",
@@ -57,7 +57,7 @@
     },
     "kimwang1978": {
         "version": "1.9.8",
-        "name": "港澳台 2026-10-27",
+        "name": "港澳台 2026-10-28",
         "android": "",
         "desc": "",
         "url": "https://raw.githubusercontent.com/kimwang1978/collect-txt/refs/heads/main/work/%E6%B8%AF%E6%BE%B3%E5%8F%B0.txt",
@@ -65,7 +65,7 @@
     },
     "skddyj": {
         "version": "1.9.8",
-        "name": "skddyj 直播源 2026-10-26",
+        "name": "skddyj 直播源 2026-10-27",
         "android": "",
         "desc": "",
         "url": "https://raw.githubusercontent.com/skddyj/iptv/refs/heads/main/IPTV.m3u",
