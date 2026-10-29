@@ -1,20 +1,24 @@
 {
     "urls": [
         {
-            "name": "❤️DG音乐|真六 [2026-10-28]✓",
-            "url": "https://ddzb.fun/dgmusic/api.json"
-        },
-        {
-            "name": "EasyTV备用 [2026-10-28]✓",
-            "url": "https://easyzz.dpdns.org/easytv.jpg"
-        },
-        {
-            "name": "茄子接口【apkck.top】 [2026-10-28]✓",
+            "name": "茄子接口【apkck.top】 [2026-10-29]✓",
             "url": "https://700sjro44343.vicp.fun/eggp/qzku/tv.json"
         },
         {
             "url": "https://8815.kstore.vip/tvbox/wmz",
-            "name": "网络接口 [2026-10-28]✓"
+            "name": "网络接口 [2026-10-29]✓"
+        },
+        {
+            "url": "https://qist.ugigc.dpdns.org/jsm.json",
+            "name": "qist [2026-10-29]✓"
+        },
+        {
+            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
+            "name": "qist2 [2026-10-29]✓"
+        },
+        {
+            "name": "EasyTV备用 [2026-10-28]✓",
+            "url": "https://easyzz.dpdns.org/easytv.jpg"
         },
         {
             "name": "东曦视界 [2026-10-27]✓",
@@ -31,14 +35,6 @@
         {
             "name": "喵呜 [2026-10-26]✓",
             "url": "http://mytv6688.xyz/aowu/config.webp"
-        },
-        {
-            "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-10-25]✓"
-        },
-        {
-            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-10-25]✓"
         },
         {
             "name": "嗷呜 [2026-10-25]✓",
@@ -161,10 +157,6 @@
             "url": "https://cdn.jsdelivr.net/gh/qirenzhidao/tvbox18@main/tv.json"
         },
         {
-            "name": "湘雅晴APP [1970-01-01]✓",
-            "url": "https://cdn.jsdelivr.net/gh/qirenzhidao/tvbox18@main/app.json"
-        },
-        {
             "name": "道长 [1970-01-01]✓",
             "url": "https://cdn.jsdelivr.net/gh/qirenzhidao/tvbox18@main/XYQTVBox/drpy_js/drjs_config.json"
         },
@@ -225,8 +217,16 @@
             "name": "少儿 [1970-01-01]✓"
         },
         {
+            "name": "❤️DG音乐|真六 [2026-10-28]✗",
+            "url": "https://ddzb.fun/dgmusic/api.json"
+        },
+        {
+            "name": "湘雅晴APP [1970-01-01]✗",
+            "url": "https://cdn.jsdelivr.net/gh/qirenzhidao/tvbox18@main/app.json"
+        },
+        {
             "url": "http://home.jundie.top:81/top98.json",
-            "name": "俊于 [1970-01-01]✓"
+            "name": "俊于 [1970-01-01]✗"
         },
         {
             "name": "❤️VIP📚在线 [1970-01-01]✗",
