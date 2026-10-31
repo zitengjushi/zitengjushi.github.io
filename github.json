@@ -1,12 +1,32 @@
 {
     "urls": [
         {
-            "name": "潇洒 2026-10-30",
+            "name": "潇洒 2026-10-31",
             "url": "https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json"
         },
         {
             "name": "EasyTV主力 2026-10-30",
             "url": "https://raw.githubusercontent.com/EasyXC/EasyTVbox/main/easytv.jpg"
+        },
+        {
+            "name": "woshishiq1-zy 2026-10-30",
+            "url": "https://raw.githubusercontent.com/woshishiq1/jiemi/refs/heads/main/zy.json"
+        },
+        {
+            "name": "牛虎 2026-10-30",
+            "url": "https://raw.githubusercontent.com/niubihu1/tvbox/refs/heads/main/1.json"
+        },
+        {
+            "name": "爬虫单仓 2026-10-30",
+            "url": "https://raw.githubusercontent.com/thqPrivateRepo/tvbox-dc/main/mybox-self.json"
+        },
+        {
+            "name": "thqPrivateRepo 2026-10-30",
+            "url": "https://raw.githubusercontent.com/thqPrivateRepo/tvbox-dc/main/mybox.json"
+        },
+        {
+            "name": "ggrrttyyiii 2026-10-30",
+            "url": "https://raw.githubusercontent.com/ggrrttyyiii/CatVodSpider/refs/heads/main/json/demo.json"
         },
         {
             "url": "https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
@@ -15,26 +35,6 @@
         {
             "url": "https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
             "name": "南风无广 2026-10-29"
-        },
-        {
-            "name": "woshishiq1-zy 2026-10-29",
-            "url": "https://raw.githubusercontent.com/woshishiq1/jiemi/refs/heads/main/zy.json"
-        },
-        {
-            "name": "牛虎 2026-10-29",
-            "url": "https://raw.githubusercontent.com/niubihu1/tvbox/refs/heads/main/1.json"
-        },
-        {
-            "name": "爬虫单仓 2026-10-29",
-            "url": "https://raw.githubusercontent.com/thqPrivateRepo/tvbox-dc/main/mybox-self.json"
-        },
-        {
-            "name": "thqPrivateRepo 2026-10-29",
-            "url": "https://raw.githubusercontent.com/thqPrivateRepo/tvbox-dc/main/mybox.json"
-        },
-        {
-            "name": "ggrrttyyiii 2026-10-28",
-            "url": "https://raw.githubusercontent.com/ggrrttyyiii/CatVodSpider/refs/heads/main/json/demo.json"
         },
         {
             "url": "https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/box.json",

@@ -1,20 +1,28 @@
 {
     "urls": [
         {
-            "name": "茄子接口【apkck.top】 [2026-10-30]✓",
+            "name": "茄子接口【apkck.top】 [2026-10-31]✓",
             "url": "https://700sjro44343.vicp.fun/eggp/qzku/tv.json"
+        },
+        {
+            "url": "https://qist.ugigc.dpdns.org/jsm.json",
+            "name": "qist [2026-10-31]✓"
+        },
+        {
+            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
+            "name": "qist2 [2026-10-31]✓"
+        },
+        {
+            "name": "❤️L佬 [2026-10-31]✓",
+            "url": "https://android.lushunming.qzz.io/json/index.json"
+        },
+        {
+            "url": "https://9280.kstore.vip/newwex.json",
+            "name": "王二小 [2026-10-31]✓"
         },
         {
             "url": "https://8815.kstore.vip/tvbox/wmz",
             "name": "网络接口 [2026-10-30]✓"
-        },
-        {
-            "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-10-30]✓"
-        },
-        {
-            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-10-30]✓"
         },
         {
             "name": "EasyTV备用 [2026-10-30]✓",
@@ -27,14 +35,6 @@
         {
             "name": "摸鱼儿 [2026-10-30]✓",
             "url": "http://www.y456y.com"
-        },
-        {
-            "name": "❤️L佬 [2026-10-30]✓",
-            "url": "https://android.lushunming.qzz.io/json/index.json"
-        },
-        {
-            "url": "https://9280.kstore.vip/newwex.json",
-            "name": "王二小 [2026-10-26]✓"
         },
         {
             "name": "喵呜 [2026-10-26]✓",
@@ -229,16 +229,16 @@
             "url": "http://bp.tvbox.cam"
         },
         {
+            "name": "王二小备 [1970-01-01]✓",
+            "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top"
+        },
+        {
             "name": "❤️DG音乐|真六 [2026-10-28]✗",
             "url": "https://ddzb.fun/dgmusic/api.json"
         },
         {
             "name": "❤️VIP📚在线 [1970-01-01]✗",
             "url": "https://jiekou.netlify.app/svip.json"
-        },
-        {
-            "name": "王二小备 [1970-01-01]✗",
-            "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top"
         }
     ]
 }
