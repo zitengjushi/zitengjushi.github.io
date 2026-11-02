@@ -1,16 +1,24 @@
 {
     "urls": [
         {
-            "name": "茄子接口【apkck.top】 [2026-11-01]✓",
+            "name": "茄子接口【apkck.top】 [2026-11-02]✓",
             "url": "https://700sjro44343.vicp.fun/eggp/qzku/tv.json"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-11-01]✓"
+            "name": "qist [2026-11-02]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-11-01]✓"
+            "name": "qist2 [2026-11-02]✓"
+        },
+        {
+            "url": "https://9280.kstore.vip/newwex.json",
+            "name": "王二小 [2026-11-02]✓"
+        },
+        {
+            "url": "https://8815.kstore.vip/tvbox/wmz",
+            "name": "网络接口 [2026-11-02]✓"
         },
         {
             "name": "摸鱼儿 [2026-11-01]✓",
@@ -23,14 +31,6 @@
         {
             "name": "❤️L佬 [2026-10-31]✓",
             "url": "https://android.lushunming.qzz.io/json/index.json"
-        },
-        {
-            "url": "https://9280.kstore.vip/newwex.json",
-            "name": "王二小 [2026-10-31]✓"
-        },
-        {
-            "url": "https://8815.kstore.vip/tvbox/wmz",
-            "name": "网络接口 [2026-10-30]✓"
         },
         {
             "name": "EasyTV备用 [2026-10-30]✓",
@@ -177,10 +177,6 @@
             "url": "https://dxawi.github.io/0/0.json"
         },
         {
-            "name": "玄珠 [1970-01-01]✓",
-            "url": "https://jihulab.com/xuanzhuapp/xzys/-/raw/main/xzvip.json"
-        },
-        {
             "name": "🌟潇洒单仓pro [1970-01-01]✓",
             "url": "https://gh-proxy.org/https://github.com/niuber/niuber/raw/refs/heads/main/tvbox/TVBoxOSC/tvbox/api.json"
         },
@@ -217,10 +213,6 @@
             "url": "https://cccimg.com/down.php/65d804dde9c2ad49bf5c1146003d7900.json"
         },
         {
-            "url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer",
-            "name": "少儿 [1970-01-01]✓"
-        },
-        {
             "name": "湘雅晴APP [1970-01-01]✓",
             "url": "https://cdn.jsdelivr.net/gh/qirenzhidao/tvbox18@main/app.json"
         },
@@ -239,6 +231,14 @@
         {
             "name": "❤️DG音乐|真六 [2026-10-28]✗",
             "url": "https://ddzb.fun/dgmusic/api.json"
+        },
+        {
+            "name": "玄珠 [1970-01-01]✗",
+            "url": "https://jihulab.com/xuanzhuapp/xzys/-/raw/main/xzvip.json"
+        },
+        {
+            "url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer",
+            "name": "少儿 [1970-01-01]✗"
         }
     ]
 }
