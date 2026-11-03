@@ -1,24 +1,24 @@
 {
     "urls": [
         {
-            "name": "茄子接口【apkck.top】 [2026-11-02]✓",
-            "url": "https://700sjro44343.vicp.fun/eggp/qzku/tv.json"
-        },
-        {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-11-02]✓"
+            "name": "qist [2026-11-03]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-11-02]✓"
+            "name": "qist2 [2026-11-03]✓"
         },
         {
             "url": "https://9280.kstore.vip/newwex.json",
-            "name": "王二小 [2026-11-02]✓"
+            "name": "王二小 [2026-11-03]✓"
         },
         {
             "url": "https://8815.kstore.vip/tvbox/wmz",
-            "name": "网络接口 [2026-11-02]✓"
+            "name": "网络接口 [2026-11-03]✓"
+        },
+        {
+            "name": "茄子接口【apkck.top】 [2026-11-02]✓",
+            "url": "https://700sjro44343.vicp.fun/eggp/qzku/tv.json"
         },
         {
             "name": "摸鱼儿 [2026-11-01]✓",
@@ -157,10 +157,6 @@
             "url": "https://gcore.jsdelivr.net/gh/gaotianliuyun/gao@master/js.json"
         },
         {
-            "name": "湘雅晴TV [1970-01-01]✓",
-            "url": "https://cdn.jsdelivr.net/gh/qirenzhidao/tvbox18@main/tv.json"
-        },
-        {
             "name": "道长 [1970-01-01]✓",
             "url": "https://cdn.jsdelivr.net/gh/qirenzhidao/tvbox18@main/XYQTVBox/drpy_js/drjs_config.json"
         },
@@ -229,16 +225,20 @@
             "url": "https://jiekou.netlify.app/svip.json"
         },
         {
-            "name": "❤️DG音乐|真六 [2026-10-28]✗",
-            "url": "https://ddzb.fun/dgmusic/api.json"
-        },
-        {
-            "name": "玄珠 [1970-01-01]✗",
+            "name": "玄珠 [1970-01-01]✓",
             "url": "https://jihulab.com/xuanzhuapp/xzys/-/raw/main/xzvip.json"
         },
         {
             "url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer",
-            "name": "少儿 [1970-01-01]✗"
+            "name": "少儿 [1970-01-01]✓"
+        },
+        {
+            "name": "❤️DG音乐|真六 [2026-10-28]✗",
+            "url": "https://ddzb.fun/dgmusic/api.json"
+        },
+        {
+            "name": "湘雅晴TV [1970-01-01]✗",
+            "url": "https://cdn.jsdelivr.net/gh/qirenzhidao/tvbox18@main/tv.json"
         }
     ]
 }
