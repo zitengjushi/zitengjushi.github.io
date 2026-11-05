@@ -2,15 +2,19 @@
     "urls": [
         {
             "url": "https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
-            "name": "分享者 2026-11-04"
+            "name": "分享者 2026-11-05"
         },
         {
-            "name": "牛虎 2026-11-04",
+            "name": "牛虎 2026-11-05",
             "url": "https://raw.githubusercontent.com/niubihu1/tvbox/refs/heads/main/1.json"
         },
         {
-            "name": "EasyTV主力 2026-11-04",
+            "name": "EasyTV主力 2026-11-05",
             "url": "https://raw.githubusercontent.com/EasyXC/EasyTVbox/main/easytv.jpg"
+        },
+        {
+            "name": "潇洒 2026-11-05",
+            "url": "https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json"
         },
         {
             "name": "woshishiq1-zy 2026-11-04",
@@ -25,15 +29,11 @@
             "url": "https://raw.githubusercontent.com/tushen6/Tomorrow/refs/heads/master/tvbox.json"
         },
         {
-            "name": "潇洒 2026-11-03",
-            "url": "https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json"
-        },
-        {
-            "name": "thqPrivateRepo 2026-11-03",
+            "name": "thqPrivateRepo 2026-11-04",
             "url": "https://raw.githubusercontent.com/thqPrivateRepo/tvbox-dc/main/mybox.json"
         },
         {
-            "name": "爬虫单仓 2026-11-03",
+            "name": "爬虫单仓 2026-11-04",
             "url": "https://raw.githubusercontent.com/thqPrivateRepo/tvbox-dc/main/mybox-self.json"
         },
         {
