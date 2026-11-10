@@ -2,15 +2,19 @@
     "urls": [
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-11-09]✓"
+            "name": "qist [2026-11-10]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-11-09]✓"
+            "name": "qist2 [2026-11-10]✓"
         },
         {
             "url": "https://8815.kstore.vip/tvbox/wmz",
-            "name": "网络接口 [2026-11-09]✓"
+            "name": "网络接口 [2026-11-10]✓"
+        },
+        {
+            "url": "https://clun.top/box.json",
+            "name": "cluntop [2026-11-10]✓"
         },
         {
             "name": "嗷呜 [2026-11-09]✓",
@@ -43,10 +47,6 @@
         {
             "name": "东曦视界 [2026-11-04]✓",
             "url": "https://box.iqinu.com/"
-        },
-        {
-            "url": "https://clun.top/box.json",
-            "name": "cluntop [2026-11-04]✓"
         },
         {
             "name": "❤️L佬 [2026-10-31]✓",
