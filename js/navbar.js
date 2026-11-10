@@ -7,6 +7,7 @@ const navItems = [
     { href: 'iptv.html', label: '直播线路' },
     { href: 'play.html', label: 'M3U8播放器' },
     { href: 'lx.html', label: '落雪音乐' },
+    { href: 'https://b.zitengju.top', label: '交流社区' },
 ];
 
 function renderNavbar(activePage) {
