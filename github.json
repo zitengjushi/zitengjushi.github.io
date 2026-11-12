@@ -1,8 +1,16 @@
 {
     "urls": [
         {
-            "name": "潇洒 2026-11-11",
+            "name": "潇洒 2026-11-12",
             "url": "https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json"
+        },
+        {
+            "name": "牛虎 2026-11-12",
+            "url": "https://raw.githubusercontent.com/niubihu1/tvbox/refs/heads/main/1.json"
+        },
+        {
+            "name": "EasyTV主力 2026-11-12",
+            "url": "https://raw.githubusercontent.com/EasyXC/EasyTVbox/main/easytv.jpg"
         },
         {
             "name": "woshishiq1-zy 2026-11-11",
@@ -14,31 +22,27 @@
         },
         {
             "url": "https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
-            "name": "南风无广 2026-11-10"
+            "name": "南风无广 2026-11-11"
         },
         {
-            "name": "牛虎 2026-11-10",
-            "url": "https://raw.githubusercontent.com/niubihu1/tvbox/refs/heads/main/1.json"
-        },
-        {
-            "name": "爬虫单仓 2026-11-10",
+            "name": "爬虫单仓 2026-11-11",
             "url": "https://raw.githubusercontent.com/thqPrivateRepo/tvbox-dc/main/mybox-self.json"
         },
         {
-            "name": "thqPrivateRepo 2026-11-10",
+            "name": "thqPrivateRepo 2026-11-11",
             "url": "https://raw.githubusercontent.com/thqPrivateRepo/tvbox-dc/main/mybox.json"
         },
         {
-            "name": "ggrrttyyiii 2026-11-09",
+            "name": "ggrrttyyiii 2026-11-11",
             "url": "https://raw.githubusercontent.com/ggrrttyyiii/CatVodSpider/refs/heads/main/json/demo.json"
         },
         {
-            "name": "EasyTV主力 2026-11-09",
-            "url": "https://raw.githubusercontent.com/EasyXC/EasyTVbox/main/easytv.jpg"
+            "url": "https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/box.json",
+            "name": "cluntop box 2026-11-11"
         },
         {
-            "url": "https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/box.json",
-            "name": "cluntop box 2026-11-09"
+            "url": "https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/jsm.json",
+            "name": "cluntop PG 2026-11-11"
         },
         {
             "name": "xiaolong69 2026-11-08",
@@ -47,10 +51,6 @@
         {
             "name": "tushen6 2026-11-04",
             "url": "https://raw.githubusercontent.com/tushen6/Tomorrow/refs/heads/master/tvbox.json"
-        },
-        {
-            "url": "https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/jsm.json",
-            "name": "cluntop PG 2026-10-17"
         },
         {
             "name": "xiaohaozifeifeifei 2026-10-14",
