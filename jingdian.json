@@ -109,10 +109,6 @@
             "url": "https://tv.xn--11x555b.top/svip"
         },
         {
-            "name": "🚀4-健康家用 [1970-01-01]✓",
-            "url": "https://gitlab.com/noimank/tvbox/-/raw/main/tvbox1.json"
-        },
-        {
             "name": "我的云盘-自用 [1970-01-01]✓",
             "url": "https://cdn.jsdelivr.net/gh/yangxiaoge/tvbox_cust@master/tvbox/alist/cust_littleyang.json"
         },
@@ -231,6 +227,10 @@
         {
             "name": "❤️DG音乐|真六 [2026-10-28]✗",
             "url": "https://ddzb.fun/dgmusic/api.json"
+        },
+        {
+            "name": "🚀4-健康家用 [1970-01-01]✗",
+            "url": "https://gitlab.com/noimank/tvbox/-/raw/main/tvbox1.json"
         },
         {
             "name": "恋影 [1970-01-01]✗",
