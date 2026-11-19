@@ -17,6 +17,14 @@
             "url": "https://raw.githubusercontent.com/xiaolong69/tv/main/1.json"
         },
         {
+            "url": "https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/jsm.json",
+            "name": "cluntop PG 2026-11-18"
+        },
+        {
+            "url": "https://raw.githubusercontent.com/xyq254245/xyqonlinerule/main/XYQTVBox.json",
+            "name": "香雅情 2026-11-18"
+        },
+        {
             "name": "潇洒 2026-11-17",
             "url": "https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json"
         },
@@ -35,10 +43,6 @@
         {
             "url": "https://raw.githubusercontent.com/maoystv/6/refs/heads/main/000.json",
             "name": "分享者 2026-11-16"
-        },
-        {
-            "url": "https://raw.githubusercontent.com/cluntop/tvbox/refs/heads/main/jsm.json",
-            "name": "cluntop PG 2026-11-16"
         },
         {
             "name": "牛虎 2026-11-15",
@@ -115,10 +119,6 @@
         {
             "url": "https://raw.githubusercontent.com/loopool/fan/refs/heads/main/a.json",
             "name": "loopool 2026-06-12"
-        },
-        {
-            "url": "https://raw.githubusercontent.com/xyq254245/xyqonlinerule/main/XYQTVBox.json",
-            "name": "香雅情 2026-06-11"
         },
         {
             "name": "小伟 2026-06-06",
