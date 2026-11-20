@@ -1,6 +1,26 @@
 {
     "urls": [
         {
+            "name": "嗷呜 [2026-11-20]✓",
+            "url": "http://itv666.cc/aowu/config.webp"
+        },
+        {
+            "url": "https://qist.ugigc.dpdns.org/jsm.json",
+            "name": "qist [2026-11-20]✓"
+        },
+        {
+            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
+            "name": "qist2 [2026-11-20]✓"
+        },
+        {
+            "name": "嗷呜 [2026-11-20]✓",
+            "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
+        },
+        {
+            "name": "嗷呜 [2026-11-20]✓",
+            "url": "https://9763.kstore.space/aowu.json"
+        },
+        {
             "url": "https://8815.kstore.vip/tvbox/wmz",
             "name": "网络接口 [2026-11-19]✓"
         },
@@ -11,26 +31,6 @@
         {
             "name": "茄子接口【apkck.top】 [2026-11-18]✓",
             "url": "https://700sjro44343.vicp.fun/eggp/qzku/tv.json"
-        },
-        {
-            "name": "嗷呜 [2026-11-18]✓",
-            "url": "http://itv666.cc/aowu/config.webp"
-        },
-        {
-            "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-11-17]✓"
-        },
-        {
-            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-11-17]✓"
-        },
-        {
-            "name": "嗷呜 [2026-11-17]✓",
-            "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
-        },
-        {
-            "name": "嗷呜 [2026-11-17]✓",
-            "url": "https://9763.kstore.space/aowu.json"
         },
         {
             "url": "https://9280.kstore.vip/newwex.json",
@@ -115,10 +115,6 @@
         {
             "name": "我的云盘-自用 [1970-01-01]✓",
             "url": "https://cdn.jsdelivr.net/gh/yangxiaoge/tvbox_cust@master/tvbox/alist/cust_littleyang.json"
-        },
-        {
-            "name": "菜妮丝 [1970-01-01]✓",
-            "url": "https://tv.xn--yhqu5zs87a.top"
         },
         {
             "name": "刺刺音乐 [1970-01-01]✓",
@@ -235,6 +231,10 @@
         {
             "name": "❤️DG音乐|真六 [2026-10-28]✗",
             "url": "https://ddzb.fun/dgmusic/api.json"
+        },
+        {
+            "name": "菜妮丝 [1970-01-01]✗",
+            "url": "https://tv.xn--yhqu5zs87a.top"
         },
         {
             "name": "玄珠 [1970-01-01]✗",
