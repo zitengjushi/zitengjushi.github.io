@@ -2,27 +2,31 @@
     "urls": [
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-11-21]✓"
+            "name": "qist [2026-11-22]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-11-21]✓"
+            "name": "qist2 [2026-11-22]✓"
+        },
+        {
+            "url": "https://9280.kstore.vip/newwex.json",
+            "name": "王二小 [2026-11-22]✓"
+        },
+        {
+            "url": "https://9280.kstore.space/wex.json",
+            "name": "王二小备 [2026-11-22]✓"
+        },
+        {
+            "name": "王二小备 [2026-11-22]✓",
+            "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top"
+        },
+        {
+            "name": "嗷呜 [2026-11-22]✓",
+            "url": "https://9763.kstore.space/aowu.json"
         },
         {
             "url": "https://8815.kstore.vip/tvbox/wmz",
             "name": "网络接口 [2026-11-21]✓"
-        },
-        {
-            "url": "https://9280.kstore.vip/newwex.json",
-            "name": "王二小 [2026-11-21]✓"
-        },
-        {
-            "url": "https://9280.kstore.space/wex.json",
-            "name": "王二小备 [2026-11-21]✓"
-        },
-        {
-            "name": "王二小备 [2026-11-21]✓",
-            "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top"
         },
         {
             "name": "嗷呜 [2026-11-20]✓",
@@ -31,10 +35,6 @@
         {
             "name": "嗷呜 [2026-11-20]✓",
             "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
-        },
-        {
-            "name": "嗷呜 [2026-11-20]✓",
-            "url": "https://9763.kstore.space/aowu.json"
         },
         {
             "name": "摸鱼儿 [2026-11-19]✓",
