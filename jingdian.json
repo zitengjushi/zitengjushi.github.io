@@ -1,6 +1,26 @@
 {
     "urls": [
         {
+            "url": "https://qist.ugigc.dpdns.org/jsm.json",
+            "name": "qist [2026-11-25]✓"
+        },
+        {
+            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
+            "name": "qist2 [2026-11-25]✓"
+        },
+        {
+            "url": "https://8815.kstore.vip/tvbox/wmz",
+            "name": "网络接口 [2026-11-25]✓"
+        },
+        {
+            "name": "嗷呜 [2026-11-25]✓",
+            "url": "http://itv666.cc/aowu/config.webp"
+        },
+        {
+            "name": "嗷呜 [2026-11-25]✓",
+            "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
+        },
+        {
             "url": "https://9280.kstore.vip/newwex.json",
             "name": "王二小 [2026-11-24]✓"
         },
@@ -13,28 +33,8 @@
             "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top"
         },
         {
-            "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-11-24]✓"
-        },
-        {
-            "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-11-24]✓"
-        },
-        {
-            "url": "https://8815.kstore.vip/tvbox/wmz",
-            "name": "网络接口 [2026-11-24]✓"
-        },
-        {
             "name": "摸鱼儿 [2026-11-24]✓",
             "url": "http://www.y456y.com"
-        },
-        {
-            "name": "嗷呜 [2026-11-23]✓",
-            "url": "http://itv666.cc/aowu/config.webp"
-        },
-        {
-            "name": "嗷呜 [2026-11-23]✓",
-            "url": "http://www.xn--nsr30bl8nb2kyt7a8vs.top/tv"
         },
         {
             "name": "茄子接口【apkck.top】 [2026-11-23]✓",
