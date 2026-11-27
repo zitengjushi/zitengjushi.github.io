@@ -2,31 +2,31 @@
     "urls": [
         {
             "url": "https://9280.kstore.vip/newwex.json",
-            "name": "王二小 [2026-11-26]✓"
+            "name": "王二小 [2026-11-27]✓"
         },
         {
             "url": "https://9280.kstore.space/wex.json",
-            "name": "王二小备 [2026-11-26]✓"
+            "name": "王二小备 [2026-11-27]✓"
         },
         {
-            "name": "王二小备 [2026-11-26]✓",
+            "name": "王二小备 [2026-11-27]✓",
             "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/jsm.json",
-            "name": "qist [2026-11-25]✓"
+            "name": "qist [2026-11-27]✓"
         },
         {
             "url": "https://qist.ugigc.dpdns.org/dianshi.json",
-            "name": "qist2 [2026-11-25]✓"
+            "name": "qist2 [2026-11-27]✓"
         },
         {
             "url": "https://8815.kstore.vip/tvbox/wmz",
-            "name": "网络接口 [2026-11-25]✓"
+            "name": "网络接口 [2026-11-27]✓"
         },
         {
-            "name": "嗷呜 [2026-11-25]✓",
-            "url": "http://itv666.cc/aowu/config.webp"
+            "name": "东曦视界 [2026-11-27]✓",
+            "url": "https://box.iqinu.com/"
         },
         {
             "name": "嗷呜 [2026-11-25]✓",
@@ -47,10 +47,6 @@
         {
             "name": "🌵影视资源 [2026-11-07]✓",
             "url": "http://bp.tvbox.cam"
-        },
-        {
-            "name": "东曦视界 [2026-11-04]✓",
-            "url": "https://box.iqinu.com/"
         },
         {
             "name": "❤️L佬 [2026-10-31]✓",
@@ -99,10 +95,6 @@
         {
             "name": "🌱苹果 [1970-01-01]✓",
             "url": "https://pastebin.com/raw/gtbKvnE1"
-        },
-        {
-            "name": "Nostr接口【apkck.top】 [1970-01-01]✓",
-            "url": "https://www.252035.xyz/z/FongMi.json"
         },
         {
             "name": "蜗牛接口【apkck.top】 [1970-01-01]✓",
@@ -225,6 +217,10 @@
             "url": "https://cdn.jsdelivr.net/gh/qirenzhidao/tvbox18@main/fan.json"
         },
         {
+            "name": "嗷呜 [2026-11-25]✗",
+            "url": "http://itv666.cc/aowu/config.webp"
+        },
+        {
             "name": "嗷呜 [2026-11-22]✗",
             "url": "https://9763.kstore.space/aowu.json"
         },
@@ -235,6 +231,10 @@
         {
             "name": "❤️DG音乐|真六 [2026-10-28]✗",
             "url": "https://ddzb.fun/dgmusic/api.json"
+        },
+        {
+            "name": "Nostr接口【apkck.top】 [1970-01-01]✗",
+            "url": "https://www.252035.xyz/z/FongMi.json"
         },
         {
             "name": "玄珠 [1970-01-01]✗",
